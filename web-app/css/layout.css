@@ -1,0 +1,28 @@
+body
+{
+    margin: 0;
+}
+
+#wrapper
+{
+    margin: 0 auto;
+    width: 1400px;
+}
+
+#container
+{
+   float: left;   ;
+   width: 100%;
+   min-height: 600px;
+}
+#menuContainer
+{
+   float: left;
+    width: 20%;
+}
+
+#mainContainer
+{
+   float: left;
+   width: 79%;
+}
