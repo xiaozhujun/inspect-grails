@@ -17,30 +17,113 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'layout.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'menu.css')}" type="text/css">
-
+    <link rel="stylesheet" href="${resource(dir:'styles',file:'head.css')}" type="text/css">
+    <link rel="stylesheet" href="${resource(dir:'styles',file:'standard1.css')}" type="text/css">
+    <script type="text/javascript" src='${resource(dir: 'js',file: 'jquery-1.7.2.min.js')}'></script>
     <g:layoutHead/>
     <r:layoutResources />
+    <style type="text/css">
+    #nav {
+        background-color: highlight;
+        width: 100%;
+        margin-top: 2px;
+    }
+
+    a:LINK {
+        color: #666666;
+        font-size: 15px;
+    }
+    p{
+        margin-left: 4px;
+        font-weight: bold;
+    }
+    #d1{
+        margin-left: 8px;
+    }
+    </style>
 </head>
 <body>
 <div id="wrapper">
-    <div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+    <div id='titleContainerDiv'>
+        <div id="titleDiv">港口起重机械健康监测与预报可视化系统<span id="devNameDiv"></span></div>
+    </div>
+    <div id='mainHeadDiv'>
+        <div id='headTab' class='tabs'>
+            <div class='tabItem' url="integrateManagement.html">港机信息可视化</div>
+            <div class='tabItem' ><a href='/inspect/'>港机智能点检</a></div>
+            <div class='tabItem mainselected' url="mechanismForcast/health-forecast.html">机构健康监测</div>
+            <div class='tabItem ' url="structForcast/health-forecast.html">结构健康监测</div>
+            <div class='tabItem' url="electricalForcast/health-forecast.html">电气健康监测</div>
+            <div class='tabItem' url="health-forecast.html">健康趋势预报</div>
+            <div class='tabItem' url="risk-management.html">动态风险评估</div>
+        </div>
+    </div>
     <div id="container">
         <div id="menuContainer">
-            <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                <g:set var="menuFuncName" value="${GrailsClassUtils.getStaticPropertyValue(c.clazz, "menuName")}"/>
-                <g:if test="${menuFuncName!=null && menuFuncName!=""}">
-                    <div class="menuFunc">
-                        <div class="menuFuncName">${menuFuncName}</div>
-                        <g:set var="menuItems" value="${GrailsClassUtils.getStaticPropertyValue(c.clazz, "menuItems")}"/>
-                        <g:set var="menuActions" value="${GrailsClassUtils.getStaticPropertyValue(c.clazz, "menuActions")}"/>
-                        <div class="menuItemList">
-                            <g:each var="menuItem" in="${menuItems}">
-                                <div class="menuItem"><g:link controller="${c.logicalPropertyName}" action="${menuActions[menuItems.indexOf(menuItem)]}">${menuItem}</g:link></div>
-                            </g:each>
-                        </div>
-                    </div>
-                </g:if>
-            </g:each>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>报表管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'goadminresearch',controller:'device']">报表查询</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'adminupload',controller:'device']">点检上传</g:link></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>人员类型管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem" ><span id="d1"><g:link url="[action:'create',controller:'roles']">添加人员类型</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'list',controller:'roles']">人员类型列表</g:link></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>人员管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem" ><span id="d1"><g:link url="[action:'admincreate',controller:'users']">添加员工</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'adminlist',controller:'users']">员工列表</g:link></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>点检表管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem" ><span id="d1"><g:link url="[action:'create',controller:'inspectTable']">添加点检表</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'list',controller:'inspectTable']">点检表列表</g:link></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>标签类型管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem" ><span id="d1"><g:link url="[action:'create',controller:'inspectTag']">添加标签类型</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'list',controller:'inspectTag']">标签类型列表</g:link></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>点检选项管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem" ><span id="d1"><g:link url="[action:'create',controller:'TValue']">添加点检选项</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'list',controller:'TValue']">点检选项列表</g:link></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>点检项管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem" ><span id="d1"><g:link url="[action:'create',controller:'inspectItem']">添加点检项</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'list',controller:'inspectItem']">点检项列表</g:link></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>设备管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem" ><span id="d1"><g:link url="[action:'admincreate',controller:'device']">添加设备</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'adminlist',controller:'device']">设备列表</g:link></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>标签管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem" ><span id="d1"><g:link url="[action:'admincreate',controller:'inspectTagRfId']">添加标签</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'adminlist',controller:'inspectTagRfId']">标签列表</g:link></span></div>
+                </div>
+            </div>
+
         </div>
         <div id="mainContainer"><g:layoutBody/></div>
     </div>

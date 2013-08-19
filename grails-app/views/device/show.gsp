@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <meta name="layout" content="${grailsApplication.config.grails.sitemesh.default.layout}">
+		<meta name="layout" content="user">
 		<g:set var="entityName" value="${message(code: 'device.label', default: 'Device')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
@@ -11,7 +11,7 @@
 		<a href="#show-device" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list device">
 			
-				<g:if test="${deviceInstance?.createTime}">
-				<li class="fieldcontain">
-					<span id="createTime-label" class="property-label"><g:message code="device.createTime.label" default="Create Time" /></span>
-					
-						<span class="property-value" aria-labelledby="createTime-label"><g:formatDate date="${deviceInstance?.createTime}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${deviceInstance?.description}">
 				<li class="fieldcontain">
 					<span id="description-label" class="property-label"><g:message code="device.description.label" default="Description" /></span>
@@ -41,29 +32,41 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${deviceInstance?.name}">
+				<g:if test="${deviceInstance?.devname}">
 				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="device.name.label" default="Name" /></span>
+					<span id="devname-label" class="property-label"><g:message code="device.devname.label" default="Devname" /></span>
+					<span class="property-value" aria-labelledby="devname-label"><g:fieldValue bean="${deviceInstance}" field="devname"/></span>
+
+				</li>
+				</g:if>
+			
+				<g:if test="${deviceInstance?.itemrecord}">
+				<li class="fieldcontain">
+					<span id="itemrecord-label" class="property-label"><g:message code="device.itemrecord.label" default="Itemrecord" /></span>
 					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${deviceInstance}" field="name"/></span>
+						<g:each in="${deviceInstance.itemrecord}" var="i">
+						<span class="property-value" aria-labelledby="itemrecord-label"><g:link controller="inspectItemRecord" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${deviceInstance?.num}">
+				<g:if test="${deviceInstance?.numbers}">
 				<li class="fieldcontain">
-					<span id="num-label" class="property-label"><g:message code="device.num.label" default="Num" /></span>
+					<span id="numbers-label" class="property-label"><g:message code="device.numbers.label" default="Numbers" /></span>
 					
-						<span class="property-value" aria-labelledby="num-label"><g:fieldValue bean="${deviceInstance}" field="num"/></span>
+						<span class="property-value" aria-labelledby="numbers-label"><g:fieldValue bean="${deviceInstance}" field="numbers"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${deviceInstance?.type}">
+				<g:if test="${deviceInstance?.tagrfid}">
 				<li class="fieldcontain">
-					<span id="type-label" class="property-label"><g:message code="device.type.label" default="Type" /></span>
+					<span id="tagrfid-label" class="property-label"><g:message code="device.tagrfid.label" default="Tagrfid" /></span>
 					
-						<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${deviceInstance}" field="type"/></span>
+						<g:each in="${deviceInstance.tagrfid}" var="t">
+						<span class="property-value" aria-labelledby="tagrfid-label"><g:link controller="inspectTagRfId" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<check inspecttype="机修人员点检表" inspecttime="" worker="" devicenumber="">
+  <!--成功生成check-->
+  <devicetype name="门机">
+    <location name="标签1">
+      <field name="铁鞋、锚定" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电动铁鞋" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="卷缆装置" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走台车" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="驱动装置" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走轮" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="极限开关" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="报警装置" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢丝绳绳端" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="吊钩" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="抓斗" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="栏杆及踏板" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢结构" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="梯子栏杆" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+    <location name="标签2">
+      <field name="齿轮齿圈" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转大轴承" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转大轴承" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="极限联轴器" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电机及风机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="栏杆及踏板" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢结构" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="梯子栏杆" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+    <location name="标签3">
+      <field name="减速箱" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转制动器" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转锚定" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢丝绳" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="卷筒" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="减速箱" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="联轴器" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="制动器" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电机及风机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="栏杆及踏板" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢结构" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="梯子栏杆" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+    <location name="标签4">
+      <field name="钢丝绳" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="滑轮" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="齿轮齿条" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="减速箱" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="联轴器" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="制动器" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电机及风机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="栏杆及踏板" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢结构" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="梯子栏杆" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+  </devicetype>
+</check>

@@ -1,12 +1,10 @@
 package inspect
 
 class Device {
-    String type;
-    String num;
-    String name;
-    String description;
-    Date createTime;
-
+      String devname
+      String numbers
+      String description
+      static hasMany = [tagrfid:InspectTagRfId,itemrecord:InspectItemRecord]
     static constraints = {
     }
 }

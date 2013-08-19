@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RolesTable>
+  <!--创建RolesTable成功-->
+  <Role name="机修人员">
+    <TableItem>机修人员点检表</TableItem>
+  </Role>
+  <Role name="门机队机械技术员">
+    <TableItem>门机队机械技术员点检表</TableItem>
+  </Role>
+  <Role name="门机队机械技术员">
+    <TableItem>门机周一定保专项点检卡片</TableItem>
+  </Role>
+  <Role name="门机电气技术员">
+    <TableItem>门机技术员电气日常点检表</TableItem>
+  </Role>
+  <Role name="门机减速机技术员">
+    <TableItem>门机减速机专项点检卡</TableItem>
+  </Role>
+  <Role name="门机司机">
+    <TableItem>门机司机日常点检表</TableItem>
+  </Role>
+</RolesTable>

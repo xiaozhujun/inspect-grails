@@ -1,13 +1,12 @@
 <%@ page import="inspect.Device" %>
+<meta name="layout" content="user">
 
+<div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'devname', 'error')} ">
+    <label for="devname">
+        <g:message code="device.devname.label" default="Devname" />
 
-
-<div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'createTime', 'error')} required">
-	<label for="createTime">
-		<g:message code="device.createTime.label" default="Create Time" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="createTime" precision="day"  value="${deviceInstance?.createTime}"  />
+    </label>
+    <g:textField name="devname" value="${deviceInstance?.devname}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'description', 'error')} ">
@@ -17,28 +16,13 @@
 	</label>
 	<g:textField name="description" value="${deviceInstance?.description}"/>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'name', 'error')} ">
-	<label for="name">
-		<g:message code="device.name.label" default="Name" />
+<div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'numbers', 'error')} ">
+	<label for="numbers">
+		<g:message code="device.numbers.label" default="Numbers" />
 		
 	</label>
-	<g:textField name="name" value="${deviceInstance?.name}"/>
+	<g:textField name="numbers" value="${deviceInstance?.numbers}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'num', 'error')} ">
-	<label for="num">
-		<g:message code="device.num.label" default="Num" />
-		
-	</label>
-	<g:textField name="num" value="${deviceInstance?.num}"/>
-</div>
 
-<div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'type', 'error')} ">
-	<label for="type">
-		<g:message code="device.type.label" default="Type" />
-		
-	</label>
-	<g:textField name="type" value="${deviceInstance?.type}"/>
-</div>
 

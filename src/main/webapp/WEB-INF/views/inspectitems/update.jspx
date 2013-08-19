@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_springsource_roo_inspect_domain_InspectItem" modelAttribute="inspectItem" path="/inspectitems" versionField="Version" z="mG5QP4Wl+dt6ruLcBI3uQMMSUxY=">
+        <field:input field="name" id="c_com_springsource_roo_inspect_domain_InspectItem_name" z="SUpBKC/jze9KYtznB8LbsLI+Vac="/>
+        <field:input field="description" id="c_com_springsource_roo_inspect_domain_InspectItem_description" z="/ogPdtDDrrlDaQmCCYAWVJm4mrY="/>
+        <field:input field="itemvalue" id="c_com_springsource_roo_inspect_domain_InspectItem_itemvalue" z="Kdzgbycc+VvL1A6lArHlBYjxmn4="/>
+        <field:datetime dateTimePattern="${inspectItem_createtime_date_format}" field="createtime" id="c_com_springsource_roo_inspect_domain_InspectItem_createtime" z="eAReUC4E/KqUUwWkljWq/Hr0/jM="/>
+        <field:input field="numbers" id="c_com_springsource_roo_inspect_domain_InspectItem_numbers" z="YHNODtRBJHb1/aA409+pLUYEB+Q="/>
+        <field:select field="inspecttable" id="c_com_springsource_roo_inspect_domain_InspectItem_inspecttable" itemValue="id" items="${inspecttables}" path="/inspecttables" z="rURmKfMNKotX8ugudbIQfGpr4/o="/>
+        <field:select field="tag" id="c_com_springsource_roo_inspect_domain_InspectItem_tag" itemValue="id" items="${inspecttags}" path="/inspecttags" z="HM8pKGjm+HnDzDE4RyAi4uLb17A="/>
+    </form:update>
+</div>

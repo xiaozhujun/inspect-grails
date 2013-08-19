@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_inspecttable" z="X0v5VyoJeESOgInNFYVhtANlLl8=">
+            <menu:item id="i_inspecttable_new" messageCode="global_menu_new" url="/inspecttables?form" z="pzZxkaG65iSNQK3j+XQbmI8cSg8="/>
+            <menu:item id="i_inspecttable_list" messageCode="global_menu_list" url="/inspecttables?page=1&amp;size=${empty param.size ? 10 : param.size}" z="9n+DLy75FZohgEN9J581yInab7Q="/>
+        </menu:category>
+        <menu:category id="c_inspecttag" z="PF7A4bOGwErpBUkm2qzAmuYLPZk=">
+            <menu:item id="i_inspecttag_new" messageCode="global_menu_new" url="/inspecttags?form" z="CmS6WPqQuSou6/ZVXwZGkZE+biM="/>
+            <menu:item id="i_inspecttag_list" messageCode="global_menu_list" url="/inspecttags?page=1&amp;size=${empty param.size ? 10 : param.size}" z="IVkPJ/JT/KlEiI7jnQJ8a1oliiU="/>
+        </menu:category>
+        <menu:category id="c_roles" z="rs8zfmLS6SJZoIvFFQfrlrSaJVU=">
+            <menu:item id="i_roles_new" messageCode="global_menu_new" url="/roleses?form" z="3pwVBouHLA1zzuNbxsmScZYd3Ow="/>
+            <menu:item id="i_roles_list" messageCode="global_menu_list" url="/roleses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="hajFcKWAQ9yfIfMWvLv3ooTzCFE="/>
+        </menu:category>
+        <menu:category id="c_deviceinspectrec" z="lr76zCvcWAHEH1AMwpMut/ACLHs=">
+            <menu:item id="i_deviceinspectrec_new" messageCode="global_menu_new" url="/deviceinspectrecs?form" z="YCh9GzOcrNlxUiIGt03R77H9tFs="/>
+            <menu:item id="i_deviceinspectrec_list" messageCode="global_menu_list" url="/deviceinspectrecs?page=1&amp;size=${empty param.size ? 10 : param.size}" z="cLLuWMMMBoBBbsHU//SCKi2X+0w="/>
+        </menu:category>
+        <menu:category id="c_dept" z="Jhf8mHp88CSM05P8kieSX73VrW0=">
+            <menu:item id="i_dept_new" messageCode="global_menu_new" url="/depts?form" z="yVmUzRAJOfCrTz7YZLSS9YswBG8="/>
+            <menu:item id="i_dept_list" messageCode="global_menu_list" url="/depts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="q5Lv0v00XQIHkGkaIhSZazn1Lk0="/>
+        </menu:category>
+        <menu:category id="c_device" z="MSnwuh/8KSgMC7e3d68F+WCXnxQ=">
+            <menu:item id="i_device_new" messageCode="global_menu_new" url="/devices?form" z="J2ebcm2NAeVzA9aPlvjk8cZGsGA="/>
+            <menu:item id="i_device_list" messageCode="global_menu_list" url="/devices?page=1&amp;size=${empty param.size ? 10 : param.size}" z="xa/7Yt+ZiiZtoWCjHAIwn3jtlsk="/>
+        </menu:category>
+        <menu:category id="c_users" z="Ysam8XVhG5uotPoUGGxkia1RE/s=">
+            <menu:item id="i_users_new" messageCode="global_menu_new" url="/userses?form" z="utrdLkYms6xk5f4IDxc9zrg5FWs="/>
+            <menu:item id="i_users_list" messageCode="global_menu_list" url="/userses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="tqSwojZmRduyx4xtHWcJzgbgtJk="/>
+        </menu:category>
+        <menu:category id="c_inspectitem" z="eOoqEYHAen8W+BbkHtnyiTP5tPQ=">
+            <menu:item id="i_inspectitem_new" messageCode="global_menu_new" url="/inspectitems?form" z="P5dZ/n2tJQ5ZwgJSdr06cXAGBro="/>
+            <menu:item id="i_inspectitem_list" messageCode="global_menu_list" url="/inspectitems?page=1&amp;size=${empty param.size ? 10 : param.size}" z="pN3PbFfgnW/VxBdxM5rp+c4ntFo="/>
+        </menu:category>
+    </menu:menu>
+</div>

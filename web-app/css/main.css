@@ -107,7 +107,7 @@ img {
 }
 
 .footer {
-	background: #abbf78;
+	background: #EEEEEE;
 	color: #000;
 	clear: both;
 	font-size: 0.8em;
@@ -135,17 +135,23 @@ img {
 
 .nav {
 	background-color: #efefef;
-	padding: 0.5em 0.75em;
+
 	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
 	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
 	        box-shadow: 0 0 3px 1px #aaaaaa;
 	zoom: 1;
+
 }
 
 .nav ul {
 	overflow: hidden;
 	padding-left: 0;
 	zoom: 1;
+    background-color: #999999;
+
+}
+.nav ul:hover{
+    background-color: #666666;
 }
 
 .nav li {
@@ -169,7 +175,10 @@ img {
 .nav a:active, .nav a:visited {
 	color: #666666;
 }
-
+.nav a:link{
+    background-color: #999999;
+    color:#ffffff;
+}
 .nav a:focus, .nav a:hover {
 	background-color: #999999;
 	color: #ffffff;
@@ -226,7 +235,7 @@ fieldset,
 .fieldcontain .property-label {
 	color: #666666;
 	text-align: right;
-	width: 25%;
+
 }
 
 .fieldcontain .property-label {
@@ -521,12 +530,12 @@ th:hover, tr:hover {
 /* ACTION BUTTONS */
 
 .buttons {
-	background-color: #efefef;
+	/*background-color: #efefef;*/
 	overflow: hidden;
 	padding: 0.3em;
 	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
 	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-	        box-shadow: 0 0 3px 1px #aaaaaa;
+	        /*box-shadow: 0 0 3px 1px #aaaaaa;*/
 	margin: 0.1em 0 0 0;
 	border: none;
 }

@@ -18,11 +18,14 @@ body
 #menuContainer
 {
    float: left;
-    width: 20%;
+    width: 15%;
 }
 
 #mainContainer
 {
    float: left;
    width: 79%;
+    margin-left: 4px;
+    border: 1px solid #AAAAAA;
+    margin-top: 5px;
 }
