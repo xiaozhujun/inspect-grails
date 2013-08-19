@@ -1,11 +1,12 @@
 <%@ page import="inspect.InspectTable" %>
 <meta name="layout" content="admin">
+<calendar:resources lang="zh" theme="tiger"/>
 <div class="fieldcontain ${hasErrors(bean: inspectTableInstance, field: 'createtime', 'error')} required">
 	<label for="createtime">
 		<g:message code="inspectTable.createtime.label" default="Createtime" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="createtime" precision="day"  value="${inspectTableInstance?.createtime}"  />
+    <calendar:datePicker name="createtime" defaultValue="${new Date()}"/>
 </div>
 <div class="fieldcontain ${hasErrors(bean: inspectTableInstance, field: 'tname', 'error')} ">
 	<label for="tname">

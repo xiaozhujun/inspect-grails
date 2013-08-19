@@ -1,6 +1,6 @@
 <%@ page import="inspect.InspectTagRfId" %>
 <meta name="layout" content="user">
-
+<calendar:resources lang="zh" theme="tiger"/>
 <div class="fieldcontain ${hasErrors(bean: inspectTagRfIdInstance, field: 'name', 'error')} ">
     <label for="name">
         <g:message code="inspectTagRfId.name.label" default="Name" />
@@ -22,7 +22,10 @@
 		<g:message code="inspectTagRfId.createtime.label" default="Createtime" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="createtime" precision="day"  value="${inspectTagRfIdInstance?.createtime}"  />
+	%{--<g:datePicker name="createtime" precision="day"  value="${inspectTagRfIdInstance?.createtime}"  />--}%
+    %{--<g:mydatePicker name="createtime" precision="day" value="${inspectTagRfIdInstance?.createtime}" />--}%
+    <calendar:datePicker name="createtime" defaultValue="${new Date()}"/>
+
 
 </div>
 

@@ -62,12 +62,14 @@ grails.project.dependency.resolution = {
         runtime 'net.sf.jasperreports:jasperreports:3.7.2'
         runtime 'com.lowagie:itextasian:1.0'
 
+
     }
 
     plugins {
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.8.3"
         runtime ":resources:1.2"
+        compile ":calendar:1.2.1"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"

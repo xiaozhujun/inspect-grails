@@ -1,6 +1,6 @@
 <%@ page import="inspect.Roles" %>
 <meta name="layout" content="admin">
-
+<calendar:resources lang="zh" theme="tiger"/>
 <div class="fieldcontain ${hasErrors(bean: rolesInstance, field: 'rolename', 'error')} ">
     <label for="rolename">
         <g:message code="roles.rolename.label" default="Rolename" />
@@ -13,7 +13,7 @@
 		<g:message code="roles.createtime.label" default="Createtime" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="createtime" precision="day"  value="${rolesInstance?.createtime}"  />
+    <calendar:datePicker name="createtime" defaultValue="${new Date()}"/>
 </div>
 
 

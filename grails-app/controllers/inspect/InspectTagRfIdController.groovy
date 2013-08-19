@@ -25,6 +25,7 @@ class InspectTagRfIdController {
         [inspectTagRfIdInstance: new InspectTagRfId(params)]
     }
     def save() {
+        System.out.println();
         def inspectTagRfIdInstance = new InspectTagRfId(params)
         if (!inspectTagRfIdInstance.save(flush: true)) {
             render(view: "create", model: [inspectTagRfIdInstance: inspectTagRfIdInstance])
