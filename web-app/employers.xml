@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<employers>
+  <!--成功生成employers-->
+  <employer>
+    <cardType>1</cardType>
+    <role>机修人员</role>
+    <roleNum>1</roleNum>
+    <name>工作人员1</name>
+    <number>1</number>
+  </employer>
+  <employer>
+    <cardType>1</cardType>
+    <role>门机队机械技术员</role>
+    <roleNum>2</roleNum>
+    <name>工作人员2</name>
+    <number>2</number>
+  </employer>
+</employers>

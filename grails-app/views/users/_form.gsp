@@ -48,7 +48,15 @@
 		<g:message code="users.urole.label" default="Urole" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="urole" name="urole.id" from="${inspect.Roles.list()}" optionKey="id" required="" value="${usersInstance?.urole?.id}" class="many-to-one"/>
+	%{--<g:select id="urole" name="urole.id" from="${inspect.Roles.list()}" optionKey="id" required="" value="${usersInstance?.urole?.id}" class="many-to-one"/>--}%
+   %{-- <g:select id="rid" name="rid" from="${plist}" optionKey="rid" required="" value="${ptable?.rolename}"></g:select>--}%
+    <select id="urole" name="urole.id">
+    <g:each in="${plist}" var="p">
+        <option  value="${p.rid}">${p.rolename}</option>
+
+    </g:each>
+
+    </select>
 </div>
 
 

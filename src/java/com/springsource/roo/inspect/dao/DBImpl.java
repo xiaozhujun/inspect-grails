@@ -11,6 +11,7 @@ import java.util.List;
 
 import model.InspectTableRecord;
 import model.MyDataSource;
+import model.PageInspectTable;
 
 public class DBImpl {
 
@@ -196,15 +197,276 @@ public class DBImpl {
 		return list;
 
 	}
-	
+	 public String getRolename(int id){
+         String sql = "select rolename from Roles where id=?";
+         String rname=null;
+         try {
+             statement = connection.prepareStatement(sql);
+             statement.setInt(1, id);
+             rs = statement.executeQuery();
+             while (rs.next()) {
+                 rname=rs.getString(1);
+
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+
+         return rname;
+
+
+
+     }
+    public List<Integer> geturole(){
+        String sql = "select urole from Users";
+        List<Integer> list=new ArrayList<Integer>();
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                int a=rs.getInt(1);
+                list.add(a);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getRole(){
+        String sql1="select  u.urole_id,r.rolename  from users u,roles r where u.urole_id=r.id group by urole_id";
+
+          List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql1);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setRid(rs.getInt(1));
+                p.setRolename(rs.getString(2));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+         return list;
+
+
+
+    }
+    public List<PageInspectTable> geturole(String name){
+        System.out.println(name+"NAME");
+        String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.username=?";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1,name);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setUid(rs.getInt(1));
+                p.setUsername(rs.getString(2));
+                p.setRid(rs.getInt(3));
+                p.setRolename(rs.getString(4));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
+    }
+    public List<PageInspectTable> geturoleBytype(int rid){
+          System.out.print(rid+"RID");
+        String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.urole_id=?";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,rid);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setUid(rs.getInt(1));
+                p.setUsername(rs.getString(2));
+                p.setRid(rs.getInt(3));
+                p.setRolename(rs.getString(4));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
+    }
+    public List<PageInspectTable> geturoleByHas(String hascard){
+
+        String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.hascard=?";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1,hascard);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setUid(rs.getInt(1));
+                p.setUsername(rs.getString(2));
+                p.setRid(rs.getInt(3));
+                p.setRolename(rs.getString(4));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
+    }
+    public List<PageInspectTable> geturoleByNameRole(String name,int t){
+
+        String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.username=? and u.urole_id=?";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1,name);
+            statement.setInt(2,t);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setUid(rs.getInt(1));
+                p.setUsername(rs.getString(2));
+                p.setRid(rs.getInt(3));
+                p.setRolename(rs.getString(4));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
+    }
+    public List<PageInspectTable> geturoleByNameHas(String name,String ck){
+
+        String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.username=? and u.hascard=?";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1,name);
+            if(ck.equals("0")){
+                statement.setString(2,"否");
+            }else if(ck.equals("1")){
+                statement.setString(2,"是");
+            }
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setUid(rs.getInt(1));
+                p.setUsername(rs.getString(2));
+                p.setRid(rs.getInt(3));
+                p.setRolename(rs.getString(4));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
+    }
+    public List<PageInspectTable> geturoleByTypeHas(int t,String ck){
+
+        String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.urole_id=? and u.hascard=?";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,t);
+            if(ck.equals("0")){
+                statement.setString(2,"否");
+            }else if(ck.equals("1")){
+                statement.setString(2,"是");
+            }
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setUid(rs.getInt(1));
+                p.setUsername(rs.getString(2));
+                p.setRid(rs.getInt(3));
+                p.setRolename(rs.getString(4));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
+    }
+    public List<PageInspectTable> geturoleByNameTypeHas(String name,int t,String ck){
+
+        String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.username=? and u.urole_id=? and u.hascard=?";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1,name);
+            statement.setInt(2,t);
+            if(ck.equals("0")){
+                statement.setString(3,"否");
+            }else if(ck.equals("1")){
+                statement.setString(3,"是");
+            }
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setUid(rs.getInt(1));
+                p.setUsername(rs.getString(2));
+                p.setRid(rs.getInt(3));
+                p.setRolename(rs.getString(4));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
+    }
+
 	public static void main(String[] args) {
 		DBImpl d = new DBImpl();
-		List<InspectTableRecord> list = d.getTim();
+		List<PageInspectTable> list = d.getRole();
 		@SuppressWarnings("rawtypes")
 		Iterator l = list.iterator();
 		while (l.hasNext()) {
-			InspectTableRecord d1 = (InspectTableRecord) l.next();
-			System.out.println(d1.getCreatetime());
+			PageInspectTable d1 = (PageInspectTable) l.next();
+			System.out.println(d1.getRid()+"::"+d1.getRolename());
 		}
 
 	}

@@ -43,7 +43,14 @@
 		<g:message code="users.urole.label" default="Urole" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="urole" name="urole.id" from="${inspect.Roles.list()}" optionKey="id" required="" value="${usersInstance?.urole?.id}" class="many-to-one"/>
+	%{--<g:select id="urole" name="urole.id" from="${inspect.Roles.list()}" optionKey="id" required="" value="${usersInstance?.urole?.id}" class="many-to-one"/>--}%
+    <select id="urole" name="urole.id">
+        <g:each in="${plist}" var="p">
+            <option  value="${p.rid}">${p.rolename}</option>
+
+        </g:each>
+
+    </select>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: usersInstance, field: 'useraddress', 'error')} ">

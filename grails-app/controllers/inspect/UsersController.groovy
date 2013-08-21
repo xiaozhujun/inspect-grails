@@ -1,11 +1,13 @@
 package inspect
 
+import com.springsource.roo.inspect.dao.DBImpl
+import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 
 class UsersController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+    DBImpl d=new DBImpl();
     def index() {
         redirect(action: "list", params: params)
     }
@@ -19,11 +21,15 @@ class UsersController {
         [usersInstanceList: Users.list(params), usersInstanceTotal: Users.count()]
     }
     def create() {
-        [usersInstance: new Users(params)]
+
+        List<PageInspectTable> plist=d.getRole();
+        [usersInstance: new Users(params),plist:plist,ptable:PageInspectTable]
     }
     def admincreate() {
-        System.out.print("hhh")
-        render (view:"admincreate",model:[usersInstance: new Users(params)])
+       // System.out.print("hhh")
+        DBImpl d=new DBImpl();
+        List<PageInspectTable> plist=d.getRole();
+        render (view:"admincreate",model:[usersInstance: new Users(params),plist:plist,ptable:PageInspectTable])
     }
     def save() {
         def usersInstance = new Users(params)
@@ -31,9 +37,13 @@ class UsersController {
             render(view: "create", model: [usersInstance: usersInstance])
             return
         }
-
+        System.out.print(usersInstance.uroleId+">>>>");
+        String rolename=d.getRolename(Integer.parseInt(usersInstance.uroleId.toString()));
+        System.out.print(rolename+"HHHHH");
         flash.message = message(code: 'default.created.message', args: [message(code: 'users.label', default: 'Users'), usersInstance.id])
-        redirect(action: "show", id: usersInstance.id)
+
+       redirect(action: "show", id: usersInstance.id,params:[ rolename:rolename])
+
     }
     def adminsave() {
         def usersInstance = new Users(params)

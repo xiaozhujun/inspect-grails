@@ -21,8 +21,12 @@ public class PageInspectTable {
 	private String rolename;
 	
 	private int rid;
-	
-	public String getTagname() {
+
+    private int uid;
+
+    private String username;
+
+    public String getTagname() {
 		return tagname;
 	}
 
@@ -101,7 +105,20 @@ public class PageInspectTable {
 	public void setRid(int rid) {
 		this.rid = rid;
 	}
-	
-	
-	
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
