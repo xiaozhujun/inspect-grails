@@ -28,7 +28,7 @@
 						<g:sortableColumn property="description" title="${message(code: 'device.description.label', default: 'Description')}" />
 
                         <g:sortableColumn property="numbers" title="${message(code: 'device.numbers.label', default: 'Numbers')}" />
-
+                        <th><g:message code="device.type.label" default="Type" /></th>
                         <th colspan="3">操作</th>
 					</tr>
 				</thead>
@@ -41,7 +41,7 @@
 						<td><g:link action="show" id="${deviceInstance.id}">${fieldValue(bean: deviceInstance, field: "description")}</g:link></td>
 					
                          <td>${fieldValue(bean: deviceInstance, field: "numbers")}</td>
-
+                        <td>${fieldValue(bean: deviceInstance, field: "type")}</td>
                         <td>
                             <g:form>
                                 <fieldset class="buttons">

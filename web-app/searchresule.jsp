@@ -13,7 +13,7 @@
 <head>
     <title></title>
     <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
-    <script>
+    <%--<script>
         $(function(){
             $("#btn1").click(function(){
                 var str="";
@@ -30,6 +30,48 @@
         })
 
 
+    </script>--%>
+    <script>
+        var rowCount = 0;
+        var colCount = 2;
+
+        function addRow(){
+            var str="";
+            $("input:checkbox:[checked]").each(function(){
+                str+=$(this).val();
+
+            })
+
+            var arr=str.split(",");
+
+
+            var idx1=0;
+            var idx2=1;
+            var idx3=2;
+            var idx4=3;
+            var len=arr.length/4;
+            for(var i=0;i<len-1;i++){
+                rowCount++;
+                var rowTemplate = '<tr class="tr_'+rowCount+'"><td class="cl1">'+arr[idx1]+',</td><td class="cl1">'+arr[idx2]+',</td><td class="cl1">'+arr[idx3]+',</td><td class="cl1">'+arr[idx4]+',</td><td><a href="#" onclick=delRow('+rowCount+')>删除</a></td></tr>';
+                idx1 +=4 ;
+                idx2 +=4 ;
+                idx3 +=4 ;
+                idx4 +=4 ;
+
+            var tableHtml = $("#testTable1 tbody").html();
+            tableHtml += rowTemplate;
+             $("#testTable1 tbody").html(tableHtml);
+            }
+
+                $("input:checkbox").each(function(){
+                    $(this).attr("checked",false);
+                });
+
+        }
+        function delRow(_id){
+            $("#testTable1 .tr_"+_id).hide();
+            rowCount--;
+        }
     </script>
 </head>
 <body>
@@ -56,9 +98,9 @@
             while(it1.hasNext()){
                 p=(PageInspectTable)it1.next();
                 out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"
-                        +p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' id='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'>选定</td></tr>");
+                        +p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' id='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"' onclick='addRow()'>选定</td></tr>");
             }
-            out.println("<tr><td><input type='button' id='btn1' value='确定'><td></tr></table></form>");
+            out.println("</table></form>");
         }
         else if(name!=""&&type!=""){
             int t=Integer.parseInt(type);
@@ -66,9 +108,9 @@
         Iterator it1=list.iterator();
         while(it1.hasNext()){
         p=(PageInspectTable)it1.next();
-        out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'>选定</td></tr>");
+        out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'onclick='addRow()'>选定</td></tr>");
         }
-            out.println("<tr><td><input type='button' id='btn1' value='确定'><td></tr></table></form>");
+            out.println("</table></form>");
         }
         else if(name!=""&&ck!=""){
 
@@ -76,28 +118,28 @@
             Iterator it1=list.iterator();
             while(it1.hasNext()){
                 p=(PageInspectTable)it1.next();
-                out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'>选定</td></tr>");
+                out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'onclick='addRow()'>选定</td></tr>");
     }
-            out.println("<tr><td><input type='button' id='btn1' value='确定'><td></tr></table></form>");
+            out.println("</table></form>");
         }else if(type!=""&&ck!=""){
             int t=Integer.parseInt(type);
             list=d.geturoleByTypeHas(t,ck);
             Iterator it1=list.iterator();
             while(it1.hasNext()){
                 p=(PageInspectTable)it1.next();
-                out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'>选定</td></tr>");
+                out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'onclick='addRow()'>选定</td></tr>");
             }
-            out.println("<tr><td><input type='button' id='btn1' value='确定'><td></tr></table></form>");
+            out.println("</table></form>");
         }else  if(name!=""){
           System.out.print("进入name");
           list=d.geturole(name);
           Iterator it=list.iterator();
           while(it.hasNext()){
                p=(PageInspectTable)it.next();
-             out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'>选定</td></tr>");
+             out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'onclick='addRow()'>选定</td></tr>");
 
 }
-            out.println("<tr><td><input type='button' id='btn1' value='确定'><td></tr></table></form>");
+            out.println("</table></form>");
       }
           else if(type!=""){
             int t=Integer.parseInt(type);
@@ -105,9 +147,9 @@
               Iterator it1=list.iterator();
               while(it1.hasNext()){
                    p=(PageInspectTable)it1.next();
-                  out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox'value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'>选定</td></tr>");
+                  out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox'value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'onclick='addRow()'>选定</td></tr>");
           }
-            out.println("<tr><td><input type='button' id='btn1' value='确定'><td></tr></table></form>");
+            out.println("</table></form>");
 }
         else if(ck!=""){
 
@@ -116,17 +158,17 @@
           Iterator it1=list.iterator();
           while(it1.hasNext()){
               p=(PageInspectTable)it1.next();
-              out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox'value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'>选定</td></tr>");
+              out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox'value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'onclick='addRow()'>选定</td></tr>");
           }
-                 out.println("<tr><td><input type='button' id='btn1' value='确定'><td></tr></table></form>");
+                 out.println("</table></form>");
       }else if(ck.equals("1")){
           list=d.geturoleByHas("是");
           Iterator it1=list.iterator();
           while(it1.hasNext()){
               p=(PageInspectTable)it1.next();
-              out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox'value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'>选定</td></tr>");
+              out.println("<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox'value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'onclick='addRow()'>选定</td></tr>");
           }
-                 out.println("<tr><td><input type='button' id='btn1' value='确定'><td></tr></table></form>");
+                 out.println("</table></form>");
       }
         }
 

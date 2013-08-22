@@ -71,7 +71,14 @@
 					
 				</li>
 				</g:if>
-			
+                <g:if test="${deviceInstance?.type}">
+                    <li class="fieldcontain">
+                        <span id="type-label" class="property-label"><g:message code="device.type.label" default="Type" /></span>
+
+                        <span class="property-value" aria-labelledby="type-label"><g:link controller="deviceType" action="show" id="${deviceInstance?.type?.id}">${deviceInstance?.type?.encodeAsHTML()}</g:link></span>
+
+                    </li>
+                </g:if>
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

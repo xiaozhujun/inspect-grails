@@ -12,7 +12,7 @@
     <file path="/InspectTag.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376532751790" ignored="false" />
     <file path="/InspectItem.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376534031901" ignored="false" />
     <file path="/TValue.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376534999576" ignored="false" />
-    <file path="/Device.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376532259574" ignored="false" />
+    <file path="/Device.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377096336842" ignored="false" />
     <file path="/InspectTagRfId.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376530713011" ignored="false" />
     <file path="/InspectTableRecord.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376532681951" ignored="false" />
     <file path="/InspectItemRecord.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376531946518" ignored="false" />
@@ -47,7 +47,7 @@
     <file path="/messages_zh_CN.properties" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376636786806" ignored="false" />
     <file path="/a.dummy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376632497517" ignored="false" />
     <file path="/insertToDb.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376655026740" ignored="false" />
-    <file path="/DBImpl.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377077248509" ignored="false" />
+    <file path="/DBImpl.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377142568545" ignored="false" />
     <file path="/InspectTableImpl.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376634951219" ignored="false" />
     <file path="/downSucc.gsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376636561606" ignored="false" />
     <file path="/MultipartTServlet.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376652355838" ignored="false" />
@@ -73,13 +73,21 @@
     <file path="$USER_HOME$/.grails/2.2.4/projects/inspect/plugins/jquery-1.8.3/grails-app/services/JQueryService.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376726954306" ignored="false" />
     <file path="/userqueryresult.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376883551017" ignored="false" />
     <file path="$PROJECT_DIR$/target/stacktrace.log" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376882156819" ignored="false" />
-    <file path="/test.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376882284224" ignored="false" />
-    <file path="/PageInspectTable.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377069705476" ignored="false" />
-    <file path="/search.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377074983620" ignored="false" />
-    <file path="/searchresule.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377088914479" ignored="false" />
+    <file path="/test.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377172306642" ignored="false" />
+    <file path="/PageInspectTable.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377137581163" ignored="false" />
+    <file path="/search.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377165322496" ignored="false" />
+    <file path="/searchresule.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377161604759" ignored="false" />
     <file path="/confirmsearch.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377091016524" ignored="false" />
     <file path="/generateemployee.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377093188790" ignored="false" />
     <file path="/insertToEmploy.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377092937885" ignored="false" />
+    <file path="/DeviceType.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377096366693" ignored="false" />
+    <file path="$PROJECT_DIR$/grails-app/views/deviceType/show.gsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377131553452" ignored="false" />
+    <file path="$PROJECT_DIR$/grails-app/views/deviceType/_form.gsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377131553452" ignored="false" />
+    <file path="$PROJECT_DIR$/grails-app/views/deviceType/list.gsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377131553452" ignored="false" />
+    <file path="/devicesearch.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377134075732" ignored="false" />
+    <file path="/searchresult.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377161930495" ignored="false" />
+    <file path="/generatedevice.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377157313838" ignored="false" />
+    <file path="/insertToDevice.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377157215209" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +102,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -130,7 +139,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -149,30 +157,33 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/views/inspectTagRfId/_adminform.gsp" />
-        <option value="$PROJECT_DIR$/web-app/css/calendar.css" />
-        <option value="$PROJECT_DIR$/grails-app/views/inspectTagRfId/_form.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/users/_form.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/users/_adminform.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/roles/show.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/users/show.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/inspect/UsersController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/device/list.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/device/show.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/device/adminshow.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/device/adminlist.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/i18n/messages_zh_CN.properties" />
+        <option value="$PROJECT_DIR$/web-app/devicesearch.jsp" />
         <option value="$PROJECT_DIR$/src/java/model/PageInspectTable.java" />
         <option value="$PROJECT_DIR$/src/java/com/springsource/roo/inspect/dao/DBImpl.java" />
-        <option value="$PROJECT_DIR$/web-app/search.jsp" />
-        <option value="$PROJECT_DIR$/web-app/searchresule.jsp" />
         <option value="$PROJECT_DIR$/web-app/confirmsearch.jsp" />
-        <option value="$PROJECT_DIR$/src/java/com/execute/insertToEmploy.java" />
-        <option value="$PROJECT_DIR$/web-app/generateemployee.jsp" />
-        <option value="$PROJECT_DIR$/web-app/devicesearch.jsp" />
+        <option value="$PROJECT_DIR$/src/java/com/execute/insertToDevice.java" />
+        <option value="$PROJECT_DIR$/web-app/generatedevice.jsp" />
+        <option value="$PROJECT_DIR$/web-app/xmlFile/employers.xml" />
+        <option value="$PROJECT_DIR$/web-app/searchresult.jsp" />
+        <option value="$PROJECT_DIR$/web-app/search.jsp" />
+        <option value="$PROJECT_DIR$/web-app/test.jsp" />
+        <option value="$PROJECT_DIR$/web-app/searchresule.jsp" />
       </list>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="345" />
-    <option name="y" value="17" />
-    <option name="width" value="942" />
-    <option name="height" value="744" />
+    <option name="x" value="-43" />
+    <option name="y" value="-2" />
+    <option name="width" value="1382" />
+    <option name="height" value="737" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -276,7 +287,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inspect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inspect-grails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inspect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inspect-grails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inspect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inspect-grails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -299,20 +372,20 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\git_workspace\inspect-grails\grails-app\controllers\inspect" />
       <recent name="D:\git_workspace\inspect-grails\web-app\js" />
       <recent name="D:\Inspect\web-app\My97DatePicker" />
       <recent name="D:\Inspect\web-app" />
       <recent name="D:\Inspect\web-app\js" />
-      <recent name="D:\Inspect\grails-app\views\device" />
     </key>
   </component>
   <component name="RunManager" selected="Application.DBImpl">
@@ -338,6 +411,21 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
       <module name="" />
       <setting name="vmparams" value="" />
@@ -348,40 +436,12 @@
       <setting name="launchBrowser" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -410,6 +470,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -499,18 +572,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="345" y="17" width="942" height="744" extended-state="0" />
+    <frame x="-43" y="-2" width="1382" height="737" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32291666" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.118353345" sideWeight="0.39924243" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11631945" sideWeight="0.39924243" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -520,15 +594,14 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.058333334" sideWeight="0.8836806" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.042045455" sideWeight="0.88164663" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3219697" sideWeight="0.8836806" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10977702" sideWeight="0.6007576" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.016666668" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32407406" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -600,134 +673,147 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/inspect/UsersController.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/device/adminlist.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="63" selection-start="1571" selection-end="1571" vertical-scroll-proportion="0.21321961">
+        <state line="30" column="62" selection-start="1257" selection-end="1274" vertical-scroll-proportion="0.46341464">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/users/show.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/device/list.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="163" selection-start="2901" selection-end="2901" vertical-scroll-proportion="0.50934577">
+        <state line="43" column="81" selection-start="1806" selection-end="1865" vertical-scroll-proportion="0.61382115">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/js/jquery-1.4.2.js">
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/inspect/DeviceType.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="27" selection-start="729" selection-end="729" vertical-scroll-proportion="0.5156576">
+        <state line="5" column="28" selection-start="112" selection-end="112" vertical-scroll-proportion="0.18737672">
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/model/PageInspectTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="24" selection-start="1737" selection-end="1737" vertical-scroll-proportion="1.1930895">
+        <state line="176" column="43" selection-start="2720" selection-end="2720" vertical-scroll-proportion="0.69244605">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/showInfo.jsp">
+    <entry file="file://$PROJECT_DIR$/src/java/com/execute/insertToDevice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="4" selection-start="1301" selection-end="1319" vertical-scroll-proportion="-6.107143">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/device/gouserresearch.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="64" selection-start="2540" selection-end="2675" vertical-scroll-proportion="-4.470588">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/springsource/roo/inspect/dao/DBImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="434" column="39" selection-start="14513" selection-end="14513" vertical-scroll-proportion="0.0">
+        <state line="14" column="32" selection-start="309" selection-end="309" vertical-scroll-proportion="-0.7823741">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7533#7542#0" expanded="true" />
-            <element signature="e#8090#8108#0" expanded="true" />
-            <element signature="e#8833#8851#0" expanded="true" />
-            <element signature="e#9701#9719#0" expanded="true" />
-            <element signature="e#10533#10551#0" expanded="true" />
-            <element signature="e#11397#11415#0" expanded="true" />
-            <element signature="e#12295#12313#0" expanded="true" />
-            <element signature="e#13324#13342#0" expanded="true" />
-            <element signature="e#14380#14398#0" expanded="true" />
-            <element signature="e#15302#15331#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/queryresult.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="138.42857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/searchresule.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="69" selection-start="803" selection-end="803" vertical-scroll-proportion="-8.821428">
-          <folding>
-            <element signature="e#1278#1296#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/execute/insertToTableTestXml.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="48" selection-start="383" selection-end="2443" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/confirmsearch.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="56" selection-start="1713" selection-end="1713" vertical-scroll-proportion="-11.964286">
-          <folding>
-            <element signature="e#1669#1687#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/execute/insertToEmploy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="13" selection-start="1206" selection-end="1206" vertical-scroll-proportion="0.0">
+        <state line="60" column="49" selection-start="473" selection-end="1755" vertical-scroll-proportion="1.5755396">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/com/springsource/roo/inspect/dao/DBImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="557" column="74" selection-start="18746" selection-end="18746" vertical-scroll-proportion="0.5451197">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#738#758#0" expanded="true" />
+            <element signature="e#1303#1323#0" expanded="true" />
+            <element signature="e#2276#2296#0" expanded="true" />
+            <element signature="e#3474#3494#0" expanded="true" />
+            <element signature="e#5560#5580#0" expanded="true" />
+            <element signature="e#6377#6397#0" expanded="true" />
+            <element signature="e#7517#7526#0" expanded="true" />
+            <element signature="e#8074#8092#0" expanded="true" />
+            <element signature="e#8817#8835#0" expanded="true" />
+            <element signature="e#9685#9703#0" expanded="true" />
+            <element signature="e#10517#10535#0" expanded="true" />
+            <element signature="e#11381#11399#0" expanded="true" />
+            <element signature="e#12279#12297#0" expanded="true" />
+            <element signature="e#13308#13326#0" expanded="true" />
+            <element signature="e#14364#14382#0" expanded="true" />
+            <element signature="e#15337#15355#0" expanded="true" />
+            <element signature="e#15999#16017#0" expanded="true" />
+            <element signature="e#16626#16644#0" expanded="true" />
+            <element signature="e#17483#17501#0" expanded="true" />
+            <element signature="e#18618#18636#0" expanded="true" />
+            <element signature="e#19719#19737#0" expanded="true" />
+            <element signature="e#20822#20840#0" expanded="true" />
+            <element signature="e#21900#21918#0" expanded="true" />
+            <element signature="e#22945#22963#0" expanded="true" />
+            <element signature="e#23991#24009#0" expanded="true" />
+            <element signature="e#24808#24837#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/xmlFile/tags.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/generateemployee.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="48" selection-start="991" selection-end="991" vertical-scroll-proportion="-3.8214285">
-          <folding>
-            <element signature="e#617#635#0" expanded="true" />
-          </folding>
+        <state line="38" column="37" selection-start="1173" selection-end="1173" vertical-scroll-proportion="-25.785715">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/xmlFile/employers.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="43" selection-start="87" selection-end="87" vertical-scroll-proportion="-0.4352518">
+        <state line="9" column="27" selection-start="207" selection-end="207" vertical-scroll-proportion="0.3114754">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/confirmsearch.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="44" selection-start="2334" selection-end="2334" vertical-scroll-proportion="1.2929516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/generatedevice.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="26" selection-start="1351" selection-end="1487" vertical-scroll-proportion="-0.17180617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/searchresult.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="55" selection-start="444" selection-end="444" vertical-scroll-proportion="0.6031746">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/searchresule.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="25" selection-start="7347" selection-end="7347" vertical-scroll-proportion="0.6553288">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="11" selection-start="3433" selection-end="3433" vertical-scroll-proportion="-5.213152">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/search.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="17" selection-start="0" selection-end="3780" vertical-scroll-proportion="0.95922333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/devicesearch.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="58" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.32427186">
+        <state line="347" column="49" selection-start="10627" selection-end="11129" vertical-scroll-proportion="0.72789115">
           <folding />
         </state>
       </provider>

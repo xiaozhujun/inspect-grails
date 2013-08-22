@@ -124,7 +124,7 @@ public class DBImpl {
 	public InspectTableRecord getT(int tid, Date cretime) {
 		String sql = "SELECT tb.id, tb.tname,u.id,u.username,itr.createtime FROM inspect_item_record itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v,inspect_item_tvalues tv WHERE itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id  and it.id=tv.inspect_item_id  and v.id=tv.tvalue_id and itr.inspecttable_id=? and itr.createtime=? group by tb.id ";
 		InspectTableRecord r = null;
-		
+
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, tid);
@@ -138,7 +138,7 @@ public class DBImpl {
                 r.setUid(rs.getInt(3));
 				r.setUsername(rs.getString(4));
 				r.setCreatetime(rs.getDate(5));
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -161,7 +161,7 @@ public class DBImpl {
 				r.setTagid(rs.getInt(1));
 				r.setTagname(rs.getString(2));
 				list.add(r);
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -171,7 +171,7 @@ public class DBImpl {
 
 	}
 	public List<InspectTableRecord> getT(int tagid,int tid, Date cretime) {
-		
+
 		String sql = "select it.id,it.name,v.id,v.tvalue from inspect_Item_Record itr,inspect_Item it,tValue v where itr.item_id=it.id and itr.ivalue_id=v.id and itr.tag_id=? and itr.createtime=? and itr.inspecttable_id=? group by it.name";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list=new ArrayList<InspectTableRecord>();
@@ -188,7 +188,7 @@ public class DBImpl {
 				r.setVid(rs.getInt(3));
 				r.setTvalue(rs.getString(4));
 				list.add(r);
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -458,8 +458,260 @@ public class DBImpl {
         return list;
 
     }
+       public List<PageInspectTable> getdevicetype(){
+           String sql="select id,typename from device_type ";
+           List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+           try {
+               statement = connection.prepareStatement(sql);
+               rs = statement.executeQuery();
+               while (rs.next()) {
+                   PageInspectTable p=new PageInspectTable();
+                   p.setTypeid(rs.getInt(1));
+                   p.setTypename(rs.getString(2));
+                   list.add(p);
 
-	public static void main(String[] args) {
+
+
+               }
+           } catch (SQLException e) {
+               e.printStackTrace();
+           }
+
+           return list;
+       }
+    public List<PageInspectTable> getdevice(){
+        String sql="select id,numbers from device ";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setDeviceid(rs.getInt(1));
+                p.setDevicenumber(rs.getString(2));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public List<PageInspectTable> getTag(){
+        String sql=" select id,name from inspect_tag ";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTagid(rs.getInt(1));
+                p.setTagname(rs.getString(2));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getTypeDevTag(int d1,int d2,int t){
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.id=? and t.id=? group by t.id";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,d1);
+            statement.setInt(2,d2);
+            statement.setInt(3,t);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTypename(rs.getString(1));
+                p.setTypeid(rs.getInt(2));
+                p.setDevicenumber(rs.getString(3));
+                p.setTagname(rs.getString(4));
+                p.setTagid(rs.getInt(5));
+                p.setTagnumbers(rs.getString(6));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getDevTag(int d2,int t){
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.id=? group by d.id";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,t);
+            statement.setInt(2,d2);
+
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTypename(rs.getString(1));
+                p.setTypeid(rs.getInt(2));
+                p.setDevicenumber(rs.getString(3));
+                p.setTagname(rs.getString(4));
+                p.setTagid(rs.getInt(5));
+                p.setTagnumbers(rs.getString(6));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getTypeDev(int d1,int d2){
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id  and d.id=? and t.id=? group by t.id";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,d1);
+            statement.setInt(2,d2);
+
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTypename(rs.getString(1));
+                p.setTypeid(rs.getInt(2));
+                p.setDevicenumber(rs.getString(3));
+                p.setTagname(rs.getString(4));
+                p.setTagid(rs.getInt(5));
+                p.setTagnumbers(rs.getString(6));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getTypeTag(int d1,int t){
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and  t.id=? and tag.id=? group by t.id";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,d1);
+            statement.setInt(2,t);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTypename(rs.getString(1));
+                p.setTypeid(rs.getInt(2));
+                p.setDevicenumber(rs.getString(3));
+                p.setTagname(rs.getString(4));
+                p.setTagid(rs.getInt(5));
+                p.setTagnumbers(rs.getString(6));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getType(int d1){
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and t.id=? group by t.id";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,d1);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTypename(rs.getString(1));
+                p.setTypeid(rs.getInt(2));
+                p.setDevicenumber(rs.getString(3));
+                p.setTagname(rs.getString(4));
+                p.setTagid(rs.getInt(5));
+                p.setTagnumbers(rs.getString(6));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getDevice(int d1){
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and d.id=? group by d.id";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,d1);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTypename(rs.getString(1));
+                p.setTypeid(rs.getInt(2));
+                p.setDevicenumber(rs.getString(3));
+                p.setTagname(rs.getString(4));
+                p.setTagid(rs.getInt(5));
+                p.setTagnumbers(rs.getString(6));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getTag(int d1){
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? group by tag.id";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,d1);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTypename(rs.getString(1));
+                p.setTypeid(rs.getInt(2));
+                p.setDevicenumber(rs.getString(3));
+                p.setTagname(rs.getString(4));
+                p.setTagid(rs.getInt(5));
+                p.setTagnumbers(rs.getString(6));
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public static void main(String[] args) {
 		DBImpl d = new DBImpl();
 		List<PageInspectTable> list = d.getRole();
 		@SuppressWarnings("rawtypes")
@@ -470,4 +722,5 @@ public class DBImpl {
 		}
 
 	}
+
 }

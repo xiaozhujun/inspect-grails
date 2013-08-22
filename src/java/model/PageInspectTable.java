@@ -26,6 +26,20 @@ public class PageInspectTable {
 
     private String username;
 
+    private int typeid;
+
+    private String typename;
+
+    private int deviceid;
+
+    private  String devicenumber;
+
+    private int tagid;
+
+    private String tagnumbers;
+
+
+
     public String getTagname() {
 		return tagname;
 	}
@@ -120,5 +134,53 @@ public class PageInspectTable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getTypeid() {
+        return typeid;
+    }
+
+    public void setTypeid(int typeid) {
+        this.typeid = typeid;
+    }
+
+    public String getTypename() {
+        return typename;
+    }
+
+    public void setTypename(String typename) {
+        this.typename = typename;
+    }
+
+    public int getDeviceid() {
+        return deviceid;
+    }
+
+    public void setDeviceid(int deviceid) {
+        this.deviceid = deviceid;
+    }
+
+    public String getDevicenumber() {
+        return devicenumber;
+    }
+
+    public void setDevicenumber(String devicenumber) {
+        this.devicenumber = devicenumber;
+    }
+
+    public int getTagid() {
+        return tagid;
+    }
+
+    public void setTagid(int tagid) {
+        this.tagid = tagid;
+    }
+
+    public String getTagnumbers() {
+        return tagnumbers;
+    }
+
+    public void setTagnumbers(String tagnumbers) {
+        this.tagnumbers = tagnumbers;
     }
 }
