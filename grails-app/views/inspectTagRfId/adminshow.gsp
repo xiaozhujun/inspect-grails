@@ -45,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="device-label" class="property-label"><g:message code="inspectTagRfId.device.label" default="Device" /></span>
 					
-						<span class="property-value" aria-labelledby="device-label"><g:link controller="device" action="show" id="${inspectTagRfIdInstance?.device?.id}">${inspectTagRfIdInstance?.device?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="device-label"><g:link controller="device" action="show" id="${inspectTagRfIdInstance?.device?.id}">${devname}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -72,7 +72,7 @@
 				<li class="fieldcontain">
 					<span id="tagcag-label" class="property-label"><g:message code="inspectTagRfId.tagcag.label" default="Tagcag" /></span>
 					
-						<span class="property-value" aria-labelledby="tagcag-label"><g:link controller="inspectTag" action="show" id="${inspectTagRfIdInstance?.tagcag?.id}">${inspectTagRfIdInstance?.tagcag?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="tagcag-label"><g:link controller="inspectTag" action="show" id="${inspectTagRfIdInstance?.tagcag?.id}">${tagname}</g:link></span>
 					
 				</li>
 				</g:if>

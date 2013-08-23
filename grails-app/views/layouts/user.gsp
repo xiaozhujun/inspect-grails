@@ -66,6 +66,7 @@
                 <div class="menuItemList">
                     <div class="menuItem"><span id="d1"><g:link url="[action:'gouserresearch',controller:'device']">报表查询</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'userupload',controller:'device']">点检上传</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><a href="../test.jsp">点检查询</a></span></div>
                 </div>
             </div>
             <div class="menuFunc">

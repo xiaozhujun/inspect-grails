@@ -208,7 +208,6 @@
             width: 50%;
             height: 850px;
             float:left;
-
         }
          #result2-1{
 

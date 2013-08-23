@@ -711,6 +711,214 @@ public class DBImpl {
 
         return list;
     }
+    public List<PageInspectTable> getDeviceName(){
+        String sql="select id,devname from device";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setDeviceid(rs.getInt(1));
+                p.setDevname(rs.getString(2));
+
+                list.add(p);
+
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getTagName(){
+        String sql="select id,name from inspect_Tag";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTagid(rs.getInt(1));
+                p.setTagname(rs.getString(2));
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public String  getDevNameById(int id){
+        String sql="select devname from device where id=?";
+        String devname=null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                devname=rs.getString(1);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+            return devname;
+    }
+    public String  getTagNameById(int id){
+        String sql="select name from inspect_tag where id=?";
+        String name=null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                name=rs.getString(1);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
+    public List<PageInspectTable>getTyname(){                        //得到所有的设备类型
+        String sql="select id,typename from device_type";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setTypeid(rs.getInt(1));
+                p.setTypename(rs.getString(2));
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getRoleName(){                        //得到所有的人员类型
+        String sql="select id,rolename from Roles";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setRid(rs.getInt(1));
+                p.setRolename(rs.getString(2));
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<PageInspectTable> getTableName(){                        //得到所有的点检表
+        String sql="select id,tname from inspect_table";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setId(rs.getInt(1));
+                p.setTname(rs.getString(2));
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+
+    }
+    public List<PageInspectTable> getTvalue(){                        //得到所有的值
+        String sql="select id,tvalue from tvalue";
+        List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                PageInspectTable p=new PageInspectTable();
+                p.setVid(rs.getInt(1));
+                p.setTvalue(rs.getString(2));
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+
+    }
+    public String getRoleById(int id){                                //根据Id得到rolename
+        String sql="select rolename from Roles where id=?";
+        String name=null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                name=rs.getString(1);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
+    public String getTableById(int id){                                    //根据id得到tablename
+        String sql="select tname from inspect_table where id=?";
+        String name=null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                name=rs.getString(1);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
+    public String getTypeById(int id){                                            //根据id得到typename
+        String sql="select typename from device_type where id=?";
+        String name=null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                name=rs.getString(1);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
+    public String getValueById(int id){                                            //根据id得到tvalue
+        String sql="select tvalue from tvalue where id=?";
+        String name=null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                name=rs.getString(1);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
     public static void main(String[] args) {
 		DBImpl d = new DBImpl();
 		List<PageInspectTable> list = d.getRole();

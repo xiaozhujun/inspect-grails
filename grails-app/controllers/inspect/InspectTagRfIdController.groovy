@@ -1,11 +1,13 @@
 package inspect
 
+import com.springsource.roo.inspect.dao.DBImpl
+import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 
 class InspectTagRfIdController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+    DBImpl d=new DBImpl();
     def index() {
         redirect(action: "list", params: params)
     }
@@ -19,10 +21,14 @@ class InspectTagRfIdController {
         [inspectTagRfIdInstanceList: InspectTagRfId.list(params), inspectTagRfIdInstanceTotal: InspectTagRfId.count()]
     }
     def create() {
-        [inspectTagRfIdInstance: new InspectTagRfId(params)]
+        List<PageInspectTable> devlist=d.getDeviceName();
+        List<PageInspectTable> taglist=d.getTagName();
+        [inspectTagRfIdInstance: new InspectTagRfId(params),devlist:devlist,taglist:taglist]
     }
     def admincreate() {
-        [inspectTagRfIdInstance: new InspectTagRfId(params)]
+        List<PageInspectTable> devlist=d.getDeviceName();
+        List<PageInspectTable> taglist=d.getTagName();
+        [inspectTagRfIdInstance: new InspectTagRfId(params),devlist:devlist,taglist:taglist]
     }
     def save() {
         System.out.println();
@@ -52,8 +58,9 @@ class InspectTagRfIdController {
             redirect(action: "list")
             return
         }
-
-        [inspectTagRfIdInstance: inspectTagRfIdInstance]
+        String devname=d.getDevNameById(Integer.parseInt(inspectTagRfIdInstance.deviceId.toString()));
+        String tagname=d.getTagNameById(Integer.parseInt(inspectTagRfIdInstance.tagcagId.toString()))
+        [inspectTagRfIdInstance: inspectTagRfIdInstance,devname:devname,tagname:tagname]
     }
     def adminshow(Long id) {
         def inspectTagRfIdInstance = InspectTagRfId.get(id)
@@ -62,8 +69,9 @@ class InspectTagRfIdController {
             redirect(action: "adminlist")
             return
         }
-
-        [inspectTagRfIdInstance: inspectTagRfIdInstance]
+        String devname=d.getDevNameById(Integer.parseInt(inspectTagRfIdInstance.deviceId.toString()));
+        String tagname=d.getTagNameById(Integer.parseInt(inspectTagRfIdInstance.tagcagId.toString()))
+        [inspectTagRfIdInstance: inspectTagRfIdInstance,devname:devname,tagname:tagname]
     }
     def edit(Long id) {
         def inspectTagRfIdInstance = InspectTagRfId.get(id)
@@ -72,8 +80,9 @@ class InspectTagRfIdController {
             redirect(action: "list")
             return
         }
-
-        [inspectTagRfIdInstance: inspectTagRfIdInstance]
+        List<PageInspectTable> devlist=d.getDeviceName();
+        List<PageInspectTable> taglist=d.getTagName();
+        [inspectTagRfIdInstance: inspectTagRfIdInstance,devlist:devlist,taglist:taglist]
     }
     def adminedit(Long id) {
         def inspectTagRfIdInstance = InspectTagRfId.get(id)
@@ -83,7 +92,9 @@ class InspectTagRfIdController {
             return
         }
 
-        [inspectTagRfIdInstance: inspectTagRfIdInstance]
+        List<PageInspectTable> devlist=d.getDeviceName();
+        List<PageInspectTable> taglist=d.getTagName();
+        [inspectTagRfIdInstance: inspectTagRfIdInstance,devlist:devlist,taglist:taglist]
     }
     def update(Long id, Long version) {
         def inspectTagRfIdInstance = InspectTagRfId.get(id)

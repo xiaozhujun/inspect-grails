@@ -38,7 +38,11 @@ public class PageInspectTable {
 
     private String tagnumbers;
 
+    private  String devname;
 
+    private String tvalue;
+
+    private int vid;
 
     public String getTagname() {
 		return tagname;
@@ -182,5 +186,29 @@ public class PageInspectTable {
 
     public void setTagnumbers(String tagnumbers) {
         this.tagnumbers = tagnumbers;
+    }
+
+    public String getDevname() {
+        return devname;
+    }
+
+    public void setDevname(String devname) {
+        this.devname = devname;
+    }
+
+    public String getTvalue() {
+        return tvalue;
+    }
+
+    public void setTvalue(String tvalue) {
+        this.tvalue = tvalue;
+    }
+
+    public int getVid() {
+        return vid;
+    }
+
+    public void setVid(int vid) {
+        this.vid = vid;
     }
 }

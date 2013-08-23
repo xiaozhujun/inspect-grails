@@ -28,7 +28,14 @@
 		<g:message code="inspectItem.inspecttable.label" default="Inspecttable" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="inspecttable" name="inspecttable.id" from="${inspect.InspectTable.list()}" optionKey="id" required="" value="${inspectItemInstance?.inspecttable?.id}" class="many-to-one"/>
+	%{--<g:select id="inspecttable" name="inspecttable.id" from="${inspect.InspectTable.list()}" optionKey="id" required="" value="${inspectItemInstance?.inspecttable?.id}" class="many-to-one"/>--}%
+    <select id="inspecttable" name="inspecttable.id">
+        <g:each in="${tlist}" var="p">
+            <option  value="${p.id}">${p.tname}</option>
+
+        </g:each>
+
+    </select>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: inspectItemInstance, field: 'isInput', 'error')} ">
@@ -57,7 +64,14 @@
 		<g:message code="inspectItem.tag.label" default="Tag" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="tag" name="tag.id" from="${inspect.InspectTag.list()}" optionKey="id" required="" value="${inspectItemInstance?.tag?.id}" class="many-to-one"/>
+	%{--<g:select id="tag" name="tag.id" from="${inspect.InspectTag.list()}" optionKey="id" required="" value="${inspectItemInstance?.tag?.id}" class="many-to-one"/>--}%
+    <select id="tag" name="tag.id">
+        <g:each in="${taglist}" var="p">
+            <option  value="${p.tagid}">${p.tagname}</option>
+
+        </g:each>
+
+    </select>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: inspectItemInstance, field: 'tvalues', 'error')} ">
@@ -65,7 +79,14 @@
 		<g:message code="inspectItem.tvalues.label" default="Tvalues" />
 		
 	</label>
-	<g:select name="tvalues" from="${inspect.TValue.list()}" multiple="multiple" optionKey="id" size="5" value="${inspectItemInstance?.tvalues*.id}" class="many-to-many"/>
+	%{--<g:select name="tvalues" from="${inspect.TValue.list()}" multiple="multiple" optionKey="id" size="5" value="${inspectItemInstance?.tvalues*.id}" class="many-to-many"/>--}%
+    <select id="tvalues" name="tvalues" multiple="multiple">
+        <g:each in="${valuelist}" var="p">
+            <option  value="${p.vid}">${p.tvalue}</option>
+
+        </g:each>
+
+    </select>
 </div>
 
 

@@ -33,7 +33,7 @@
 
 						<g:sortableColumn property="hascard" title="${message(code: 'users.hascard.label', default: 'Hascard')}" />
 					
-						<th><g:message code="users.urole.label" default="Urole" /></th>
+
 					
                        <th colspan="3">操作</th>
 		             </tr>
@@ -51,7 +51,7 @@
 
 						<td><g:link action="show" id="${usersInstance.id}">${fieldValue(bean: usersInstance, field: "hascard")}</g:link></td>
 					
-						<td>${fieldValue(bean: usersInstance, field: "urole")}</td>
+
 					
 
 					

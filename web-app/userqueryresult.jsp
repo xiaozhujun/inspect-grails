@@ -224,6 +224,8 @@ function check(){
                                                           href="../device/gouserresearch">报表查询</a></li>
                                 <li id="i_device_list"><a title="点检上传"
                                                           href="../device/userupload">点检上传</a></li>
+                                <li id="i_device_new"><a title="点检查询"
+                                                         href="../test.jsp">点检查询</a></li>
                             </ul></li>
                         <li id="c_users"><h2>人员管理</h2>
                             <ul>

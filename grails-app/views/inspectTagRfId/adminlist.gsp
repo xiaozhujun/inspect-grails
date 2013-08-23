@@ -27,33 +27,24 @@
 
                         <g:sortableColumn property="description" title="${message(code: 'inspectTagRfId.description.label', default: 'Description')}" />
 
-						<g:sortableColumn property="createtime" title="${message(code: 'inspectTagRfId.createtime.label', default: 'Createtime')}" />
-
                         <g:sortableColumn property="numbers" title="${message(code: 'inspectTagRfId.numbers.label', default: 'Numbers')}" />
 
-                        <th><g:message code="inspectTagRfId.device.label" default="Device" /></th>
-
-                        <th><g:message code="inspectTagRfId.tagcag.label" default="Tagcag" /></th>
-
+                        <g:sortableColumn property="createtime" title="${message(code: 'inspectTagRfId.createtime.label', default: 'Createtime')}" />
                         <th colspan="3">操作</th>
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${inspectTagRfIdInstanceList}" status="i" var="inspectTagRfIdInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${inspectTagRfIdInstance.id}">${fieldValue(bean: inspectTagRfIdInstance, field: "createtime")}</g:link></td>
-					
-						<td>${fieldValue(bean: inspectTagRfIdInstance, field: "description")}</td>
-					
-						<td>${fieldValue(bean: inspectTagRfIdInstance, field: "device")}</td>
-					
-						<td>${fieldValue(bean: inspectTagRfIdInstance, field: "name")}</td>
-					
-						<td>${fieldValue(bean: inspectTagRfIdInstance, field: "numbers")}</td>
-					
-						<td>${fieldValue(bean: inspectTagRfIdInstance, field: "tagcag")}</td>
 
+                        <td>${fieldValue(bean: inspectTagRfIdInstance, field: "name")}</td>
+
+						<td>${fieldValue(bean: inspectTagRfIdInstance, field: "description")}</td>
+
+						<td>${fieldValue(bean: inspectTagRfIdInstance, field: "numbers")}</td>
+
+                        <td><g:link action="show" id="${inspectTagRfIdInstance.id}">${fieldValue(bean: inspectTagRfIdInstance, field: "createtime")}</g:link></td>
+					
                         <td>
                             <g:form>
                                 <fieldset class="buttons">

@@ -4,9 +4,9 @@
   <!--成功生成tags-->
   <tag>
     <cardType>2</cardType>
-    <deviceType>dsadk</deviceType>
-    <deviceTypeNum>1001</deviceTypeNum>
-    <deviceNum>2132112</deviceNum>
+    <deviceType>设备类型1</deviceType>
+    <deviceTypeNum>1</deviceTypeNum>
+    <deviceNum>0003</deviceNum>
     <tagArea>标签1</tagArea>
     <tagAreaNum>1</tagAreaNum>
     <number>112121</number>

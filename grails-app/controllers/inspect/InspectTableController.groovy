@@ -1,13 +1,15 @@
 package inspect
 
+import com.springsource.roo.inspect.dao.DBImpl
 import com.springsource.roo.inspect.dao.InspectTableImpl
 import com.xmlparse.dom4j.insertToRolesTableXml
+import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 import com.xmlparse.dom4j.insertToTableTestXml;
 class InspectTableController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+    DBImpl d=new DBImpl();
     def index() {
         redirect(action: "list", params: params)
     }
@@ -18,7 +20,8 @@ class InspectTableController {
     }
 
     def create() {
-        [inspectTableInstance: new InspectTable(params)]
+        List<PageInspectTable> rlist=d.getRoleName();
+        [inspectTableInstance: new InspectTable(params),rlist:rlist]
     }
 
     def save() {
@@ -39,8 +42,8 @@ class InspectTableController {
             redirect(action: "list")
             return
         }
-
-        [inspectTableInstance: inspectTableInstance]
+        String rolename=d.getRoleById(Integer.parseInt(inspectTableInstance.troleId.toString()))
+        [inspectTableInstance: inspectTableInstance,rolename:rolename]
     }
 
     def edit(Long id) {
@@ -50,8 +53,8 @@ class InspectTableController {
             redirect(action: "list")
             return
         }
-
-        [inspectTableInstance: inspectTableInstance]
+        List<PageInspectTable> rlist=d.getRoleName();
+        [inspectTableInstance: inspectTableInstance,rlist:rlist]
     }
 
     def update(Long id, Long version) {

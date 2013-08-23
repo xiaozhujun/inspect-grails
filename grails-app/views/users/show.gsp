@@ -64,8 +64,10 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${usersInstance?.useraddress}">
+               %{--<g:if test="${rolename}">
+                   所属人员类型:${rolename}
+               </g:if>--}%
+                <g:if test="${usersInstance?.useraddress}">
 				<li class="fieldcontain">
 					<span id="useraddress-label" class="property-label"><g:message code="users.useraddress.label" default="Useraddress" /></span>
 					

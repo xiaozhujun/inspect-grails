@@ -33,7 +33,7 @@
 
 						<g:sortableColumn property="createtime" title="${message(code: 'inspectItem.createtime.label', default: 'Createtime')}" />
 
-                        <th><g:message code="inspectItem.inspecttable.label" default="Inspecttable" /></th>
+                        <th colspan="3">操作</th>
 					
 
 					
@@ -52,8 +52,16 @@
                         <td>${fieldValue(bean: inspectItemInstance, field: "numbers")}</td>
 
 						<td><g:link action="show" id="${inspectItemInstance.id}">${fieldValue(bean: inspectItemInstance, field: "createtime")}</g:link></td>
+                        <td>
+                            <g:form>
+                                <fieldset class="buttons">
+                                    <g:hiddenField name="id" value="${inspectItemInstance?.id}" />
+                                    <g:link class="edit" action="edit" id="${inspectItemInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                                    <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                </fieldset>
+                            </g:form>
+                        </td>
 
-                        <td>${fieldValue(bean: inspectItemInstance, field: "inspecttable")}</td>
 					</tr>
 				</g:each>
 				</tbody>

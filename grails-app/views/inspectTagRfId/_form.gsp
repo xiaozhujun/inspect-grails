@@ -36,7 +36,14 @@
 		<g:message code="inspectTagRfId.device.label" default="Device" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="device" name="device.id" from="${inspect.Device.list()}" optionKey="id" required="" value="${inspectTagRfIdInstance?.device?.id}" class="many-to-one"/>
+	%{--<g:select id="device" name="device.id" from="${inspect.Device.list()}" optionKey="id" required="" value="${inspectTagRfIdInstance?.device?.id}" class="many-to-one"/>--}%
+    <select id="device" name="device.id">
+        <g:each in="${devlist}" var="p">
+            <option  value="${p.deviceid}">${p.devname}</option>
+
+        </g:each>
+
+    </select>
 </div>
 
 
@@ -54,6 +61,13 @@
 		<g:message code="inspectTagRfId.tagcag.label" default="Tagcag" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="tagcag" name="tagcag.id" from="${inspect.InspectTag.list()}" optionKey="id" required="" value="${inspectTagRfIdInstance?.tagcag?.id}" class="many-to-one"/>
-</div>
+	%{--<g:select id="tagcag" name="tagcag.id" from="${inspect.InspectTag.list()}" optionKey="id" required="" value="${inspectTagRfIdInstance?.tagcag?.id}" class="many-to-one"/>
+</div>--}%
+<select id="tagcag" name="tagcag.id">
+    <g:each in="${taglist}" var="p">
+        <option  value="${p.tagid}">${p.tagname}</option>
+
+    </g:each>
+
+</select>
 

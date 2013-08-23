@@ -23,9 +23,7 @@
                     str+=$(this).val();
 
                 })
-                alert(str+"/n"+"0000");
                  var arr=str.split(",");
-                alert(arr[0])
                 var idx1=0;
                 var idx2=1;
                 var idx3=2;
@@ -65,7 +63,9 @@
           DBImpl d=new DBImpl();
           PageInspectTable p=null;
           List<PageInspectTable> list=new ArrayList<PageInspectTable>();
-
+          if(dtype==""&&device==""&&tag==""){
+              out.print("对不起，请输入查询条件！");
+          }else{
           out.println("<form method='post'><table border=0>");
           out.println("<thead><tr><th>设备类型</th><th>设备类型编号</th><th>设备编号</th><th>标签区域</th><th>标签号</th><th>标签编号</th><th>操作</th></thead>");
           out.println("<tbody>");
@@ -141,7 +141,7 @@
               }
               out.println("</table></form>");
           }
-
+          }
 
       %>
 </body>

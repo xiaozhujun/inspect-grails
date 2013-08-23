@@ -22,7 +22,15 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list inspectItem">
-			
+                <g:if test="${inspectItemInstance?.name}">
+                    <li class="fieldcontain">
+                        <span id="name-label" class="property-label"><g:message code="inspectItem.name.label" default="Name" /></span>
+
+                        <span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${inspectItemInstance}" field="name"/></span>
+
+                    </li>
+                </g:if>
+
 				<g:if test="${inspectItemInstance?.createtime}">
 				<li class="fieldcontain">
 					<span id="createtime-label" class="property-label"><g:message code="inspectItem.createtime.label" default="Createtime" /></span>
@@ -45,7 +53,7 @@
 				<li class="fieldcontain">
 					<span id="inspecttable-label" class="property-label"><g:message code="inspectItem.inspecttable.label" default="Inspecttable" /></span>
 					
-						<span class="property-value" aria-labelledby="inspecttable-label"><g:link controller="inspectTable" action="show" id="${inspectItemInstance?.inspecttable?.id}">${inspectItemInstance?.inspecttable?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="inspecttable-label"><g:link controller="inspectTable" action="show" id="${inspectItemInstance?.inspecttable?.id}">${tname}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -70,14 +78,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${inspectItemInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="inspectItem.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${inspectItemInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
+
 			
 				<g:if test="${inspectItemInstance?.numbers}">
 				<li class="fieldcontain">
@@ -92,7 +93,7 @@
 				<li class="fieldcontain">
 					<span id="tag-label" class="property-label"><g:message code="inspectItem.tag.label" default="Tag" /></span>
 					
-						<span class="property-value" aria-labelledby="tag-label"><g:link controller="inspectTag" action="show" id="${inspectItemInstance?.tag?.id}">${inspectItemInstance?.tag?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="tag-label"><g:link controller="inspectTag" action="show" id="${inspectItemInstance?.tag?.id}">${tagname}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -101,9 +102,12 @@
 				<li class="fieldcontain">
 					<span id="tvalues-label" class="property-label"><g:message code="inspectItem.tvalues.label" default="Tvalues" /></span>
 					
-						<g:each in="${inspectItemInstance.tvalues}" var="t">
-						<span class="property-value" aria-labelledby="tvalues-label"><g:link controller="TValue" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						%{--<g:each in="${inspectItemInstance.tvalues}" var="t">
+						<span class="property-value" aria-labelledby="tvalues-label"><g:link controller="TValue" action="show" id="${t.id}">${tvalue}</g:link></span>
+						</g:each>--}%
+                    <g:each in="${valuelist}" var="p">
+                        <span class="property-value" aria-labelledby="tvalues-label"><g:link controller="TValue" action="show" id="${p.vid}">${p.tvalue}</g:link></span>
+                    </g:each>
 					
 				</li>
 				</g:if>

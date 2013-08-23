@@ -123,6 +123,13 @@
                     <div class="menuItem"><span id="d1"><g:link url="[action:'adminlist',controller:'inspectTagRfId']">标签列表</g:link></span></div>
                 </div>
             </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>设备类型管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem" ><span id="d1"><g:link url="[action:'create',controller:'deviceType']">添加设备类型</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'list',controller:'deviceType']">设备类型列表</g:link></span></div>
+                </div>
+            </div>
 
         </div>
         <div id="mainContainer"><g:layoutBody/></div>

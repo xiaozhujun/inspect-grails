@@ -37,12 +37,10 @@ class UsersController {
             render(view: "create", model: [usersInstance: usersInstance])
             return
         }
-        System.out.print(usersInstance.uroleId+">>>>");
-        String rolename=d.getRolename(Integer.parseInt(usersInstance.uroleId.toString()));
-        System.out.print(rolename+"HHHHH");
+
         flash.message = message(code: 'default.created.message', args: [message(code: 'users.label', default: 'Users'), usersInstance.id])
 
-       redirect(action: "show", id: usersInstance.id,params:[ rolename:rolename])
+       redirect(action: "show", id: usersInstance.id)
 
     }
     def adminsave() {
@@ -63,8 +61,8 @@ class UsersController {
             redirect(action: "list")
             return
         }
-
-        [usersInstance: usersInstance]
+        String rolename=d.getRolename(Integer.parseInt(usersInstance.uroleId.toString()));
+        [usersInstance: usersInstance,rolename:rolename]
     }
     def adminshow(Long id) {
         def usersInstance = Users.get(id)
@@ -73,8 +71,8 @@ class UsersController {
             redirect(action: "adminlist")
             return
         }
-
-        [usersInstance: usersInstance]
+        String rolename=d.getRolename(Integer.parseInt(usersInstance.uroleId.toString()));
+        [usersInstance: usersInstance,rolename:rolename]
     }
 
     def edit(Long id) {
@@ -84,8 +82,8 @@ class UsersController {
             redirect(action: "list")
             return
         }
-
-        [usersInstance: usersInstance]
+        List<PageInspectTable> plist=d.getRole();
+        [usersInstance: usersInstance,plist:plist]
     }
     def adminedit(Long id) {
 
@@ -95,8 +93,8 @@ class UsersController {
             redirect(action: "adminlist")
             return
         }
-
-        render(view:"adminedit",model:[usersInstance: usersInstance])
+        List<PageInspectTable> plist=d.getRole();
+        render(view:"adminedit",model:[usersInstance: usersInstance,plist:plist])
     }
 
     def update(Long id, Long version) {

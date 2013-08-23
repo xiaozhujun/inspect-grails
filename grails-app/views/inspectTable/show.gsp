@@ -22,7 +22,15 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list inspectTable">
-			
+
+                <g:if test="${inspectTableInstance?.tname}">
+                    <li class="fieldcontain">
+                        <span id="tname-label" class="property-label"><g:message code="inspectTable.tname.label" default="Tname" /></span>
+
+                        <span class="property-value" aria-labelledby="tname-label"><g:fieldValue bean="${inspectTableInstance}" field="tname"/></span>
+
+                    </li>
+                </g:if>
 				<g:if test="${inspectTableInstance?.createtime}">
 				<li class="fieldcontain">
 					<span id="createtime-label" class="property-label"><g:message code="inspectTable.createtime.label" default="Createtime" /></span>
@@ -65,21 +73,12 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${inspectTableInstance?.tname}">
-				<li class="fieldcontain">
-					<span id="tname-label" class="property-label"><g:message code="inspectTable.tname.label" default="Tname" /></span>
-					
-						<span class="property-value" aria-labelledby="tname-label"><g:fieldValue bean="${inspectTableInstance}" field="tname"/></span>
-					
-				</li>
-				</g:if>
+
 			
 				<g:if test="${inspectTableInstance?.trole}">
 				<li class="fieldcontain">
 					<span id="trole-label" class="property-label"><g:message code="inspectTable.trole.label" default="Trole" /></span>
-					
-						<span class="property-value" aria-labelledby="trole-label"><g:link controller="roles" action="show" id="${inspectTableInstance?.trole?.id}">${inspectTableInstance?.trole?.encodeAsHTML()}</g:link></span>
-					
+						<span class="property-value" aria-labelledby="trole-label"><g:link controller="roles" action="show" id="${inspectTableInstance?.trole?.id}">${rolename}</g:link></span>
 				</li>
 				</g:if>
 			

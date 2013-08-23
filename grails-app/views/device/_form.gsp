@@ -28,6 +28,13 @@
 		<g:message code="device.type.label" default="Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="type" name="type.id" from="${inspect.DeviceType.list()}" optionKey="id" required="" value="${deviceInstance?.type?.id}" class="many-to-one"/>
+	%{--<g:select id="type" name="type.id" from="${inspect.DeviceType.list()}" optionKey="id" required="" value="${deviceInstance?.type?.id}" class="many-to-one"/>--}%
+    <select id="type" name="type.id">
+        <g:each in="${typelist}" var="p">
+            <option  value="${p.typeid}">${p.typename}</option>
+
+        </g:each>
+
+    </select>
 </div>
 

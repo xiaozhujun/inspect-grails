@@ -1,5 +1,7 @@
 package inspect
 
+import com.springsource.roo.inspect.dao.DBImpl
+import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +22,7 @@ import org.apache.commons.fileupload.servlet.ServletRequestContext;
 
 import com.execute.DOMAnalysisXml;
 class DeviceController {
-
+    DBImpl d=new DBImpl();
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -37,10 +39,12 @@ class DeviceController {
     }
 
     def create() {
-        [deviceInstance: new Device(params)]
+        List<PageInspectTable> typelist=d.getTyname();
+        [deviceInstance: new Device(params),typelist:typelist]
     }
     def admincreate() {
-        [deviceInstance: new Device(params)]
+        List<PageInspectTable> typelist=d.getTyname();
+        [deviceInstance: new Device(params),typelist:typelist]
     }
     def gouserresearch(){
         System.out.print("gouserrearch")
@@ -82,8 +86,8 @@ class DeviceController {
             redirect(action: "list")
             return
         }
-
-        [deviceInstance: deviceInstance]
+         String typename=d.getTypeById(Integer.parseInt(deviceInstance.typeId.toString()))
+        [deviceInstance: deviceInstance,typename:typename]
     }
     def adminshow(Long id) {
         def deviceInstance = Device.get(id)
@@ -92,8 +96,8 @@ class DeviceController {
             redirect(action: "adminlist")
             return
         }
-
-        [deviceInstance: deviceInstance]
+        String typename=d.getTypeById(Integer.parseInt(deviceInstance.typeId.toString()))
+        [deviceInstance: deviceInstance,typename:typename]
     }
     def edit(Long id) {
         def deviceInstance = Device.get(id)
@@ -102,8 +106,8 @@ class DeviceController {
             redirect(action: "list")
             return
         }
-
-        [deviceInstance: deviceInstance]
+        List<PageInspectTable> typelist=d.getTyname();
+        [deviceInstance: deviceInstance,typelist:typelist]
     }
     def adminedit(Long id) {
         def deviceInstance = Device.get(id)
@@ -112,8 +116,8 @@ class DeviceController {
             redirect(action: "adminlist")
             return
         }
-
-        [deviceInstance: deviceInstance]
+        List<PageInspectTable> typelist=d.getTyname();
+        [deviceInstance: deviceInstance,typelist:typelist]
     }
 
     def update(Long id, Long version) {

@@ -40,16 +40,7 @@
             </li>
         </g:if>
 
-        <g:if test="${deviceInstance?.itemrecord}">
-            <li class="fieldcontain">
-                <span id="itemrecord-label" class="property-label"><g:message code="device.itemrecord.label" default="Itemrecord" /></span>
 
-                <g:each in="${deviceInstance.itemrecord}" var="i">
-                    <span class="property-value" aria-labelledby="itemrecord-label"><g:link controller="inspectItemRecord" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></span>
-                </g:each>
-
-            </li>
-        </g:if>
 
         <g:if test="${deviceInstance?.numbers}">
             <li class="fieldcontain">
@@ -60,21 +51,12 @@
             </li>
         </g:if>
 
-        <g:if test="${deviceInstance?.tagrfid}">
-            <li class="fieldcontain">
-                <span id="tagrfid-label" class="property-label"><g:message code="device.tagrfid.label" default="Tagrfid" /></span>
 
-                <g:each in="${deviceInstance.tagrfid}" var="t">
-                    <span class="property-value" aria-labelledby="tagrfid-label"><g:link controller="inspectTagRfId" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
-                </g:each>
-
-            </li>
-        </g:if>
         <g:if test="${deviceInstance?.type}">
             <li class="fieldcontain">
                 <span id="type-label" class="property-label"><g:message code="device.type.label" default="Type" /></span>
 
-                <span class="property-value" aria-labelledby="type-label"><g:link controller="deviceType" action="show" id="${deviceInstance?.type?.id}">${deviceInstance?.type?.encodeAsHTML()}</g:link></span>
+                <span class="property-value" aria-labelledby="type-label"><g:link controller="deviceType" action="show" id="${deviceInstance?.type?.id}">${typename}</g:link></span>
 
             </li>
         </g:if>

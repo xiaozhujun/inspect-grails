@@ -1,11 +1,13 @@
 package inspect
 
+import com.springsource.roo.inspect.dao.DBImpl
+import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 
 class InspectItemController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+    DBImpl d=new DBImpl();
     def index() {
         redirect(action: "list", params: params)
     }
@@ -16,7 +18,10 @@ class InspectItemController {
     }
 
     def create() {
-        [inspectItemInstance: new InspectItem(params)]
+         List<PageInspectTable> tlist=d.getTableName()
+         List<PageInspectTable> taglist=d.getTagName()
+         List<PageInspectTable> valuelist=d.getTvalue()
+        [inspectItemInstance: new InspectItem(params),tlist:tlist,taglist:taglist,valuelist:valuelist]
     }
 
     def save() {
@@ -37,8 +42,26 @@ class InspectItemController {
             redirect(action: "list")
             return
         }
-
-        [inspectItemInstance: inspectItemInstance]
+         String tname=d.getTableById(Integer.parseInt(inspectItemInstance.inspecttableId.toString()))
+         String tagname=d.getTagNameById(Integer.parseInt(inspectItemInstance.tagId.toString()))
+         String[] tvalues=inspectItemInstance.tvalues;
+        List<PageInspectTable> valuelist=new ArrayList<PageInspectTable>();
+        PageInspectTable p=null;
+       for(int i=0;i<tvalues.length;i++){
+           int vid=Integer.parseInt(tvalues[i].toString().substring(17))
+           p=new PageInspectTable()
+           p.setVid(vid)
+           String tvalue=d.getValueById(vid);
+           p.setTvalue(tvalue)
+           valuelist.add(p)
+        }
+           Iterator it=valuelist.iterator()
+         while(it.hasNext()){
+             p=(PageInspectTable)it.next()
+             System.out.print(p.getVid())
+             System.out.print(p.getTvalue())
+         }
+        [inspectItemInstance: inspectItemInstance,tname:tname,tagname:tagname,valuelist: valuelist]
     }
 
     def edit(Long id) {
@@ -48,8 +71,10 @@ class InspectItemController {
             redirect(action: "list")
             return
         }
-
-        [inspectItemInstance: inspectItemInstance]
+        List<PageInspectTable> tlist=d.getTableName()
+        List<PageInspectTable> taglist=d.getTagName()
+        List<PageInspectTable> valuelist=d.getTvalue()
+        [inspectItemInstance: inspectItemInstance,tlist:tlist,taglist:taglist,valuelist:valuelist]
     }
 
     def update(Long id, Long version) {

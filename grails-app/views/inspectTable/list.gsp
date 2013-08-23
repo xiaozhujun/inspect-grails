@@ -25,7 +25,6 @@
 					<tr>
                         <g:sortableColumn property="tname" title="${message(code: 'inspectTable.tname.label', default: 'Tname')}" />
 						<g:sortableColumn property="createtime" title="${message(code: 'inspectTable.createtime.label', default: 'Createtime')}" />
-			            <th><g:message code="inspectTable.trole.label" default="Trole" /></th>
 					    <th colspan="3">操作</th>
 					</tr>
 				</thead>
@@ -34,11 +33,8 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                         <td>${fieldValue(bean: inspectTableInstance, field: "tname")}</td>
 
-
                         <td><g:link action="show" id="${inspectTableInstance.id}">${fieldValue(bean: inspectTableInstance, field: "createtime")}</g:link></td>
 					
-
-					    <td>${fieldValue(bean: inspectTableInstance, field: "trole")}</td>
                         <td>
                         <g:form>
                             <fieldset class="buttons">
