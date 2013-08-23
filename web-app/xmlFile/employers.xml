@@ -11,20 +11,6 @@
   </employer>
   <employer>
     <cardType>1</cardType>
-    <role>机修人员</role>
-    <roleNum>1</roleNum>
-    <name>工作人员1</name>
-    <number>1</number>
-  </employer>
-  <employer>
-    <cardType>1</cardType>
-    <role>机修人员</role>
-    <roleNum>1</roleNum>
-    <name>工作人员1</name>
-    <number>1</number>
-  </employer>
-  <employer>
-    <cardType>1</cardType>
     <role>门机队机械技术员</role>
     <roleNum>2</roleNum>
     <name>工作人员2</name>
@@ -36,19 +22,5 @@
     <roleNum>3</roleNum>
     <name>工作人员3</name>
     <number>3</number>
-  </employer>
-  <employer>
-    <cardType>1</cardType>
-    <role>门机减速机技术员</role>
-    <roleNum>4</roleNum>
-    <name>qwqw</name>
-    <number>31</number>
-  </employer>
-  <employer>
-    <cardType>1</cardType>
-    <role>门机司机</role>
-    <roleNum>5</roleNum>
-    <name>zhangxiaoming</name>
-    <number>32</number>
   </employer>
 </employers>

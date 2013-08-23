@@ -22,7 +22,15 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list roles">
-			
+                <g:if test="${rolesInstance?.rolename}">
+                    <li class="fieldcontain">
+                        <span id="rolename-label" class="property-label"><g:message code="roles.rolename.label" default="Rolename" /></span>
+
+                        <span class="property-value" aria-labelledby="rolename-label"><g:fieldValue bean="${rolesInstance}" field="rolename"/></span>
+
+                    </li>
+                </g:if>
+
 				<g:if test="${rolesInstance?.createtime}">
 				<li class="fieldcontain">
 					<span id="createtime-label" class="property-label"><g:message code="roles.createtime.label" default="Createtime" /></span>
@@ -32,14 +40,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${rolesInstance?.rolename}">
-				<li class="fieldcontain">
-					<span id="rolename-label" class="property-label"><g:message code="roles.rolename.label" default="Rolename" /></span>
-					
-						<span class="property-value" aria-labelledby="rolename-label"><g:fieldValue bean="${rolesInstance}" field="rolename"/></span>
-					
-				</li>
-				</g:if>
+
 			
 
 			

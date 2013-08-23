@@ -22,7 +22,38 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list users">
-			
+                <g:if test="${usersInstance?.username}">
+                    <li class="fieldcontain">
+                        <span id="username-label" class="property-label"><g:message code="users.username.label" default="Username" /></span>
+
+                        <span class="property-value" aria-labelledby="username-label"><g:fieldValue bean="${usersInstance}" field="username"/></span>
+
+                    </li>
+                </g:if>
+                <g:if test="${usersInstance?.userpwd}">
+                    <li class="fieldcontain">
+                        <span id="userpwd-label" class="property-label"><g:message code="users.userpwd.label" default="Userpwd" /></span>
+
+                        <span class="property-value" aria-labelledby="userpwd-label"><g:fieldValue bean="${usersInstance}" field="userpwd"/></span>
+
+                    </li>
+                </g:if>
+                <g:if test="${usersInstance?.userage}">
+                    <li class="fieldcontain">
+                        <span id="userage-label" class="property-label"><g:message code="users.userage.label" default="Userage" /></span>
+
+                        <span class="property-value" aria-labelledby="userage-label"><g:fieldValue bean="${usersInstance}" field="userage"/></span>
+
+                    </li>
+                </g:if>
+                <g:if test="${usersInstance?.usersex}">
+                    <li class="fieldcontain">
+                        <span id="usersex-label" class="property-label"><g:message code="users.usersex.label" default="Usersex" /></span>
+
+                        <span class="property-value" aria-labelledby="usersex-label"><g:fieldValue bean="${usersInstance}" field="usersex"/></span>
+
+                    </li>
+                </g:if>
 				<g:if test="${usersInstance?.hascard}">
 				<li class="fieldcontain">
 					<span id="hascard-label" class="property-label"><g:message code="users.hascard.label" default="Hascard" /></span>
@@ -73,43 +104,6 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${usersInstance?.userage}">
-				<li class="fieldcontain">
-					<span id="userage-label" class="property-label"><g:message code="users.userage.label" default="Userage" /></span>
-					
-						<span class="property-value" aria-labelledby="userage-label"><g:fieldValue bean="${usersInstance}" field="userage"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${usersInstance?.username}">
-				<li class="fieldcontain">
-					<span id="username-label" class="property-label"><g:message code="users.username.label" default="Username" /></span>
-					
-						<span class="property-value" aria-labelledby="username-label"><g:fieldValue bean="${usersInstance}" field="username"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${usersInstance?.userpwd}">
-				<li class="fieldcontain">
-					<span id="userpwd-label" class="property-label"><g:message code="users.userpwd.label" default="Userpwd" /></span>
-					
-						<span class="property-value" aria-labelledby="userpwd-label"><g:fieldValue bean="${usersInstance}" field="userpwd"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${usersInstance?.usersex}">
-				<li class="fieldcontain">
-					<span id="usersex-label" class="property-label"><g:message code="users.usersex.label" default="Usersex" /></span>
-					
-						<span class="property-value" aria-labelledby="usersex-label"><g:fieldValue bean="${usersInstance}" field="usersex"/></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

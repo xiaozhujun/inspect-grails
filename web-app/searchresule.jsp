@@ -41,10 +41,7 @@
                 str+=$(this).val();
 
             })
-
             var arr=str.split(",");
-
-
             var idx1=0;
             var idx2=1;
             var idx3=2;
@@ -52,7 +49,7 @@
             var len=arr.length/4;
             for(var i=0;i<len-1;i++){
                 rowCount++;
-                var rowTemplate = '<tr class="tr_'+rowCount+'"><td class="cl1">'+arr[idx1]+',</td><td class="cl1">'+arr[idx2]+',</td><td class="cl1">'+arr[idx3]+',</td><td class="cl1">'+arr[idx4]+',</td><td><a href="#" onclick=delRow('+rowCount+')>删除</a></td></tr>';
+                var rowTemplate = '<tr class="tr_'+rowCount+'"><td class="cl1">'+arr[idx1]+' '+'</td><td class="cl1">'+arr[idx2]+' '+'</td><td class="cl1">'+arr[idx3]+' '+'</td><td class="cl1">'+arr[idx4]+' '+'</td><td><a href="#" onclick=delRow('+rowCount+')>删除</a></td></tr>';
                 idx1 +=4 ;
                 idx2 +=4 ;
                 idx3 +=4 ;
@@ -63,7 +60,7 @@
              $("#testTable1 tbody").html(tableHtml);
             }
 
-                $("input:checkbox").each(function(){
+               $("input:checkbox").each(function(){
                     $(this).attr("checked",false);
                 });
 

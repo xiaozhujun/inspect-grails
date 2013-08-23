@@ -15,7 +15,7 @@
 </head>
 <body>
       <%
-          String[] str=request.getParameter("tableHtml").split(",");
+          String[] str=request.getParameter("tableHtml").split(" ");
           int idx1=0;
           int idx2=1;
           int idx3=2;

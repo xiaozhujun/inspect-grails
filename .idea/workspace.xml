@@ -71,14 +71,14 @@
     <file path="$USER_HOME$/.grails/2.2.4/projects/inspect/plugins/jquery-1.8.3/grails-app/taglib/JQueryTagLib.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376726954306" ignored="false" />
     <file path="$USER_HOME$/.grails/2.2.4/projects/inspect/plugins/database-migration-1.3.2/grails-app/conf/DbdocUrlMappings.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376726954306" ignored="false" />
     <file path="$USER_HOME$/.grails/2.2.4/projects/inspect/plugins/jquery-1.8.3/grails-app/services/JQueryService.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376726954306" ignored="false" />
-    <file path="/userqueryresult.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376883551017" ignored="false" />
+    <file path="/userqueryresult.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377239089152" ignored="false" />
     <file path="$PROJECT_DIR$/target/stacktrace.log" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1376882156819" ignored="false" />
     <file path="/test.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377228122162" ignored="false" />
     <file path="/PageInspectTable.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377220104670" ignored="false" />
     <file path="/search.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377165322496" ignored="false" />
     <file path="/searchresule.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377227459192" ignored="false" />
     <file path="/confirmsearch.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377091016524" ignored="false" />
-    <file path="/generateemployee.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377093188790" ignored="false" />
+    <file path="/generateemployee.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377240333685" ignored="false" />
     <file path="/insertToEmploy.java" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377092937885" ignored="false" />
     <file path="/DeviceType.groovy" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377096366693" ignored="false" />
     <file path="/devicesearch.jsp" changelist="0d4a4059-3014-4237-9d8b-abac14279127" time="1377134075732" ignored="false" />
@@ -146,10 +146,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="userqueryresult.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web-app/userqueryresult.jsp">
+      <file leaf-file-name="adminshow.gsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/users/adminshow.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="65" selection-start="6978" selection-end="6978" vertical-scroll-proportion="0.67151767">
+            <state line="106" column="0" selection-start="5185" selection-end="5185" vertical-scroll-proportion="1.9393258">
               <folding />
             </state>
           </provider>
@@ -165,22 +165,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/views/layouts/admin.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/deviceType/create.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/deviceType/_form.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/i18n/messages_zh_CN.properties" />
-        <option value="$PROJECT_DIR$/grails-app/views/deviceType/edit.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/deviceType/list.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/deviceType/show.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/device/adminshow.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/device/show.gsp" />
-        <option value="$PROJECT_DIR$/web-app/searchresule.jsp" />
-        <option value="$PROJECT_DIR$/web-app/searchresult.jsp" />
         <option value="$PROJECT_DIR$/web-app/test.jsp" />
-        <option value="$PROJECT_DIR$/web-app/leftusermenu.jsp" />
         <option value="$PROJECT_DIR$/web-app/queryresult.jsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/layouts/user.gsp" />
         <option value="$PROJECT_DIR$/web-app/userqueryresult.jsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/user.gsp" />
+        <option value="$PROJECT_DIR$/web-app/leftusermenu.jsp" />
+        <option value="$PROJECT_DIR$/web-app/searchresule.jsp" />
+        <option value="$PROJECT_DIR$/web-app/generateemployee.jsp" />
+        <option value="$PROJECT_DIR$/web-app/searchresult.jsp" />
+        <option value="$PROJECT_DIR$/web-app/generatedevice.jsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/roles/show.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/users/show.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/users/adminshow.gsp" />
       </list>
     </option>
   </component>
@@ -321,28 +321,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Inspect" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inspect-grails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -620,7 +598,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-15" y="0" width="1382" height="737" extended-state="1" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -643,7 +621,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.058333334" sideWeight="0.9305556" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17727272" sideWeight="0.9305556" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21742424" sideWeight="0.9305556" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10977702" sideWeight="0.6007576" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.016666668" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -720,100 +698,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/views/deviceType/show.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1906" selection-end="1906" vertical-scroll-proportion="0.61573035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/deviceType/edit.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="485" selection-end="485" vertical-scroll-proportion="-0.51235956">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/users/list.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="122" selection-start="482" selection-end="586" vertical-scroll-proportion="0.46966293">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/device/adminshow.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="16" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.91460675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/searchresult.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="749" selection-end="749" vertical-scroll-proportion="-2.2329059">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/searchresule.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="51" selection-start="3246" selection-end="3246" vertical-scroll-proportion="-0.258547">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/device/show.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="33" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.34157303">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/leftmenu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="18.321428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/leftusermenu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="58" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.44698545">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/test.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="23" selection-start="5679" selection-end="5679" vertical-scroll-proportion="-0.72008544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/usershowInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1725571">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/admin.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="26" selection-start="288" selection-end="288" vertical-scroll-proportion="0.06623932">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/admin.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.4358974">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/user.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="75" selection-start="3523" selection-end="3523" vertical-scroll-proportion="0.39102563">
           <folding />
         </state>
       </provider>
@@ -825,9 +712,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/leftusermenu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="50" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.5135135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/user.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="86" selection-start="3487" selection-end="3487" vertical-scroll-proportion="0.24358974">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/confirmsearch.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="14.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/searchresule.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="32" selection-start="1653" selection-end="1653" vertical-scroll-proportion="-11.535714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/xmlFile/employers.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="20" selection-start="356" selection-end="356" vertical-scroll-proportion="0.5972495">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/generateemployee.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.47401246">
+          <folding>
+            <element signature="e#617#635#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/xmlFile/tags.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="42" selection-start="203" selection-end="203" vertical-scroll-proportion="0.29862475">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/generatedevice.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="65" selection-start="464" selection-end="464" vertical-scroll-proportion="0.5530146">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/searchresult.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="359" selection-start="1381" selection-end="1381" vertical-scroll-proportion="0.4059829">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="35" selection-start="2943" selection-end="2957" vertical-scroll-proportion="0.56837606">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/userqueryresult.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="65" selection-start="6978" selection-end="6978" vertical-scroll-proportion="0.67151767">
+        <state line="236" column="30" selection-start="7529" selection-end="7529" vertical-scroll-proportion="0.75051975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/roles/show.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="16" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.64044946">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/users/show.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="31" selection-start="5201" selection-end="5201" vertical-scroll-proportion="0.4022472">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/users/adminshow.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="0" selection-start="5185" selection-end="5185" vertical-scroll-proportion="1.9393258">
           <folding />
         </state>
       </provider>

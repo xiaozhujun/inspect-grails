@@ -15,7 +15,7 @@
 </head>
 <body>
     <%
-        String[] str=request.getParameter("str").split(",");
+        String[] str=request.getParameter("str").split(" ");
         int idx1=0;
         int idx2=1;
         int idx3=2;
