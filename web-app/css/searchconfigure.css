@@ -1,0 +1,90 @@
+#nav1{
+    background-color: #999999;
+    width:100%;
+    height: 30px;
+    margin-left: 224px;
+
+
+}
+#t{
+    margin-left: 224px;
+    margin-top: 120px;
+    height: 1000px;
+    width:100%;
+}
+#n1{
+    background-color: #999999;
+    width:1178px;
+    height: 30px;
+    float:left;
+    margin-left: 20px;;
+}
+#tt{
+    width: 1178px;
+    height: 1000px;
+    float:left;
+    margin-top: 10px;
+}
+#search{
+    width: 1178px;
+    height: 1000px;
+    float:left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+#deviceresearch{
+    margin-left: 20px;
+    width: 1178px;
+    height: 1000px;
+    float:left;
+    margin-top: 10px;
+    display:none;
+}
+#search1{
+    width: 1178px;
+    height: 100px;
+    float:left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+#search1-1{
+    width: 1178px;
+    height: 100px;
+    float:left;
+    margin-top: 10px;
+}
+#resultx{
+    width: 1178px;
+    height: 30px;
+    float:left;
+    background-color: #999999;
+}
+#result-1{
+    width: 1178px;
+    height: 30px;
+    float:left;
+    background-color: #999999;
+}
+#result1{
+    width: 50%;
+    height: 850px;
+    float:left;
+
+}
+#result1-1{
+
+    width: 50%;
+    height: 850px;
+    float:left;
+}
+#result2{
+    width: 50%;
+    height: 850px;
+    float:left;
+}
+#result2-1{
+
+    width: 50%;
+    height: 850px;
+    float:left;
+}

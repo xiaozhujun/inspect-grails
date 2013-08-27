@@ -15,7 +15,7 @@
 }
 
 a:LINK {
-	color: white;
+    /*color: white;*/
 	font-size: 15px;
 }
 </style>

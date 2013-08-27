@@ -67,8 +67,8 @@
 
 
         <form  method="post" action="MMServlet" onsubmit="return check()">
-
-            <p>起始时间:
+            <div style="margin-left:10px;margin-top: 45px">
+            起始时间:
 
                 <input type="text" id="s" class="Wdate" onClick="WdatePicker()" name="stime">
                 终止时间:
@@ -100,8 +100,10 @@
                     <option value="excel">Excel格式</option>
                     <option value="word">Word格式</option>
                 </select>
-
-            <p><input type="submit" value="查询"></p>
+                <span style="margin-left: 5px">
+            <input type="submit" value="查询">
+                    </span>
+                </div>
         </form>
 
 

@@ -234,9 +234,9 @@ a.sb.gradient.pink:after,
 a.sb.gradient.light-green:after,
 .sb.gradient.light-green a:after {
 	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2IzZWYxNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4ZGM4MGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background-image: -moz-linear-gradient(top,  rgba(179,239,22,1) 0%, rgba(141,200,14,1) 100%);
+	/*background-image: -moz-linear-gradient(top,  rgba(179,239,22,1) 0%, rgba(141,200,14,1) 100%);
 	background-image: -webkit-linear-gradient(top,  rgba(179,239,22,1) 0%,rgba(141,200,14,1) 100%);
-	background-image: linear-gradient(top,  rgba(179,239,22,1) 0%,rgba(141,200,14,1) 100%);
+	background-image: linear-gradient(top,  rgba(179,239,22,1) 0%,rgba(141,200,14,1) 100%);*/
 }
 
 /* gradient yellow */
@@ -330,7 +330,7 @@ a.sb.green,
 .sb.green a,
 a.sb.green:after,
 .sb.green a:after {
-	background-color: #4aab10;
+	/*background-color: #4aab10;*/
 	border-color: #1e5608;
 	color: #fff;
 }
@@ -342,7 +342,7 @@ a.sb.green:hover,
 .sb.green a:hover,
 a.sb.green:hover:after,
 .sb.green a:hover:after {
-	background-color: #51b912;
+	/*background-color: #51b912;*/
 }
 
 /* orange color */
@@ -506,8 +506,8 @@ a.sb.light-green,
 .sb.light-green a,
 a.sb.light-green:after,
 .sb.light-green a:after {
-	background-color: #9bd611;
-	border-color: #71a115;
+	/*background-color: #9bd611;*/
+	/*border-color: #71a115;*/
 }
 a.sb.light-green:hover:after,
 .sb.light-green a:hover:after {
@@ -517,7 +517,7 @@ a.sb.light-green:hover,
 .sb.light-green a:hover,
 a.sb.light-green:hover:after,
 .sb.light-green a:hover:after {
-	background-color: #b3ef16;
+	/*background-color: #b3ef16;*/
 }
 
 /* yellow color */

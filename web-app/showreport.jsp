@@ -44,7 +44,7 @@
 		String t = request.getParameter("tid");
 		String ct = request.getParameter("ct");
 		System.out.println(ct+"时间");
-		String url = "jdbc:mysql://localhost:3306/inspect2";
+		String url = "jdbc:mysql://localhost:3306/inspect3";
 		Class.forName("com.mysql.jdbc.Driver");
 		Map parameters = new HashMap();
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -53,12 +53,13 @@
 		long t1 = Long.parseLong(t);
 		parameters.put("stime", ts);
 		parameters.put("tid", t1);
+        parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
 		Connection connection = DriverManager.getConnection(url, "root",
 				"root");
 
 		String type = request.getParameter("type");
 		File reportFile = new File(this.getServletConfig().getServletContext().getRealPath(
-				"/report/inspectReport.jasper"));
+				"/report/report2.jasper"));
 		JasperReport jasperReport = (JasperReport) JRLoader
 				.loadObject(reportFile.getPath());
 

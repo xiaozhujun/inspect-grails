@@ -22,6 +22,8 @@
     <script type="text/javascript" src='${resource(dir: 'js',file: 'jquery-1.7.2.min.js')}'></script>
     <g:layoutHead/>
     <r:layoutResources />
+    <% String path = request.getContextPath();
+    String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
     <style type="text/css">
     #nav {
         background-color: highlight;
@@ -65,6 +67,7 @@
                 <div class="menuItemList">
                     <div class="menuItem"><span id="d1"><g:link url="[action:'goadminresearch',controller:'device']">报表查询</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'adminupload',controller:'device']">点检上传</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><a href="<%= basePase %>searchconfigure.jsp">人员设备配置查询</a></span></div>
                 </div>
             </div>
             <div class="menuFunc">

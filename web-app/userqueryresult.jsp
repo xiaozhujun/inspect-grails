@@ -9,8 +9,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-
 <jsp:useBean id="r" class="model.InspectTableRecord"></jsp:useBean>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,121 +17,7 @@
 <title>Insert title here</title>
     <% String path = request.getContextPath();
         String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
-<style type="text/css">
-.zebra td,.zebra th {
-	padding: 10px;
-	border-bottom: 1px solid #f2f2f2;
-}
-
-.zebra .alternate,.zebra tbody tr:nth-child(even) {
-	text-align: center;
-	background: #f5f5f5;
-	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
-	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
-	box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
-}
-
-.zebra tbody tr:nth-child(odd) {
-	text-align: center;
-}
-
-.zebra th {
-	width: 150px;
-	text-align: center;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-	border-bottom: 1px solid #ccc;
-	background-color: #eee;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5),
-		to(#eee));
-	background-image: -webkit-linear-gradient(top, #f5f5f5, #eee);
-	background-image: -moz-linear-gradient(top, #f5f5f5, #eee);
-	background-image: -ms-linear-gradient(top, #f5f5f5, #eee);
-	background-image: -o-linear-gradient(top, #f5f5f5, #eee);
-	background-image: linear-gradient(top, #f5f5f5, #eee);
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,
-		startColorstr=#f5f5f5, endColorstr=#eeeeee);
-	-ms-filter:
-		"progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#f5f5f5, endColorstr=#eeeeee)";
-}
-
-.zebra th:first-child {
-	-moz-border-radius: 6px 0 0 0;
-	-webkit-border-radius: 6px 0 0 0;
-	border-radius: 6px 0 0 0;
-}
-
-.zebra th:last-child {
-	-moz-border-radius: 0 6px 0 0;
-	-webkit-border-radius: 0 6px 0 0;
-	border-radius: 0 6px 0 0;
-}
-
-.zebra tfoot td {
-	border-bottom: 0;
-	border-top: 1px solid #fff;
-	background-color: #f1f1f1;
-}
-
-.zebra tfoot td:first-child {
-	-moz-border-radius: 0 0 0 6px;
-	-webkit-border-radius: 0 0 0 6px;
-	border-radius: 0 0 0 6px;
-}
-
-.zebra tfoot td:last-child {
-	-moz-border-radius: 0 0 6px 0;
-	-webkit-border-radius: 0 0 6px 0;
-	border-radius: 0 0 6px 0;
-}
-
-#title {
-	background-color: #999999;
-	font-size: 15px;
-	height: 22px;
-	margin-left: 240px;
-	margin-top: 70px;
-}
-
-#title1 {
-	background-color: #DCDCDC;
-	font-size: 15px;
-	height: 22px;
-}
-
-#title2 {
-	background-color:#999999;
-	font-size: 15px;
-	height: 22px;
-	margin-left: 244px;
-}
-
-#title:HOVER {
-	background-color: #DCDCDC;
-}
-
-#title1:HOVER {
-	background-color: #DFE9F6;
-}
-
-#title2:HOVER {
-	background-color: #DCDCDC;
-}
-
-p {
-	margin-left: 12px;
-	margin-top: 2px;
-}
-
-#tt {
-	margin-left: 300px;
-}
-
-.demo {
-	margin-left: 240px;
-}
-</style>
-
-
+<link rel="stylesheet" href="<%=basePase%>css/result.css">
 <link rel="stylesheet" href="<%=basePase%>styles/social-buttons.css">
 <script language="javascript" type="text/javascript"
 	src="<%=basePase%>My97DatePicker/WdatePicker.js"></script>
@@ -154,7 +38,7 @@ function  test1(x){
 		var tid = document.getElementById("tid").value;
 		var etime = document.getElementById("e1").value;
 
-		window.location.href = "../usershowInfo.jsp?type=" + type + "&stime="
+		window.location.href = "../showHtmlReport.jsp?type=" + type + "&stime="
 				+ stime + "&tid=" + tid + "&etime=" + etime + "&ct=" + x;
 	}
 function check(){
@@ -221,29 +105,28 @@ function check(){
                         <li id="c_report"><h2>历史记录管理</h2>
                             <ul>
                                 <li id="i_device_list"><a title="报表查询"
-                                                          href="../device/gouserresearch">报表查询</a></li>
+                                                          href="<%=basePase%>device/gouserresearch">报表查询</a></li>
                                 <li id="i_device_list"><a title="点检上传"
-                                                          href="../device/userupload">点检上传</a></li>
-                                <li id="i_device_new"><a title="点检查询"
-                                                         href="../test.jsp">人员设备配置查询</a></li>
+                                                          href="<%=basePase%>device/userupload">点检上传</a></li>
+
                             </ul></li>
                         <li id="c_users"><h2>人员管理</h2>
                             <ul>
                                 <li id="i_users_new"><a title="添加 员工"
-                                                        href="../users/create">添加 员工</a></li>
+                                                        href="<%=basePase%>users/create">添加 员工</a></li>
                                 <li id="i_users_list"><a title="查询人员"
-                                                         href="../users/list">查询人员</a></li>
+                                                         href="<%=basePase%>users/list">查询人员</a></li>
                             </ul></li>
                         <li id="c_inspecttagrfid"><h2>项目管理</h2>
                             <ul>
                                 <li id="i_inspecttagrfid_new"><a title="添加 标签"
-                                                                 href="../inspectTagRfId/create">添加 标签</a></li>
+                                                                 href="<%=basePase%>inspectTagRfId/create">添加 标签</a></li>
                                 <li id="i_device_new"><a title="添加设备"
-                                                         href="../device/create">添加设备</a></li>
+                                                         href="<%=basePase%>device/create">添加设备</a></li>
                                 <li id="i_inspecttagrfid_list"><a title="查询标签"
-                                                                  href="../inspectTagRfId/list">查询标签</a></li>
+                                                                  href="<%=basePase%>inspectTagRfId/list">查询标签</a></li>
                                 <li id="i_device_list"><a title="查询设备"
-                                                          href="../device/list">查询设备</a></li>
+                                                          href="<%=basePase%>device/list">查询设备</a></li>
                             </ul></li>
                     </ul>
                 </div>

@@ -9,6 +9,10 @@
 <%@ page import="model.PageInspectTable" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.execute.insertToDevice" %>
+<%@page import="com.springsource.roo.inspect.dao.InspectTableImpl"%>
+<%@page import="java.io.FileInputStream"%>
+<%@page import="java.io.InputStream"%>
+<%@page import="java.io.OutputStream"%>
 <html>
 <head>
     <title></title>
@@ -25,12 +29,6 @@
           int len=str.length/6;
           List<PageInspectTable> list=new ArrayList<PageInspectTable>();
           for(int i=0;i<len;i++){
-            /*System.out.println(str[idx1]);
-            System.out.println(str[idx2]);
-            System.out.println(str[idx3]);
-            System.out.println(str[idx4]);
-              System.out.println(str[idx5]);
-              System.out.println(str[idx6]);*/
               PageInspectTable p=new PageInspectTable();
              p.setTypename(str[idx1]);
               p.setTypeid(Integer.parseInt(str[idx2]));
@@ -38,7 +36,6 @@
               p.setTagname(str[idx4]);
               p.setTagid(Integer.parseInt(str[idx5]));
               p.setTagnumbers(str[idx6]);
-
               idx1 +=6 ;
               idx2 +=6 ;
               idx3 +=6 ;
@@ -47,23 +44,32 @@
               idx6 +=6 ;
               list.add(p);
           }
-         /* Iterator it=list.iterator();
-          System.out.println("************");
-          while(it.hasNext()){
-              PageInspectTable p=(PageInspectTable)it.next();
-               System.out.print(p.getTypename());
-              System.out.print(p.getTypeid());
-              System.out.print(p.getDevicenumber());
-
-          }*/
           String pathname = "web-app/xmlFile/tags.xml";
           insertToDevice e=new insertToDevice();
           boolean b=e.createXml(pathname,list);
           if(b==true){
-              out.print("生成配置文件成功！");
-          }else{
-              out.print("生成文件失败！");
+          String downFilename = "tags.xml";
+          String filepath =request.getSession().getServletContext().getRealPath("/xmlFile/" + downFilename);//要下载的文件完整路径
+          response.setContentType("text/plain");
+          response.setHeader("Location",
+                  new String(downFilename.getBytes("GBK"), "UTF-8"));
+          response.setHeader("Content-Disposition", "attachment; filename="
+                  + new String(downFilename.getBytes("gb2312"),"ISO8859-1"));
+          OutputStream outputStream = response.getOutputStream();
+          InputStream inputStream = new FileInputStream(filepath);
+          byte[] buffer = new byte[1024];
+          int i = -1;
+          while ((i = inputStream.read(buffer)) != -1) {
+              outputStream.write(buffer, 0, i);
           }
+          outputStream.flush();
+          outputStream.close();
+          inputStream.close();
+          out.clear();
+          out = pageContext.pushBody();
+           }else {
+               out.print("生成文件失败！");
+           }
       %>
 </body>
 </html>

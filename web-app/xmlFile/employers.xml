@@ -23,4 +23,11 @@
     <name>工作人员3</name>
     <number>3</number>
   </employer>
+  <employer>
+    <cardType>1</cardType>
+    <role>门机司机</role>
+    <roleNum>5</roleNum>
+    <name>zhangxiaoming</name>
+    <number>32</number>
+  </employer>
 </employers>

@@ -1,0 +1,84 @@
+package com.csei.risk;
+
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import net.sf.jasperreports.engine.export.JRHtmlExporter;
+import net.sf.jasperreports.engine.export.JRHtmlExporterParameter;
+import net.sf.jasperreports.engine.util.JRLoader;
+import  java.sql.DriverManager;
+import com.mysql.jdbc.Driver;
+import java.sql.Timestamp;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: xiaozhujun
+ * Date: 13-8-25
+ * Time: 下午6:59
+ * To change this template use File | Settings | File Templates.
+ */
+public class ReportService {
+    public static String exportRiskReport(String reportTemplate,String time,String l,String p) throws JRException {
+        String url = "jdbc:mysql://localhost:3306/inspect3";
+        Connection connection=null;
+        try{
+        Class.forName("com.mysql.jdbc.Driver");
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        try{
+        connection = DriverManager.getConnection(url, "root", "root");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+            File reportFile = new File(reportTemplate);
+    /*InputStream reportStream =getServletConfig().getServletContext().getResourceAsStream("/report/RiskReportTemplate.jasper");*/
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        format.setLenient(false);
+        Timestamp ts = null;
+        try {
+            ts = new Timestamp(format.parse(time).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        long t1 = Long.parseLong(l);
+        Map parameters = new HashMap();
+        parameters.put("stime",ts);
+        parameters.put("tid", t1);
+        /*parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/")+"/");*/
+        parameters.put("SUBREPORT_DIR",p);
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reportFile.getPath());
+        Map map=new HashMap();
+        map.put("title","我的报表");
+        OutputStream outputStream = new ByteArrayOutputStream();
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,connection );
+  /*  JasperPrint jasperPrint = JasperFillManager.fillReport(reportFile.getPath(),new HashMap(),ds);*/
+
+        JRHtmlExporter exporter = new JRHtmlExporter();
+        exporter.setParameter(
+                JRHtmlExporterParameter.IS_USING_IMAGES_TO_ALIGN,
+                Boolean.FALSE);
+        exporter.setParameter(JRExporterParameter.JASPER_PRINT,
+                jasperPrint);
+        exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING,
+                "UTF-8");
+        exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
+                outputStream);
+        exporter.exportReport();
+        String result =  outputStream.toString();
+        System.out.println(result);
+        return result;
+    }
+}
