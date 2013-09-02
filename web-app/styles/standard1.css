@@ -1,8 +1,8 @@
 /* main elements */
 body,div,td {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #666;
+	font-size: 20px;
+	color: black;
 	margin:0;
 }
 
@@ -16,7 +16,7 @@ body {
 }
 
 #wrapper {
-	width: 1400px;
+	width: 100%;
 	min-width: 800px;
 	margin-right: auto;
 	margin-left: auto;

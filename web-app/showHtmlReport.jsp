@@ -45,7 +45,7 @@
             <input type="hidden" value="<%=stime%>" id="s">
             <input type="hidden" value="<%=tid%>" id="tid">
             <input type="hidden" value="<%=etime%>" id="e">
-            <div style="margin-left: 950px;cursor: pointer;" class="tabItem"><a style="text-decoration: none;" href = "#" onclick="test1()">导出文件</a></div>
+            <div style="margin-left: 960px;cursor: pointer;margin-top:2px;" class="tabItem"><a style="text-decoration: none;" href = "#" onclick="test1()">导出文件</a></div>
         <%
             String reportTemplate = this.getServletConfig().getServletContext().getRealPath(
                     "/report/report2.jasper");

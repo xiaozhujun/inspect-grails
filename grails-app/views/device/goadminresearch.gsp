@@ -42,13 +42,13 @@
     <style>
     #t1{
 
-        width: 1108px;
+        width: 100%;
         height: 121px;
         float: left;
     }
     #title{
         background-color: #999999;
-        width:1108px;
+        width:100%;
         height: 29px;
         float: left;
     }           a
