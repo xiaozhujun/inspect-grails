@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <RolesTable>
-  <!--创建RolesTable成功-->
   <Role name="机修人员">
     <TableItem>机修人员点检表</TableItem>
   </Role>

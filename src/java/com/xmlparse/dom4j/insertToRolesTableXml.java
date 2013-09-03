@@ -18,7 +18,7 @@ public class insertToRolesTableXml {
 
 		Document doc = DocumentHelper.createDocument();
 		Element usersEle = doc.addElement("RolesTable");
-		usersEle.addComment("创建RolesTable成功");
+
 
 		List<PageInspectTable> al = new ReadRolesTableData().getRoles();
 

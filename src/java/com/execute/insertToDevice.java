@@ -22,7 +22,7 @@ public class insertToDevice {
         Document doc = DocumentHelper.createDocument();
 
         Element cEle = doc.addElement("tags");
-        cEle.addComment("成功生成tags");
+
 
         boolean b=false;
 

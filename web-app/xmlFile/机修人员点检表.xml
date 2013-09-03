@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <check inspecttype="机修人员点检表" inspecttime="" worker="" devicenumber="">
-  <!--成功生成check-->
   <devicetype name="门机">
-    <location name="标签1">
+    <location name="行走区域">
       <field name="铁鞋、锚定" isInput="false" description="" unit="">
         <value name="正常"/>
         <value name="异常"/>
@@ -79,8 +78,73 @@
         <value name="异常"/>
         <value name="无 "/>
       </field>
+      <field name="江东父老" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="test" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="test" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="test" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="test" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="test" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="test" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="test" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="dakd" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="dakd" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="HHH" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="HHH" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="HHH" isInput="" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
     </location>
-    <location name="标签2">
+    <location name="转盘区域">
       <field name="齿轮齿圈" isInput="false" description="" unit="">
         <value name="正常"/>
         <value name="异常"/>
@@ -127,7 +191,7 @@
         <value name="无 "/>
       </field>
     </location>
-    <location name="标签3">
+    <location name="司机室区域">
       <field name="减速箱" isInput="false" description="" unit="">
         <value name="正常"/>
         <value name="异常"/>
@@ -194,7 +258,7 @@
         <value name="无 "/>
       </field>
     </location>
-    <location name="标签4">
+    <location name="臂架区域">
       <field name="钢丝绳" isInput="false" description="" unit="">
         <value name="正常"/>
         <value name="异常"/>

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<check inspecttype="门机周一定保专项点检卡片" inspecttime="" worker="" devicenumber="">
+  <devicetype name="门机">
+    <location name="行走区域">
+      <field name="1#走行减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="2#走行减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="3#走行减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="4#走行减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="5#走行减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="6#走行减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="7#走行减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="8#走行减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="绳头 左开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="卸扣 左开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走驱动齿轮" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各电动铁鞋绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各机构制动器底座螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各机构电机底座螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+    <location name="转盘区域">
+      <field name="各机构制动器底座螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各机构电机底座螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+    <location name="司机室区域">
+      <field name="左回转减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="右回转减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="支持绳减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="开闭绳减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="压板左开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="压板 右开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="压板 右支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="压板 左支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="S轮段 磨损 右开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name=" S轮段 磨损 左支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name=" S轮段 磨损 右支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name=" S轮段 断丝 右开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name=" S轮段 断丝 左支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name=" S轮段 断丝 右支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁段 磨损 右开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁段 磨损 左支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁段 磨损 右支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁段 断丝 右开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁段 断丝 左支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁段 断丝 右支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="绳头 右开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="绳头 左支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="绳头 右支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="卸扣 右开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="卸扣 左支持" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="集中润滑油箱" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="集中润滑管路泄露检查" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="大齿圈" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="开闭减速箱输入输出轴" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="支持减速箱输入输出轴" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="开闭减速箱高速联轴箱" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="开闭卷筒联轴箱" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="支持减速箱高速联轴箱" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="支持卷筒联轴器" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="开闭卷筒压绳器" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="支持卷筒压绳器" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="起升制动器绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="开闭制动器绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="回转制动器绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="脚踏制动器绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="大臂支座下左绞点开裂" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="大臂支座下右绞点开裂" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="大臂上右绞点开裂" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="大臂上左绞点开裂" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="机房底根部开裂" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="大齿圈根部开裂" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各机构制动器底座螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各机构电机底座螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各机构电机底座螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="支持开闭卷筒支座及轴承盖螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+    <location name="臂架区域">
+      <field name="变幅用减速机" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="S轮段 磨损 左开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="S轮段 断丝 左开闭" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁端 左开闭 磨损" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁端 左开闭 断丝" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="变幅齿圈" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="变幅减速箱输入输出轴" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁钢丝绳托辊" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="负荷取力装置绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="变幅制动器绞点" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁尾部各U型槽根部开裂" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁头部各U型槽根部开裂" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各机构制动器底座螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各机构电机底座螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="变幅摇架支座及轴承盖螺栓" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+  </devicetype>
+</check>

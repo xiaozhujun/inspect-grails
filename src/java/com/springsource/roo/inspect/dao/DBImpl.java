@@ -523,13 +523,13 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getTypeDevTag(int d1,int d2,int t){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.id=? and t.id=? group by t.id";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.id=? and t.id=? ";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
-            statement.setInt(1,d1);
+            statement.setInt(1,t);
             statement.setInt(2,d2);
-            statement.setInt(3,t);
+            statement.setInt(3,d1);
             rs = statement.executeQuery();
             while (rs.next()) {
                 PageInspectTable p=new PageInspectTable();
@@ -551,7 +551,7 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getDevTag(int d2,int t){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.id=? group by d.id";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.id=? ";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
@@ -579,7 +579,7 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getTypeDev(int d1,int d2){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id  and d.id=? and t.id=? group by t.id";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id  and d.id=? and t.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
@@ -607,7 +607,7 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getTypeTag(int d1,int t){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and  t.id=? and tag.id=? group by t.id";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and  t.id=? and tag.id=? ";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
@@ -634,7 +634,7 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getType(int d1){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and t.id=? group by t.id";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and t.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
@@ -660,7 +660,7 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getDevice(int d1){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and d.id=? group by d.id";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and d.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
@@ -686,7 +686,7 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getTag(int d1){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? group by tag.id";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);

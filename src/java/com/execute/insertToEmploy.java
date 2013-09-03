@@ -23,7 +23,7 @@ public class insertToEmploy {
 Document doc = DocumentHelper.createDocument();
 
         Element cEle = doc.addElement("employers");
-        cEle.addComment("成功生成employers");
+
 
           boolean b=false;
 

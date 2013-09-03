@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<check inspecttype="门机队机械技术员点检表" inspecttime="" worker="" devicenumber="">
+  <devicetype name="门机">
+    <location name="行走区域">
+      <field name="合斗时无异响，斗口无变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="平衡梁、平衡块平衡良好，抓斗斗体无变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢丝绳头连接处铝套、重型套环、卸扣无变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="检查钢丝绳无断丝，楔头处无断丝" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢丝绳无断丝，绳头检查同上，钩头无变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电缆卷盘无变形，行走时可靠卷放缆" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走电机风机无变形，无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走电机、惯性制动器无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走减速箱无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走开式齿轮无缺油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电动防炮器动作可靠" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="手动铁楔无丢失，防风拉锁无锈蚀" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="防撞缓冲器无变形及损坏" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="手动锚定能可靠锚定" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电气箱无碰撞变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走电机风机无变形、无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走减速箱无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走开式齿轮无缺油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电动防跑器动作可靠" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="手动铁楔无丢失，防风拉锁无锈蚀" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="防撞缓冲器无变形及损坏" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走电机风机无变形、无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走电机、惯性制动器无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走减速箱无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走开式齿轮无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电动防跑器动作可靠" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="手动铁楔无丢失，防风拉锁无锈蚀" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="防撞缓冲器无变形及损坏" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="手动锚定可靠锚定动作" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电气箱无碰撞变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走电机风机无变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走电机、惯性制动器无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走减速箱无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="行走开式齿轮无缺油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电动防跑器动作可靠" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="手动铁楔无丢失，防风拉锁无锈蚀" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="防撞缓冲器无变形及损坏" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="梯子、栏杆无变形，无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="大法兰M42螺栓无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="门架内无漏水，无异物，各箱柜无晃动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+    <location name="转盘区域">
+      <field name="齿圈，小齿轮啮合良好，无漏油，无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="M42双头螺杆无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转及小齿轮接油盘污物不过多" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+    <location name="司机室区域">
+      <field name="旋转刹车使用正常" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="司机室及机器房门和门锁活动灵活，使用可靠" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="进门处旋转电机、风机无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转刹车片间隙均匀且不过薄，缓冲胶圈无老化" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转减速机油位正常且无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转减速箱地脚螺栓无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="油桶内不缺油，且机房内各润滑管道接口无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="集中润滑参数设置正确且运行一个循环工作正常" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转电机、风机无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转刹车片间隙均匀且不过薄，缓冲胶圈无老化" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转减速机油位正常且无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转减速箱地脚螺栓无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="盘式制动器两侧间隙均匀且制动片不过薄" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="制动器各绞点润滑良好" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="减速箱油位正常，油颜色正常，地脚螺栓无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电机、风机及输入联轴节无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="输出轴联轴器无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢板绳压板无松动，卷轴轴承支座螺栓无松动，挡板无间隙" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="压绳轮位置正确，无变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="卷桶上钢丝绳无断丝、跳槽现象" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="盘式制动器两侧间隙均匀且制动片不过薄" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="制动器各绞点润滑良好" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="减速箱油位正常，油颜色正常，地脚螺栓无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="减速箱输入、输出以及制动器轴端无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电机、风机及输入轴联轴节无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="输出轴联轴器无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢丝绳压板无松动，卷筒轴承支座螺栓无松动，挡块无间隙" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="压绳轮位置正确，无变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="卷筒上钢丝绳无断丝、跳槽现象" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="集中润滑各绞点不漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="中心受电器万向节开口销无脱落" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="旋转接油托盘处废油无过多" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="联轴用高强度螺栓无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="栏杆无变形开焊" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="油污无过多" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="大臂与机房连接绞点无裂纹，支座底焊缝无开裂" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+    <location name="臂架区域">
+      <field name="钢丝绳出绳口螺栓无松动，转动灵活，铜块无脱落" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="集中润滑各连接点无滑油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="人字架与机器房顶连接螺栓无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="门机低速做起升动作检查钢丝绳断丝磨损情况" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="房顶无油污或其他杂物" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="电机、风机、联轴节无异响" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="集中润滑各接点无漏油，地面无油污" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="齿条无缺油，压轮无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="地脚螺栓无松动、挡块无间隙" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="低速联轴节无异响，工作正常" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="减速箱输入，输出轴无漏油，油位正常" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="轮式制动器动作灵活，液力推动器位置正确" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="制动片不过薄，打开时双侧间隙均匀" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="各滑轮无异响，滑轮钢丝绳防跳防槽可靠有效" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="滑油油污不严重，滑轮轴承盖螺栓无松动" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="集中润滑分配器及润滑终点接头无漏油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="平衡量支撑架下焊缝无裂纹" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="平衡梁钢结构无开裂变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="绞点润滑良好，油污无过多" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="栏杆无变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="托绳轮油污无过多" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="大拉杆钢结构无变形无裂纹" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="钢结构无开裂变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="顶端滑轮组罩无变形，钢丝绳防跳槽装置可靠有效" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="集中润滑分配器连接头无滑油" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="底部滑轮组罩无变形，钢丝绳防跳槽装置可靠有效" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="底部脚踏平台及栏杆无开裂变形" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+      <field name="象鼻梁与大臂绞点处无裂纹" isInput="false" description="" unit="">
+        <value name="正常"/>
+        <value name="异常"/>
+        <value name="无 "/>
+      </field>
+    </location>
+  </devicetype>
+</check>
