@@ -20,7 +20,7 @@ public class ReadRolesTableData {
 
 	private List<PageInspectTable> getDataFromMysql() {
 		// TODO Auto-generated method stub
-		String sql = "select r.rolename,t.tname,r.id,t.id from Roles r,inspect_table t where t.trole_id=r.id";
+		String sql = "select r.rolename,t.tname,r.id,t.id from Roles r,inspect_table t where t.trole_id=r.id group by t.trole_id";
 
 		Connection connection = ds.getConnection();
 		PreparedStatement statement = null;

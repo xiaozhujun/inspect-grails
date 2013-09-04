@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <% String path = request.getContextPath();
+        String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <link rel="stylesheet" href="styles/head.css" type="text/css">
 <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
 <title>Insert title here</title>

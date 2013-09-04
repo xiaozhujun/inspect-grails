@@ -52,7 +52,7 @@
     <div id='mainHeadDiv'>
         <div id='headTab' class='tabs'>
             <div class='tabItem' url="integrateManagement.html">港机信息可视化</div>
-            <div class='tabItem' ><a href='/inspect/'>港机智能点检</a></div>
+            <div class='tabItem' onclick="location.href='/inspect'">港机智能点检</div>
             <div class='tabItem mainselected' url="mechanismForcast/health-forecast.html">机构健康监测</div>
             <div class='tabItem ' url="structForcast/health-forecast.html">结构健康监测</div>
             <div class='tabItem' url="electricalForcast/health-forecast.html">电气健康监测</div>

@@ -919,6 +919,23 @@ public class DBImpl {
         }
         return name;
     }
+    public List<String> getTnameByRid(int rid){
+        String sql="select  t.tname from Roles r,inspect_Table t where r.id=t.trole_id and t.trole_id=?";
+        String name=null;
+        List<String> list=new ArrayList<String>();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,rid);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                name=rs.getString(1);
+               list.add(name);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
     public static void main(String[] args) {
 		DBImpl d = new DBImpl();
 		List<PageInspectTable> list = d.getRole();
