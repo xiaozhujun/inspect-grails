@@ -63,28 +63,28 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${usersInstance?.itemrecord}">
+
+				%{--<g:if test="${usersInstance?.itemrecord}">
 				<li class="fieldcontain">
 					<span id="itemrecord-label" class="property-label"><g:message code="users.itemrecord.label" default="Itemrecord" /></span>
-					
+
 						<g:each in="${usersInstance.itemrecord}" var="i">
 						<span class="property-value" aria-labelledby="itemrecord-label"><g:link controller="inspectItemRecord" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></span>
 						</g:each>
-					
+
 				</li>
 				</g:if>
-			
+
 				<g:if test="${usersInstance?.tablerecord}">
 				<li class="fieldcontain">
 					<span id="tablerecord-label" class="property-label"><g:message code="users.tablerecord.label" default="Tablerecord" /></span>
-					
+
 						<g:each in="${usersInstance.tablerecord}" var="t">
 						<span class="property-value" aria-labelledby="tablerecord-label"><g:link controller="inspectTableRecord" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
 						</g:each>
-					
+
 				</li>
-				</g:if>
+				</g:if>--}%
 			
 				<g:if test="${usersInstance?.urole}">
 				<li class="fieldcontain">
@@ -93,7 +93,7 @@
 						%{--<span class="property-value" aria-labelledby="urole-label"><g:link controller="roles" action="show" id="${usersInstance?.urole?.id}">${usersInstance?.urole?.encodeAsHTML()}</g:link></span>--}%
                     <span class="property-value" aria-labelledby="urole-label"><g:link controller="roles" action="show" id="${usersInstance?.urole?.id}">${rolename}</g:link></span>
 
-					
+
 				</li>
 				</g:if>
                %{--<g:if test="${rolename}">

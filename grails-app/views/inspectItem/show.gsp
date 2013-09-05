@@ -67,7 +67,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${inspectItemInstance?.itemrecord}">
+				%{--<g:if test="${inspectItemInstance?.itemrecord}">
 				<li class="fieldcontain">
 					<span id="itemrecord-label" class="property-label"><g:message code="inspectItem.itemrecord.label" default="Itemrecord" /></span>
 					
@@ -76,7 +76,7 @@
 						</g:each>
 					
 				</li>
-				</g:if>
+				</g:if>--}%
 			
 
 			

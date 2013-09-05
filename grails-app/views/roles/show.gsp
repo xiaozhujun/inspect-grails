@@ -39,11 +39,6 @@
 					
 				</li>
 				</g:if>
-			
-
-			
-
-			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

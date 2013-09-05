@@ -19,30 +19,13 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'menu.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir:'styles',file:'head.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir:'styles',file:'standard1.css')}" type="text/css">
+    <link rel="stylesheet" href="${resource(dir:'css',file:'mymenu.css')}" type="text/css">
     <script type="text/javascript" src='${resource(dir: 'js',file: 'jquery-1.7.2.min.js')}'></script>
     <g:layoutHead/>
     <r:layoutResources />
     <% String path = request.getContextPath();
     String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
-    <style type="text/css">
-    #nav {
-        background-color: highlight;
-        width: 100%;
-        margin-top: 2px;
-    }
 
-    a:LINK {
-        color: #666666;
-        font-size: 15px;
-    }
-    p{
-        margin-left: 4px;
-        font-weight: bold;
-    }
-    #d1{
-        margin-left: 8px;
-    }
-    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -67,7 +50,15 @@
                 <div class="menuItemList">
                     <div class="menuItem"><span id="d1"><g:link url="[action:'goadminresearch',controller:'device']">报表查询</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'adminupload',controller:'device']">点检上传</g:link></span></div>
-                    <div class="menuItem"><span id="d1"><a href="<%= basePase %>searchconfigure.jsp">人员设备配置查询</a></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>配置管理</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem"><span id="d1"><a href="/inspect/searchconfigure.jsp">人员配置查询</a></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="/inspect/devicesearch.jsp">设备配置查询</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'searchlist',controller:'inspectTable']">点检表下载</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="[action:'downroletable',controller:'inspectTable']">人员与点检项目表下载</g:link></span></div>
                 </div>
             </div>
             <div class="menuFunc">

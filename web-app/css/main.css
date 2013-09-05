@@ -148,7 +148,7 @@ img {
 	padding-left: 0;
 	zoom: 1;
     background-color: #999999;
-
+    height: 40px;
 }
 .nav ul:hover{
     background-color: #666666;
@@ -258,10 +258,15 @@ input, select, textarea {
 	border: 1px solid #cccccc;
 	font-size: 1em;
 	padding: 0.2em 0.4em;
+   /* padding: 0em 0em;*/
 }
 
 select {
 	padding: 0.2em 0.2em 0.2em 0;
+   /* padding: 0px;
+    margin: 0px;*/
+
+    height: 32px;
 }
 
 select[multiple] {

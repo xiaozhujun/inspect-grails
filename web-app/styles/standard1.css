@@ -65,7 +65,9 @@ body {
 	background: #666666;
 	text-transform: uppercase;
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 20px;
+    height: 28px;
+   line-height: 28px;
 }
 
 #menu a {
@@ -118,6 +120,8 @@ label {
 }
 
 input {
+    /*padding: 0px;
+    margin: 0px;*/
 
 }
 
@@ -186,7 +190,7 @@ h4 {
 }
 
 a {
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 	font-size: 12px;
 }
 
@@ -254,4 +258,6 @@ ul li {
 	height: 11px;
 	width: 16px;
 }
-
+.selectbtn{
+    cursor: pointer;
+}

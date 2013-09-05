@@ -40,7 +40,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${inspectTableInstance?.item}">
+				%{--<g:if test="${inspectTableInstance?.item}">
 				<li class="fieldcontain">
 					<span id="item-label" class="property-label"><g:message code="inspectTable.item.label" default="Item" /></span>
 					
@@ -60,9 +60,9 @@
 						</g:each>
 					
 				</li>
-				</g:if>
+				</g:if>--}%
 			
-				<g:if test="${inspectTableInstance?.tablerecord}">
+				%{--<g:if test="${inspectTableInstance?.tablerecord}">
 				<li class="fieldcontain">
 					<span id="tablerecord-label" class="property-label"><g:message code="inspectTable.tablerecord.label" default="Tablerecord" /></span>
 					
@@ -72,7 +72,7 @@
 					
 				</li>
 				</g:if>
-			
+			--}%
 
 			
 				<g:if test="${inspectTableInstance?.trole}">

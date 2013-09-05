@@ -17,7 +17,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="layout" content="admin">
-    <title>Insert title here</title>
+    <title>报表查询</title>
     <% String path = request.getContextPath();
     String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
     <script type="text/javascript" src="<%=basePase%>My97DatePicker/WdatePicker.js"></script>
@@ -73,13 +73,13 @@
             <div style="margin-left:10px;margin-top: 45px">
             起始时间:
 
-                <input type="text" id="s" class="Wdate" onClick="WdatePicker()" name="stime">
+                <input type="text" id="s" class="Wdate" onClick="WdatePicker()" name="stime" size="12">
                 终止时间:
-                <input type="text" id="e" class="Wdate" onClick="WdatePicker()" name="etime">
+                <input type="text" id="e" class="Wdate" onClick="WdatePicker()" name="etime" size="12">
 
 
                 报表:
-                <select id="table" name="tid">
+                <select id="table" name="tid" >
                     <%
                         InspectTableRecord r=new InspectTableRecord();
                         DBImpl d1=new DBImpl();
@@ -89,7 +89,7 @@
                         while(l1.hasNext()){
                             r=(InspectTableRecord)l1.next();
                     %>
-                    <option value="<%=r.getTid() %>"><%=r.getTname() %>
+                    <option value="<%=r.getTid() %>" ><%=r.getTname() %>
 
                     </option>
                     <% }
@@ -104,7 +104,7 @@
                     <option value="word">Word格式</option>
                 </select>
                  <span style="margin-left: 5px">
-                <input type="submit" value="查询">
+                <input type="submit" value="查询" class="selectbtn">
                      </span>
 
             </div>

@@ -28,13 +28,4 @@
     <tagAreaNum>3</tagAreaNum>
     <number>0003</number>
   </tag>
-  <tag>
-    <cardType>2</cardType>
-    <deviceType>门座式起重机</deviceType>
-    <deviceTypeNum>1</deviceTypeNum>
-    <deviceNum>menzuo001</deviceNum>
-    <tagArea>臂架区域</tagArea>
-    <tagAreaNum>4</tagAreaNum>
-    <number>0004</number>
-  </tag>
 </tags>

@@ -41,8 +41,8 @@
                                 <g:hiddenField name="id" value="${inspectTableInstance?.id}" />
                                 <g:link class="edit" action="edit" id="${inspectTableInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
                                 <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                                <g:link class="edit" action="generate" id="${inspectTableInstance?.id}"><g:message code="default.button.generate.label"  /></g:link>
-                                <g:link class="edit" action="download" id="${inspectTableInstance?.id}"><g:message code="default.button.download.label" /></g:link>
+                                <g:link class="edit" action="generate" id="${inspectTableInstance?.id}"><g:message code="default.button.download.label"  /></g:link>
+                                %{--<g:link class="edit" action="download" id="${inspectTableInstance?.id}"><g:message code="default.button.download.label" /></g:link>--}%
                             </fieldset>
                         </g:form>
                         </td>

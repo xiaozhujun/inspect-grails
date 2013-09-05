@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>搜索结果页</title>
     <% String path = request.getContextPath();
         String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <link rel="stylesheet" href="<%=basePase%>css/result.css">
@@ -62,20 +62,9 @@ function check(){
     <link href="<%=basePase%>styles/standard1.css" media="screen"
           type="text/css" rel="stylesheet" />
     <link href="<%=basePase%>images/favicon.ico" rel="SHORTCUT ICON" />
+    <link href="<%=basePase%>css/mymenu.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
-    <style type="text/css">
-        #nav {
-            background-color: highlight;
-            width: 100%;
-            margin-top: 2px;
-        }
 
-        a:LINK {
-            color: white;
-            font-size: 15px;
-        }
-
-    </style>
 
 
 </head>
@@ -89,7 +78,7 @@ function check(){
             <div id='mainHeadDiv'>
                 <div id='headTab' class='tabs'>
                     <div class='tabItem' url="integrateManagement.html">港机信息可视化</div>
-                    <div class='tabItem' ><a href='/inspect/'>港机智能点检</a></div>
+                    <div class='tabItem' onclick="location.href='/inspect'">港机智能点检</div>
                     <div class='tabItem mainselected' url="mechanismForcast/health-forecast.html">机构健康监测</div>
                     <div class='tabItem ' url="structForcast/health-forecast.html">结构健康监测</div>
                     <div class='tabItem' url="electricalForcast/health-forecast.html">电气健康监测</div>
@@ -166,7 +155,7 @@ function check(){
 						<option value="excel">Excel格式</option>
 						<option value="word">Word格式</option>
 					</select> <span style="margin-left: 10px"> <input type="submit"
-						value="查询"></span>
+						value="查询" class="selectbtn"></span>
 			</div>
 		</form>
 		<%

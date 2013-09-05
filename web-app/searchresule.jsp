@@ -86,7 +86,7 @@
         if(name==""&&type==""&&ck==""){
            out.println("对不起,请输入查询条件！");
         } else{
-        out.println("<form method='post'><table border=0>");
+        out.println("<form method='post'><table border=1 class='tb1'>");
         out.println("<thead><tr><th width='100px'>用户编号</th><th width='120px'>用户名</th><th width='100px'>类型编号</th><th width='120px'>类型名</th><th width='100px'>操作</th></thead>");
         out.println("<tbody>");
         if(name!=""&&type!=""&&ck!=""){

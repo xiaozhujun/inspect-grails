@@ -5,7 +5,7 @@
 <head>
     <title>智能点检</title>
     <meta name="layout" content="user">
-    <link rel="stylesheet" href="css/">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <% grailsApplication.config.grails.sitemesh.default.layout = "user" %>

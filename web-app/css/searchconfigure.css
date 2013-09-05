@@ -17,39 +17,41 @@
     width:1178px;
     height: 30px;
     float:left;
-    margin-left: 20px;;
+    margin-left: 20px;
+    margin-top: 2px;
 }
 #tt{
     width: 1178px;
     height: 1000px;
     float:left;
-    margin-top: 10px;
+    /*// margin-top: 10px;*/
 }
 #search{
     width: 1178px;
     height: 1000px;
     float:left;
-    margin-top: 10px;
+    /* margin-top: 10px;*/
     margin-left: 20px;
+
 }
 #deviceresearch{
     margin-left: 20px;
     width: 1178px;
     height: 1000px;
     float:left;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     display:none;
 }
 #search1{
     width: 1178px;
-    height: 100px;
+    height: 75px;
     float:left;
     margin-top: 10px;
     margin-left: 20px;
 }
 #search1-1{
     width: 1178px;
-    height: 100px;
+    height: 75px;
     float:left;
     margin-top: 10px;
 }
@@ -70,6 +72,7 @@
     height: 850px;
     float:left;
 
+
 }
 #result1-1{
 
@@ -78,13 +81,90 @@
     float:left;
 }
 #result2{
+    background-color: #EEEEEE;
     width: 50%;
     height: 850px;
     float:left;
 }
 #result2-1{
-
+    background-color: #EEEEEE;
     width: 50%;
     height: 850px;
     float:left;
+}
+.pse{
+    margin-left: 8px;
+    cursor: pointer;
+}
+.relist{
+    margin-left: 10px;
+}
+#sresult{
+    margin-top: 10px;
+}
+#sresult1{
+    margin-top: 10px;
+}
+.tb1{
+    bordercolor:#000000;
+    border-collapse:collapse;
+    cellpadding:0;
+    cellspacing:0;
+}
+.tb1 th{
+    background-color: #999999;
+    font-size:17.5px;
+}
+.tb1 td{
+    font-size:17.5px;
+}
+#testTable{
+    bordercolor:#000000;
+    border-collapse:collapse;
+    cellpadding:0;
+    cellspacing:0;
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#testTable tr{
+    width: 500px;
+
+}
+#testTable th{
+    background-color: #999999;
+    font-size:17.5px;
+    width: 80px;
+}
+#testTable td{
+    font-size:17.5px;
+}
+#testTable1{
+    bordercolor:#000000;
+    border-collapse:collapse;
+    cellpadding:0;
+    cellspacing:0;
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#testTable1 tr{
+    width: 500px;
+
+}
+#testTable1 th{
+    background-color: #999999;
+    font-size:17.5px;
+    width: 80px;
+}
+#testTable1 td{
+    font-size:17.5px;
+}
+.ge{
+
+    border: 1px solid #999999;
+    width: 120px;
+    height: 30px;
+    margin-left: 380px;
+    margin-top: 5px;
+    display: inline-block;
+    cursor: pointer;
 }

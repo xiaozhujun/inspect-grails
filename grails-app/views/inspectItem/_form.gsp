@@ -80,13 +80,16 @@
 		
 	</label>
 	%{--<g:select name="tvalues" from="${inspect.TValue.list()}" multiple="multiple" optionKey="id" size="5" value="${inspectItemInstance?.tvalues*.id}" class="many-to-many"/>--}%
-    <select id="tvalues" name="tvalues" multiple="multiple">
+    %{--<select id="tvalues" name="tvalues" multiple="multiple">
         <g:each in="${valuelist}" var="p">
             <option  value="${p.vid}">${p.tvalue}</option>
 
         </g:each>
 
-    </select>
+    </select>--}%
+<g:each in="${valuelist}" var="p">
+    <input type="checkbox" name="tvalues" value="${p.vid}">${p.tvalue}
+</g:each>
 </div>
 
 

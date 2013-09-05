@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <meta name="layout" content="user">
- <title>Insert title here</title>
+ <title>搜索结果页</title>
    <% String path = request.getContextPath();
     String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <link rel="stylesheet" href="<%=basePase%>css/result.css">
@@ -26,18 +26,9 @@
     <link href="<%=basePase%>styles/standard1.css" media="screen"
           type="text/css" rel="stylesheet" />
     <link href="<%=basePase%>images/favicon.ico" rel="SHORTCUT ICON" />
-    <style type="text/css">
-        #nav {
-            background-color: highlight;
-            width: 100%;
-            margin-top: 2px;
-        }
-
-        a:LINK {
-            color: white;
-            font-size: 15px;
-        }
-    </style>
+    <link href="<%=basePase%>css/mymenu.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="<%=basePase%>styles/head.css" type="text/css">
+    <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
 <script type="text/javascript">
 function  test(x){
 	
@@ -58,7 +49,6 @@ function  test1(x){
 		window.location.href = "../adminShowHtmlReport.jsp?type=" + type + "&stime=" + stime
 				+ "&tid=" + tid + "&etime=" + etime + "&ct=" + x;
 	}
-
 function check(){
 	var s=document.getElementById("s").value;
 	var e=document.getElementById("e").value;
@@ -73,8 +63,7 @@ function check(){
 	
 }
 </script>
-    <link rel="stylesheet" href="<%=basePase%>styles/head.css" type="text/css">
-    <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
+
 </head>
 <body>
 <div id="wrapper">
@@ -85,7 +74,7 @@ function check(){
 <div id='mainHeadDiv'>
     <div id='headTab' class='tabs'>
         <div class='tabItem' url="integrateManagement.html">港机信息可视化</div>
-        <div class='tabItem' ><a href='/inspect/'>港机智能点检</a></div>
+        <div class='tabItem' onclick="location.href='/inspect'">港机智能点检</div>
         <div class='tabItem mainselected' url="mechanismForcast/health-forecast.html">机构健康监测</div>
         <div class='tabItem ' url="structForcast/health-forecast.html">结构健康监测</div>
         <div class='tabItem' url="electricalForcast/health-forecast.html">电气健康监测</div>
@@ -107,60 +96,71 @@ function check(){
                                 <li id="i_device_new"><a title="点检查询"
                                                          href="<%=basePase%>searchconfigure.jsp">人员设备配置查询</a></li>
                             </ul></li>
+                        <li id="c_report"><h2>配置管理</h2>
+                            <ul>
+                                <li id="i_device_list"><a title="人员配置查询"
+                                                          href="/inspect/searchconfigure.jsp">人员配置查询</a></li>
+                                <li id="i_device_new"><a title="设备配置查询"
+                                                         href="/inspect/devicesearch.jsp">设备配置查询</a></li>
+                                <li id="i_device_new"><a title="点检表下载"
+                                                         href="/inspect/inspectTable/searchlist">点检表下载</a></li>
+                                <li id="i_device_new"><a title="人员与点检项目对应表下载"
+                                                         href="/inspect/inspectTable/downroletable">人员与点检项目表下载</a></li>
+                            </ul></li>
                         <li id="c_roles"><h2>人员类型管理</h2>
                             <ul>
-                                <li id="i_roles_new"><a title="添加 人员类型"
-                                                        href="<%=basePase%>roles/create">添加 人员类型</a></li>
+                                <li id="i_roles_new"><a title="添加人员类型"
+                                                        href="<%=basePase%>roles/create">添加人员类型</a></li>
                                 <li id="i_roles_list"><a title="查询人员类型"
                                                          href="<%=basePase%>roles/list">人员类型列表</a></li>
                             </ul></li>
                         <li id="c_users"><h2>人员管理</h2>
                             <ul>
-                                <li id="i_users_new"><a title="添加 员工"
-                                                        href="<%=basePase%>users/admincreate">添加 员工</a></li>
+                                <li id="i_users_new"><a title="添加员工"
+                                                        href="<%=basePase%>users/admincreate">添加员工</a></li>
                                 <li id="i_users_list"><a title="查询人员"
                                                          href="<%=basePase%>users/adminlist">人员列表</a></li>
                             </ul></li>
                         <li id="c_inspecttable"><h2>点检表管理</h2>
                             <ul>
-                                <li id="i_inspecttable_new"><a title="添加 点检表"
-                                                               href="<%=basePase%>inspectTable/create">添加 点检表</a></li>
+                                <li id="i_inspecttable_new"><a title="添加点检表"
+                                                               href="<%=basePase%>inspectTable/create">添加点检表</a></li>
                                 <li id="i_inspecttable_list"><a title="查询点检表"
                                                                 href="<%=basePase%>inspectTable/list">点检表列表</a></li>
                             </ul></li>
                         <li id="c_inspecttag"><h2>标签类型管理</h2>
                             <ul>
-                                <li id="i_inspecttag_new"><a title="添加 标签类型"
-                                                             href="<%=basePase%>inspectTag/create">添加 标签类型</a></li>
+                                <li id="i_inspecttag_new"><a title="添加标签类型"
+                                                             href="<%=basePase%>inspectTag/create">添加标签类型</a></li>
                                 <li id="i_inspecttag_list"><a title="查询标签类型"
                                                               href="<%=basePase%>inspectTag/list">标签类型列表</a></li>
                             </ul></li>
                         <li id="c_tvalue"><h2>点检选项管理</h2>
                             <ul>
-                                <li id="i_tvalue_new"><a title="添加 选项"
-                                                         href="<%=basePase%>TValue/create">添加 选项</a></li>
+                                <li id="i_tvalue_new"><a title="添加选项"
+                                                         href="<%=basePase%>TValue/create">添加选项</a></li>
                                 <li id="i_tvalue_list"><a title="查询选项"
                                                           href="<%=basePase%>TValue/list">选项列表</a></li>
                             </ul></li>
                         <li id="c_inspectitem"><h2>点检项管理</h2>
                             <ul>
-                                <li id="i_inspectitem_new"><a title="添加 点检项"
-                                                              href="<%=basePase%>inspectItem/create">添加 点检项</a></li>
+                                <li id="i_inspectitem_new"><a title="添加点检项"
+                                                              href="<%=basePase%>inspectItem/create">添加点检项</a></li>
                                 <li id="i_inspectitem_list"><a title="查询点检项"
                                                                href="<%=basePase%>inspectItem/list">点检项列表</a></li>
                             </ul></li>
 
                         <li id="c_device"><h2>设备管理</h2>
                             <ul>
-                                <li id="i_device_new"><a title="添加 设备"
-                                                         href="<%=basePase%>device/admincreate">添加 设备</a></li>
+                                <li id="i_device_new"><a title="添加设备"
+                                                         href="<%=basePase%>device/admincreate">添加设备</a></li>
                                 <li id="i_device_list"><a title="查询设备"
                                                           href="<%=basePase%>device/adminlist">设备列表</a></li>
                             </ul></li>
                         <li id="c_inspecttagrfid"><h2>标签管理</h2>
                             <ul>
-                                <li id="i_inspecttagrfid_new"><a title="添加 标签"
-                                                                 href="<%=basePase%>inspectTagRfId/admincreate">添加 标签</a></li>
+                                <li id="i_inspecttagrfid_new"><a title="添加标签"
+                                                                 href="<%=basePase%>inspectTagRfId/admincreate">添加标签</a></li>
 
                             </ul>
                             <ul>
@@ -170,7 +170,7 @@ function check(){
                             </ul></li>
                           <li id="c_devicetype"><h2>设备类型管理</h2>
                             <ul>
-                                <li id="i_devicetype_new"><a title="添加 标签"
+                                <li id="i_devicetype_new"><a title="添加标签"
                                                              href="<%=basePase%>deviceType/create">添加设备类型</a></li>
                                 <li id="i_devicetype_list"><a title="查询标签"
                                                               href="<%=basePase%>deviceType/list">设备类型列表</a></li>
@@ -221,7 +221,7 @@ function check(){
 						<option value="excel">Excel格式</option>
 						<option value="word">Word格式</option>
 					</select> <span style="margin-left: 10px"><input type="submit"
-						value="查询"></span>
+						value="查询" class="selectbtn"></span>
 			</div>
 		</form>
 

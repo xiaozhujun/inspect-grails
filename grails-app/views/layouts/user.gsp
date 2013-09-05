@@ -19,32 +19,10 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'menu.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir:'styles',file:'head.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir:'styles',file:'standard1.css')}" type="text/css">
+    <link rel="stylesheet" href="${resource(dir:'css',file:'mymenu.css')}" type="text/css">
     <script type="text/javascript" src='${resource(dir: 'js',file: 'jquery-1.7.2.min.js')}'></script>
     <g:layoutHead/>
     <r:layoutResources />
-    <style type="text/css">
-        body{
-            font-size: 20px;
-        }
-    #nav {
-        background-color: highlight;
-        width: 100%;
-        margin-top: 2px;
-    }
-
-    a:LINK {
-        color: #666666;
-        font-size: 15px;
-    }
-    p{
-            margin-left: 4px;
-        font-weight: bold;
-        }
-        #d1{
-            margin-left: 8px;
-        }
-
-    </style>
 </head>
 <body>
 <div id="wrapper">

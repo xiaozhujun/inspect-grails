@@ -11,7 +11,7 @@
 <%@ page import="com.springsource.roo.inspect.dao.DBImpl" %>
 <html>
 <head>
-    <title></title>
+    <title>人员查询页面</title>
     <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
     <script>
         $(function(){
@@ -78,7 +78,7 @@
     <div><jsp:include page="leftmenu.jsp"></jsp:include></div>
      <div id="t">
         <div id="n1">
-            <font color="#666666" size="4">搜索</font><span onclick="showuser()" style="margin-left: 30px">人员查询</span><a herf="#" onclick="showdevice()" style="margin-left: 20px">设备查询</a>
+            <span onclick="showuser()" class="pse">人员查询</span><span onclick="showdevice()" class="pse">设备查询</span>
 
         </div>
          <div id="tt">
@@ -104,7 +104,7 @@
                      %>
                  </select>
                      已发卡：<input type="radio" value="1" id="ck1"> 未发卡：<input type="radio" value="0" id="ck2">
-                     <input type="button" value="查询" id="btn">
+                     <input type="button" value="查询" id="btn" class="selectbtn">
                  </form>
              </div>
 
@@ -112,7 +112,7 @@
              <div>
              </div>
              <div id="resultx">
-                 查询结果:
+                 <span class="relist">结果列表:</span>
              </div>
              <div id="result1">
                  <div id="sresult">
@@ -122,18 +122,16 @@
              </div>
              <div id="result2">
 
-                     <table id="testTable1" border="0" width="500">
-                         <thead>
-                         <tr><td><a href="#" onclick="generate1()">导出配置文件</a></td></tr>
-                         </thead>
+                     <table id="testTable1" border="1" width="500">
+
                          <tbody>
-                         <tr><td>用户编号</td><td >用户名</td><td>类型编号</td><td >类型名</td><td >操作</td></tr>
+                         <tr><th>用户编号</th><th>用户名</th><th>类型编号</th><th>类型名</th><th>操作</th></tr>
 
                          </tbody>
 
                      </table>
                      <div id="gresult1"></div>
-
+                 <span class="ge" onclick="generate1()">导出配置文件</span>
              </div>
          </div>
          <div id="deviceresearch">
@@ -191,11 +189,11 @@
                      %>
                  </select>
 
-                     <input type="button" value="查询" id="btn1">
+                     <input type="button" value="查询" id="btn1" class="selectbtn">
                  </form>
              </div>
              <div id="result-1">
-                结果列表:
+                 <span class="relist">结果列表:</span>
              </div>
              <div id="result1-1">
                  <div id="sresult1">
@@ -204,20 +202,19 @@
                  </div>
              </div>
              <div id="result2-1">
-                 <div id="resule" style="display:none">
+                 <div id="resule" >
 
-                     <table id="testTable" border="0" width="500">
-                         <thead>
-                         <tr><td><a href="#" onclick="generate()">导出配置文件</a></td></tr>
-                         </thead>
+                     <table id="testTable" border="1" width="510">
+
                          <tbody>
-                         <tr><td>设备类型</td><td >设备类型编号</td><td>设备编号</td><td >标签区域</td><td>标签号</td><td >标签编号</td><td >操作</td></tr>
+                         <tr><th>设备类型</th><th >设备类型编号</th><th>设备编号</th><th >标签区域</th><th>标签号</th><th>标签编号</th><th>操作</th></tr>
 
                          </tbody>
 
                      </table>
                      <div id="gresult"></div>
                  </div>
+                 <span class="ge" onclick="generate()">导出配置文件</span>
              </div>
          </div>
          </div>

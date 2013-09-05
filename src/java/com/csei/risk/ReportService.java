@@ -78,7 +78,6 @@ public class ReportService {
                 outputStream);
         exporter.exportReport();
         String result =  outputStream.toString();
-        System.out.println(result);
         return result;
     }
 }

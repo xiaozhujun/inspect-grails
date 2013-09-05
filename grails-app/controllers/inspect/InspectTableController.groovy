@@ -18,6 +18,10 @@ class InspectTableController {
         params.max = Math.min(max ?: 10, 100)
         [inspectTableInstanceList: InspectTable.list(params), inspectTableInstanceTotal: InspectTable.count()]
     }
+    def searchlist(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        [inspectTableInstanceList: InspectTable.list(params), inspectTableInstanceTotal: InspectTable.count()]
+    }
 
     def create() {
         List<PageInspectTable> rlist=d.getRoleName();
@@ -120,12 +124,14 @@ class InspectTableController {
         request.setAttribute("id",id1);
         render (view:"downSuccess");
     }
-    def download(Long id){
+   /* def download(Long id){
         int id1=Integer.parseInt(id.toString())
         request.setAttribute("id",id1);
         render(view:"downSucc");
-    }
+    }*/
     def downroletable(){
+        String pathname1=request.getSession().getServletContext().getRealPath("/xmlFile/RolesTable.xml");
+        new insertToRolesTableXml().createXml(pathname1);
         render(view:"downroletable");
     }
 }

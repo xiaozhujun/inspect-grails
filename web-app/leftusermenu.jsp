@@ -12,18 +12,7 @@
 <link href="styles/standard1.css" media="screen"
 	type="text/css" rel="stylesheet" />
 <link href="images/favicon.ico" rel="SHORTCUT ICON" />
-<style type="text/css">
-#nav {
-	background-color: highlight;
-	width: 100%;
-	margin-top: 2px;
-}
-
-a:LINK {
-	color: white;
-	font-size: 15px;
-}
-</style>
+<link href="css/mymenu.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div id="main">

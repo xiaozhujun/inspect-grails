@@ -23,7 +23,7 @@
 			</g:if>
 			<ol class="property-list TValue">
 			
-				<g:if test="${TValueInstance?.item}">
+				%{--<g:if test="${TValueInstance?.item}">
 				<li class="fieldcontain">
 					<span id="item-label" class="property-label"><g:message code="TValue.item.label" default="Item" /></span>
 					
@@ -32,9 +32,9 @@
 						</g:each>
 					
 				</li>
-				</g:if>
+				</g:if>--}%
 			
-				<g:if test="${TValueInstance?.itemrecord}">
+				%{--<g:if test="${TValueInstance?.itemrecord}">
 				<li class="fieldcontain">
 					<span id="itemrecord-label" class="property-label"><g:message code="TValue.itemrecord.label" default="Itemrecord" /></span>
 					
@@ -43,7 +43,7 @@
 						</g:each>
 					
 				</li>
-				</g:if>
+				</g:if>--}%
 			
 				<g:if test="${TValueInstance?.tvalue}">
 				<li class="fieldcontain">

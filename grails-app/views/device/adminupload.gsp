@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="layout" content="admin">
-    <title>Insert title here</title>
+    <title>点检上传</title>
     <link rel="stylesheet" href="styles/styles.css">
     <style>
     #t1{
@@ -121,14 +121,14 @@
                     </a>
                 </div>
                 <div class="progress"
-                     style="width: 400px; float: left; margin-left: 10px; margin-top: 5px;">
+                     style="width: 400px; float: left; margin-left: 10px; margin-top: 5px;height: 28px">
                     <div class="bar"></div>
                     <div class="percent">0%</div>
                 </div>
                 <div id="status" style="background-color: yellow"></div>
 
                 <div style="float: left; margin-left: 10px; margin-top: 5px;">
-                    <input type="submit" value="上传" />
+                    <input type="submit" value="上传" class="selectbtn"/>
                 </div>
             </div>
 

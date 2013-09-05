@@ -41,7 +41,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${inspectTagInstance?.itemrecord}">
+				%{--<g:if test="${inspectTagInstance?.itemrecord}">
 				<li class="fieldcontain">
 					<span id="itemrecord-label" class="property-label"><g:message code="inspectTag.itemrecord.label" default="Itemrecord" /></span>
 					
@@ -61,7 +61,7 @@
 						</g:each>
 					
 				</li>
-				</g:if>
+				</g:if>--}%
 			
 				<g:if test="${inspectTagInstance?.name}">
 				<li class="fieldcontain">
@@ -81,7 +81,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${inspectTagInstance?.tagrfid}">
+				%{--<g:if test="${inspectTagInstance?.tagrfid}">
 				<li class="fieldcontain">
 					<span id="tagrfid-label" class="property-label"><g:message code="inspectTag.tagrfid.label" default="Tagrfid" /></span>
 					
@@ -90,7 +90,7 @@
 						</g:each>
 					
 				</li>
-				</g:if>
+				</g:if>--}%
 			
 			</ol>
 			<g:form>
