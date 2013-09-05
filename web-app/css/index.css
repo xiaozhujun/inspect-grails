@@ -17,7 +17,7 @@ p{
 }
 #wel{
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 18px;
     display: inline-block;
     width: 100%;
     margin-top: 8px;
@@ -27,6 +27,7 @@ p{
     margin-left: 12px;
     display: inline-block;
     margin-top: 6px;
+    font-size: 18px;
 }
 #content{
     width: 100%;

@@ -168,3 +168,13 @@
     display: inline-block;
     cursor: pointer;
 }
+.delbtn{
+    display: inline-block;
+    width: 70px;
+    height: 20px;
+    border: 1px solid #999999;
+    cursor: pointer;
+    text-align: center;
+    line-height: 20px;
+    background-color: #EEEEEE;
+}

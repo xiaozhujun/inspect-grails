@@ -68,7 +68,6 @@
     </script>
     <script type="text/javascript" src="js/searchconfigure.js"></script>
     <link rel="stylesheet" href="css/searchconfigure.css">
-
 </head>
 <body>
 
