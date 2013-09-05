@@ -17,7 +17,7 @@
     #title{
         background-color: #999999;
         width:1108px;
-        height: 29px;
+        height: 35px;
         float: left;
     }           a
         #title:hover{

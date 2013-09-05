@@ -93,8 +93,6 @@ function check(){
                                                           href="<%=basePase%>device/goadminresearch">报表查询</a></li>
                                 <li id="i_device_new"><a title="点检上传"
                                                           href="<%=basePase%>device/adminupload">点检上传</a></li>
-                                <li id="i_device_new"><a title="点检查询"
-                                                         href="<%=basePase%>searchconfigure.jsp">人员设备配置查询</a></li>
                             </ul></li>
                         <li id="c_report"><h2>配置管理</h2>
                             <ul>

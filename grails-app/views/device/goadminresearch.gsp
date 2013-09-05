@@ -49,9 +49,9 @@
     #title{
         background-color: #999999;
         width:100%;
-        height: 29px;
+        height: 35px;
         float: left;
-    }           a
+    }
         #title:hover{
                     background-color:#DFE9F6 ;
                 }
