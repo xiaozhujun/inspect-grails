@@ -263,11 +263,11 @@ function check(){
 							type="hidden" id="e1" value="'<%=e%>'"> </span>
 						<td><%=r.getTname()%></td>
 						<td><%=r.getUsername()%></td>
-						<td><%=r.getCreatetime()%></td>
+						<td width="210px"><%=r.getCtime().toLocaleString()%></td>
 						<td><a class="sb circle text thick-border twitter"
-							onclick="test('<%=r.getCreatetime()%>')">下载</a> <a
+							onclick="test('<%=r.getCtime().toLocaleString()%>')">下载</a> <a
 							class="sb circle text thick-border twitter"
-							onclick="test1('<%=r.getCreatetime()%>')">查看详细信息</a></td>
+							onclick="test1('<%=r.getCtime().toLocaleString()%>')">查看详细信息</a></td>
 					</tr>
 					<%
 						}

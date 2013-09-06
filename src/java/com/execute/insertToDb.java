@@ -1,9 +1,6 @@
 package com.execute;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,13 +34,15 @@ public class insertToDb {
     			}
     }
 	public void insertToDB1(Date t,int tid,int uid) {        //将创建时间和点检表id插入insepct_table_record
-		Connection connection = ds.getConnection();
+		 System.out.print(t+"11111111111111");
+        Connection connection = ds.getConnection();
 		PreparedStatement statement = null;
 		ResultSet rs=null;
 		String sql2 = "insert into inspect_table_record(createtime,inspecttable_id,worker_id)values(?,?,?)";
 		try {
 			statement = connection.prepareStatement(sql2);
-			statement.setDate(1, new java.sql.Date(t.getTime()));
+			/*statement.setDate(1, new java.sql.Date(t.getTime()));*/
+           statement.setTimestamp(1,new Timestamp(t.getTime()));
 			statement.setInt(2, tid);
             statement.setInt(3, uid);
 			statement.executeUpdate();
@@ -80,7 +79,8 @@ public class insertToDb {
 			statement.setInt(2, tagid);
 			statement.setInt(3, itemid);
 			statement.setInt(4, vid);
-			statement.setDate(5, new java.sql.Date(time.getTime()));
+			/*statement.setDate(5, new java.sql.Date(time.getTime()));*/
+            statement.setTimestamp(5,new Timestamp(time.getTime()));
 			statement.setInt(6,rectableid);
 			statement.setInt(7, uid);
             statement.setInt(8,did);
@@ -251,7 +251,8 @@ public class insertToDb {
 		String sql2 = "select id from inspect_table_record where createtime=? and inspecttable_id=?";
 		try {
 			statement = connection.prepareStatement(sql2);
-			statement.setDate(1, new java.sql.Date(t.getTime()));
+			/*statement.setDate(1, new java.sql.Date(t.getTime()));*/
+            statement.setTimestamp(1,new Timestamp(t.getTime()));
 			statement.setInt(2, tid);
 			rs = statement.executeQuery();
 			while (rs.next()) {

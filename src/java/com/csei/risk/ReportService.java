@@ -49,7 +49,7 @@ public class ReportService {
         }
             File reportFile = new File(reportTemplate);
     /*InputStream reportStream =getServletConfig().getServletContext().getResourceAsStream("/report/RiskReportTemplate.jasper");*/
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         format.setLenient(false);
         Timestamp ts = null;
         try {

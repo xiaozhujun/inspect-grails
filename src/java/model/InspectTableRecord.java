@@ -1,7 +1,7 @@
 package model;
 
 import java.util.Date;
-
+import java.sql.*;
 public class InspectTableRecord {
 
 	private Date createtime;
@@ -26,6 +26,7 @@ public class InspectTableRecord {
 	
 	private String tvalue;
 	
+    private Timestamp ctime;
 
 	public Date getCreatetime() {
 		return createtime;
@@ -114,7 +115,12 @@ public class InspectTableRecord {
 	public void setTvalue(String tvalue) {
 		this.tvalue = tvalue;
 	}
-	
-	
-	
+
+    public Timestamp getCtime() {
+        return ctime;
+    }
+
+    public void setCtime(Timestamp ctime) {
+        this.ctime = ctime;
+    }
 }

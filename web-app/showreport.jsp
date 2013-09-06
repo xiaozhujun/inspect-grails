@@ -47,7 +47,7 @@
 		String url = "jdbc:mysql://localhost:3306/inspect3";
 		Class.forName("com.mysql.jdbc.Driver");
 		Map parameters = new HashMap();
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		format.setLenient(false);
 		Timestamp ts = new Timestamp(format.parse(ct).getTime());
 		long t1 = Long.parseLong(t);

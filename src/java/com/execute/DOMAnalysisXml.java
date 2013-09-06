@@ -51,15 +51,15 @@ public class DOMAnalysisXml {
 			Element e1 = root.element("devicetype");
 		/*	System.out.println(e1.getName() + ":"
 					+ e1.attribute("name").getValue());*/
-		
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			int tid=d.getTid(tname);
 			Date t1;
            /* int uid = tb.getUid(worker);*/
             int uid=Integer.parseInt(worknum);
 			try {
 				t1 = sdf.parse(t);
-                System.out.print("ttttttttttttttt");
+                System.out.print(t1+"ttttttttttttttt");
 				d.insertToDB1(t1,tid,uid);
                 System.out.print("#########");
 				tableRecid=d.getTrecord(t1, tid);
@@ -98,7 +98,7 @@ public class DOMAnalysisXml {
 								+ ge.attribute("name").getValue());*/
 						value = ge.attribute("name").getValue();
 						SimpleDateFormat sdf1 = new SimpleDateFormat(
-								"yyyy-MM-dd");
+								"yyyy-MM-dd HH:mm:ss");
 						Date d1;
 						try {
 							d1 = sdf1.parse(t);
@@ -119,6 +119,16 @@ public class DOMAnalysisXml {
 		// d1.parse("2010/5/4");
 
 	}
+    public static void main(String args[]){
+        /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd　HH:mm:ss");*/
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+         try{
+             Date d=sdf.parse("2013-9-5 16:27:18");
+             System.out.print(d);
+         }catch (Exception e){
+             e.printStackTrace();
+         }
+    }
 
 
 }

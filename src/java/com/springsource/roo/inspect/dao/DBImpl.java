@@ -79,7 +79,8 @@ public class DBImpl {
 				r.setTname(rs.getString(2));
 				r.setUid(rs.getInt(3));
 				r.setUsername(rs.getString(4));
-				r.setCreatetime(rs.getDate(5));
+				/*r.setCreatetime(rs.getDate(5));*/
+              r.setCtime(rs.getTimestamp(5));
 				list.add(r);
 			}
 		} catch (SQLException e) {

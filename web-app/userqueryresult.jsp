@@ -4,6 +4,7 @@
 <%@page import="model.InspectTableRecord"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.List"%>
+<%@ page import="java.sql.Timestamp" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -197,11 +198,11 @@ function check(){
 							type="hidden" id="e" value="'<%=e%>'"> </span>
 						<td><%=r.getTname()%></td>
 						<td><%=r.getUsername()%></td>
-						<td><%=r.getCreatetime()%></td>
+						<td width="210px"><%=r.getCtime().toLocaleString()%></td>
 						<td><a class="sb circle text thick-border twitter"
-							onclick="test('<%=r.getCreatetime()%>')">下载</a> <a
+							onclick="test('<%=r.getCtime().toLocaleString()%>')">下载</a> <a
 							class="sb circle text thick-border twitter"
-							onclick="test1('<%=r.getCreatetime()%>')">查看详细信息</a></td>
+							onclick="test1('<%=r.getCtime().toLocaleString()%>')">查看详细信息</a></td>
 					</tr>
 					<%
 						}
