@@ -68,8 +68,9 @@
     background-color:#999999;
     font-size: 20px;
     height: 32px;
-    margin-left: 240px;
+    margin-left: 230px;
     margin-top: 71px;
+    width: 94%;
 }
 
 #title1 {
@@ -82,7 +83,8 @@
     background-color: #999999;
     font-size: 20px;
     height: 32px;
-    margin-left: 244px;
+    margin-left: 230px;
+    width: 94%;
 }
 
 #title:HOVER {

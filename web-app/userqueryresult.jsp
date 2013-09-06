@@ -128,13 +128,13 @@ function check(){
 
 		<form method="post" action="MMServlet" onsubmit="return check()">
 			<div id="tt">
-				<p>
+                  <p>
 					起始时间: <input type="text" id="s1" class="Wdate"
 						onClick="WdatePicker()" name="stime"> 终止时间: <input
 						type="text" id="e1" class="Wdate" onClick="WdatePicker()"
 						name="etime"><br>
-				</p>
-				<p>
+                 </p>
+                 <p>
 					报表: <select id="table" name="tid">
 						<%
 							DBImpl d1 = new DBImpl();
