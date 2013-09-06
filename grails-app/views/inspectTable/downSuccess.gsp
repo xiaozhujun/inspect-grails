@@ -4,6 +4,7 @@
 <%@page import="java.io.OutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
+<%@ page import="com.cesi.report.downloadXml" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,7 +61,7 @@
     </a>
      <input type="submit" value="上传"/>
     </form> -->
-    <%
+    %{--<%
         request.setCharacterEncoding("UTF-8");
         String id1 =(String)request.getAttribute("id");
         System.out.println(id1);
@@ -88,8 +89,13 @@
         inputStream.close();
         out.clear();
         out = pageContext.pushBody();
-    %>
-
+    %>--}%
+   <% String rel=new downloadXml().downloadXml(1);
+    System.out.print("********************");
+    System.out.print(rel);
+    out.write(rel);
+    out.flush();
+%>
 </center>
 </body>
 </html>

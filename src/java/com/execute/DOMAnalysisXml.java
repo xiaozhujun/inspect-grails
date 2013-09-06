@@ -12,6 +12,10 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import model.MyDataSource;
+/*
+*此类用于点检上传
+*
+* */
 public class DOMAnalysisXml {
 	private insertToDb d = new insertToDb();
 	private MyDataSource ds = new MyDataSource();
@@ -21,7 +25,7 @@ public class DOMAnalysisXml {
 	public void analysisXml(String fileName) {
 		// String tname,String tag,String item,String value,String worker,Date
 		// time
-
+        insertToDb tb=new insertToDb();
 		String tname = null;
 		String tag = null;
 		String item = null;
@@ -30,32 +34,35 @@ public class DOMAnalysisXml {
 		String worker = null;
         String dnum=null;
 		int tableRecid=0;
-
+        String worknum=null;
 		SAXReader saxReader = new SAXReader();
 		try {
 			Document document = saxReader.read(new File(fileName));
 			Element root = document.getRootElement();
-			System.out.println(root.getName() + ":"
+			/*System.out.println(root.getName() + ":"
 					+ root.attribute("inspecttype").getValue() + "--"
 					+ root.attribute("inspecttime").getValue() + "--"
-					+ root.attribute("worker").getValue());
+					+ root.attribute("worker").getValue());*/
 			tname = root.attribute("inspecttype").getValue();
 			t = root.attribute("inspecttime").getValue();
 			worker = root.attribute("worker").getValue();
+            worknum=root.attribute("workernumber").getValue();
             dnum=root.attribute("devicenumber").getValue();
 			Element e1 = root.element("devicetype");
-			System.out.println(e1.getName() + ":"
-					+ e1.attribute("name").getValue());
+		/*	System.out.println(e1.getName() + ":"
+					+ e1.attribute("name").getValue());*/
 		
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			int tid=d.getTid(tname);
 			Date t1;
+           /* int uid = tb.getUid(worker);*/
+            int uid=Integer.parseInt(worknum);
 			try {
 				t1 = sdf.parse(t);
-				System.out.println("------------开始执行db1---------");
-				d.insertToDB1(t1,tid);
+                System.out.print("ttttttttttttttt");
+				d.insertToDB1(t1,tid,uid);
+                System.out.print("#########");
 				tableRecid=d.getTrecord(t1, tid);
-				System.out.println("------------db1执行完------------");
 			} catch (ParseException e12) {
 				// TODO Auto-generated catch block
 				e12.printStackTrace();
@@ -72,14 +79,14 @@ public class DOMAnalysisXml {
 				Iterator<Element> it = elements.iterator();
 				while (it.hasNext()) {
 					Element e = it.next();
-					System.out.println(e.getName() + " : "
+					/*System.out.println(e.getName() + " : "
 							+ e.attribute("name").getValue() + " -- "
 							+ e.attribute("isInput").getName() + ":"
 							+ e.attribute("isInput").getValue() + "--"
 							+ e.attribute("description").getName() + ":"
 							+ e.attribute("description").getValue() + "--"
 							+ e.attribute("unit").getName() + ":"
-							+ e.attribute("unit").getValue());
+							+ e.attribute("unit").getValue());*/
 					item = e.attribute("name").getValue();
 					List<Element> group = e.elements();
 					Iterator<Element> git = group.iterator();
@@ -87,21 +94,15 @@ public class DOMAnalysisXml {
 					while (git.hasNext()) {
 						Element ge = git.next();
 					
-						System.out.println(ge.getName() + " : "
-								+ ge.attribute("name").getValue());
+						/*System.out.println(ge.getName() + " : "
+								+ ge.attribute("name").getValue());*/
 						value = ge.attribute("name").getValue();
 						SimpleDateFormat sdf1 = new SimpleDateFormat(
 								"yyyy-MM-dd");
 						Date d1;
 						try {
 							d1 = sdf1.parse(t);
-                           
-                            
-                            System.out.println("--------------开始执行db------------");
-							d.insertToDB(tname, tag, item, value, worker, d1,tableRecid,dnum);
-							System.out.println("--------------db执行完-------------");
-                            
-							
+							d.insertToDB(tname, tag, item, value, worknum, d1,tableRecid,dnum);
 						} catch (ParseException e11) {
 							// TODO Auto-generated catch block
 							e11.printStackTrace();

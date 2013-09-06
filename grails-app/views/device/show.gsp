@@ -56,7 +56,7 @@
             <li class="fieldcontain">
                 <span id="type-label" class="property-label"><g:message code="device.type.label" default="Type" /></span>
 
-                <span class="property-value" aria-labelledby="type-label"><g:link controller="deviceType" action="show" id="${deviceInstance?.type?.id}">${typename}</g:link></span>
+                <span class="property-value" aria-labelledby="type-label">%{--<g:link controller="deviceType" action="show" id="${deviceInstance?.type?.id}">--}%${typename}%{--</g:link>--}%</span>
 
             </li>
         </g:if>

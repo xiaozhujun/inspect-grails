@@ -11,7 +11,7 @@
 		<a href="#list-device" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-                <li><font size="4" color="white"><g:message code="default.list.label" args="[entityName]" /></font></li>
+                <li><span class="btitle"><g:message code="default.list.label" args="[entityName]" /></span></li>
 
 			</ul>
 		</div>

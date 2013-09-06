@@ -8,14 +8,6 @@
     </label>
     <g:textField name="name" value="${inspectItemInstance?.name}"/>
 </div>
-<div class="fieldcontain ${hasErrors(bean: inspectItemInstance, field: 'description', 'error')} ">
-    <label for="description">
-        <g:message code="inspectItem.description.label" default="Description" />
-
-    </label>
-    <g:textField name="description" value="${inspectItemInstance?.description}"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: inspectItemInstance, field: 'createtime', 'error')} required">
 	<label for="createtime">
 		<g:message code="inspectItem.createtime.label" default="Createtime" />
@@ -91,6 +83,12 @@
     <input type="checkbox" name="tvalues" value="${p.vid}">${p.tvalue}
 </g:each>
 </div>
+<div class="fieldcontain ${hasErrors(bean: inspectItemInstance, field: 'description', 'error')} ">
+    <label for="description">
+        <g:message code="inspectItem.description.label" default="Description" />
 
+    </label>
+    <g:textArea name="description" value="${inspectItemInstance?.description}"/>
+</div>
 
 

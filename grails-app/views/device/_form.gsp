@@ -8,14 +8,6 @@
     </label>
     <g:textField name="devname" value="${deviceInstance?.devname}"/>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'description', 'error')} ">
-    <label for="description">
-        <g:message code="device.description.label" default="Description" />
-
-    </label>
-    <g:textField name="description" value="${deviceInstance?.description}"/>
-</div>
 <div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'numbers', 'error')} ">
     <label for="numbers">
         <g:message code="device.numbers.label" default="Numbers" />
@@ -37,4 +29,10 @@
 
     </select>
 </div>
+<div class="fieldcontain ${hasErrors(bean: deviceInstance, field: 'description', 'error')} ">
+    <label for="description">
+        <g:message code="device.description.label" default="Description" />
 
+    </label>
+    <g:textArea name="description" value="${deviceInstance?.description}"></g:textArea>
+</div>

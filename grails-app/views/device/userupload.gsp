@@ -94,7 +94,7 @@
     .bar {
         background-color: #B4F5B4;
         width: 0%;
-        height: 20px;
+        height: 28px;
         border-radius: 3px;
     }
 

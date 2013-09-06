@@ -44,32 +44,25 @@
               idx6 +=6 ;
               list.add(p);
           }
-          String pathname = "web-app/xmlFile/tags.xml";
           insertToDevice e=new insertToDevice();
-          boolean b=e.createXml(pathname,list);
-          if(b==true){
+          String result=e.insertToDevice(list);
+          if(result!=""){
           String downFilename = "tags.xml";
-          String filepath =request.getSession().getServletContext().getRealPath("/xmlFile/" + downFilename);//要下载的文件完整路径
           response.setContentType("text/plain");
           response.setHeader("Location",
                   new String(downFilename.getBytes("GBK"), "UTF-8"));
           response.setHeader("Content-Disposition", "attachment; filename="
                   + new String(downFilename.getBytes("gb2312"),"ISO8859-1"));
           OutputStream outputStream = response.getOutputStream();
-          InputStream inputStream = new FileInputStream(filepath);
-          byte[] buffer = new byte[1024];
-          int i = -1;
-          while ((i = inputStream.read(buffer)) != -1) {
-              outputStream.write(buffer, 0, i);
-          }
+          outputStream.write(result.getBytes());
           outputStream.flush();
           outputStream.close();
-          inputStream.close();
           out.clear();
           out = pageContext.pushBody();
            }else {
                out.print("生成文件失败！");
            }
+
       %>
 </body>
 </html>

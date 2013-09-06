@@ -19,10 +19,17 @@ function showdevice(){
 }
 function generate(){
     var tableHtml = $("#testTable td.cl1").text();
+    if(tableHtml!=""){
     location.href="generatedevice.jsp?tableHtml="+tableHtml;
-
+    }else{
+        alert("导出数据为空");
+    }
 }
 function generate1(){
     var str = $("#testTable1 td.cl1").text();
+    if(str!=""){
     location.href="generateemployee.jsp?str="+str;
-}
+    }else{
+        alert("导出数据为空");
+    }
+    }

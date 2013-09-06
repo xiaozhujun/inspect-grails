@@ -11,8 +11,6 @@
 <head>
     <title></title>
     <link rel="stylesheet" href="styles/report.css" type="text/css">
-    <% String path = request.getContextPath();
-        String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
     <script type="text/javascript">
         function test1() {
             var x = document.getElementById("c").value;

@@ -72,7 +72,7 @@
 				<li class="fieldcontain">
 					<span id="tagcag-label" class="property-label"><g:message code="inspectTagRfId.tagcag.label" default="Tagcag" /></span>
 					
-						<span class="property-value" aria-labelledby="tagcag-label"><g:link controller="inspectTag" action="show" id="${inspectTagRfIdInstance?.tagcag?.id}">${tagname}</g:link></span>
+						<span class="property-value" aria-labelledby="tagcag-label">%{--<g:link controller="inspectTag" action="show" id="${inspectTagRfIdInstance?.tagcag?.id}">--}%${tagname}%{--</g:link>--}%</span>
 					
 				</li>
 				</g:if>

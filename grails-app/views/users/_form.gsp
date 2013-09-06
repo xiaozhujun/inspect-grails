@@ -13,7 +13,7 @@
         <g:message code="users.userpwd.label" default="Userpwd" />
 
     </label>
-    <g:textField name="userpwd" value="${usersInstance?.userpwd}"/>
+    <g:passwordField name="userpwd"  value="${usersInstance?.userpwd}" required=""></g:passwordField>
 </div>
 <div class="fieldcontain ${hasErrors(bean: usersInstance, field: 'userage', 'error')} required">
     <label for="userage">
@@ -27,7 +27,8 @@
         <g:message code="users.usersex.label" default="Usersex" />
 
     </label>
-    <g:textField name="usersex" value="${usersInstance?.usersex}"/>
+   %{-- <g:textField name="usersex" value="${usersInstance?.usersex}"/>--}%
+  <input type="checkbox" name="usersex" value="男" checked>男        <input type="checkbox" name="usersex" value="女">女
 </div>
 <div class="fieldcontain ${hasErrors(bean: usersInstance, field: 'useraddress', 'error')} ">
     <label for="useraddress">
@@ -41,7 +42,8 @@
 		<g:message code="users.hascard.label" default="Hascard" />
 		
 	</label>
-	<g:textField name="hascard" value="${usersInstance?.hascard}"/>
+	%{--<g:textField name="hascard" value="${usersInstance?.hascard}"/>--}%
+    <input type="checkbox" name="hascard" value="是">是           <input type="checkbox" name="hascard" value="否" checked>否
 </div>
 <div class="fieldcontain ${hasErrors(bean: usersInstance, field: 'urole', 'error')} required">
 	<label for="urole">

@@ -29,6 +29,10 @@ import java.sql.Timestamp;
  * Time: 下午6:59
  * To change this template use File | Settings | File Templates.
  */
+/*
+* 此类主要用于生成以数据库为数据源的报表
+*
+* */
 public class ReportService {
     public static String exportRiskReport(String reportTemplate,String time,String l,String p) throws JRException {
         String url = "jdbc:mysql://localhost:3306/inspect3";

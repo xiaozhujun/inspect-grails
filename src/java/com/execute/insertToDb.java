@@ -36,15 +36,16 @@ public class insertToDb {
     			    }  
     			}
     }
-	public void insertToDB1(Date t,int tid) {
+	public void insertToDB1(Date t,int tid,int uid) {        //将创建时间和点检表id插入insepct_table_record
 		Connection connection = ds.getConnection();
 		PreparedStatement statement = null;
 		ResultSet rs=null;
-		String sql2 = "insert into inspect_table_record(createtime,inspecttable_id)values(?,?)";
+		String sql2 = "insert into inspect_table_record(createtime,inspecttable_id,worker_id)values(?,?,?)";
 		try {
 			statement = connection.prepareStatement(sql2);
 			statement.setDate(1, new java.sql.Date(t.getTime()));
 			statement.setInt(2, tid);
+            statement.setInt(3, uid);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO: handle exception
@@ -54,7 +55,7 @@ public class insertToDb {
 	}
 
 	public void insertToDB(String tname, String tag, String item, String value,
-			String worker, Date time,int rectableid,String dnum) {
+			String worknum, Date time,int rectableid,String dnum) {           //将xml文件解析,然后将数据存入inspect_Item_Record
 
 		// /String sql1 =
 		// "insert into inspect_table_record(inspecttable,createtime)values(?,?)";
@@ -70,7 +71,7 @@ public class insertToDb {
 		int tagid = getTagid(tag);
 		int itemid = getItemid(tagid, tid, item);
 		int vid = getVid(value);
-		int uid = getUid(worker);
+		int uid = Integer.parseInt(worknum);
 		int id = getTRecId(time);
         int did=getDnum(dnum);
 		try {
@@ -102,7 +103,7 @@ public class insertToDb {
 		}*/
 	}
 
-	public int getTRecId(Date t) {
+	public int getTRecId(Date t) {   //得到inspect_table_record的id
 		String sql = "select t.id from inspect_item_record it,inspect_table_record t where it.createtime=t.createtime and t.createtime=? group by t.id";
 		Connection connection = ds.getConnection();
 		PreparedStatement statement = null;
@@ -124,7 +125,7 @@ public class insertToDb {
 		return tid;
 	}
 
-	public int getTid(String name) {
+	public int getTid(String name) {         //得到inspect_table的id
 		
 		String sql = "select id from inspect_table where tname=?";
 		Connection connection = ds.getConnection();
@@ -148,7 +149,7 @@ public class insertToDb {
 
 	}
 
-	public int getTagid(String name) {
+	public int getTagid(String name) {          //得到inspect_tag的id
 		String sql = "select id from inspect_tag where name=?";
 		Connection connection = ds.getConnection();
 		PreparedStatement statement = null;
@@ -171,7 +172,7 @@ public class insertToDb {
 
 	}
 
-	public int getItemid(int tagid, int tid, String name) {
+	public int getItemid(int tagid, int tid, String name) {       //根据tagid,tid,name得到itemid
 		String sql = "select  it.id  from inspect_item it,inspect_tag tg,inspect_table tb where it.tag_id=tg.id and it.inspecttable_id=tb.id and tb.id=? and tg.id=? and it.name=?";
 		Connection connection = ds.getConnection();
 		PreparedStatement statement = null;

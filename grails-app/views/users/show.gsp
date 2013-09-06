@@ -91,7 +91,7 @@
 					<span id="urole-label" class="property-label"><g:message code="users.urole.label" default="Urole" /></span>
 
 						%{--<span class="property-value" aria-labelledby="urole-label"><g:link controller="roles" action="show" id="${usersInstance?.urole?.id}">${usersInstance?.urole?.encodeAsHTML()}</g:link></span>--}%
-                    <span class="property-value" aria-labelledby="urole-label"><g:link controller="roles" action="show" id="${usersInstance?.urole?.id}">${rolename}</g:link></span>
+                    <span class="property-value" aria-labelledby="urole-label">%{--<g:link controller="roles" action="show" id="${usersInstance?.urole?.id}">--}%${rolename}%{--</g:link>--}%</span>
 
 
 				</li>

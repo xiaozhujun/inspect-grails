@@ -6,6 +6,9 @@ import com.xmlparse.dom4j.insertToRolesTableXml
 import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 import com.xmlparse.dom4j.insertToTableTestXml;
+import com.cesi.report.downloadXml
+
+import javax.servlet.jsp.JspWriter;
 class InspectTableController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -112,17 +115,23 @@ class InspectTableController {
     def generate(Long id){
         System.out.print(id+"ID1");
         int id1=Integer.parseInt(id.toString());
-        InspectTableImpl t=new InspectTableImpl();
-        System.out.println(t.getNameById(id1));
-        String tname=t.getNameById(id1);
-        String pathname=request.getSession().getServletContext().getRealPath("/xmlFile/"+tname+".xml");
-        new insertToTableTestXml().createXml(pathname,id1);
+        InspectTableImpl t = new InspectTableImpl();
+        String name = t.getNameById(id1);
+        System.out.println(name + "name");
+        String downFilename = name + ".xml";//要下载的文件名称
+        String filepath=new downloadXml().downloadXml(id1);
+        System.out.print("------------------");
+        response.setContentType("text/plain");
+        response.setHeader("Location",
+                new String(downFilename.getBytes("GBK"), "UTF-8"));
+        response.setHeader("Content-Disposition", "attachment; filename="
+                + new String(downFilename.getBytes("gb2312"),"ISO8859-1"));
+        OutputStream outputStream = response.getOutputStream();
+        outputStream.write(filepath.getBytes());
+        outputStream.flush();
+        outputStream.close();
 
-        String rname=t.getRoleNameByTid(id1);
-        String pathname1=request.getSession().getServletContext().getRealPath("/xmlFile/RolesTable.xml");
-        new insertToRolesTableXml().createXml(pathname1);
-        request.setAttribute("id",id1);
-        render (view:"downSuccess");
+
     }
    /* def download(Long id){
         int id1=Integer.parseInt(id.toString())
@@ -130,8 +139,23 @@ class InspectTableController {
         render(view:"downSucc");
     }*/
     def downroletable(){
-        String pathname1=request.getSession().getServletContext().getRealPath("/xmlFile/RolesTable.xml");
+        /*String pathname1=request.getSession().getServletContext().getRealPath("/xmlFile/RolesTable.xml");
         new insertToRolesTableXml().createXml(pathname1);
-        render(view:"downroletable");
+        render(view:"downroletable");*/
+        String downFilename = "RolesTable.xml";//要下载的文件名称
+        response.setContentType("text/plain");
+        response.setHeader("Location",
+                new String(downFilename.getBytes("GBK"), "UTF-8"));
+        response.setHeader("Content-Disposition", "attachment; filename="
+                + downFilename);
+        String ss=new downloadXml().downloadRoleTable();
+        OutputStream outputStream = response.getOutputStream();
+        outputStream.write(ss.getBytes());
+        outputStream.flush();
+        outputStream.close();
+
+
+
+
     }
 }

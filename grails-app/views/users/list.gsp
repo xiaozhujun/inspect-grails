@@ -12,7 +12,7 @@
 		<div class="nav" role="navigation">
 			<ul>
 
-                <li><font size="4" color="white"><g:message code="default.list.label" args="[entityName]" /></font></li>
+                <li><span class="btitle"><g:message code="default.list.label" args="[entityName]" /></span></li>
 			</ul>
 		</div>
 		<div id="list-users" class="content scaffold-list" role="main">
