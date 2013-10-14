@@ -84,4 +84,44 @@ public class ReportService {
         String result =  outputStream.toString();
         return result;
     }
+    public static String exportPeopleCountByDidDays(String reportTemplate,Long did,Long day) throws JRException{
+        String url = "jdbc:mysql://localhost:3306/inspect3";
+        Connection connection=null;
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        try{
+            connection = DriverManager.getConnection(url, "root", "root");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        File reportFile = new File(reportTemplate);
+  /*InputStream reportStream =getServletConfig().getServletContext().getResourceAsStream("/report/RiskReportTemplate.jasper");*/
+        Map parameters = new HashMap();
+        parameters.put("day",day);
+        parameters.put("devid",did);
+      /*parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/")+"/");*/
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reportFile.getPath());
+        Map map=new HashMap();
+        map.put("title","我的报表");
+        OutputStream outputStream = new ByteArrayOutputStream();
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,connection );
+/*  JasperPrint jasperPrint = JasperFillManager.fillReport(reportFile.getPath(),new HashMap(),ds);*/
+
+        JRHtmlExporter exporter = new JRHtmlExporter();
+        exporter.setParameter(
+                JRHtmlExporterParameter.IS_USING_IMAGES_TO_ALIGN,
+                Boolean.FALSE);
+        exporter.setParameter(JRExporterParameter.JASPER_PRINT,
+                jasperPrint);
+        exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING,
+                "UTF-8");
+        exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
+                outputStream);
+        exporter.exportReport();
+        String result =  outputStream.toString();
+        return result;
+    }
 }

@@ -118,6 +118,19 @@ function check(){
                                 <li id="i_device_list"><a title="查询设备"
                                                           href="<%=basePase%>device/list">查询设备</a></li>
                             </ul></li>
+                        <li id="c_inspecttagrfid"><h2>异常分析</h2>
+                            <ul>
+                                <li id="i_inspecttagrfid_new"><a title="设备异常总数"
+                                                                 href="/inspect/deviceCount.jsp">设备异常总数</a></li>
+                                <li id="i_device_new"><a title="设备异常明细"
+                                                         href="/inspect/deviceInfo.jsp">设备异常明细</a></li>
+                                <li id="i_inspecttagrfid_list"><a title="人员异常点检总数"
+                                                                  href="/inspect/peopleCount.jsp">人员异常点检总数</a></li>
+                                <li id="i_device_list"><a title="人员异常点检明细"
+                                                          href="/inspect/peopleInfo.jsp">人员异常点检明细</a></li>
+                                <li id="i_device_list"><a title="人员异常点检明细"
+                                                          href="/inspect/deviceHistory.jsp">设备异常趋势分析</a></li>
+                            </ul></li>
                     </ul>
                 </div>
             </div>

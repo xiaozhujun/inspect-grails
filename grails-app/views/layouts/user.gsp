@@ -20,9 +20,18 @@
     <link rel="stylesheet" href="${resource(dir:'styles',file:'head.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir:'styles',file:'standard1.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir:'css',file:'mymenu.css')}" type="text/css">
-    <script type="text/javascript" src='${resource(dir: 'js',file: 'jquery-1.7.2.min.js')}'></script>
+    <script type="text/javascript" src='${resource(dir: 'js',file: 'jquery-1.4.2.js')}'></script>
+    <script type="text/javascript" src='${resource(dir: 'js',file: 'DateDiff.js')}'></script>
     <g:layoutHead/>
     <r:layoutResources />
+    <script>
+        $(document).ready(function(){
+            $(".deviceCount").click(function(){
+                alert("1")
+                $("#mainContainer").load("../deviceCount.jsp");
+            })
+        })
+    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -65,6 +74,16 @@
                     <div class="menuItem"><span id="d1"><g:link url="[action:'create',controller:'device']">添加设备</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'list',controller:'inspectTagRfId']">标签列表</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'list',controller:'device']">设备列表</g:link></span></div>
+                </div>
+            </div>
+            <div class="menuFunc">
+                <div class="menuFuncName"><p>异常分析</p></div>
+                <div class="menuItemList">
+                    <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceCount.jsp">设备异常总数</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceInfo.jsp">设备异常明细</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="/inspect/peopleCount.jsp">人员点检异常总数</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="/inspect/peopleInfo.jsp">人员点检异常明细</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link class="/inspect/deviceHistory.jsp">设备异常趋势分析</g:link></span></div>
                 </div>
             </div>
         </div>

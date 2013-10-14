@@ -250,4 +250,5 @@ class DeviceController {
             render(view:'userupload')
         }
     }
+
 }
