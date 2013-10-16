@@ -26,18 +26,33 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#btn").click(function(){
-                $(".report").empty();
+                $(".report1").empty();
+                var stime=$("#stime").val();
+                var etime=$("#etime").val();
+                var day=GetDateDiff(stime,etime,"day");
+                $(".selectF").css("display","block");
+                var s=$("#s").val();
+                if(s=="0"){
+                    $(".report1").load("showHtmlDeviceCount.jsp",{"day":day});
+                }else{
+                    $(".report1").load("showHtmlDCount.jsp",{"day":day,"did":s});
+                    //location.href="showHtmlDCount.jsp?day="+day+"&did="+s;
+                }
+            });
+            $("#btnreport").click(function(){
+                var type=$("#type").val();
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
                 var day=GetDateDiff(stime,etime,"day");
                 var s=$("#s").val();
+                alert(s);
                 if(s=="0"){
-                    $(".report").load("showHtmlDeviceCount.jsp",{"day":day});
+                location.href="exportDeviceCountServlet?day="+day+"&type="+type;
                 }else{
-                    $(".report").load("showHtmlDCount.jsp",{"day":day,"did":s});
-                    //location.href="showHtmlDCount.jsp?day="+day+"&did="+s;
+                location.href="exportDeviceCountServlet?day="+day+"&type="+type+"&did="+s;
                 }
-            });
+
+            })
         });
 
     </script>
@@ -74,7 +89,15 @@
         <a  id="btn" class="btnbu">查看</a>
     </div>
     <div class="report">
-
+        <div class="selectF"  style="margin-left: 305px;display: none ">选择导出类型:<select id="type">
+            <option value="">-----请选择------</option>
+            <option value="pdf">pdf格式</option>
+            <option value="html">html格式</option>
+            <option value="excel">excel格式</option>
+            <option value="word">word格式</option>
+        </select>
+            <a class="btnbu" id="btnreport">导出报表</a></div>
+        <div class="report1"></div>
 
     </div>
 </div>

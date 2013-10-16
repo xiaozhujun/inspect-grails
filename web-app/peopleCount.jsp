@@ -30,10 +30,11 @@
          var etime=$("#etime").val();
          var day=GetDateDiff(stime,etime,"day");
 		 var did=$("#did").val();
+         $(".selectF").css("display","block");
 		 if(did==""){
-		 $(".report").load("showHtmlPeopleCount.jsp",{"day":day});
+		 $(".report1").load("showHtmlPeopleCount.jsp",{"day":day});
 		 }else{
-		 $(".report").load("showHtmlPCount.jsp",{"day":day,"did":did});
+		 $(".report1").load("showHtmlPCount.jsp",{"day":day,"did":did});
 		 }
 		 var s=$("#s").val();
 		 switch(s.charAt(0)){
@@ -45,6 +46,19 @@
 			 break;
 		 }
 	 });
+     $("#btnreport").click(function(){
+         var type=$("#type").val();
+         var stime=$("#stime").val();
+         var etime=$("#etime").val();
+         var day=GetDateDiff(stime,etime,"day");
+         var did=$("#did").val();
+         if(did==""){
+         location.href="exportPeopleCountServlet?day="+day+"&type="+type;
+         }else{
+         location.href="exportPeopleCountServlet?day="+day+"&type="+type+"&did="+did;
+         }
+
+     });
  });
 </script>
 </head>
@@ -79,7 +93,15 @@
 <a  id="btn" class="btnbu">查看</a>
 </div>
 <div class="report">
-
+    <div class="selectF"  style="margin-left: 305px;display: none ">选择导出类型:<select id="type">
+        <option value="">-----请选择------</option>
+        <option value="pdf">pdf格式</option>
+        <option value="html">html格式</option>
+        <option value="excel">excel格式</option>
+        <option value="word">word格式</option>
+    </select>
+        <a class="btnbu" id="btnreport">导出报表</a></div>
+    <div class="report1"></div>
 
 </div>
     </div>

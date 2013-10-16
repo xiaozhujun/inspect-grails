@@ -37,8 +37,10 @@ function  test(x){
 	 var tid=document.getElementById("tid").value;
 	 var etime=document.getElementById("e").value;
 	
-     window.location.href="../showreport.jsp?type="+type+"&stime="+stime+"&tid="+tid+"&etime="+etime+"&ct="+x;
- }
+    // window.location.href="../showreport.jsp?type="+type+"&stime="+stime+"&tid="+tid+"&etime="+etime+"&ct="+x;
+    window.location.href="exportReportServlet?type="+type+"&stime="+stime+"&tid="+tid+"&etime="+etime+"&ct="+x;
+
+}
 function  test1(x){
 	// var t=document.getElementById("'<%=r.getCreatetime()%>'").value;
 		var type = document.getElementById("type").value;

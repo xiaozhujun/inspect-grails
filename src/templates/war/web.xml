@@ -21,6 +21,38 @@
         <url-pattern>/device/MServlet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>exportReportServlet</servlet-name>
+        <servlet-class>com.exportReport.exportReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>exportReportServlet</servlet-name>
+        <url-pattern>/device/exportReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>exportDeviceCountServlet</servlet-name>
+        <servlet-class>com.exportReport.exportDeviceCountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>exportDeviceCountServlet</servlet-name>
+        <url-pattern>/exportDeviceCountServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>exportPeopleInfoServlet</servlet-name>
+        <servlet-class>com.exportReport.exportPeopleInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>exportPeopleInfoServlet</servlet-name>
+        <url-pattern>/exportPeopleInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>exportPeopleCountServlet</servlet-name>
+        <servlet-class>com.exportReport.exportPeopleCountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>exportPeopleCountServlet</servlet-name>
+        <url-pattern>/exportPeopleCountServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>MMServlet</servlet-name>
         <servlet-class>upload.MMServlet</servlet-class>
     </servlet>

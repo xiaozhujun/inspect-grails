@@ -30,12 +30,12 @@
          $(".selectF").css("display","block");
 		  $(".report1").load("showHtmlDeviceCount.jsp",{"day":day});
 	 });
-     $("btnreport").click(function(){
+     $("#btnreport").click(function(){
           var type=$("#type").val();
           var stime=$("#stime").val();
           var etime=$("#etime").val();
           var day=GetDateDiff(stime,etime,"day");
-          location.href=""
+          location.href="exportDeviceCountServlet?day="+day+"&type="+type;
 
      })
  });
@@ -59,12 +59,12 @@
 </div>
 
 <div class="report">
-    <div class="selectF" id="type" style="margin-left: 305px;display: none ">选择导出类型:<select>
+    <div class="selectF"  style="margin-left: 305px;display: none ">选择导出类型:<select id="type">
         <option value="">-----请选择------</option>
-        <option value="p">pdf格式</option>
-        <option value="h">html格式</option>
-        <option value="e">excel格式</option>
-        <option value="w">word格式</option>
+        <option value="pdf">pdf格式</option>
+        <option value="html">html格式</option>
+        <option value="excel">excel格式</option>
+        <option value="word">word格式</option>
     </select>
     <a class="btnbu" id="btnreport">导出报表</a></div>
     <div class="report1"></div>

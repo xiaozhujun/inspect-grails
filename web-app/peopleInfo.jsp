@@ -26,22 +26,42 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#btn").click(function(){
-                $(".report").html("");
+                $(".report1").html("");
+                var stime=$("#stime").val();
+                var etime=$("#etime").val();
+                var day=GetDateDiff(stime,etime,"day");
+                var devid=$("#did").val();
+                var uid=$("#user").val();
+                $(".selectF").css("display","block");
+                if(devid==""&&uid==""){
+                    $(".report1").load("showHtmlpeopleInfo.jsp",{"day":day});
+                }else if(devid!=""&&uid==""){
+                    $(".report1").load("showHtmlpeopleInfoBydid.jsp",{"day":day,"devid":devid});
+                }else if(devid==""&&uid!=""){
+                    $(".report1").load("showHtmlpeopleByUid.jsp",{"day":day,"uid":uid});
+                }else if(devid!=""&&uid!=""&&day!=""){
+                    $(".report1").load("showHtmlpeopleByDUid.jsp",{"day":day,"uid":uid,"devid":devid});
+                }
+            });
+            $("#btnreport").click(function(){
+                var type=$("#type").val();
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
                 var day=GetDateDiff(stime,etime,"day");
                 var devid=$("#did").val();
                 var uid=$("#user").val();
                 if(devid==""&&uid==""){
-                    $(".report").load("showHtmlpeopleInfo.jsp",{"day":day});
+                    //$(".report").load("showHtmlpeopleInfo.jsp",{"day":day});
+                    location.href="exportPeopleInfoServlet?day="+day+"&type="+type;
                 }else if(devid!=""&&uid==""){
-                    $(".report").load("showHtmlpeopleInfoBydid.jsp",{"day":day,"devid":devid});
+                    location.href="exportPeopleInfoServlet?day="+day+"&type="+type+"&did="+devid;
                 }else if(devid==""&&uid!=""){
-                    $(".report").load("showHtmlpeopleByUid.jsp",{"day":day,"uid":uid});
+                    location.href="exportPeopleInfoServlet?day="+day+"&type="+type+"&uid="+uid;
                 }else if(devid!=""&&uid!=""&&day!=""){
-                    $(".report").load("showHtmlpeopleByDUid.jsp",{"day":day,"uid":uid,"devid":devid});
+                    location.href="exportPeopleInfoServlet?day="+day+"&type="+type+"&did="+devid+"&uid="+uid;
                 }
-            });
+
+            })
         });
     </script>
 </head>
@@ -91,7 +111,15 @@
                 <a  id="btn" class="btnbu">查看</a>
         </div>
         <div class="report">
-
+            <div class="selectF"  style="margin-left: 305px;display: none ">选择导出类型:<select id="type">
+                <option value="">-----请选择------</option>
+                <option value="pdf">pdf格式</option>
+                <option value="html">html格式</option>
+                <option value="excel">excel格式</option>
+                <option value="word">word格式</option>
+            </select>
+                <a class="btnbu" id="btnreport">导出报表</a></div>
+            <div class="report1"></div>
 
         </div>
 
