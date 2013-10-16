@@ -20,6 +20,8 @@ import net.sf.jasperreports.engine.export.JRHtmlExporterParameter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import  java.sql.DriverManager;
 import com.mysql.jdbc.Driver;
+
+import javax.servlet.ServletOutputStream;
 import java.sql.Timestamp;
 
 /**
@@ -38,16 +40,16 @@ public class ReportService {
         String url = "jdbc:mysql://localhost:3306/inspect3";
         Connection connection=null;
         try{
-        Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
         }catch (ClassNotFoundException e){
             e.printStackTrace();
         }
         try{
-        connection = DriverManager.getConnection(url, "root", "root");
+            connection = DriverManager.getConnection(url, "root", "root");
         }catch (SQLException e){
             e.printStackTrace();
         }
-            File reportFile = new File(reportTemplate);
+        File reportFile = new File(reportTemplate);
     /*InputStream reportStream =getServletConfig().getServletContext().getResourceAsStream("/report/RiskReportTemplate.jasper");*/
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         format.setLenient(false);
@@ -124,4 +126,6 @@ public class ReportService {
         String result =  outputStream.toString();
         return result;
     }
+
+
 }

@@ -23,12 +23,21 @@
  $(document).ready(function(){ 
 	 $("#btn").click(function(){
          alert("1");
-		 $(".report").html("");
+		 $(".report1").html("");
          var stime=$("#stime").val();
          var etime=$("#etime").val();
          var day=GetDateDiff(stime,etime,"day");
-		  $(".report").load("showHtmlDeviceCount.jsp",{"day":day});
+         $(".selectF").css("display","block");
+		  $(".report1").load("showHtmlDeviceCount.jsp",{"day":day});
 	 });
+     $("btnreport").click(function(){
+          var type=$("#type").val();
+          var stime=$("#stime").val();
+          var etime=$("#etime").val();
+          var day=GetDateDiff(stime,etime,"day");
+          location.href=""
+
+     })
  });
 </script>
 </head>
@@ -48,8 +57,17 @@
 起始时间:<input type="text" id="stime" class="Wdate" onClick="WdatePicker()"> 终止时间:<input type="text" id="etime" class="Wdate" onClick="WdatePicker()">
 <a  id="btn" class="btnbu">查看</a>
 </div>
-<div class="report">
 
+<div class="report">
+    <div class="selectF" id="type" style="margin-left: 305px;display: none ">选择导出类型:<select>
+        <option value="">-----请选择------</option>
+        <option value="p">pdf格式</option>
+        <option value="h">html格式</option>
+        <option value="e">excel格式</option>
+        <option value="w">word格式</option>
+    </select>
+    <a class="btnbu" id="btnreport">导出报表</a></div>
+    <div class="report1"></div>
 
 </div>
 </div>
