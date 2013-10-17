@@ -53,6 +53,14 @@
         <url-pattern>/exportPeopleCountServlet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>exportDeviceHistoryServlet</servlet-name>
+        <servlet-class>com.exportReport.exportDeviceHistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>exportDeviceHistoryServlet</servlet-name>
+        <url-pattern>/exportDeviceHistoryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>MMServlet</servlet-name>
         <servlet-class>upload.MMServlet</servlet-class>
     </servlet>
