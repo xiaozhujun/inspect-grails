@@ -83,7 +83,7 @@
                     <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceInfo.jsp">设备异常明细</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="/inspect/peopleCount.jsp">人员点检异常总数</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="/inspect/peopleInfo.jsp">人员点检异常明细</g:link></span></div>
-                    <div class="menuItem"><span id="d1"><g:link class="/inspect/deviceHistory.jsp">设备异常趋势分析</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceHistory.jsp">设备异常趋势分析</g:link></span></div>
                 </div>
             </div>
         </div>

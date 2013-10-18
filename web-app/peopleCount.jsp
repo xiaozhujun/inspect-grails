@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>人员点检异常总数</title>
 <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
     <link rel="stylesheet" href="styles/head.css" type="text/css">
     <link href="styles/tundra.css"
@@ -30,13 +30,14 @@
          var etime=$("#etime").val();
          var day=GetDateDiff(stime,etime,"day");
 		 var did=$("#did").val();
+         if(stime!=''&&etime!=''){
          $(".selectF").css("display","block");
 		 if(did==""){
 		 $(".report1").load("showHtmlPeopleCount.jsp",{"day":day});
 		 }else{
 		 $(".report1").load("showHtmlPCount.jsp",{"day":day,"did":did});
 		 }
-		 var s=$("#s").val();
+		 /*var s=$("#s").val();
 		 switch(s.charAt(0)){
 		 case "p":
 			 location.href="peoplePie.jsp?day="+day+"&devid="+did;
@@ -44,7 +45,10 @@
 		 case "z":
 			 location.href="peopleZhu.jsp?day="+day+"&devid="+did;
 			 break;
-		 }
+		 }*/
+         }else{
+             $(".report1").html('请输入查询时间!');
+         }
 	 });
      $("#btnreport").click(function(){
          var type=$("#type").val();
@@ -52,12 +56,15 @@
          var etime=$("#etime").val();
          var day=GetDateDiff(stime,etime,"day");
          var did=$("#did").val();
+         if(type!=''){
          if(did==""){
          location.href="exportPeopleCountServlet?day="+day+"&type="+type;
          }else{
          location.href="exportPeopleCountServlet?day="+day+"&type="+type+"&did="+did;
          }
-
+         }else{
+             $(".r").html('请输入报表格式!');
+         }
      });
  });
 </script>
@@ -71,7 +78,7 @@
         <jsp:include page="leftusermenu.jsp"></jsp:include>
     </div>
     <div style="width:1170px;margin-left: 0px ">
-        <div id="title">人员点检异常总数</div>
+        <div id="title"><span class="titlefont">人员点检异常总数</span></div>
 
         <div id="tt">
             <p>
@@ -100,7 +107,7 @@
         <option value="excel">excel格式</option>
         <option value="word">word格式</option>
     </select>
-        <a class="btnbu" id="btnreport">导出报表</a></div>
+        <a class="btnbu" id="btnreport">导出报表</a><span class='r'></span></div>
     <div class="report1"></div>
 
 </div>

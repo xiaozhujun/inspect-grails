@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>设备异常总数</title>
 <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
     <link rel="stylesheet" href="styles/head.css" type="text/css">
     <link href="styles/tundra.css"
@@ -22,21 +22,27 @@
 <script type="text/javascript">
  $(document).ready(function(){ 
 	 $("#btn").click(function(){
-         alert("1");
 		 $(".report1").html("");
          var stime=$("#stime").val();
          var etime=$("#etime").val();
          var day=GetDateDiff(stime,etime,"day");
+         if(stime!=''&&etime!=''){
          $(".selectF").css("display","block");
 		  $(".report1").load("showHtmlDeviceCount.jsp",{"day":day});
+         }else{
+         $(".report1").html('对不起，请输入查询条件!');
+         }
 	 });
      $("#btnreport").click(function(){
           var type=$("#type").val();
           var stime=$("#stime").val();
           var etime=$("#etime").val();
           var day=GetDateDiff(stime,etime,"day");
+         if(type!=''){
           location.href="exportDeviceCountServlet?day="+day+"&type="+type;
-
+         }else{
+             $('.r').html('请输入报表格式!');
+         }
      })
  });
 </script>
@@ -50,7 +56,7 @@
        <jsp:include page="leftusermenu.jsp"></jsp:include>
     </div>
     <div style="width:1170px;margin-left: 0px ">
-        <div id="title">设备异常总数</div>
+        <div id="title"><span class="titlefont">设备异常总数</span></div>
 
         <div id="tt">
             <p>
@@ -66,7 +72,7 @@
         <option value="excel">excel格式</option>
         <option value="word">word格式</option>
     </select>
-    <a class="btnbu" id="btnreport">导出报表</a></div>
+    <a class="btnbu" id="btnreport">导出报表</a><span class='r'></span></div>
     <div class="report1"></div>
 
 </div>

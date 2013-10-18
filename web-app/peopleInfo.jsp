@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>人员点检异常明细</title>
     <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
     <link rel="stylesheet" href="styles/head.css" type="text/css">
     <link href="styles/tundra.css"
@@ -32,6 +32,7 @@
                 var day=GetDateDiff(stime,etime,"day");
                 var devid=$("#did").val();
                 var uid=$("#user").val();
+                if(stime!=''&&etime!=''){
                 $(".selectF").css("display","block");
                 if(devid==""&&uid==""){
                     $(".report1").load("showHtmlpeopleInfo.jsp",{"day":day});
@@ -42,6 +43,9 @@
                 }else if(devid!=""&&uid!=""&&day!=""){
                     $(".report1").load("showHtmlpeopleByDUid.jsp",{"day":day,"uid":uid,"devid":devid});
                 }
+                }else{
+                    $(".report1").html('请输入查询时间!');
+                }
             });
             $("#btnreport").click(function(){
                 var type=$("#type").val();
@@ -50,6 +54,7 @@
                 var day=GetDateDiff(stime,etime,"day");
                 var devid=$("#did").val();
                 var uid=$("#user").val();
+                if(type!=''){
                 if(devid==""&&uid==""){
                     //$(".report").load("showHtmlpeopleInfo.jsp",{"day":day});
                     location.href="exportPeopleInfoServlet?day="+day+"&type="+type;
@@ -59,6 +64,9 @@
                     location.href="exportPeopleInfoServlet?day="+day+"&type="+type+"&uid="+uid;
                 }else if(devid!=""&&uid!=""&&day!=""){
                     location.href="exportPeopleInfoServlet?day="+day+"&type="+type+"&did="+devid+"&uid="+uid;
+                }
+                }else{
+                    $(".r").html('请输入报表格式!');
                 }
 
             })
@@ -75,7 +83,7 @@
         <jsp:include page="leftusermenu.jsp"></jsp:include>
     </div>
     <div style="width:1170px;margin-left: 0px ">
-        <div id="title">人员点检异常明细</div>
+        <div id="title"><span class="titlefont">人员点检异常明细</span></div>
 
         <div id="tt">
             <p>
@@ -118,7 +126,7 @@
                 <option value="excel">excel格式</option>
                 <option value="word">word格式</option>
             </select>
-                <a class="btnbu" id="btnreport">导出报表</a></div>
+                <a class="btnbu" id="btnreport">导出报表</a><span class='r'></span></div>
             <div class="report1"></div>
 
         </div>

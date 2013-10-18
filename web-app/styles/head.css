@@ -82,4 +82,11 @@
 {
   background: #69c;
 }
+.titlefont{
+    width: 100px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    margin-left:10px;
+}
 
