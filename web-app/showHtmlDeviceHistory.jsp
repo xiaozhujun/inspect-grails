@@ -43,7 +43,6 @@ out.flush();*/
         String did=request.getParameter("did");
         String stime=request.getParameter("starttime");
         String endtime=request.getParameter("endtime");
-        Long d=Long.parseLong(did);
         DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
         Date st=format.parse(stime);
         Date et=format.parse(endtime);
@@ -60,10 +59,15 @@ out.flush();*/
         }catch (SQLException e){
             e.printStackTrace();
         }
+        File reportFile=null;
         // 载入报表模板，一定要指对路径和文件名
-        File reportFile = new File(this.getServletContext().getRealPath(
+        if(did!=null){
+         reportFile= new File(this.getServletContext().getRealPath(
                 "/report/deviceHistory1.jasper"));
-
+        }else{
+            reportFile= new File(this.getServletContext().getRealPath(
+                    "/report/deviceHistory2.jasper"));
+        }
         if (!reportFile.exists())
             throw new JRRuntimeException(
                     "File WebappReport.jasper not found. The report design must be compiled first.");
@@ -73,9 +77,15 @@ out.flush();*/
 
         // 导入报表数据，并生成报表
         Map parameters = new HashMap();
+        if(did!=null){
+        Long d=Long.parseLong(did);
         parameters.put("devid", d);
         parameters.put("starttime",st);
         parameters.put("endtime",et);
+        }else{
+            parameters.put("starttime",st);
+            parameters.put("endtime",et);
+        }
         JasperPrint jasperPrint = JasperFillManager.fillReport(
                 jasperReport, parameters, connection);
         request.getSession().setAttribute(

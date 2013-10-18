@@ -38,7 +38,7 @@
                 $(".selectF").css("display","block");
                 $(".report1").load("showHtmlDeviceHistory.jsp",{"starttime":stime,"endtime":etime,"did":did});
                  }else{
-                      $(".report1").html('请输入设备编号!');
+                 $(".report1").load("showHtmlDeviceHistory.jsp",{"starttime":stime,"endtime":etime});
                  }
                 }else{
                     $(".report1").html('请输入查询时间!');
