@@ -14,6 +14,7 @@
 <%@ page import="java.sql.Timestamp" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.*" %>
+<%@ page import="model.MyDataSource" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -46,19 +47,8 @@ out.flush();*/
         DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
         Date st=format.parse(stime);
         Date et=format.parse(endtime);
-        @SuppressWarnings("static-access")
-        String url = "jdbc:mysql://localhost:3306/inspect3";
-        Connection connection=null;
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-        }catch (ClassNotFoundException e){
-            e.printStackTrace();
-        }
-        try{
-            connection = DriverManager.getConnection(url, "root", "root");
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        MyDataSource ds=new MyDataSource();
+        Connection connection=ds.getConnection();
         File reportFile=null;
         // 载入报表模板，一定要指对路径和文件名
         if(did!=null){

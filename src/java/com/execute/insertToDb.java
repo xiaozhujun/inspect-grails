@@ -59,7 +59,7 @@ public class insertToDb {
 		// /String sql1 =
 		// "insert into inspect_table_record(inspecttable,createtime)values(?,?)";
 
-		String sql1 = "insert into inspect_Item_Record (inspecttable_id,tag_id,item_id,ivalue_id,createtime,inspecttablerec_id,worker_id,dnumber_id) values (?,?,?,?,?,?,?,?)";
+		String sql1 = "insert into inspect_Item_Rec (inspecttable_id,tag_id,item_id,ivalue_id,createtime,inspecttablerec_id,worker_id,dnumber_id) values (?,?,?,?,?,?,?,?)";
 
 		// String sql3="";
 		//String sql3 = "update inspect_item_record it,inspect_table_record t set it.inspecttablerec=? where it.createtime=t.createtime and t.createtime=?";
@@ -104,7 +104,7 @@ public class insertToDb {
 	}
 
 	public int getTRecId(Date t) {   //得到inspect_table_record的id
-		String sql = "select t.id from inspect_item_record it,inspect_table_record t where it.createtime=t.createtime and t.createtime=? group by t.id";
+		String sql = "select t.id from inspect_item_rec it,inspect_table_record t where it.createtime=t.createtime and t.createtime=? group by t.id";
 		Connection connection = ds.getConnection();
 		PreparedStatement statement = null;
 		ResultSet rs = null;

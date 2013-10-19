@@ -9,6 +9,7 @@
 <%@ page import="net.sf.jasperreports.engine.export.JRHtmlExporter" %>
 <%@ page import="net.sf.jasperreports.engine.*" %>
 <%@ page import="net.sf.jasperreports.engine.export.JRHtmlExporterParameter" %>
+<%@ page import="model.MyDataSource" %>
 <%--
   Created by IntelliJ IDEA.
   User: ThinkPad
@@ -35,19 +36,8 @@
         Long day1=Long.parseLong(day);
         Long did=Long.parseLong(devid);
         Long uid=Long.parseLong(user);
-        @SuppressWarnings("static-access")
-        String url = "jdbc:mysql://localhost:3306/inspect3";
-        Connection connection=null;
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-        }catch (ClassNotFoundException e){
-            e.printStackTrace();
-        }
-        try{
-            connection = DriverManager.getConnection(url, "root", "root");
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        MyDataSource ds=new MyDataSource();
+        Connection connection=ds.getConnection();
 
 
         // 载入报表模板，一定要指对路径和文件名

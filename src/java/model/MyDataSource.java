@@ -22,7 +22,7 @@ public class MyDataSource {
 	public Connection getConnection(){
 		Connection connection=null;
 		try{
-			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/inspect3?user=root&password=root&useUnicode=true&characterEncoding=utf-8" );
+			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/inspectpartition?user=root&password=root&useUnicode=true&characterEncoding=utf-8" );
 		}catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();

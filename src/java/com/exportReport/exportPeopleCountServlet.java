@@ -1,5 +1,6 @@
 package com.exportReport;
 
+import model.MyDataSource;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.export.*;
 import net.sf.jasperreports.engine.util.JRLoader;
@@ -35,12 +36,8 @@ public class exportPeopleCountServlet extends HttpServlet {
         // 获得报表数据。这里使用ireport的测试数据。
         Long day1=Long.parseLong(day);
         String d=request.getParameter("did");
-        String url = "jdbc:mysql://localhost:3306/inspect3";
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-        }catch (ClassNotFoundException e1){
-            e1.printStackTrace();
-        }
+        MyDataSource ds=new MyDataSource();
+        Connection connection=ds.getConnection();
         Map parameters = new HashMap();
         if(d==null){
             parameters.put("day", day1);
@@ -48,12 +45,6 @@ public class exportPeopleCountServlet extends HttpServlet {
             Long did=Long.parseLong(d);
             parameters.put("day", day1);
             parameters.put("devid", did);
-        }
-        Connection connection=null;
-        try{
-            connection= DriverManager.getConnection(url, "root", "root");
-        }catch (SQLException e2){
-            e2.printStackTrace();
         }
         File reportFile=null;
         String type = request.getParameter("type");

@@ -15,6 +15,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.csei.risk.ReportService"%>
+<%@ page import="model.MyDataSource" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -42,18 +43,8 @@ try {
  Long day1=Long.parseLong(day);
  Long did=Long.parseLong(devid);
  @SuppressWarnings("static-access")
- String url = "jdbc:mysql://localhost:3306/inspect3";
- Connection connection=null;
- try{
- Class.forName("com.mysql.jdbc.Driver");
- }catch (ClassNotFoundException e){
-     e.printStackTrace();
- }
- try{
- connection = DriverManager.getConnection(url, "root", "root");
- }catch (SQLException e){
-     e.printStackTrace();
- }
+ MyDataSource ds=new MyDataSource();
+ Connection connection=ds.getConnection();
      
 
  // 载入报表模板，一定要指对路径和文件名

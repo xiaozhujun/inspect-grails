@@ -1,5 +1,6 @@
 package com.csei.risk;
 
+import model.MyDataSource;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 
@@ -36,19 +37,9 @@ import java.sql.Timestamp;
 *
 * */
 public class ReportService {
+        static MyDataSource ds=new MyDataSource();
     public static String exportRiskReport(String reportTemplate,String time,String l,String p) throws JRException {
-        String url = "jdbc:mysql://localhost:3306/inspect3";
-        Connection connection=null;
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-        }catch (ClassNotFoundException e){
-            e.printStackTrace();
-        }
-        try{
-            connection = DriverManager.getConnection(url, "root", "root");
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        Connection connection=ds.getConnection();
         File reportFile = new File(reportTemplate);
     /*InputStream reportStream =getServletConfig().getServletContext().getResourceAsStream("/report/RiskReportTemplate.jasper");*/
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -87,18 +78,7 @@ public class ReportService {
         return result;
     }
     public static String exportPeopleCountByDidDays(String reportTemplate,Long did,Long day) throws JRException{
-        String url = "jdbc:mysql://localhost:3306/inspect3";
-        Connection connection=null;
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-        }catch (ClassNotFoundException e){
-            e.printStackTrace();
-        }
-        try{
-            connection = DriverManager.getConnection(url, "root", "root");
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        Connection connection=ds.getConnection();
         File reportFile = new File(reportTemplate);
   /*InputStream reportStream =getServletConfig().getServletContext().getResourceAsStream("/report/RiskReportTemplate.jasper");*/
         Map parameters = new HashMap();

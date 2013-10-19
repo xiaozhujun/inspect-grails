@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+import model.MyDataSource;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.export.JRRtfExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
@@ -41,13 +42,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 String e = request.getParameter("etime");
 String t = request.getParameter("tid");
 String ct = request.getParameter("ct");
-System.out.println(ct+"时间");
-String url = "jdbc:mysql://localhost:3306/inspect3";
-try{
-        Class.forName("com.mysql.jdbc.Driver");
-}catch (ClassNotFoundException e1){
-        e1.printStackTrace();
-}
+    MyDataSource ds=new MyDataSource();
+    Connection connection=ds.getConnection();
         Map parameters = new HashMap();
 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 format.setLenient(false);
@@ -61,12 +57,6 @@ try{
 parameters.put("stime", ts);
 parameters.put("tid", t1);
 parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
-Connection connection=null;
-try{
-        connection= DriverManager.getConnection(url, "root","root");
-}catch (SQLException e2){
-        e2.printStackTrace();
-}
         String type = request.getParameter("type");
 File reportFile = new File(this.getServletConfig().getServletContext().getRealPath(
         "/report/report2.jasper"));

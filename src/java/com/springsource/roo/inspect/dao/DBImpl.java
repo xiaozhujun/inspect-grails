@@ -64,7 +64,7 @@ public class DBImpl {
 
 	public List<InspectTableRecord> getR(Date starttime, Date endtime, int tid) {
 
-		String sql = "select tb.id,tb.tname,u.id,u.username,itr.createtime from inspect_item_record itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v,inspect_item_tvalues tv where itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id and it.id=tv.inspect_item_id and v.id=tv.tvalue_id and itr.inspecttable_id=? and itr.createtime between ? and ? group by itr.createtime";
+		String sql = "select tb.id,tb.tname,u.id,u.username,itr.createtime from inspect_item_rec itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v,inspect_item_tvalues tv where itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id and it.id=tv.inspect_item_id and v.id=tv.tvalue_id and itr.inspecttable_id=? and itr.createtime between ? and ? group by itr.createtime";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list = new ArrayList<InspectTableRecord>();
 		try {
@@ -91,7 +91,7 @@ public class DBImpl {
 	}
 
 	public List<InspectTableRecord> getInfo(int tid, Date cretime) {
-		String sql = "select  tb.id, tb.tname,tag.id,tag.name,it.id,it.name,u.id,u.username,v.id,v.tvalue,itr.createtime FROM inspect_item_record itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v WHERE itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id  and itr.ivalue_id=v.id and itr.inspecttable_id=?  and itr.createtime=?  group by tag.name,it.id";
+		String sql = "select  tb.id, tb.tname,tag.id,tag.name,it.id,it.name,u.id,u.username,v.id,v.tvalue,itr.createtime FROM inspect_item_rec itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v WHERE itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id  and itr.ivalue_id=v.id and itr.inspecttable_id=?  and itr.createtime=?  group by tag.name,it.id";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list = new ArrayList<InspectTableRecord>();
 		try {
@@ -123,7 +123,7 @@ public class DBImpl {
 
 	}
 	public InspectTableRecord getT(int tid, Date cretime) {
-		String sql = "SELECT tb.id, tb.tname,u.id,u.username,itr.createtime FROM inspect_item_record itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v,inspect_item_tvalues tv WHERE itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id  and it.id=tv.inspect_item_id  and v.id=tv.tvalue_id and itr.inspecttable_id=? and itr.createtime=? group by tb.id ";
+		String sql = "SELECT tb.id, tb.tname,u.id,u.username,itr.createtime FROM inspect_item_rec itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v,inspect_item_tvalues tv WHERE itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id  and it.id=tv.inspect_item_id  and v.id=tv.tvalue_id and itr.inspecttable_id=? and itr.createtime=? group by tb.id ";
 		InspectTableRecord r = null;
 
 		try {
@@ -149,7 +149,7 @@ public class DBImpl {
 
 	}
 	public List<InspectTableRecord> getTag(int tid, Date cretime) {
-		String sql = "select tag.id,tag.name from inspect_Item_Record itr,inspect_Tag tag where itr.tag_id=tag.id and itr.createtime=? and itr.inspecttable_id=? group by itr.tag_id ";
+		String sql = "select tag.id,tag.name from inspect_Item_Rec itr,inspect_Tag tag where itr.tag_id=tag.id and itr.createtime=? and itr.inspecttable_id=? group by itr.tag_id ";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list=new ArrayList<InspectTableRecord>();
 		try {
@@ -173,7 +173,7 @@ public class DBImpl {
 	}
 	public List<InspectTableRecord> getT(int tagid,int tid, Date cretime) {
 
-		String sql = "select it.id,it.name,v.id,v.tvalue from inspect_Item_Record itr,inspect_Item it,tValue v where itr.item_id=it.id and itr.ivalue_id=v.id and itr.tag_id=? and itr.createtime=? and itr.inspecttable_id=? group by it.name";
+		String sql = "select it.id,it.name,v.id,v.tvalue from inspect_Item_Rec itr,inspect_Item it,tValue v where itr.item_id=it.id and itr.ivalue_id=v.id and itr.tag_id=? and itr.createtime=? and itr.inspecttable_id=? group by it.name";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list=new ArrayList<InspectTableRecord>();
 		try {

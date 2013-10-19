@@ -14,7 +14,7 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost/inspect3?useUnicode=true&characterEncoding=utf-8"
+            url = "jdbc:mysql://localhost/inspectpartition?useUnicode=true&characterEncoding=utf-8"
         }
     }
     test {

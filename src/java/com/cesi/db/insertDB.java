@@ -63,7 +63,7 @@ public class insertDB {
         return list;
     }
     public int getPeriodCount(){           //求出一段时间内的异常的周数
-        String sql="select ceiling(count(*)/7) as n from timer t,inspect_item_record itr where itr.createtime between t.starttime and t.endtime and itr.ivalue_id=2 ";
+        String sql="select ceiling(count(*)/7) as n from timer t,inspect_item_rec itr where itr.createtime between t.starttime and t.endtime and itr.ivalue_id=2 ";
         int n=0;
         try{
              statement=connection.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class insertDB {
     public List<dbModel> getPeriodInfo(int n){               //求出每个时间间隔中的具体的异常信息
          List<dbModel> list=new ArrayList<dbModel>();
           for(int i=0;i<=n;i++){
-           String sql="select d.devname,count(itr.id),t.starttime,DATE_ADD(t.starttime,INTERVAL ? DAY) from inspect_item_record itr,device d,timer t where itr.dnumber_id=d.id and itr.ivalue_id=2 and itr.createtime between DATE_ADD(t.starttime,INTERVAL 0 DAY) and DATE_ADD(t.starttime,INTERVAL ? DAY) group by d.devname";
+           String sql="select d.devname,count(itr.id),t.starttime,DATE_ADD(t.starttime,INTERVAL ? DAY) from inspect_item_rec itr,device d,timer t where itr.dnumber_id=d.id and itr.ivalue_id=2 and itr.createtime between DATE_ADD(t.starttime,INTERVAL 0 DAY) and DATE_ADD(t.starttime,INTERVAL ? DAY) group by d.devname";
               try{
                 statement=connection.prepareStatement(sql);
                 statement.setInt(1,7*(i+1));
