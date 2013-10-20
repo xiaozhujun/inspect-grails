@@ -10,6 +10,9 @@
 <%@ page import="net.sf.jasperreports.engine.*" %>
 <%@ page import="net.sf.jasperreports.engine.export.JRHtmlExporterParameter" %>
 <%@ page import="model.MyDataSource" %>
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%--
   Created by IntelliJ IDEA.
   User: ThinkPad
@@ -29,9 +32,12 @@
     try {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        String day=request.getParameter("day");
         // 获得报表数据。这里使用ireport的测试数据。
-        Long day1=Long.parseLong(day);
+        String stime=request.getParameter("stime");
+        String endtime=request.getParameter("etime");
+        DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        Date st=format.parse(stime);
+        Date et=format.parse(endtime);
         @SuppressWarnings("static-access")
         MyDataSource ds=new MyDataSource();
         Connection connection=ds.getConnection();
@@ -49,7 +55,8 @@
 
         // 导入报表数据，并生成报表
         Map parameters = new HashMap();
-        parameters.put("day", day1);
+        parameters.put("stime",st);
+        parameters.put("etime",et);
         JasperPrint jasperPrint = JasperFillManager.fillReport(
                 jasperReport, parameters, connection);
         request.getSession().setAttribute(

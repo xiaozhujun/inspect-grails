@@ -29,19 +29,19 @@
                 $(".report1").html("");
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
-                var day=GetDateDiff(stime,etime,"day");
+                //var day=GetDateDiff(stime,etime,"day");
                 var devid=$("#did").val();
                 var uid=$("#user").val();
                 if(stime!=''&&etime!=''){
                 $(".selectF").css("display","block");
                 if(devid==""&&uid==""){
-                    $(".report1").load("showHtmlpeopleInfo.jsp",{"day":day});
+                    $(".report1").load("showHtmlpeopleInfo.jsp",{"stime":stime,"etime":etime});
                 }else if(devid!=""&&uid==""){
-                    $(".report1").load("showHtmlpeopleInfoBydid.jsp",{"day":day,"devid":devid});
+                    $(".report1").load("showHtmlpeopleInfoBydid.jsp",{"stime":stime,"etime":etime,"devid":devid});
                 }else if(devid==""&&uid!=""){
-                    $(".report1").load("showHtmlpeopleByUid.jsp",{"day":day,"uid":uid});
-                }else if(devid!=""&&uid!=""&&day!=""){
-                    $(".report1").load("showHtmlpeopleByDUid.jsp",{"day":day,"uid":uid,"devid":devid});
+                    $(".report1").load("showHtmlpeopleByUid.jsp",{"stime":stime,"etime":etime,"uid":uid});
+                }else if(devid!=""&&uid!=""&&stime!=""&&etime!=""){
+                    $(".report1").load("showHtmlpeopleByDUid.jsp",{"stime":stime,"etime":etime,"uid":uid,"devid":devid});
                 }
                 }else{
                     $(".report1").html('请输入查询时间!');
@@ -51,19 +51,19 @@
                 var type=$("#type").val();
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
-                var day=GetDateDiff(stime,etime,"day");
+                //var day=GetDateDiff(stime,etime,"day");
                 var devid=$("#did").val();
                 var uid=$("#user").val();
                 if(type!=''){
                 if(devid==""&&uid==""){
                     //$(".report").load("showHtmlpeopleInfo.jsp",{"day":day});
-                    location.href="exportPeopleInfoServlet?day="+day+"&type="+type;
+                    location.href="exportPeopleInfoServlet?stime="+stime+"&etime="+etime+"&type="+type;
                 }else if(devid!=""&&uid==""){
-                    location.href="exportPeopleInfoServlet?day="+day+"&type="+type+"&did="+devid;
+                    location.href="exportPeopleInfoServlet?stime="+stime+"&etime="+etime+"&type="+type+"&did="+devid;
                 }else if(devid==""&&uid!=""){
-                    location.href="exportPeopleInfoServlet?day="+day+"&type="+type+"&uid="+uid;
-                }else if(devid!=""&&uid!=""&&day!=""){
-                    location.href="exportPeopleInfoServlet?day="+day+"&type="+type+"&did="+devid+"&uid="+uid;
+                    location.href="exportPeopleInfoServlet?stime="+stime+"&etime="+etime+"&type="+type+"&uid="+uid;
+                }else if(devid!=""&&uid!=""&&stime!=""&&etime!=""){
+                    location.href="exportPeopleInfoServlet?stime="+stime+"&etime="+etime+"&type="+type+"&did="+devid+"&uid="+uid;
                 }
                 }else{
                     $(".r").html('请输入报表格式!');

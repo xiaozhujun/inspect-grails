@@ -28,14 +28,14 @@
 	 $("#btn").click(function(){
          var stime=$("#stime").val();
          var etime=$("#etime").val();
-         var day=GetDateDiff(stime,etime,"day");
+         //var day=GetDateDiff(stime,etime,"day");
 		 var did=$("#did").val();
          if(stime!=''&&etime!=''){
          $(".selectF").css("display","block");
 		 if(did==""){
-		 $(".report1").load("showHtmlPeopleCount.jsp",{"day":day});
+		 $(".report1").load("showHtmlPeopleCount.jsp",{"stime":stime,"etime":etime});
 		 }else{
-		 $(".report1").load("showHtmlPCount.jsp",{"day":day,"did":did});
+		 $(".report1").load("showHtmlPCount.jsp",{"stime":stime,"etime":etime,"did":did});
 		 }
 		 /*var s=$("#s").val();
 		 switch(s.charAt(0)){
@@ -58,9 +58,9 @@
          var did=$("#did").val();
          if(type!=''){
          if(did==""){
-         location.href="exportPeopleCountServlet?day="+day+"&type="+type;
+         location.href="exportPeopleCountServlet?stime="+stime+"&etime="+etime+"&type="+type;
          }else{
-         location.href="exportPeopleCountServlet?day="+day+"&type="+type+"&did="+did;
+         location.href="exportPeopleCountServlet?stime="+stime+"&etime="+etime+"&type="+type+"&did="+did;
          }
          }else{
              $(".r").html('请输入报表格式!');

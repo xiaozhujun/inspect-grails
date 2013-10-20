@@ -21,6 +21,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,18 +37,29 @@ public class exportDeviceCountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out=response.getWriter();
-        String day=request.getParameter("day");
+        String stime=request.getParameter("stime");
+        String endtime=request.getParameter("etime");
+        DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        Date st=null;
+        Date et=null;
+        try{
+            st=format.parse(stime);
+            et=format.parse(endtime);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
         // 获得报表数据。这里使用ireport的测试数据。
-        Long day1=Long.parseLong(day);
         String d=request.getParameter("did");
         MyDataSource ds=new MyDataSource();
         Connection connection=ds.getConnection();
         Map parameters = new HashMap();
         if(d==null){
-        parameters.put("day", day1);
+            parameters.put("stime",st);
+            parameters.put("etime",et);
         }else{
             Long did=Long.parseLong(d);
-            parameters.put("day", day1);
+            parameters.put("stime",st);
+            parameters.put("etime",et);
             parameters.put("devid", did);
         }
 

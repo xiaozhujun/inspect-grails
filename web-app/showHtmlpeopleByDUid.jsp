@@ -10,6 +10,9 @@
 <%@ page import="net.sf.jasperreports.engine.*" %>
 <%@ page import="net.sf.jasperreports.engine.export.JRHtmlExporterParameter" %>
 <%@ page import="model.MyDataSource" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.DateFormat" %>
 <%--
   Created by IntelliJ IDEA.
   User: ThinkPad
@@ -30,10 +33,13 @@
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         String devid=request.getParameter("devid");
-        String day=request.getParameter("day");
         String user=request.getParameter("uid");
         // 获得报表数据。这里使用ireport的测试数据。
-        Long day1=Long.parseLong(day);
+        String stime=request.getParameter("stime");
+        String endtime=request.getParameter("etime");
+        DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        Date st=format.parse(stime);
+        Date et=format.parse(endtime);
         Long did=Long.parseLong(devid);
         Long uid=Long.parseLong(user);
         MyDataSource ds=new MyDataSource();
@@ -53,7 +59,8 @@
 
         // 导入报表数据，并生成报表
         Map parameters = new HashMap();
-        parameters.put("day", day1);
+        parameters.put("stime",st);
+        parameters.put("etime",et);
         parameters.put("did", did);
         parameters.put("uid",uid);
         JasperPrint jasperPrint = JasperFillManager.fillReport(

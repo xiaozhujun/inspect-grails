@@ -29,14 +29,14 @@
                 $(".report1").empty();
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
-                var day=GetDateDiff(stime,etime,"day");
+                //var day=GetDateDiff(stime,etime,"day");
                 if(stime!=''&&etime!=''){
                 $(".selectF").css("display","block");
                 var s=$("#s").val();
                 if(s=="0"){
-                    $(".report1").load("showHtmlDeviceCount.jsp",{"day":day});
+                    $(".report1").load("showHtmlDeviceCount.jsp",{"stime":stime,"etime":etime});
                 }else{
-                    $(".report1").load("showHtmlDCount.jsp",{"day":day,"did":s});
+                    $(".report1").load("showHtmlDCount.jsp",{"stime":stime,"etime":etime,"did":s});
                     //location.href="showHtmlDCount.jsp?day="+day+"&did="+s;
                 }
                 }else{
@@ -47,13 +47,13 @@
                 var type=$("#type").val();
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
-                var day=GetDateDiff(stime,etime,"day");
+                //var day=GetDateDiff(stime,etime,"day");
                 var s=$("#s").val();
                 if(type!=''){
                 if(s=="0"){
-                location.href="exportDeviceCountServlet?day="+day+"&type="+type;
+                location.href="exportDeviceCountServlet?stime="+stime+"&etime="+etime+"&type="+type;
                 }else{
-                location.href="exportDeviceCountServlet?day="+day+"&type="+type+"&did="+s;
+                location.href="exportDeviceCountServlet?stime="+stime+"&etime="+etime+"&type="+type+"&did="+s;
                 }
                 }else{
                     $(".r").html('请输入报表格式!');

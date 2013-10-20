@@ -16,6 +16,9 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="com.csei.risk.ReportService"%>
 <%@ page import="model.MyDataSource" %>
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,9 +41,12 @@ try {
  request.setCharacterEncoding("UTF-8");
  response.setContentType("text/html;charset=UTF-8");
  String devid=request.getParameter("did");
- String day=request.getParameter("day");
+    String stime=request.getParameter("stime");
+    String endtime=request.getParameter("etime");
+    DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+    Date st=format.parse(stime);
+    Date et=format.parse(endtime);
  // 获得报表数据。这里使用ireport的测试数据。
- Long day1=Long.parseLong(day);
  Long did=Long.parseLong(devid);
  @SuppressWarnings("static-access")
  MyDataSource ds=new MyDataSource();
@@ -61,7 +67,8 @@ try {
  // 导入报表数据，并生成报表
  Map parameters = new HashMap();
  parameters.put("devid", did);
- parameters.put("day", day1);
+    parameters.put("stime",st);
+    parameters.put("etime",et);
  JasperPrint jasperPrint = JasperFillManager.fillReport(
    jasperReport, parameters, connection);
  request.getSession().setAttribute(

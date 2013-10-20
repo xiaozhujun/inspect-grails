@@ -25,10 +25,10 @@
 		 $(".report1").html("");
          var stime=$("#stime").val();
          var etime=$("#etime").val();
-         var day=GetDateDiff(stime,etime,"day");
+         //var day=GetDateDiff(stime,etime,"day");
          if(stime!=''&&etime!=''){
          $(".selectF").css("display","block");
-		  $(".report1").load("showHtmlDeviceCount.jsp",{"day":day});
+		  $(".report1").load("showHtmlDeviceCount.jsp",{"stime":stime,"etime":etime});
          }else{
          $(".report1").html('对不起，请输入查询条件!');
          }
@@ -37,9 +37,9 @@
           var type=$("#type").val();
           var stime=$("#stime").val();
           var etime=$("#etime").val();
-          var day=GetDateDiff(stime,etime,"day");
+          //var day=GetDateDiff(stime,etime,"day");
          if(type!=''){
-          location.href="exportDeviceCountServlet?day="+day+"&type="+type;
+          location.href="exportDeviceCountServlet?stime="+stime+"&etime="+etime+"&type="+type;
          }else{
              $('.r').html('请输入报表格式!');
          }

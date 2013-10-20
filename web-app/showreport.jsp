@@ -27,6 +27,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.io.File"%>
+<%@ page import="model.MyDataSource" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -43,9 +44,8 @@
 		String e = request.getParameter("etime");
 		String t = request.getParameter("tid");
 		String ct = request.getParameter("ct");
-		System.out.println(ct+"时间");
-		String url = "jdbc:mysql://localhost:3306/inspect3";
-		Class.forName("com.mysql.jdbc.Driver");
+        MyDataSource ds=new MyDataSource();
+        Connection connection=ds.getConnection();
 		Map parameters = new HashMap();
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		format.setLenient(false);
@@ -54,9 +54,6 @@
 		parameters.put("stime", ts);
 		parameters.put("tid", t1);
         parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
-		Connection connection = DriverManager.getConnection(url, "root",
-				"root");
-
 		String type = request.getParameter("type");
 		File reportFile = new File(this.getServletConfig().getServletContext().getRealPath(
 				"/report/report2.jasper"));

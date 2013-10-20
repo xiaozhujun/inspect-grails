@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -77,12 +78,13 @@ public class ReportService {
         String result =  outputStream.toString();
         return result;
     }
-    public static String exportPeopleCountByDidDays(String reportTemplate,Long did,Long day) throws JRException{
+    public static String exportPeopleCountByDidDays(String reportTemplate,Long did,Date t1,Date t2) throws JRException{
         Connection connection=ds.getConnection();
         File reportFile = new File(reportTemplate);
   /*InputStream reportStream =getServletConfig().getServletContext().getResourceAsStream("/report/RiskReportTemplate.jasper");*/
         Map parameters = new HashMap();
-        parameters.put("day",day);
+        parameters.put("stime",t1);
+        parameters.put("etime",t2);
         parameters.put("devid",did);
       /*parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/")+"/");*/
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reportFile.getPath());

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<check inspecttype="机修人员点检表" inspecttime="2013-10-18 14:57:00" worker="工作人员1" workernumber="1" devicenumber="menzuo001">
+<check inspecttype="机修人员点检表" inspecttime="2013-10-19 17:12:00" worker="工作人员1" workernumber="1" devicenumber="menzuo001">
   <devicetype name="门机">
     <location name="行走区域">
       <field name="铁鞋、锚定" isInput="false" description="" unit="">
