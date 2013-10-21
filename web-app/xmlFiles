@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<check inspecttype="门机队机械技术员点检表" inspecttime="2013-10-14 17:12:00" worker="工作人员2" workernumber="2" devicenumber="menzuo002">
+<check inspecttype="门机队机械技术员点检表" inspecttime="2013-10-20 14:43:00" worker="工作人员2" workernumber="2" devicenumber="menzuo002">
   <devicetype name="门机">
     <location name="行走区域">
       <field name="合斗时无异响，斗口无变形" isInput="false" description="" unit="">
