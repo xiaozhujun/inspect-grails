@@ -86,7 +86,7 @@
         <div class="title">
             <span class="titlefont">人员点检异常明细</span>
         </div>
-        <div class="search">
+        <div class="search1">
             <span class="sea">
                <span class="seafont">设备编号:</span><select id="did">
                 <option value="">-----请选择------</option>

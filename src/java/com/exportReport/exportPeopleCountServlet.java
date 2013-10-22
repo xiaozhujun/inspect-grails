@@ -55,11 +55,13 @@ public class exportPeopleCountServlet extends HttpServlet {
         if(d==null){
             parameters.put("stime",st);
             parameters.put("etime",et);
+            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
         }else{
             Long did=Long.parseLong(d);
             parameters.put("stime",st);
             parameters.put("etime",et);
             parameters.put("devid", did);
+            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
         }
         File reportFile=null;
         String type = request.getParameter("type");

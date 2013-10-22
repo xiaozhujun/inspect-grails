@@ -62,6 +62,7 @@
         parameters.put("stime",st);
         parameters.put("etime",et);
         parameters.put("devid", did);
+        parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
         JasperPrint jasperPrint = JasperFillManager.fillReport(
                 jasperReport, parameters, connection);
         request.getSession().setAttribute(

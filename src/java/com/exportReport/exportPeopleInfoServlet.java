@@ -50,22 +50,26 @@ public class exportPeopleInfoServlet extends HttpServlet{
         }
         String d=request.getParameter("did");
         String u=request.getParameter("uid");
+
         MyDataSource ds=new MyDataSource();
         Connection connection=ds.getConnection();
         Map parameters = new HashMap();
         if(d==null&&u==null){
             parameters.put("stime",st);
             parameters.put("etime",et);
+            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
         }else if(d!=null&&u==null){
             Long did=Long.parseLong(d);
             parameters.put("stime",st);
             parameters.put("etime",et);
             parameters.put("devid", did);
+            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
         }else if(d==null&&u!=null){
             Long uid=Long.parseLong(u);
             parameters.put("stime",st);
             parameters.put("etime",et);
             parameters.put("uid", uid);
+            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
         }else if(d!=null&&u!=null){
             Long did=Long.parseLong(d);
             Long uid=Long.parseLong(u);
@@ -73,6 +77,7 @@ public class exportPeopleInfoServlet extends HttpServlet{
             parameters.put("etime",et);
             parameters.put("did", did);
             parameters.put("uid",uid);
+            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
         }
         File reportFile=null;
         String type = request.getParameter("type");

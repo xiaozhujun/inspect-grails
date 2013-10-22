@@ -22,7 +22,7 @@ Long did=Long.parseLong(d);
     Date et=format.parse(endtime);
 String reportTemplate = this.getServletConfig().getServletContext().getRealPath(
         "/report/peopleCount1.jasper");
-out.write(ReportService.exportPeopleCountByDidDays(reportTemplate, did, st, et));
+out.write(ReportService.exportPeopleCountByDidDays(reportTemplate, did, st, et,request));
 out.flush();
 %>
 </body>

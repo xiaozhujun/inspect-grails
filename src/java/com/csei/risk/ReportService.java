@@ -24,6 +24,7 @@ import  java.sql.DriverManager;
 import com.mysql.jdbc.Driver;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 
 /**
@@ -78,7 +79,7 @@ public class ReportService {
         String result =  outputStream.toString();
         return result;
     }
-    public static String exportPeopleCountByDidDays(String reportTemplate,Long did,Date t1,Date t2) throws JRException{
+    public static String exportPeopleCountByDidDays(String reportTemplate,Long did,Date t1,Date t2,HttpServletRequest request) throws JRException{
         Connection connection=ds.getConnection();
         File reportFile = new File(reportTemplate);
   /*InputStream reportStream =getServletConfig().getServletContext().getResourceAsStream("/report/RiskReportTemplate.jasper");*/
@@ -86,6 +87,7 @@ public class ReportService {
         parameters.put("stime",t1);
         parameters.put("etime",t2);
         parameters.put("devid",did);
+        parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
       /*parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/")+"/");*/
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reportFile.getPath());
         Map map=new HashMap();
