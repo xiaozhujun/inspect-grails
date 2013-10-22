@@ -58,7 +58,8 @@ grails.exceptionresolver.params.exclude = ['password']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
-
+ //连接数据库
+ urlParameter="jdbc:mysql://localhost:3306/inspectpartition?user=root&password=root&useUnicode=true&characterEncoding=utf-8"
 environments {
     development {
         grails.logging.jul.usebridge = true

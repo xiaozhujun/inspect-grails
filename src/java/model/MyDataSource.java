@@ -3,7 +3,7 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import db.getDataSource;
 public class MyDataSource {
 
 	private static String className="com.mysql.jdbc.Driver";
@@ -21,8 +21,9 @@ public class MyDataSource {
 	
 	public Connection getConnection(){
 		Connection connection=null;
+        String conn=getDataSource.geturl();
 		try{
-			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/inspectpartition?user=root&password=root&useUnicode=true&characterEncoding=utf-8" );
+			connection=DriverManager.getConnection(conn);
 		}catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
