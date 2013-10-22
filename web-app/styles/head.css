@@ -89,4 +89,54 @@
     line-height: 32px;
     margin-left:10px;
 }
+.reportright{
+
+    width: 83%;
+    float: left;
+    border: 1px solid #666666;
+    margin-left: 2px;
+    height: 2000px;
+    overflow: auto;
+}
+.title{
+    background-color: #999999;
+    width: 99.5%;
+    height: 40px;
+    margin-left: 2px;
+
+
+}
+.title:hover{
+    background-color: #EEEEEE;
+}
+.search{
+
+    width: 99%;
+    height: 45px;
+    margin-left: 2px;
+    margin-top:2px;
+
+}
+.report{
+
+    width: 99%;
+    height: 800px;
+    margin-left: 2px;
+    margin-top: 5px;
+
+}
+.sea{
+
+    width: 100%;
+    height: 50px;
+    float:left;
+}
+.seafont{
+    margin-left: 10px;
+    display: inline-block;
+    margin-top: 8px;
+}
+.titlefont{
+    margin-left: 5px;
+}
 

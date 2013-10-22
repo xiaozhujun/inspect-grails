@@ -82,12 +82,13 @@
     <div style="width: 221px;float:left">
         <jsp:include page="leftusermenu.jsp"></jsp:include>
     </div>
-    <div style="width:1170px;margin-left: 0px ">
-        <div id="title"><span class="titlefont">人员点检异常明细</span></div>
-
-        <div id="tt">
-            <p>
-                设备编号:<select id="did">
+    <div class="reportright">
+        <div class="title">
+            <span class="titlefont">人员点检异常明细</span>
+        </div>
+        <div class="search">
+            <span class="sea">
+               <span class="seafont">设备编号:</span><select id="did">
                 <option value="">-----请选择------</option>
                 <%
                     insertDB d=new insertDB();
@@ -100,7 +101,7 @@
                 <%
                     }
                 %>
-            </select> 设备点检人员:
+            </select> <span class="seafont">设备点检人员:</span>
                 <select id="user">
                     <option value="">-----请选择------</option>
                     <%
@@ -115,11 +116,11 @@
                         }
                     %>
                 </select><br>
-                起始时间:<input type="text" id="stime" class="Wdate" onClick="WdatePicker()"> 终止时间:<input type="text" id="etime" class="Wdate" onClick="WdatePicker()">
-                <a  id="btn" class="btnbu">查看</a>
+                <span class="seafont">起始时间:</span><input type="text" id="stime" class="Wdate" onClick="WdatePicker()"> <span class="seafont">终止时间:</span><input type="text" id="etime" class="Wdate" onClick="WdatePicker()">
+                <a  id="btn" class="btnbu">查看</a></span>
         </div>
         <div class="report">
-            <div class="selectF"  style="margin-left: 305px;display: none ">选择导出类型:<select id="type">
+            <div class="selectF"  style="margin-left: 10px;display: none ">选择导出类型:<select id="type">
                 <option value="">-----请选择------</option>
                 <option value="pdf">pdf格式</option>
                 <option value="html">html格式</option>
@@ -128,10 +129,14 @@
             </select>
                 <a class="btnbu" id="btnreport">导出报表</a><span class='r'></span></div>
             <div class="report1"></div>
-
         </div>
-
     </div>
+
+
+
+
+
+
 
 
 

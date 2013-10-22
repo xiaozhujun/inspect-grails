@@ -38,6 +38,7 @@
                 $(".selectF").css("display","block");
                 $(".report1").load("showHtmlDeviceHistory.jsp",{"starttime":stime,"endtime":etime,"did":did});
                  }else{
+                $(".selectF").css("display","block");
                  $(".report1").load("showHtmlDeviceHistory.jsp",{"starttime":stime,"endtime":etime});
                  }
                 }else{
@@ -66,31 +67,33 @@
     <div style="width: 221px;float:left">
         <jsp:include page="leftusermenu.jsp"></jsp:include>
     </div>
-    <div style="width:1170px;margin-left: 0px ">
-        <div id="title"><span class="titlefont">设备异常趋势分析</span></div>
-
-        <div id="tt">
-            <p>
-                设备:
-                <select id="s">
-                    <option value="0">-----请选择------</option>
-                    <%
-                        insertDB d=new insertDB();
-                        List<dbModel> l=d.getDevice();
-                        Iterator it=l.iterator();
-                        while(it.hasNext()){
-                            dbModel t=(dbModel)it.next();
-                    %>
-                    <option value="<%=t.getDid()%>"><%=t.getDevname()%></option>
-                    <%
-                        }
-                    %>
-                </select>
-                起始时间:<input type="text" id="stime" class="Wdate" onClick="WdatePicker()"> 终止时间:<input type="text" id="etime" class="Wdate" onClick="WdatePicker()">
-                <a  id="btn" class="btnbu">查看</a>
+    <div class="reportright">
+        <div class="title">
+            <span class="titlefont">设备异常趋势分析</span>
+        </div>
+        <div class="search">
+            <span class="sea">
+                <span class="seafont">设备:</span>
+            <select id="s">
+                <option value="0">-----请选择------</option>
+                <%
+                    insertDB d=new insertDB();
+                    List<dbModel> l=d.getDevice();
+                    Iterator it=l.iterator();
+                    while(it.hasNext()){
+                        dbModel t=(dbModel)it.next();
+                %>
+                <option value="<%=t.getDid()%>"><%=t.getDevname()%></option>
+                <%
+                    }
+                %>
+            </select>
+            <span class="seafont">起始时间:</span><input type="text" id="stime" class="Wdate" onClick="WdatePicker()"> <span class="seafont">终止时间:</span><input type="text" id="etime" class="Wdate" onClick="WdatePicker()">
+            <a  id="btn" class="btnbu">查看</a>
+                </span>
         </div>
         <div class="report">
-            <div class="selectF"  style="margin-left: 305px;display: none ">选择导出类型:<select id="type">
+            <div class="selectF"  style="margin-left: 10px;display: none ">选择导出类型:<select id="type">
                 <option value="">-----请选择------</option>
                 <option value="pdf">pdf格式</option>
                 <option value="html">html格式</option>
@@ -99,8 +102,10 @@
             </select>
                 <a class="btnbu" id="btnreport">导出报表</a><span class='r'></span></div>
             <div class="report1"></div>
-
         </div>
+    </div>
+</div>
+
     </div>
 </div>
 </body>
