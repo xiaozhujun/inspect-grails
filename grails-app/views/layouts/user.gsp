@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="menuFunc">
-                <div class="menuFuncName"><p>异常分析</p></div>
+                <div class="menuFuncName"><p>报表统计</p></div>
                 <div class="menuItemList">
                     <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceCount.jsp">设备异常总数</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceInfo.jsp">设备异常明细</g:link></span></div>

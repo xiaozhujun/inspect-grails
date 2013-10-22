@@ -118,7 +118,7 @@ function check(){
                                 <li id="i_device_list"><a title="查询设备"
                                                           href="<%=basePase%>device/list">查询设备</a></li>
                             </ul></li>
-                        <li id="c_inspecttagrfid"><h2>异常分析</h2>
+                        <li id="c_inspecttagrfid"><h2>报表统计</h2>
                             <ul>
                                 <li id="i_inspecttagrfid_new"><a title="设备异常总数"
                                                                  href="/inspect/deviceCount.jsp">设备异常总数</a></li>
