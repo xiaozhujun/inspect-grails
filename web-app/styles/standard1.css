@@ -260,4 +260,10 @@ ul li {
 }
 .selectbtn{
     cursor: pointer;
+    background-color: #999999;
+    border: 1px solid;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    height: 28px;
 }

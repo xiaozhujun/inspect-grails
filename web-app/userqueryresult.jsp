@@ -55,7 +55,6 @@ function check(){
     }
 	
 }
-
 </script>
     <link rel="stylesheet" href="<%=basePase%>styles/head.css" type="text/css">
     <link href="<%=basePase%>styles/tundra.css"
@@ -135,108 +134,129 @@ function check(){
                 </div>
             </div>
             </div>
-        <div style="width:1170px;margin-left: 0px ">
-		<div id="title">报表查询</div>
+        <div class="reportright">
+            <div class="title">
+                <span class="titlefont">报表查询</span>
+            </div>
+            <form method="post" action="MMServlet" onsubmit="return check()">
+            <div class="search">
+                 <span class="sea"><span class="seafont">起始时间:</span> <input type="text" id="s1" class="Wdate"
+                             onClick="WdatePicker()" name="stime"> <span class="seafont">终止时间:</span> <input
+                    type="text" id="e1" class="Wdate" onClick="WdatePicker()"
+                    name="etime">
 
 
-		<form method="post" action="MMServlet" onsubmit="return check()">
-			<div id="tt">
-                  <p>
-					起始时间: <input type="text" id="s1" class="Wdate"
-						onClick="WdatePicker()" name="stime"> 终止时间: <input
-						type="text" id="e1" class="Wdate" onClick="WdatePicker()"
-						name="etime"><br>
-                 </p>
-                 <p>
-					报表: <select id="table" name="tid">
-						<%
-							DBImpl d1 = new DBImpl();
-							List<InspectTableRecord> tlist = d1.getTable();
+                    <span class="seafont">报表:</span> <select id="table" name="tid">
+                    <%
+                        DBImpl d1 = new DBImpl();
+                        List<InspectTableRecord> tlist = d1.getTable();
 
-							Iterator l1 = tlist.iterator();
-							while (l1.hasNext()) {
-								r = (InspectTableRecord) l1.next();
-						%>
-						<option value="<%=r.getTid()%>"><%=r.getTname()%>
+                        Iterator l1 = tlist.iterator();
+                        while (l1.hasNext()) {
+                            r = (InspectTableRecord) l1.next();
+                    %>
+                    <option value="<%=r.getTid()%>"><%=r.getTname()%>
 
-						</option>
-						<%
-							}
-						%>
-					</select> 格式: <select id="t" name="type">
-						<option value="pdf">pdf格式</option>
-						<option value="html">html格式</option>
-						<option value="excel">Excel格式</option>
-						<option value="word">Word格式</option>
-					</select> <span style="margin-left: 10px"> <input type="submit"
-						value="查询" class="selectbtn"></span>
-			</div>
-		</form>
-		<%
-			out.println("<div id='title2'>查询结果:</div>");
-		%>
+                    </option>
+                    <%
+                        }
+                    %>
+                </select>
+                     <span class="seafont">格式:</span> <select id="t" name="type">
+                    <option value="pdf">pdf格式</option>
+                    <option value="html">html格式</option>
+                    <option value="excel">Excel格式</option>
+                    <option value="word">Word格式</option>
+                </select> <span style="margin-left: 10px">
+                 <input type="submit" value="查询" class="selectbtn"></span>
+            </span>
+            </div>
+                </form>
+            <div class="report">
+                <%
+                    out.println("<div id='title2'>查询结果:</div>");
+                %>
 
-		<div class="demo">
-			<table class="zebra">
-				<thead>
-					<tr>
 
-						<th>点检表</th>
-						<th>点检人员</th>
-						<th>点检时间</th>
-						<th colspan="2">操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<%
-							String s = (String) request.getAttribute("s");
-							String e = (String) request.getAttribute("e");
-							String t = (String) request.getAttribute("t");
-							String type = (String) request.getAttribute("type");
-							if (s != null && e != null && t != null && type != null) {
-								int tid = Integer.parseInt(t);
-								SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-								Date d11 = sf.parse(s);
-								Date d2 = sf.parse(e);
-								DBImpl d = new DBImpl();
-								List<InspectTableRecord> l11 = d.getR(d11, d2, tid);
-								Iterator it = l11.iterator();
-								while (it.hasNext()) {
-									r = (InspectTableRecord) it.next();
-						%>
+                    <table border="0"  cellpadding="0" cellspacing="1" bgcolor="#000000" class="querytable">
+                        <thead>
+                        <tr bgcolor="#FFFFFF">
+                            <th class="tm">点检表</th>
+                            <th>点检人员</th>
+                            <th class="tm">点检时间</th>
+                            <th colspan="2" class="tm">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr bgcolor="#FFFFFF">
+                            <%
+                                String s = (String) request.getAttribute("s");
+                                String e = (String) request.getAttribute("e");
+                                String t = (String) request.getAttribute("t");
+                                String type = (String) request.getAttribute("type");
+                                if (s != null && e != null && t != null && type != null) {
+                                    int tid = Integer.parseInt(t);
+                                    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+                                    Date d11 = sf.parse(s);
+                                    Date d2 = sf.parse(e);
+                                    DBImpl d = new DBImpl();
+                                    List<InspectTableRecord> l11 = d.getR(d11, d2, tid);
+                                    Iterator it = l11.iterator();
+                                    while (it.hasNext()) {
+                                        r = (InspectTableRecord) it.next();
+                            %>
 						<span><input type="hidden" id="s" value="'<%=s%>'">
 							<input type="hidden" id="type" value="<%=type%>"> <input
-							type="hidden" id="tid" value="<%=tid%>"> <input
-							type="hidden" id="e" value="'<%=e%>'"> </span>
-						<td><%=r.getTname()%></td>
-						<td><%=r.getUsername()%></td>
-						<td width="210px"><%=r.getCtime().toLocaleString()%></td>
-						<td><a class="sb circle text thick-border twitter"
-							onclick="test('<%=r.getCtime().toLocaleString()%>')">下载</a> <a
-							class="sb circle text thick-border twitter"
-							onclick="test1('<%=r.getCtime().toLocaleString()%>')">查看详细信息</a></td>
-					</tr>
-					<%
-						}
-						} else {
-							out.println("<div id='title1'>请输入查询条件!!</div>");
-						}
-					%>
+                                    type="hidden" id="tid" value="<%=tid%>"> <input
+                                    type="hidden" id="e" value="'<%=e%>'"> </span>
+                            <td><%=r.getTname()%></td>
+                            <td><%=r.getUsername()%></td>
+                            <td width="210px"><%=r.getCtime().toLocaleString()%></td>
+                            <td><input type="button" class="selectbtn"
+                                   onclick="test('<%=r.getCtime().toLocaleString()%>')" value="下载">
+                                <input type="button"
+                                    class="selectbtn"
+                                    onclick="test1('<%=r.getCtime().toLocaleString()%>')" value="查看详细信息"></td>
+                        </tr>
+                        <%
+                                }
+                            } else {
+                                out.println("<div id='title1'>请输入查询条件!!</div>");
+                            }
+                        %>
 
 
-				</tbody>
-
-
-
-
-
-			</table>
+                        </tbody>
 
 
 
-		</div>
-          </div>
+
+
+                    </table>
+
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</div>
 </body>
 </html>
