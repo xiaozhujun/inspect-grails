@@ -66,11 +66,9 @@ public class exportDeviceCountServlet extends HttpServlet {
         File reportFile=null;
         String type = request.getParameter("type");
         if(d==null){
-            System.out.print("hahah");
-         reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
+            reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
                 "/report/deviceCount.jasper"));
         }else{
-            System.out.print("进来了");
          reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
                     "/report/deviceCountBydnum.jasper"));
         }

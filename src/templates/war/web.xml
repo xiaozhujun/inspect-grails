@@ -37,6 +37,14 @@
         <url-pattern>/exportDeviceCountServlet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>exportDeviceCount1Servlet</servlet-name>
+        <servlet-class>com.exportReport.exportDeviceCount1Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>exportDeviceCount1Servlet</servlet-name>
+        <url-pattern>/exportDeviceCount1Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>exportPeopleInfoServlet</servlet-name>
         <servlet-class>com.exportReport.exportPeopleInfoServlet</servlet-class>
     </servlet>

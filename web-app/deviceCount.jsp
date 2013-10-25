@@ -28,7 +28,7 @@
          //var day=GetDateDiff(stime,etime,"day");
          if(stime!=''&&etime!=''){
          $(".selectF").css("display","block");
-		  $(".report1").load("showHtmlDeviceCount.jsp",{"stime":stime,"etime":etime});
+		  $(".report1").load("showHtmlDevice1Count.jsp",{"stime":stime,"etime":etime});
          }else{
          $(".report1").html('对不起，请输入查询条件!');
          }
@@ -39,7 +39,7 @@
           var etime=$("#etime").val();
           //var day=GetDateDiff(stime,etime,"day");
          if(type!=''){
-          location.href="exportDeviceCountServlet?stime="+stime+"&etime="+etime+"&type="+type;
+          location.href="exportDeviceCount1Servlet?stime="+stime+"&etime="+etime+"&type="+type;
          }else{
              $('.r').html('请输入报表格式!');
          }
