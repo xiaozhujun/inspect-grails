@@ -22,9 +22,10 @@ public class DOMAnalysisXml {
 	Connection connection = ds.getConnection();
 	
 	@SuppressWarnings("unchecked")
-	public void analysisXml(String fileName) {
+	public int analysisXml(String fileName) {
 		// String tname,String tag,String item,String value,String worker,Date
 		// time
+        int flag=0;
         insertToDb tb=new insertToDb();
 		String tname = null;
 		String tag = null;
@@ -54,20 +55,25 @@ public class DOMAnalysisXml {
 
             SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			int tid=d.getTid(tname);
-			Date t1;
+			Date t1=null;
            /* int uid = tb.getUid(worker);*/
             int uid=Integer.parseInt(worknum);
 			try {
 				t1 = sdf.parse(t);
                 System.out.print(t1+"ttttttttttttttt");
-				d.insertToDB1(t1,tid,uid);
-                System.out.print("#########");
-				tableRecid=d.getTrecord(t1, tid);
+
 			} catch (ParseException e12) {
 				// TODO Auto-generated catch block
 				e12.printStackTrace();
 			}
-
+            int tableId=d.getTidFromInspectTable(t1,uid);
+            System.out.print(tableId+"表ID");
+            if(tableId!=0){
+                flag=1;
+            }else{
+            d.insertToDB1(t1,tid,uid);
+            System.out.print("#########");
+            tableRecid=d.getTrecord(t1, tid);
 			List<Element> e2 = e1.elements();
 			Iterator<Element> it2 = e2.iterator();
 			while (it2.hasNext()) {
@@ -110,14 +116,14 @@ public class DOMAnalysisXml {
 					}
 				}
 			}
-
+            }
 		} catch (DocumentException e) {
 
 			e.printStackTrace();
 		}
 
 		// d1.parse("2010/5/4");
-
+          return  flag;
 	}
     public static void main(String args[]){
         /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd　HH:mm:ss");*/

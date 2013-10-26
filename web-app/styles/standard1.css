@@ -267,3 +267,12 @@ ul li {
     font-weight: bold;
     height: 28px;
 }
+.selectbtn:focus{
+    cursor: pointer;
+    background-color: #999999;
+    border: 1px solid;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    height: 28px;
+}

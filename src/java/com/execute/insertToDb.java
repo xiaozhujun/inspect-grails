@@ -287,6 +287,28 @@ public class insertToDb {
         }
         return tagid;
     }
+    public int getTidFromInspectTable(Date t1,int uid){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs=null;
+        String sql="select inspecttable_id from inspect_table_record where createtime=? and worker_id=? group by inspecttable_id";
+        int tid=0;
+        try{
+            statement=connection.prepareStatement(sql);
+            statement.setTimestamp(1, new Timestamp(t1.getTime()));
+            statement.setInt(2,uid);
+            rs=statement.executeQuery();
+            while(rs.next()){
+                tid=rs.getInt(rs.getInt(1));
+
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
+        }
+        return tid;
+    }
 	public static void main(String[] args) throws ParseException {
 		insertToDb d = new insertToDb();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
