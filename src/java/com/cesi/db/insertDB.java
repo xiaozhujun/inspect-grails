@@ -35,7 +35,6 @@ public class insertDB {
                d.setDid(rs.getInt(1));
                d.setDevname(rs.getString(2));
                list.add(d);
-
            }
 
       }catch (SQLException e){
@@ -44,7 +43,7 @@ public class insertDB {
        return list;
    }
     public List<dbModel> getUser(){                //得到所有设备
-        String sql="select id,username from Users";
+        String sql="select id,username from users";
         List<dbModel> list=new ArrayList<dbModel>();
         try{
             statement=connection.prepareStatement(sql);

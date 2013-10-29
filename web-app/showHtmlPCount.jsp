@@ -20,9 +20,10 @@ Long did=Long.parseLong(d);
     DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
     Date st=format.parse(stime);
     Date et=format.parse(endtime);
-String reportTemplate = this.getServletConfig().getServletContext().getRealPath(
+String reportTemplate = this.getServletContext().getRealPath(
         "/report/peopleCount1.jasper");
-out.write(ReportService.exportPeopleCountByDidDays(reportTemplate, did, st, et,request));
+
+out.write(ReportService.exportPeopleCountByDidDays(reportTemplate, did, st, et, this.getServletContext().getRealPath("/report/") + "/"));
 out.flush();
 %>
 </body>

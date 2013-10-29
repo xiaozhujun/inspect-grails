@@ -63,7 +63,7 @@
         <%
             String reportTemplate = this.getServletConfig().getServletContext().getRealPath(
                     "/report/report2.jasper");
-            out.write(ReportService.exportRiskReport(reportTemplate, ct, tid, request.getServletContext().getRealPath("/report/") + "/"));
+            out.write(ReportService.exportRiskReport(reportTemplate, ct, tid, this.getServletContext().getRealPath("/report/") + "/"));
             out.flush();
         %>
     </div>

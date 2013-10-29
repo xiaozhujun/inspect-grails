@@ -65,7 +65,7 @@
     <div id="title"><p>报表查询</div>
     <div >
 
-
+        <%=basePase%>
         <form  method="post" action="MMServlet" onsubmit="return check()">
             <div style="margin-left:10px;margin-top: 45px">
             起始时间:
