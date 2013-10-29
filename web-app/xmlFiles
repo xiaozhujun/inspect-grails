@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<check inspecttype="机修人员点检表" inspecttime="2013-9-30 14:12:00" worker="工作人员1" workernumber="1" devicenumber="menzuo001">
+<check inspecttype="机修人员点检表" inspecttime="2013-10-02 14:12:00" worker="工作人员1" workernumber="1" devicenumber="menzuo001">
   <devicetype name="门机">
     <location name="行走区域">
       <field name="铁鞋、锚定" isInput="false" description="" unit="">
@@ -20,15 +20,15 @@
        
       </field>
       <field name="驱动装置" isInput="false" description="" unit="">
-        <value name="异常"/>
+        <value name="正常"/>
         
       </field>
       <field name="行走轮" isInput="false" description="" unit="">
-        <value name="异常"/>
+        <value name="正常"/>
         
       </field>
       <field name="极限开关" isInput="false" description="" unit="">
-        <value name="异常"/>
+        <value name="正常"/>
         
       </field>
       <field name="报警装置" isInput="false" description="" unit="">
@@ -36,11 +36,11 @@
       
       </field>
       <field name="钢丝绳绳端" isInput="false" description="" unit="">
-        <value name="异常"/>
+        <value name="正常"/>
       
       </field>
       <field name="吊钩" isInput="false" description="" unit="">
-        <value name="异常"/>
+        <value name="正常"/>
         
       </field>
       <field name="抓斗" isInput="false" description="" unit="">
@@ -49,11 +49,11 @@
       </field>
       <field name="绞点" isInput="false" description="" unit="">
        
-        <value name="异常"/>
+        <value name="正常"/>
         
       </field>
       <field name="栏杆及踏板" isInput="false" description="" unit="">
-        <value name="异常"/>
+        <value name="正常"/>
         
       </field>
       <field name="钢结构" isInput="false" description="" unit="">
@@ -62,7 +62,7 @@
       </field>
       <field name="梯子栏杆" isInput="false" description="" unit="">
         
-        <value name="异常"/>
+        <value name="正常"/>
         
       </field>
     </location>
@@ -80,11 +80,11 @@
        
       </field>
       <field name="极限联轴器" isInput="false" description="" unit="">
-        <value name="异常"/>
+        <value name="正常"/>
       
       </field>
       <field name="电机及风机" isInput="false" description="" unit="">
-        <value name="异常"/>
+        <value name="正常"/>
         
       </field>
       <field name="绞点" isInput="false" description="" unit="">
@@ -98,7 +98,7 @@
       </field>
       <field name="钢结构" isInput="false" description="" unit="">
        
-        <value name="异常 "/>
+        <value name="无 "/>
       </field>
       <field name="梯子栏杆" isInput="false" description="" unit="">
         <value name="正常"/>
@@ -117,7 +117,7 @@
       </field>
       <field name="旋转锚定" isInput="false" description="" unit="">
        
-        <value name="异常 "/>
+        <value name="正常 "/>
       </field>
       <field name="钢丝绳" isInput="false" description="" unit="">
         <value name="正常"/>
@@ -140,11 +140,11 @@
         
       </field>
       <field name="电机及风机" isInput="false" description="" unit="">
-        <value name="异常"/>
+        <value name="正常"/>
         
       </field>
       <field name="绞点" isInput="false" description="" unit="">
-        <value name="异常 "/>
+        <value name="无 "/>
       </field>
       <field name="栏杆及踏板" isInput="false" description="" unit="">
         <value name="正常"/>
@@ -175,7 +175,7 @@
       </field>
       <field name="减速箱" isInput="false" description="" unit="">
        
-        <value name="异常 "/>
+        <value name="无 "/>
       </field>
       <field name="联轴器" isInput="false" description="" unit="">
         <value name="正常"/>

@@ -4,14 +4,7 @@
          xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-    <servlet>
-        <servlet-name>MultipartTestServlet</servlet-name>
-        <servlet-class>upload.MultipartTestServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MultipartTestServlet</servlet-name>
-        <url-pattern>/MultipartTestServlet</url-pattern>
-    </servlet-mapping>
+
     <servlet>
         <servlet-name>MServlet</servlet-name>
         <servlet-class>upload.MServlet</servlet-class>
@@ -77,14 +70,6 @@
         <url-pattern>/device/MMServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>MultipartServlet</servlet-name>
-        <servlet-class>upload.MultipartServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MultipartServlet</servlet-name>
-        <url-pattern>/MultipartServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>JasperReportImageServlet</servlet-name>
         <servlet-class>
             net.sf.jasperreports.j2ee.servlets.ImageServlet
@@ -93,14 +78,6 @@
     <servlet-mapping>
         <servlet-name>JasperReportImageServlet</servlet-name>
         <url-pattern>/image</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>MultipartTServlet</servlet-name>
-        <servlet-class>upload.MultipartTServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MultipartTServlet</servlet-name>
-        <url-pattern>/device/MultipartTServlet</url-pattern>
     </servlet-mapping>
     <display-name>/@grails.project.key@</display-name>
 

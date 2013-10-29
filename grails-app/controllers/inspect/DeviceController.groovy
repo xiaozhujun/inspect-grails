@@ -214,6 +214,7 @@ class DeviceController {
     }
 
     def upload = {
+        System.out.print("xxxx")
         def f = request.getFile("myFile")
             request.setCharacterEncoding("UTF-8");
             response.setContentType("text/html;charset=UTF-8");
@@ -223,8 +224,11 @@ class DeviceController {
             String path="web-app/xmlFiles"
             DOMAnalysisXml d = new DOMAnalysisXml();
             System.out.println(path+"文件???");
-	        d.analysisXml(path);
-
+	       /* d.analysisXml(path);*/
+            int flag=d.analysisXml(path);
+            if (flag!=0){
+                System.out.print("数据已存在")
+            }
         }
         else {
             flash.message = 'file cannot be empty'

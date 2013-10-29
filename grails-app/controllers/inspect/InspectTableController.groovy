@@ -2,13 +2,11 @@ package inspect
 
 import com.springsource.roo.inspect.dao.DBImpl
 import com.springsource.roo.inspect.dao.InspectTableImpl
-import com.xmlparse.dom4j.insertToRolesTableXml
 import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
-import com.xmlparse.dom4j.insertToTableTestXml;
+
 import com.cesi.report.downloadXml
 
-import javax.servlet.jsp.JspWriter;
 class InspectTableController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
