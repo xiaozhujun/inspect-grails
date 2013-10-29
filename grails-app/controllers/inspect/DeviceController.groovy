@@ -256,7 +256,5 @@ class DeviceController {
             render(view:'userupload')
         }
     }
-     def upload(){
-         render (view: 'upload')
-     }
+
 }

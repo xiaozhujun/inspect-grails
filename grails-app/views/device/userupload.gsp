@@ -7,19 +7,28 @@
     <meta name="layout" content="user">
     <title>点检上传</title>
     <link rel="stylesheet" href="../css/upload.css">
+    <script type="text/javascript">
+        function check(){
+            var s=document.getElementById("s").value;
+            if(s==""){
+                document.getElementById("result").innerHTML='请选择上传文件!';
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
 <div id="t1">
     <div id="title"><p>点检上传</div>
     <div>
-        <form action="upload1" enctype="multipart/form-data"
+        <form action="upload1" enctype="multipart/form-data" onsubmit="return check()"
               method="post">
             <div style="height: 39px; margin-left: 10px; margin-top: 40px">
                 <div
                         style="width: 140px; height: 39px; float: left; margin-left: 240px;">
                     <a class="btn_addPic" href="javascript:void(0);"> <span><em>+</em><font
                             color="blank">点检上传</font></span> <input type="file" name="myFile"
-                                                                    class="filePrew" title="支持xml文件上传" tabindex="3" size="3" />
+                                                                    class="filePrew" title="支持xml文件上传" tabindex="3" size="3" id="s"/>
                     </a>
                 </div>
                 <div class="progress"
@@ -30,7 +39,7 @@
                 <div id="status" style="background-color: yellow"></div>
 
                 <div style="float: left; margin-left: 10px; margin-top: 5px;">
-                    <input type="submit" value="上传" class="selectbtn"/>
+                    <input type="submit" value="上传" class="selectbtn"/><span id="result"></span>
                 </div>
             </div>
 
@@ -46,7 +55,7 @@
         var bar = $('.bar');
         var percent = $('.percent');
         var status = $('#status');
-
+        var file=$('#result');
         $('form').ajaxForm({
             beforeSend: function() {
                 status.empty();
@@ -64,6 +73,7 @@
                 var percentVal = '100%';
                 bar.width(percentVal);
                 percent.html(percentVal);
+                file.html("上传成功!");
             },
             complete: function(xhr) {
                 status.html(xhr.responseText);
