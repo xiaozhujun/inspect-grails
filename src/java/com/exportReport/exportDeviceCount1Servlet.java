@@ -1,143 +1,37 @@
 package com.exportReport;
-
-import model.MyDataSource;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.export.*;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.j2ee.servlets.ImageServlet;
-
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- * Created with IntelliJ IDEA.
- * User: ThinkPad
- * Date: 13-10-25
- * Time: 上午9:17
- * To change this template use File | Settings | File Templates.
- */
 public class exportDeviceCount1Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    request.setCharacterEncoding("UTF-8");
+    response.setContentType("text/html;charset=UTF-8");
     PrintWriter out=response.getWriter();
+    exportReport d=new exportReport();
     String stime=request.getParameter("stime");
     String endtime=request.getParameter("etime");
-    DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
-    Date st=null;
-    Date et=null;
-    try{
-        st=format.parse(stime);
-        et=format.parse(endtime);
-    }catch (ParseException e){
-        e.printStackTrace();
-    }
-    // 获得报表数据。这里使用ireport的测试数据。
-    MyDataSource ds=new MyDataSource();
-    Connection connection=ds.getConnection();
-    Map parameters = new HashMap();
-
-        parameters.put("stime",st);
-        parameters.put("etime",et);
-
-    File reportFile=null;
     String type = request.getParameter("type");
-
-        reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
-                "/report/deviceCount1.jasper"));
-
-    try{
-        JasperReport jasperReport = (JasperReport) JRLoader
-                .loadObject(reportFile.getPath());
-
-        ServletOutputStream ouputStream = response.getOutputStream();
-        if (type.equals("html")) {
-
-            response.setContentType("text/html");
-            JasperPrint jasperPrint = JasperFillManager.fillReport(
-                    jasperReport, parameters, connection);
-            request.getSession().setAttribute(
-                    ImageServlet.DEFAULT_JASPER_PRINT_SESSION_ATTRIBUTE,
-                    jasperPrint);
-
-            // 输出html 用JRHtmlExporter
-            JRHtmlExporter exporter = new JRHtmlExporter();
-            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-            exporter.setParameter(JRExporterParameter.OUTPUT_WRITER, out);
-            // 设置报表图片的地址为"image?image="，因此要给image此地址安排一个servlet来输出图片，详细看web.xml文件。
-            exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI,
-                    "image?image=");
-            exporter.exportReport();
-
-
-//out.clear();
-//out=pageContext.pushBody();
-
-        } else if (type.equals("excel")) {
-
-            response.setContentType("application/vnd.ms-excel");
-
-            JasperPrint jasperPrint = JasperFillManager.fillReport(
-                    jasperReport, parameters, connection);
-//ServletOutputStream ouputStream = response.getOutputStream();
-            JRXlsExporter exporter = new JRXlsExporter();
-            exporter.setParameter(JRExporterParameter.JASPER_PRINT,
-                    jasperPrint);
-            exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
-                    ouputStream);
-            exporter.setParameter(
-                    JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS,
-                    Boolean.TRUE);
-            exporter.setParameter(
-                    JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET,
-                    Boolean.FALSE);
-            exporter.setParameter(
-                    JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND,
-                    Boolean.FALSE);
-            exporter.exportReport();
-            ouputStream.flush();
-            ouputStream.close();
-
-        } else if (type.equals("pdf")) {
-            byte[] bytes = JasperRunManager.runReportToPdf(
-                    reportFile.getPath(), parameters, connection);
-            response.setContentType("application/pdf");
-            response.setContentLength(bytes.length);
-            ServletOutputStream outputStream = response.getOutputStream();
-            outputStream.write(bytes, 0, bytes.length);
-            outputStream.flush();
-            outputStream.close();
-        } else if (type.equals("word")) {
-            response.setContentType("application/msword;charset=utf-8");
-            JasperPrint jasperPrint = JasperFillManager.fillReport(
-                    jasperReport, parameters, connection);
-            ServletOutputStream outputStream = response.getOutputStream();
-            JRExporter exporter = new JRRtfExporter();
-            exporter.setParameter(JRExporterParameter.JASPER_PRINT,
-                    jasperPrint);
-            exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
-                    response.getOutputStream());
-            exporter.exportReport();
-            outputStream.flush();
-            outputStream.close();
-
-        }
-    } catch (JRException ex){
-        ex.printStackTrace();
-    }
+    java.sql.Date st=d.executeDateFormat(stime);
+    java.sql.Date et=d.executeDateFormat(endtime);
+    String reportTemplate=this.getServletContext().getRealPath("/report/deviceCount1.jasper");
+    String sql="select itr.id,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename " +
+                "from inspect_item_rec itr,device d,device_type t where itr.dnumber_id=d.id and itr.ivalue_id=2 and d.type_id=t.id and itr.createtime " +
+                "between '"+st+"' and '"+et+"' group by d.devname,itr.createtime order by d.devname,itr.createtime";
+           if(type==""){
+               try{
+                   d.exportReport(reportTemplate,sql,request,response);
+               }catch(JRException e){
+                   e.printStackTrace();
+               }
+           }else{
+               d.exportReportByType(reportTemplate,sql,type,request,response);
+           }
 }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

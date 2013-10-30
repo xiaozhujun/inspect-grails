@@ -1,4 +1,9 @@
 <%@ page import="com.csei.risk.ReportService" %>
+<%@ page import="com.exportReport.exportReport" %>
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.sql.Timestamp" %>
+<%@ page import="java.text.ParseException" %>
 <%--
   Created by IntelliJ IDEA.
   User: ThinkPad
@@ -53,6 +58,15 @@
             String etime=request.getParameter("etime");
             String ct=request.getParameter("ct");
             String tid=request.getParameter("tid");
+            long t1 = Long.parseLong(tid);
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            format.setLenient(false);
+            Timestamp ts = null;
+            try {
+                ts = new Timestamp(format.parse(ct).getTime());
+            } catch (ParseException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
         %>
         <input type="hidden" value="<%=ct%>" id="c">
         <input type="hidden" value="<%=type%>" id="type">
@@ -60,12 +74,24 @@
         <input type="hidden" value="<%=tid%>" id="tid">
         <input type="hidden" value="<%=etime%>" id="e">
         <div style="margin-left: 1015px;cursor: pointer;margin-top:2px;" ><input type="button" onclick="test1()" class="selectbtn" value="导出文件"></div>
+        <%--<%
+            String reportTemplate = this.getServletConfig().getServletContext().getRealPath(
+                    "/report/report2.jasper");--%>
+
         <%
             String reportTemplate = this.getServletConfig().getServletContext().getRealPath(
                     "/report/report2.jasper");
-            out.write(ReportService.exportRiskReport(reportTemplate, ct, tid, this.getServletContext().getRealPath("/report/") + "/"));
-            out.flush();
+           /* out.write(ReportService.exportRiskReport(reportTemplate, ct, tid, this.getServletContext().getRealPath("/report/") + "/"));
+            out.flush();*/
+            String sql="select tb.`id`,tb.`tname`,tag.`id` as tagid,tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`," +
+                    "d.numbers from`inspect_item_rec` itr,`inspect_table_record` tr,inspect_tag   tag,`inspect_item` it,`inspect_Table` tb,device d,`users` u " +
+                    "where itr.createtime = tr.createtime and itr.inspecttable_id= tb.id  and itr.tag_id = tag.id and itr.worker_id = u.id and itr.dnumber_id=d.id" +
+                    " and itr.inspecttable_id ="+t1+" and itr.createtime ='"+ts+"' group by tag.name";
+            exportReport d=new exportReport();
+            String path1=this.getServletContext().getRealPath("/report/") + "/";
+            d.exportReportHasSubreport(reportTemplate,sql,path1,request,response);
         %>
+
     </div>
 </div>
 

@@ -33,19 +33,10 @@
          if(stime!=''&&etime!=''){
          $(".selectF").css("display","block");
 		 if(did==""){
-		 $(".report1").load("showHtmlPeopleCount.jsp",{"stime":stime,"etime":etime});
+		 $(".report1").load("../inspect/exportPeopleCountServlet",{"stime":stime,"etime":etime});
 		 }else{
-		 $(".report1").load("showHtmlPCount.jsp",{"stime":stime,"etime":etime,"did":did});
+		 $(".report1").load("../inspect/exportPeopleCountServlet",{"stime":stime,"etime":etime,"did":did});
 		 }
-		 /*var s=$("#s").val();
-		 switch(s.charAt(0)){
-		 case "p":
-			 location.href="peoplePie.jsp?day="+day+"&devid="+did;
-			 break;
-		 case "z":
-			 location.href="peopleZhu.jsp?day="+day+"&devid="+did;
-			 break;
-		 }*/
          }else{
              $(".report1").html('请输入查询时间!');
          }

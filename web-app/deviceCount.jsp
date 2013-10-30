@@ -25,10 +25,11 @@
 		 $(".report1").html("");
          var stime=$("#stime").val();
          var etime=$("#etime").val();
+         var type=$("#type").val();
          //var day=GetDateDiff(stime,etime,"day");
          if(stime!=''&&etime!=''){
          $(".selectF").css("display","block");
-		  $(".report1").load("showHtmlDevice1Count.jsp",{"stime":stime,"etime":etime});
+		  $(".report1").load("../inspect/exportDeviceCount1Servlet",{"stime":stime,"etime":etime,"type":type});
          }else{
          $(".report1").html('对不起，请输入查询条件!');
          }

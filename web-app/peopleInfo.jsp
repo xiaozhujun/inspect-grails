@@ -35,13 +35,13 @@
                 if(stime!=''&&etime!=''){
                 $(".selectF").css("display","block");
                 if(devid==""&&uid==""){
-                    $(".report1").load("showHtmlpeopleInfo.jsp",{"stime":stime,"etime":etime});
+                    $(".report1").load("../inspect/exportPeopleInfoServlet",{"stime":stime,"etime":etime});
                 }else if(devid!=""&&uid==""){
-                    $(".report1").load("showHtmlpeopleInfoBydid.jsp",{"stime":stime,"etime":etime,"devid":devid});
+                    $(".report1").load("../inspect/exportPeopleInfoServlet",{"stime":stime,"etime":etime,"did":devid});
                 }else if(devid==""&&uid!=""){
-                    $(".report1").load("showHtmlpeopleByUid.jsp",{"stime":stime,"etime":etime,"uid":uid});
+                    $(".report1").load("../inspect/exportPeopleInfoServlet",{"stime":stime,"etime":etime,"uid":uid});
                 }else if(devid!=""&&uid!=""&&stime!=""&&etime!=""){
-                    $(".report1").load("showHtmlpeopleByDUid.jsp",{"stime":stime,"etime":etime,"uid":uid,"devid":devid});
+                    $(".report1").load("../inspect/exportPeopleInfoServlet",{"stime":stime,"etime":etime,"uid":uid,"did":devid});
                 }
                 }else{
                     $(".report1").html('请输入查询时间!');

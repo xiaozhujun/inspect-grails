@@ -36,10 +36,10 @@
                 if(stime!=''&&etime!=''){
                 if(did!='0'){
                 $(".selectF").css("display","block");
-                $(".report1").load("showHtmlDeviceHistory.jsp",{"starttime":stime,"endtime":etime,"did":did});
+                $(".report1").load("../inspect/exportDeviceHistoryServlet",{"starttime":stime,"endtime":etime,"did":did});
                  }else{
                 $(".selectF").css("display","block");
-                 $(".report1").load("showHtmlDeviceHistory.jsp",{"starttime":stime,"endtime":etime});
+                 $(".report1").load("../inspect/exportDeviceHistoryServlet",{"starttime":stime,"endtime":etime});
                  }
                 }else{
                     $(".report1").html('请输入查询时间!');

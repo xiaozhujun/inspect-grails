@@ -1,178 +1,96 @@
 package com.exportReport;
-
-import model.MyDataSource;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.export.*;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.j2ee.servlets.ImageServlet;
-
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- * Created with IntelliJ IDEA.
- * User: ThinkPad
- * Date: 13-10-16
- * Time: 下午9:25
- * To change this template use File | Settings | File Templates.
- */
 public class exportPeopleInfoServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out=response.getWriter();
-        // 获得报表数据。这里使用ireport的测试数据。
+        exportReport d1=new exportReport();
         String stime=request.getParameter("stime");
         String endtime=request.getParameter("etime");
-        DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
-        Date st=null;
-        Date et=null;
-        try{
-            st=format.parse(stime);
-            et=format.parse(endtime);
-        }catch (ParseException e){
-            e.printStackTrace();
-        }
+        String type = request.getParameter("type");
+        java.sql.Date st=d1.executeDateFormat(stime);
+        java.sql.Date et=d1.executeDateFormat(endtime);
         String d=request.getParameter("did");
         String u=request.getParameter("uid");
-
-        MyDataSource ds=new MyDataSource();
-        Connection connection=ds.getConnection();
-        Map parameters = new HashMap();
-        if(d==null&&u==null){
-            parameters.put("stime",st);
-            parameters.put("etime",et);
-            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
-        }else if(d!=null&&u==null){
-            Long did=Long.parseLong(d);
-            parameters.put("stime",st);
-            parameters.put("etime",et);
-            parameters.put("devid", did);
-            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
-        }else if(d==null&&u!=null){
-            Long uid=Long.parseLong(u);
-            parameters.put("stime",st);
-            parameters.put("etime",et);
-            parameters.put("uid", uid);
-            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
-        }else if(d!=null&&u!=null){
-            Long did=Long.parseLong(d);
-            Long uid=Long.parseLong(u);
-            parameters.put("stime",st);
-            parameters.put("etime",et);
-            parameters.put("did", did);
-            parameters.put("uid",uid);
-            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
-        }
-        File reportFile=null;
-        String type = request.getParameter("type");
-        if(d==null&&u==null){
-            reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
-                    "/report/reportx2.jasper"));
-        }else if(d!=null&&u==null){
-            reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
-                    "/report/peopleInfoBydid.jasper"));
-        }else if(d==null&&u!=null){
-            reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
-                    "/report/peopleInfoByUid.jasper"));
-        }else if(d!=null&&u!=null){
-            reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
-                    "/report/peopleInfoByDUid.jasper"));
-        }
-        try{
-            JasperReport jasperReport = (JasperReport) JRLoader
-                    .loadObject(reportFile.getPath());
-
-            ServletOutputStream ouputStream = response.getOutputStream();
-            if (type.equals("html")) {
-
-                response.setContentType("text/html");
-                JasperPrint jasperPrint = JasperFillManager.fillReport(
-                        jasperReport, parameters, connection);
-                request.getSession().setAttribute(
-                        ImageServlet.DEFAULT_JASPER_PRINT_SESSION_ATTRIBUTE,
-                        jasperPrint);
-
-                // 输出html 用JRHtmlExporter
-                JRHtmlExporter exporter = new JRHtmlExporter();
-                exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-                exporter.setParameter(JRExporterParameter.OUTPUT_WRITER, out);
-                // 设置报表图片的地址为"image?image="，因此要给image此地址安排一个servlet来输出图片，详细看web.xml文件。
-                exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI,
-                        "image?image=");
-                exporter.exportReport();
-
-
-//out.clear();
-//out=pageContext.pushBody();
-
-            } else if (type.equals("excel")) {
-
-                response.setContentType("application/vnd.ms-excel");
-
-                JasperPrint jasperPrint = JasperFillManager.fillReport(
-                        jasperReport, parameters, connection);
-//ServletOutputStream ouputStream = response.getOutputStream();
-                JRXlsExporter exporter = new JRXlsExporter();
-                exporter.setParameter(JRExporterParameter.JASPER_PRINT,
-                        jasperPrint);
-                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
-                        ouputStream);
-                exporter.setParameter(
-                        JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS,
-                        Boolean.TRUE);
-                exporter.setParameter(
-                        JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET,
-                        Boolean.FALSE);
-                exporter.setParameter(
-                        JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND,
-                        Boolean.FALSE);
-                exporter.exportReport();
-                ouputStream.flush();
-                ouputStream.close();
-
-            } else if (type.equals("pdf")) {
-                byte[] bytes = JasperRunManager.runReportToPdf(
-                        reportFile.getPath(), parameters, connection);
-                response.setContentType("application/pdf");
-                response.setContentLength(bytes.length);
-                ServletOutputStream outputStream = response.getOutputStream();
-                outputStream.write(bytes, 0, bytes.length);
-                outputStream.flush();
-                outputStream.close();
-            } else if (type.equals("word")) {
-                response.setContentType("application/msword;charset=utf-8");
-                JasperPrint jasperPrint = JasperFillManager.fillReport(
-                        jasperReport, parameters, connection);
-                ServletOutputStream outputStream = response.getOutputStream();
-                JRExporter exporter = new JRRtfExporter();
-                exporter.setParameter(JRExporterParameter.JASPER_PRINT,
-                        jasperPrint);
-                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
-                        response.getOutputStream());
-                exporter.exportReport();
-                outputStream.flush();
-                outputStream.close();
-
+        String reportTemplate1=this.getServletContext().getRealPath("/report/reportx2.jasper");
+        String path=this.getServletContext().getRealPath("/report/") + "/";
+        String sql1="select tag.`id` as tagid,tag.`name` as tagname,u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +
+                "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and " +
+                "itr.dnumber_id=d.id and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' " +
+                "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
+        String reportTemplate2=this.getServletContext().getRealPath("/report/peopleInfoByUid.jasper");
+        String reportTemplate3=this.getServletContext().getRealPath("/report/peopleInfoBydid.jasper");
+        String reportTemplate4=this.getServletContext().getRealPath("/report/peopleInfoByDUid.jasper");
+        if(type==null){
+           try{
+               if(d==null&&u==null){
+                   System.out.print("0");
+                  d1.exportReportHasSubreport(reportTemplate1,sql1,path,request,response);
+               }else if(d!=null&&u==null){
+                   System.out.print("3");
+                   Long did=Long.parseLong(d);
+                   String sql3="select tag.`id` as tagid, tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +
+                           "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and" +
+                           " itr.dnumber_id=d.id  and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"'and itr.dnumber_id="+did+" " +
+                           "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
+                   d1.exportReportHasSubreport(reportTemplate3,sql3,path,request,response);
+               }else if(d==null&&u!=null){
+                   System.out.print("2");
+                   Long uid=Long.parseLong(u);
+                   String sql2="select tag.`id` as tagid, tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`, d.devname,  d.id as devid, count(itr.id) as itrnum " +
+                           "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and" +
+                           " itr.dnumber_id=d.id and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.worker_id="+uid+" " +
+                           "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
+                   d1.exportReportHasSubreport(reportTemplate2,sql2,path,request,response);
+               }else if(d!=null&&u!=null){
+                   System.out.print("4");
+                   Long did=Long.parseLong(d);
+                   Long uid=Long.parseLong(u);
+                   String sql4="select tag.`id` as tagid, tag.`name` as tagname,u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid, count(itr.id) as itrnum " +
+                           "from `inspect_item_rec` itr,  inspect_tag   tag,`inspect_item` it,device d,`users` u " +
+                           "where itr.tag_id = tag.id and itr.worker_id = u.id and itr.dnumber_id=d.id " +
+                           "and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.worker_id="+uid+" and itr.dnumber_id="+did+" group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime" ;
+                   d1.exportReportHasSubreport(reportTemplate4,sql4,path,request,response);
+               }
+           }catch (JRException e){
+               e.printStackTrace();
+           }
+       }else{
+            if(d==null&&u==null){
+                d1.exportReportHasSubreportByType(reportTemplate1,sql1,type,path,request,response);
+            }else if(d!=null&&u==null){
+                Long did=Long.parseLong(d);
+                String sql3="select tag.`id` as tagid, tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +
+                        "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and" +
+                        " itr.dnumber_id=d.id  and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"'and itr.dnumber_id="+did+" " +
+                        "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
+                d1.exportReportHasSubreportByType(reportTemplate3,sql3,type,path,request,response);
+            }else if(d==null&&u!=null){
+                Long uid=Long.parseLong(u);
+                String sql2="select tag.`id` as tagid, tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`, d.devname,  d.id as devid, count(itr.id) as itrnum " +
+                        "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and" +
+                        " itr.dnumber_id=d.id and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.worker_id="+uid+" " +
+                        "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
+                d1.exportReportHasSubreportByType(reportTemplate2,sql2,type,path,request,response);
+            }else if(d!=null&&u!=null){
+                Long did=Long.parseLong(d);
+                Long uid=Long.parseLong(u);
+                String sql4="select tag.`id` as tagid, tag.`name` as tagname,u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid, count(itr.id) as itrnum " +
+                        "from `inspect_item_rec` itr,  inspect_tag   tag,`inspect_item` it,device d,`users` u " +
+                        "where itr.tag_id = tag.id and itr.worker_id = u.id and itr.dnumber_id=d.id " +
+                        "and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.worker_id="+uid+" and itr.dnumber_id="+did+" group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime" ;
+                d1.exportReportHasSubreportByType(reportTemplate4,sql4,type,path,request,response);
             }
-        } catch (JRException ex){
-            ex.printStackTrace();
-        }
+       }
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -27,6 +27,7 @@
         $(document).ready(function(){
             $("#btn").click(function(){
                 $(".report1").empty();
+                var type=$("#type").val();
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
                 //var day=GetDateDiff(stime,etime,"day");
@@ -34,9 +35,9 @@
                 $(".selectF").css("display","block");
                 var s=$("#s").val();
                 if(s=="0"){
-                    $(".report1").load("showHtmlDeviceCount.jsp",{"stime":stime,"etime":etime});
+                    $(".report1").load("../inspect/exportDeviceCountServlet",{"stime":stime,"etime":etime});
                 }else{
-                    $(".report1").load("showHtmlDCount.jsp",{"stime":stime,"etime":etime,"did":s});
+                    $(".report1").load("../inspect/exportDeviceCountServlet",{"stime":stime,"etime":etime,"did":s});
                     //location.href="showHtmlDCount.jsp?day="+day+"&did="+s;
                 }
                 }else{

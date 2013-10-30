@@ -35,124 +35,50 @@ public class exportPeopleCountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out=response.getWriter();
-        // 获得报表数据。这里使用ireport的测试数据。
+        exportReport d1=new exportReport();
         String stime=request.getParameter("stime");
         String endtime=request.getParameter("etime");
-        DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
-        Date st=null;
-        Date et=null;
-        try{
-            st=format.parse(stime);
-            et=format.parse(endtime);
-        }catch (ParseException e){
-            e.printStackTrace();
-        }
+        String type=request.getParameter("type");
+        java.sql.Date st=d1.executeDateFormat(stime);
+        java.sql.Date et=d1.executeDateFormat(endtime);
         String d=request.getParameter("did");
-        MyDataSource ds=new MyDataSource();
-        Connection connection=ds.getConnection();
-        Map parameters = new HashMap();
-        if(d==null){
-            parameters.put("stime",st);
-            parameters.put("etime",et);
-            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
-        }else{
-            Long did=Long.parseLong(d);
-            parameters.put("stime",st);
-            parameters.put("etime",et);
-            parameters.put("devid", did);
-            parameters.put("SUBREPORT_DIR",request.getServletContext().getRealPath("/report/") + "/");
-        }
-        File reportFile=null;
-        String type = request.getParameter("type");
-        if(d==null){
-            System.out.print("hahah");
-            reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
-                    "/report/peopleCount.jasper"));
-        }else{
-            System.out.print("进来了");
-            reportFile= new File(this.getServletConfig().getServletContext().getRealPath(
-                    "/report/peopleCount1.jasper"));
-        }
-        try{
-            JasperReport jasperReport = (JasperReport) JRLoader
-                    .loadObject(reportFile.getPath());
-
-            ServletOutputStream ouputStream = response.getOutputStream();
-            if (type.equals("html")) {
-
-                response.setContentType("text/html");
-                JasperPrint jasperPrint = JasperFillManager.fillReport(
-                        jasperReport, parameters, connection);
-                request.getSession().setAttribute(
-                        ImageServlet.DEFAULT_JASPER_PRINT_SESSION_ATTRIBUTE,
-                        jasperPrint);
-
-                // 输出html 用JRHtmlExporter
-                JRHtmlExporter exporter = new JRHtmlExporter();
-                exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-                exporter.setParameter(JRExporterParameter.OUTPUT_WRITER, out);
-                // 设置报表图片的地址为"image?image="，因此要给image此地址安排一个servlet来输出图片，详细看web.xml文件。
-                exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI,
-                        "image?image=");
-                exporter.exportReport();
-
-
-//out.clear();
-//out=pageContext.pushBody();
-
-            } else if (type.equals("excel")) {
-
-                response.setContentType("application/vnd.ms-excel");
-
-                JasperPrint jasperPrint = JasperFillManager.fillReport(
-                        jasperReport, parameters, connection);
-//ServletOutputStream ouputStream = response.getOutputStream();
-                JRXlsExporter exporter = new JRXlsExporter();
-                exporter.setParameter(JRExporterParameter.JASPER_PRINT,
-                        jasperPrint);
-                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
-                        ouputStream);
-                exporter.setParameter(
-                        JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS,
-                        Boolean.TRUE);
-                exporter.setParameter(
-                        JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET,
-                        Boolean.FALSE);
-                exporter.setParameter(
-                        JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND,
-                        Boolean.FALSE);
-                exporter.exportReport();
-                ouputStream.flush();
-                ouputStream.close();
-
-            } else if (type.equals("pdf")) {
-                byte[] bytes = JasperRunManager.runReportToPdf(
-                        reportFile.getPath(), parameters, connection);
-                response.setContentType("application/pdf");
-                response.setContentLength(bytes.length);
-                ServletOutputStream outputStream = response.getOutputStream();
-                outputStream.write(bytes, 0, bytes.length);
-                outputStream.flush();
-                outputStream.close();
-            } else if (type.equals("word")) {
-                response.setContentType("application/msword;charset=utf-8");
-                JasperPrint jasperPrint = JasperFillManager.fillReport(
-                        jasperReport, parameters, connection);
-                ServletOutputStream outputStream = response.getOutputStream();
-                JRExporter exporter = new JRRtfExporter();
-                exporter.setParameter(JRExporterParameter.JASPER_PRINT,
-                        jasperPrint);
-                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
-                        response.getOutputStream());
-                exporter.exportReport();
-                outputStream.flush();
-                outputStream.close();
-
+        String reportTemplate1=this.getServletContext().getRealPath("/report/peopleCount.jasper");
+        String sql1="select d.id as did,d.devname,u.id as uid,u.username,count(itr.id) as itnumber,itr.createtime as intime " +
+                "from inspect_item_rec itr,device d,users u where itr.dnumber_id=d.id  and u.id=itr.worker_id and itr.ivalue_id=2 and " +
+                "itr.createtime between '"+st+"' and '"+et+"' " +
+                "group by d.devname,itr.createtime order by u.username,d.devname,itr.createtime";
+        String reportTemplate2 = this.getServletContext().getRealPath("/report/peopleCount1.jasper");
+        String path=this.getServletContext().getRealPath("/report/") + "/";
+         if(type==null){
+            try{
+                if(d==null){
+                    d1.exportReportHasSubreport(reportTemplate1,sql1,path,request,response);
+                }else{
+                    Long did=Long.parseLong(d);
+                    String sql2="select d.id as did,d.devname,u.id as uid,u.username,itr.createtime as intime " +
+                            "from inspect_item_rec itr,device d,users u where itr.dnumber_id=d.id  and u.id=itr.worker_id " +
+                            "and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.dnumber_id="+did+" " +
+                            "group by itr.createtime order by u.username,d.devname,itr.createtime";
+                    d1.exportReportHasSubreport(reportTemplate2,sql2,path,request,response);
+                }
+            }catch (JRException e){
+                e.printStackTrace();
             }
-        } catch (JRException ex){
-            ex.printStackTrace();
-        }
+         }else{
+            if(d==null){
+                 d1.exportReportHasSubreportByType(reportTemplate1,sql1,type,path,request,response);
+            }else{
+                Long did=Long.parseLong(d);
+                String sql2="select d.id as did,d.devname,u.id as uid,u.username,itr.createtime as intime " +
+                        "from inspect_item_rec itr,device d,users u where itr.dnumber_id=d.id  and u.id=itr.worker_id " +
+                        "and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.dnumber_id="+did+" " +
+                        "group by itr.createtime order by u.username,d.devname,itr.createtime";
+                d1.exportReportHasSubreportByType(reportTemplate2,sql2,type,path,request,response);
+            }
+         }
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
