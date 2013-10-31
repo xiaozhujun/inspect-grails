@@ -20,7 +20,7 @@
 </head>
 <body>
       <%
-          String[] str=request.getParameter("tableHtml").split(" ");
+          String[] str=new String(request.getParameter("tableHtml").getBytes("ISO-8859-1")).split(" ");
           int idx1=0;
           int idx2=1;
           int idx3=2;

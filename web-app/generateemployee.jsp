@@ -22,7 +22,7 @@
      将前台传来的字符串以空格分割，取出字段，存入List<PageInspectTable>中后调用insertToEmploy，写入文件流，下载
 --%>
     <%
-        String[] str=request.getParameter("str").split(" ");
+        String[] str=new String(request.getParameter("str").getBytes("ISO-8859-1")).split(" ");
         int idx1=0;
         int idx2=1;
         int idx3=2;
