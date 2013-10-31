@@ -22,6 +22,30 @@
         <url-pattern>/device/exportReportServlet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>showReportServlet</servlet-name>
+        <servlet-class>com.exportReport.exportReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showReportServlet</servlet-name>
+        <url-pattern>/showReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>generateDeviceServlet</servlet-name>
+        <servlet-class>com.cesi.report.generateDeviceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>generateDeviceServlet</servlet-name>
+        <url-pattern>/generateDeviceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>generateEmployeeServlet</servlet-name>
+        <servlet-class>com.cesi.report.generateEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>generateEmployeeServlet</servlet-name>
+        <url-pattern>/generateEmployeeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>exportDeviceCountServlet</servlet-name>
         <servlet-class>com.exportReport.exportDeviceCountServlet</servlet-class>
     </servlet>

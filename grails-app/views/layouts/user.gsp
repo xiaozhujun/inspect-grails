@@ -21,13 +21,11 @@
     <link rel="stylesheet" href="${resource(dir:'styles',file:'standard1.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir:'css',file:'mymenu.css')}" type="text/css">
     <script type="text/javascript" src='${resource(dir: 'js',file: 'jquery-1.4.2.js')}'></script>
-    <script type="text/javascript" src='${resource(dir: 'js',file: 'DateDiff.js')}'></script>
     <g:layoutHead/>
     <r:layoutResources />
     <script>
         $(document).ready(function(){
             $(".deviceCount").click(function(){
-                alert("1")
                 $("#mainContainer").load("../deviceCount.jsp");
             })
         })

@@ -1,4 +1,3 @@
-<%@ page import="com.csei.risk.ReportService" %>
 <%@ page import="com.exportReport.exportReport" %>
 <%@ page import="java.text.DateFormat" %>
 <%@ page import="java.text.SimpleDateFormat" %>
@@ -35,7 +34,7 @@
             var stime = document.getElementById("s").value;
             var tid = document.getElementById("tid").value;
             var etime = document.getElementById("e").value;
-            window.location.href = "showreport.jsp?type=" + type + "&stime="+ stime + "&tid=" + tid + "&etime=" + etime + "&ct=" + x;
+            window.location.href = "showReportServlet?type=" + type + "&stime="+ stime + "&tid=" + tid + "&etime=" + etime + "&ct=" + x;
         }
     </script>
 </head>
@@ -51,7 +50,6 @@
         <div class="title">
             <span class="titlefont">点检表详情</span>
         </div>
-        <%--<jsp:include page="reportHtml.jsp"></jsp:include>--%>
         <%
             String type=request.getParameter("type");
             String stime=request.getParameter("stime");
@@ -74,22 +72,17 @@
         <input type="hidden" value="<%=tid%>" id="tid">
         <input type="hidden" value="<%=etime%>" id="e">
         <div style="margin-left: 1015px;cursor: pointer;margin-top:2px;" ><input type="button" onclick="test1()" class="selectbtn" value="导出文件"></div>
-        <%--<%
-            String reportTemplate = this.getServletConfig().getServletContext().getRealPath(
-                    "/report/report2.jasper");--%>
-
         <%
             String reportTemplate = this.getServletConfig().getServletContext().getRealPath(
                     "/report/report2.jasper");
-           /* out.write(ReportService.exportRiskReport(reportTemplate, ct, tid, this.getServletContext().getRealPath("/report/") + "/"));
-            out.flush();*/
             String sql="select tb.`id`,tb.`tname`,tag.`id` as tagid,tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`," +
                     "d.numbers from`inspect_item_rec` itr,`inspect_table_record` tr,inspect_tag   tag,`inspect_item` it,`inspect_Table` tb,device d,`users` u " +
                     "where itr.createtime = tr.createtime and itr.inspecttable_id= tb.id  and itr.tag_id = tag.id and itr.worker_id = u.id and itr.dnumber_id=d.id" +
                     " and itr.inspecttable_id ="+t1+" and itr.createtime ='"+ts+"' group by tag.name";
             exportReport d=new exportReport();
             String path1=this.getServletContext().getRealPath("/report/") + "/";
-            d.exportReportHasSubreport(reportTemplate,sql,path1,request,response);
+            out.write(d.exportRiskReport(reportTemplate,sql, path1));
+            out.flush();
         %>
 
     </div>

@@ -32,23 +32,17 @@
     <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
 <script type="text/javascript">
 function  test(x){
-	
 	 var type=document.getElementById("type").value;
 	 var stime=document.getElementById("s").value;
 	 var tid=document.getElementById("tid").value;
 	 var etime=document.getElementById("e").value;
-	
-    // window.location.href="../showreport.jsp?type="+type+"&stime="+stime+"&tid="+tid+"&etime="+etime+"&ct="+x;
     window.location.href="exportReportServlet?type="+type+"&stime="+stime+"&tid="+tid+"&etime="+etime+"&ct="+x;
-
 }
 function  test1(x){
-	// var t=document.getElementById("'<%=r.getCreatetime()%>'").value;
 		var type = document.getElementById("type").value;
 		var stime = document.getElementById("s").value;
 		var tid = document.getElementById("tid").value;
 		var etime = document.getElementById("e").value;
-
 		window.location.href = "../adminShowHtmlReport.jsp?type=" + type + "&stime=" + stime
 				+ "&tid=" + tid + "&etime=" + etime + "&ct=" + x;
 	}
@@ -63,7 +57,6 @@ function check(){
     	alert("请输入查询条件!");
     	return false;
     }
-	
 }
 </script>
 
@@ -175,19 +168,11 @@ function check(){
                                                              href="<%=basePase%>deviceType/create">添加设备类型</a></li>
                                 <li id="i_devicetype_list"><a title="查询标签"
                                                               href="<%=basePase%>deviceType/list">设备类型列表</a></li>
-
                             </ul></li>
                     </ul>
                 </div>
             </div>
-
-
-
-
         </div>
-        <%--<jsp:include page="<%=basePase%>nav.jsp"></jsp:include>
-        <jsp:include page="<%=basePase%>leftmenu.jsp"></jsp:include>
---%>
 <div class="reportright">
     <div class="title">
         <span class="titlefont">报表查询</span>

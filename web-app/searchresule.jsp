@@ -13,24 +13,6 @@
 <head>
     <title></title>
     <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
-    <%--<script>
-        $(function(){
-            $("#btn1").click(function(){
-                var str="";
-                $("input:checkbox:[checked]").each(function(){
-                    str+=$(this).val();
-
-                })
-                alert(str.substring(1)+"ahah");
-
-               location.href="confirmsearch.jsp?str="+str.substring(1)+"";
-
-            })
-
-        })
-
-
-    </script>--%>
     <script>
         var rowCount = 0;
         var colCount = 2;

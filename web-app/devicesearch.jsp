@@ -62,24 +62,18 @@
                 })
 
             })
-
-
         })
     </script>
     <script type="text/javascript" src="js/searchconfigure.js"></script>
     <link rel="stylesheet" href="css/devicesearch.css">
-
 </head>
 <body>
-
 <div id="wrapper">
     <jsp:include page="nav.jsp"></jsp:include>
-
     <div><jsp:include page="leftmenu.jsp"></jsp:include></div>
     <div id="t">
         <div id="n1">
            <span onclick="showuser()" class="pse">人员查询</span><span onclick="showdevice()" class="pse">设备查询</span>
-
         </div>
         <div id="tt">
             <div id="search">
@@ -95,8 +89,6 @@
                             Iterator l1=list.iterator();
                             while(l1.hasNext()){
                                 p=(PageInspectTable)l1.next();
-
-
                         %>
                         <option value="<%=p.getRid()%>"><%=p.getRolename()%></option>
                         <%
@@ -107,8 +99,6 @@
                         <input type="button" value="查询" id="btn" class="selectbtn">
                     </form>
                 </div>
-
-
                 <div>
                 </div>
                 <div id="resultx">
@@ -117,7 +107,6 @@
                 <div id="result1">
                     <div id="sresult">
                         查询结果:
-
                     </div>
                 </div>
                 <div id="result2">
@@ -125,9 +114,7 @@
                     <table id="testTable1" border="1" width="500">
                         <tbody>
                         <tr><th>用户编号</th><th>用户名</th><th>类型编号</th><th>类型名</th><th>操作</th></tr>
-
                         </tbody>
-
                     </table>
                     <div id="gresult1"></div>
                     <span class="ge" onclick="generate1()">导出配置文件</span>
@@ -145,8 +132,6 @@
                             Iterator l2=list1.iterator();
                             while(l2.hasNext()){
                                 p=(PageInspectTable)l2.next();
-
-
                         %>
                         <option value="<%=p.getTypeid()%>"><%=p.getTypename()%></option>
                         <%
@@ -162,8 +147,6 @@
                             Iterator l3=list2.iterator();
                             while(l3.hasNext()){
                                 p=(PageInspectTable)l3.next();
-
-
                         %>
                         <option value="<%=p.getDeviceid()%>"><%=p.getDevicenumber()%></option>
                         <%
@@ -179,15 +162,12 @@
                             Iterator l4=list3.iterator();
                             while(l4.hasNext()){
                                 p=(PageInspectTable)l4.next();
-
-
                         %>
                         <option value="<%=p.getTagid()%>"><%=p.getTagname()%></option>
                         <%
                             }
                         %>
                     </select>
-
                         <input type="button" value="查询" id="btn1" class="selectbtn">
                     </form>
                 </div>
@@ -197,21 +177,16 @@
                 <div id="result1-1">
                     <div id="sresult1">
                         查询结果:
-
                     </div>
                 </div>
                 <div id="result2-1">
                     <div id="resule" >
-
                         <table id="testTable" border="1" width="510">
                             <thead>
-
                             </thead>
                             <tbody>
                             <tr><th>设备类型</th><th>设备类型编号</th><th>设备编号</th><th>标签区域</th><th>标签号</th><th>标签编号</th><th>操作</th></tr>
-
                             </tbody>
-
                         </table>
                         <div id="gresult"></div>
                     </div>
@@ -219,11 +194,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
 </div>
-
 </body>
 </html>

@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="styles/social-buttons.css">
     <script language="javascript" type="text/javascript"
             src="My97DatePicker/WdatePicker.js"></script>
-    <script type="text/javascript" src="js/DateDiff.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $("#btn").click(function(){
@@ -51,12 +50,10 @@
                 var type=$("#type").val();
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
-                //var day=GetDateDiff(stime,etime,"day");
                 var devid=$("#did").val();
                 var uid=$("#user").val();
                 if(type!=''){
                 if(devid==""&&uid==""){
-                    //$(".report").load("showHtmlpeopleInfo.jsp",{"day":day});
                     location.href="exportPeopleInfoServlet?stime="+stime+"&etime="+etime+"&type="+type;
                 }else if(devid!=""&&uid==""){
                     location.href="exportPeopleInfoServlet?stime="+stime+"&etime="+etime+"&type="+type+"&did="+devid;

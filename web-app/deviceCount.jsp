@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="styles/social-buttons.css">
     <script language="javascript" type="text/javascript"
             src="My97DatePicker/WdatePicker.js"></script>
-    <script type="text/javascript" src="js/DateDiff.js"></script>
 <script type="text/javascript">
  $(document).ready(function(){ 
 	 $("#btn").click(function(){
@@ -26,7 +25,6 @@
          var stime=$("#stime").val();
          var etime=$("#etime").val();
          var type=$("#type").val();
-         //var day=GetDateDiff(stime,etime,"day");
          if(stime!=''&&etime!=''){
          $(".selectF").css("display","block");
 		  $(".report1").load("../inspect/exportDeviceCount1Servlet",{"stime":stime,"etime":etime,"type":type});
@@ -38,7 +36,6 @@
           var type=$("#type").val();
           var stime=$("#stime").val();
           var etime=$("#etime").val();
-          //var day=GetDateDiff(stime,etime,"day");
          if(type!=''){
           location.href="exportDeviceCount1Servlet?stime="+stime+"&etime="+etime+"&type="+type;
          }else{

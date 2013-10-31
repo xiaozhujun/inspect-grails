@@ -22,9 +22,7 @@
     <link rel="stylesheet" href="styles/social-buttons.css">
     <script language="javascript" type="text/javascript"
             src="My97DatePicker/WdatePicker.js"></script>
-    <script type="text/javascript" src="js/DateDiff.js"></script>
     <script>
-
         $(document).ready(function(){
             $.ajaxSetup ({
                 cache: false //关闭AJAX相应的缓存

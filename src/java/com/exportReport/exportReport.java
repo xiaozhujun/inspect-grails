@@ -10,10 +10,9 @@ import org.h2.value.ValueStringIgnoreCase;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.Connection;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,14 +28,11 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class exportReport{
-
+    private static MyDataSource ds=new MyDataSource();
+    private static Connection connection=ds.getConnection();
     public void exportReport(String reportTemplate,String sql,HttpServletRequest request,HttpServletResponse response) throws JRException,IOException {
-        MyDataSource ds=new MyDataSource();
-        Connection connection=ds.getConnection();
         PrintWriter out=response.getWriter();
         try{
-           /* File reportFile = new File(this.getServletContext().getRealPath(
-                    "/report/deviceCount.jasper"));*/
         File reportFile = new File(reportTemplate);
         if (!reportFile.exists())
             throw new JRRuntimeException(
@@ -72,8 +68,6 @@ public class exportReport{
     }
 }
     public void exportReportHasSubreport(String reportTemplate,String sql,String path,HttpServletRequest request,HttpServletResponse response) throws JRException,IOException {
-        MyDataSource ds=new MyDataSource();
-        Connection connection=ds.getConnection();
         PrintWriter out=response.getWriter();
         try{
            /* File reportFile = new File(this.getServletContext().getRealPath(
@@ -114,8 +108,6 @@ public class exportReport{
         }
     }
      public void exportReportByType(String reportTemport,String sql,String type,HttpServletRequest request,HttpServletResponse response) throws IOException{
-        MyDataSource ds=new MyDataSource();
-        Connection connection=ds.getConnection();
         Map parameters = new HashMap();
         parameters.put("sql",sql);
         File reportFile=null;
@@ -200,8 +192,6 @@ public class exportReport{
         }
     }
     public void exportReportHasSubreportByType(String reportTemport,String sql,String type,String path,HttpServletRequest request,HttpServletResponse response) throws IOException{
-        MyDataSource ds=new MyDataSource();
-        Connection connection=ds.getConnection();
         Map parameters = new HashMap();
         parameters.put("sql",sql);
         parameters.put("SUBREPORT_DIR",path);
@@ -275,6 +265,29 @@ public class exportReport{
         } catch (JRException ex){
             ex.printStackTrace();
         }
+    }
+    public static String exportRiskReport(String reportTemplate,String sql,String path) throws JRException {
+        File reportFile = new File(reportTemplate);
+        Map parameters = new HashMap();
+        parameters.put("sql",sql);
+        parameters.put("SUBREPORT_DIR",path);
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reportFile.getPath());
+        Map map=new HashMap();
+        OutputStream outputStream = new ByteArrayOutputStream();
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,connection );
+        JRHtmlExporter exporter = new JRHtmlExporter();
+        exporter.setParameter(
+                JRHtmlExporterParameter.IS_USING_IMAGES_TO_ALIGN,
+                Boolean.FALSE);
+        exporter.setParameter(JRExporterParameter.JASPER_PRINT,
+                jasperPrint);
+        exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING,
+                "UTF-8");
+        exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
+                outputStream);
+        exporter.exportReport();
+        String result =  outputStream.toString();
+        return result;
     }
     public java.sql.Date executeDateFormat(String t1){
         DateFormat format=new SimpleDateFormat("yyyy-MM-dd");

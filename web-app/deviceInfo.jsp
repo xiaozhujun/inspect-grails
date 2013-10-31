@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="styles/social-buttons.css">
     <script language="javascript" type="text/javascript"
             src="My97DatePicker/WdatePicker.js"></script>
-    <script type="text/javascript" src="js/DateDiff.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $("#btn").click(function(){
@@ -30,7 +29,6 @@
                 var type=$("#type").val();
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
-                //var day=GetDateDiff(stime,etime,"day");
                 if(stime!=''&&etime!=''){
                 $(".selectF").css("display","block");
                 var s=$("#s").val();
@@ -38,7 +36,6 @@
                     $(".report1").load("../inspect/exportDeviceCountServlet",{"stime":stime,"etime":etime});
                 }else{
                     $(".report1").load("../inspect/exportDeviceCountServlet",{"stime":stime,"etime":etime,"did":s});
-                    //location.href="showHtmlDCount.jsp?day="+day+"&did="+s;
                 }
                 }else{
                     $(".report1").html('请输入查询时间!');
@@ -48,7 +45,6 @@
                 var type=$("#type").val();
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
-                //var day=GetDateDiff(stime,etime,"day");
                 var s=$("#s").val();
                 if(type!=''){
                 if(s=="0"){
