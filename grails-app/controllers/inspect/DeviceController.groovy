@@ -219,13 +219,13 @@ class DeviceController {
             request.setCharacterEncoding("UTF-8");
             response.setContentType("text/html;charset=UTF-8");
         if(!f.empty) {
-            f.transferTo( new File("web-app/xmlFiles") )
+            //f.transferTo( new File("web-app/xmlFiles") )
             response.sendError(200,'Done');
-            String path="web-app/xmlFiles"
+            //String path="web-app/xmlFiles"
             DOMAnalysisXml d = new DOMAnalysisXml();
-            System.out.println(path+"文件???");
+           // System.out.println(path+"文件???");
 	       /* d.analysisXml(path);*/
-            int flag=d.analysisXml(path);
+            int flag=d.analysisXml(f.getInputStream());
             if (flag!=0){
                 System.out.print("数据已存在")
             }
@@ -241,12 +241,12 @@ class DeviceController {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         if(!f.empty) {
-            f.transferTo( new File("web-app/xmlFiles") )
+           // f.transferTo( new File("web-app/xmlFiles") )
             response.sendError(200,'Done');
-            String path="web-app/xmlFiles"
+            //String path="web-app/xmlFiles"
             DOMAnalysisXml d = new DOMAnalysisXml();
-            System.out.println(path+"文件???");
-            int flag=d.analysisXml(path);
+            //System.out.println(path+"文件???");
+            int flag=d.analysisXml(f.getInputStream());
             if (flag!=0){
                 System.out.print("数据已存在")
             }

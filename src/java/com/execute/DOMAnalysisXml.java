@@ -1,6 +1,7 @@
 package com.execute;
 
 import java.io.File;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,7 +23,7 @@ public class DOMAnalysisXml {
 	Connection connection = ds.getConnection();
 	
 	@SuppressWarnings("unchecked")
-	public int analysisXml(String fileName) {
+	public int analysisXml(InputStream inputStream) {
 		// String tname,String tag,String item,String value,String worker,Date
 		// time
         int flag=0;
@@ -38,7 +39,7 @@ public class DOMAnalysisXml {
         String worknum=null;
 		SAXReader saxReader = new SAXReader();
 		try {
-			Document document = saxReader.read(new File(fileName));
+			Document document = saxReader.read(inputStream);
 			Element root = document.getRootElement();
 			/*System.out.println(root.getName() + ":"
 					+ root.attribute("inspecttype").getValue() + "--"
