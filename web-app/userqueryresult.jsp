@@ -5,7 +5,6 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.util.List"%>
 <%@ page import="java.sql.Timestamp" %>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -24,21 +23,17 @@
 	src="<%=basePase%>My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript">
 function  test(x){
-	// var t=document.getElementById("'<%=r.getCreatetime()%>'").value;
 	 var type=document.getElementById("type").value;
 	 var stime=document.getElementById("s").value;
 	 var tid=document.getElementById("tid").value;
 	 var etime=document.getElementById("e").value;
-	
      window.location.href="exportReportServlet?type="+type+"&stime="+stime+"&tid="+tid+"&etime="+etime+"&ct="+x;
  }
 function  test1(x){
-	// var t=document.getElementById("'<%=r.getCreatetime()%>'").value;
 		var type = document.getElementById("type").value;
 		var stime = document.getElementById("s1").value;
 		var tid = document.getElementById("tid").value;
 		var etime = document.getElementById("e1").value;
-
 		window.location.href = "../showHtmlReport.jsp?type=" + type + "&stime="
 				+ stime + "&tid=" + tid + "&etime=" + etime + "&ct=" + x;
 	}
@@ -64,12 +59,8 @@ function check(){
     <link href="<%=basePase%>images/favicon.ico" rel="SHORTCUT ICON" />
     <link href="<%=basePase%>css/mymenu.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
-
-
-
 </head>
 <body>
-
 	<div id="wrapper">
         <div style="width: 100%;height: 50px;margin-top: 0px">
             <div id='titleContainerDiv'>
@@ -176,8 +167,6 @@ function check(){
                 <%
                     out.println("<div id='title2'>查询结果:</div>");
                 %>
-
-
                     <table border="0"  cellpadding="0" cellspacing="1" bgcolor="#000000" class="querytable">
                         <thead>
                         <tr bgcolor="#FFFFFF">
@@ -224,24 +213,9 @@ function check(){
                                 out.println("<div id='title1'>请输入查询条件!!</div>");
                             }
                         %>
-
-
                         </tbody>
-
-
-
-
-
                     </table>
-
-
-
-
             </div>
-
-
-
-
         </div>
 
 

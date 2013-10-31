@@ -93,9 +93,9 @@ function check(){
                         <li id="c_report"><h2>配置管理</h2>
                             <ul>
                                 <li id="i_device_list"><a title="人员配置查询"
-                                                          href="/inspect/searchconfigure.jsp">人员配置查询</a></li>
+                                                          href="/inspect/peopleConfigureSearch.jsp">人员配置查询</a></li>
                                 <li id="i_device_new"><a title="设备配置查询"
-                                                         href="/inspect/devicesearch.jsp">设备配置查询</a></li>
+                                                         href="/inspect/deviceConfigureSearch.jsp">设备配置查询</a></li>
                                 <li id="i_device_new"><a title="点检表下载"
                                                          href="/inspect/inspectTable/searchlist">点检表下载</a></li>
                                 <li id="i_device_new"><a title="人员与点检项目对应表下载"

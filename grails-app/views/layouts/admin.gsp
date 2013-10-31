@@ -55,8 +55,8 @@
             <div class="menuFunc">
                 <div class="menuFuncName"><p>配置管理</p></div>
                 <div class="menuItemList">
-                    <div class="menuItem"><span id="d1"><a href="/inspect/searchconfigure.jsp">人员配置查询</a></span></div>
-                    <div class="menuItem"><span id="d1"><g:link url="/inspect/devicesearch.jsp">设备配置查询</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><a href="/inspect/peopleConfigureSearch.jsp">人员配置查询</a></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceConfigureSearch.jsp">设备配置查询</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'searchlist',controller:'inspectTable']">点检表下载</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'downroletable',controller:'inspectTable']">人员与点检项目表下载</g:link></span></div>
                 </div>

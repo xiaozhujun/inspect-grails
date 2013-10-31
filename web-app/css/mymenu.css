@@ -35,3 +35,78 @@ body{
     color: white;
     margin-top: 5px;
 }
+#testTable1{
+    bordercolor:#000000;
+    border-collapse:collapse;
+    cellpadding:0;
+    cellspacing:0;
+    margin-left: 5px;
+}
+#testTable1 tr{
+    width: 800px;
+
+}
+#testTable1 th{
+    background-color: #999999;
+    font-size:17.5px;
+    width: 100px;
+}
+#testTable1 td{
+    font-size:17.5px;
+    text-align: center;
+
+}
+.tb1{
+    bordercolor:#000000;
+    border-collapse:collapse;
+    cellpadding:0;
+    cellspacing:0;
+}
+.tb1 th{
+    background-color: #999999;
+    font-size:17.5px;
+}
+.tb1 td{
+    font-size:17.5px;
+    text-align: center;
+}
+.delbtn{
+    display: inline-block;
+    width: 70px;
+    height: 20px;
+    border: 1px solid #999999;
+    cursor: pointer;
+    text-align: center;
+    line-height: 20px;
+    background-color: #EEEEEE;
+}
+.ge{
+
+    border: 1px solid #999999;
+    width: 120px;
+    height: 30px;
+    margin-left: 420px;
+    margin-top: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+#testTable{
+    bordercolor:#000000;
+    border-collapse:collapse;
+    cellpadding:0;
+    cellspacing:0;
+    margin-left: 5px;
+}
+#testTable tr{
+    width: 500px;
+
+}
+#testTable th{
+    background-color: #999999;
+    font-size:17.5px;
+    width: 80px;
+}
+#testTable td{
+    font-size:17.5px;
+    text-align: center;
+}

@@ -22,6 +22,7 @@
     String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
     <script type="text/javascript" src="<%=basePase%>My97DatePicker/WdatePicker.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="${resource(dir:'css',file:'goresearch.css')}">
     <script type="text/javascript">
         function check(){
             var s=document.getElementById("s").value;
@@ -38,27 +39,6 @@
         }
 
     </script>
-    <style>
-    #t1{
-
-        width: 100%;
-        height: 121px;
-        float: left;
-    }
-    #title{
-        background-color: #999999;
-        width:100%;
-        height: 35px;
-        float: left;
-    }
-        #title:hover{
-                    background-color:#DFE9F6 ;
-                }
-    p{
-        margin-left: 8px;
-        margin-top: 2px;
-    }
-    </style>
 </head>
 <body>
 <div id="t1">

@@ -5,18 +5,6 @@
  * Time: 下午6:04
  * To change this template use File | Settings | File Templates.
  */
-function showuser(){
-    document.getElementById("deviceresearch").style.display="none";
-    document.getElementById("search").style.display="block";
-    document.getElementById("resule").style.display="none";
-    document.getElementById("result2").style.display="block";
-}
-function showdevice(){
-    document.getElementById("deviceresearch").style.display="block";
-    document.getElementById("search").style.display="none";
-    document.getElementById("resule").style.display="block";
-    document.getElementById("result2").style.display="none";
-}
 function generate(){
     var tableHtml = $("#testTable td.cl1").text();
     if(tableHtml!=""){

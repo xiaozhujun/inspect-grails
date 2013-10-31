@@ -52,6 +52,9 @@
             rowCount--;
         }
     </script>
+    <script type="text/javascript">
+
+    </script>
 </head>
 <body>
     <%
@@ -72,7 +75,6 @@
         out.println("<thead><tr><th width='100px'>用户编号</th><th width='120px'>用户名</th><th width='100px'>类型编号</th><th width='120px'>类型名</th><th width='100px'>操作</th></thead>");
         out.println("<tbody>");
         if(name!=""&&type!=""&&ck!=""){
-
             int t=Integer.parseInt(type);
             list=d.geturoleByNameTypeHas(name,t,ck);
             Iterator it1=list.iterator();

@@ -4,14 +4,10 @@
 <%@page import="model.InspectTableRecord"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.List"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,6 +17,7 @@
     <% String path = request.getContextPath();
     String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
     <script type="text/javascript" src="<%=basePase%>My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" href="${resource(dir:'css',file:'goresearch.css')}">
     <script type="text/javascript">
         function check(){
             var s=document.getElementById("s").value;
@@ -37,38 +34,11 @@
         }
 
     </script>
-
-
-    <style>
-    #t1{
-
-        width: 100%;
-        height: 121px;
-        float: left;
-    }
-    #title{
-        background-color: #999999;
-        width:100%;
-        height: 35px;
-        float: left;
-    }
-        #title:hover{
-                    background-color:#DFE9F6 ;
-                }
-    p{
-        margin-left: 8px;
-        margin-top: 2px;
-    }
-    </style>
 </head>
 <body>
 <div id="t1">
     <div id="title"><p>报表查询</div>
     <div>
-
-
-
-
         <form  method="post" action="MServlet" onsubmit="return check()">
             <div style="margin-left:10px;margin-top: 45px">
             起始时间:
