@@ -66,7 +66,7 @@
 
         })
     </script>
-    <script type="text/javascript" src="js/searchconfigure.js"></script>
+    <script type="text/javascript" src="js/searchconfigure.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/searchconfigure.css">
 </head>
 <body>

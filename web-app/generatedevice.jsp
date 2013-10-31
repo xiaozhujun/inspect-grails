@@ -13,6 +13,7 @@
 <%@page import="java.io.FileInputStream"%>
 <%@page import="java.io.InputStream"%>
 <%@page import="java.io.OutputStream"%>
+<%@ page import="java.nio.charset.Charset" %>
 <html>
 <head>
     <title></title>
@@ -54,7 +55,7 @@
           response.setHeader("Content-Disposition", "attachment; filename="
                   + new String(downFilename.getBytes("gb2312"),"ISO8859-1"));
           OutputStream outputStream = response.getOutputStream();
-          outputStream.write(result.getBytes());
+          outputStream.write(result.getBytes(Charset.forName("UTF-8")));
           outputStream.flush();
           outputStream.close();
           out.clear();

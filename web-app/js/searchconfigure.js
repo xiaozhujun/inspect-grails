@@ -20,7 +20,7 @@ function showdevice(){
 function generate(){
     var tableHtml = $("#testTable td.cl1").text();
     if(tableHtml!=""){
-    location.href="generatedevice.jsp?tableHtml="+tableHtml;
+    location.href="generatedevice.jsp?tableHtml="+encodeURI(tableHtml);
     }else{
         alert("导出数据为空");
     }
@@ -28,7 +28,7 @@ function generate(){
 function generate1(){
     var str = $("#testTable1 td.cl1").text();
     if(str!=""){
-    location.href="generateemployee.jsp?str="+str;
+    location.href="generateemployee.jsp?str="+encodeURI(str);
     }else{
         alert("导出数据为空");
     }
