@@ -30,7 +30,21 @@
     <link href="<%=basePase%>css/mymenu.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="<%=basePase%>styles/head.css" type="text/css">
     <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
-<script type="text/javascript">
+    <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var s=$("#s").val();
+                var e=$("#e").val();
+                var tid=$("#table").val();
+                var t=$("#t").val();
+                if(s==""||e==""){
+                    $("#r").html("请输入条件!");
+                }else if(s!=""&&e!=""&&tid!=""&&t!=""){
+                    location.href="queryresult.jsp?s="+s+"&e="+e+"&t="+tid+"&type="+t;
+                }
+            })
+        })
 function  test(x){
 	 var type=document.getElementById("type").value;
 	 var stime=document.getElementById("s").value;
@@ -43,7 +57,7 @@ function  test1(x){
 		var stime = document.getElementById("s").value;
 		var tid = document.getElementById("tid").value;
 		var etime = document.getElementById("e").value;
-		window.location.href = "../adminShowHtmlReport.jsp?type=" + type + "&stime=" + stime
+		window.location.href = "adminShowHtmlReport.jsp?type=" + type + "&stime=" + stime
 				+ "&tid=" + tid + "&etime=" + etime + "&ct=" + x;
 	}
 function check(){
@@ -63,134 +77,26 @@ function check(){
 </head>
 <body>
 <div id="wrapper">
-<div style="width: 100%;height: 50px;margin-top: 0px">
-<div id='titleContainerDiv'>
-    <div id="titleDiv">港口起重机械健康监测与预报可视化系统<span id="devNameDiv"></span></div>
-</div>
-<div id='mainHeadDiv'>
-    <div id='headTab' class='tabs'>
-        <div class='tabItem' url="integrateManagement.html">港机信息可视化</div>
-        <div class='tabItem' onclick="location.href='/inspect'">港机智能点检</div>
-        <div class='tabItem mainselected' url="mechanismForcast/health-forecast.html">机构健康监测</div>
-        <div class='tabItem ' url="structForcast/health-forecast.html">结构健康监测</div>
-        <div class='tabItem' url="electricalForcast/health-forecast.html">电气健康监测</div>
-        <div class='tabItem' url="health-forecast.html">健康趋势预报</div>
-        <div class='tabItem' url="risk-management.html">动态风险评估</div>
+    <div style="width: 100%;height: 50px;margin-top: 0px">
+        <jsp:include page="nav.jsp"></jsp:include>
     </div>
-</div>
-</div>
-        <div style="width: 221px;float:left">
-            <div id="main">
-                <div id="menu">
-                    <ul id="_menu">
-                        <li id="c_report"><h2>报表管理</h2>
-                            <ul>
-                                <li id="i_device_list"><a title="报表查询"
-                                                          href="<%=basePase%>device/goadminresearch">报表查询</a></li>
-                                <li id="i_device_new"><a title="点检上传"
-                                                          href="<%=basePase%>device/adminupload">点检上传</a></li>
-                            </ul></li>
-                        <li id="c_report"><h2>配置管理</h2>
-                            <ul>
-                                <li id="i_device_list"><a title="人员配置查询"
-                                                          href="/inspect/peopleConfigureSearch.jsp">人员配置查询</a></li>
-                                <li id="i_device_new"><a title="设备配置查询"
-                                                         href="/inspect/deviceConfigureSearch.jsp">设备配置查询</a></li>
-                                <li id="i_device_new"><a title="点检表下载"
-                                                         href="/inspect/inspectTable/searchlist">点检表下载</a></li>
-                                <li id="i_device_new"><a title="人员与点检项目对应表下载"
-                                                         href="/inspect/inspectTable/downroletable">人员与点检项目表下载</a></li>
-                            </ul></li>
-                        <li id="c_roles"><h2>人员类型管理</h2>
-                            <ul>
-                                <li id="i_roles_new"><a title="添加人员类型"
-                                                        href="<%=basePase%>roles/create">添加人员类型</a></li>
-                                <li id="i_roles_list"><a title="查询人员类型"
-                                                         href="<%=basePase%>roles/list">人员类型列表</a></li>
-                            </ul></li>
-                        <li id="c_users"><h2>人员管理</h2>
-                            <ul>
-                                <li id="i_users_new"><a title="添加员工"
-                                                        href="<%=basePase%>users/admincreate">添加员工</a></li>
-                                <li id="i_users_list"><a title="查询人员"
-                                                         href="<%=basePase%>users/adminlist">人员列表</a></li>
-                            </ul></li>
-                        <li id="c_inspecttable"><h2>点检表管理</h2>
-                            <ul>
-                                <li id="i_inspecttable_new"><a title="添加点检表"
-                                                               href="<%=basePase%>inspectTable/create">添加点检表</a></li>
-                                <li id="i_inspecttable_list"><a title="查询点检表"
-                                                                href="<%=basePase%>inspectTable/list">点检表列表</a></li>
-                            </ul></li>
-                        <li id="c_inspecttag"><h2>标签类型管理</h2>
-                            <ul>
-                                <li id="i_inspecttag_new"><a title="添加标签类型"
-                                                             href="<%=basePase%>inspectTag/create">添加标签类型</a></li>
-                                <li id="i_inspecttag_list"><a title="查询标签类型"
-                                                              href="<%=basePase%>inspectTag/list">标签类型列表</a></li>
-                            </ul></li>
-                        <li id="c_tvalue"><h2>点检选项管理</h2>
-                            <ul>
-                                <li id="i_tvalue_new"><a title="添加选项"
-                                                         href="<%=basePase%>TValue/create">添加选项</a></li>
-                                <li id="i_tvalue_list"><a title="查询选项"
-                                                          href="<%=basePase%>TValue/list">选项列表</a></li>
-                            </ul></li>
-                        <li id="c_inspectitem"><h2>点检项管理</h2>
-                            <ul>
-                                <li id="i_inspectitem_new"><a title="添加点检项"
-                                                              href="<%=basePase%>inspectItem/create">添加点检项</a></li>
-                                <li id="i_inspectitem_list"><a title="查询点检项"
-                                                               href="<%=basePase%>inspectItem/list">点检项列表</a></li>
-                            </ul></li>
-
-                        <li id="c_device"><h2>设备管理</h2>
-                            <ul>
-                                <li id="i_device_new"><a title="添加设备"
-                                                         href="<%=basePase%>device/admincreate">添加设备</a></li>
-                                <li id="i_device_list"><a title="查询设备"
-                                                          href="<%=basePase%>device/adminlist">设备列表</a></li>
-                            </ul></li>
-                        <li id="c_inspecttagrfid"><h2>标签管理</h2>
-                            <ul>
-                                <li id="i_inspecttagrfid_new"><a title="添加标签"
-                                                                 href="<%=basePase%>inspectTagRfId/admincreate">添加标签</a></li>
-
-                            </ul>
-                            <ul>
-                                <li id="i_inspecttagrfid_list"><a title="查询标签"
-                                                                  href="<%=basePase%>inspecttagRfId/adminlist">标签列表</a></li>
-
-                            </ul></li>
-                          <li id="c_devicetype"><h2>设备类型管理</h2>
-                            <ul>
-                                <li id="i_devicetype_new"><a title="添加标签"
-                                                             href="<%=basePase%>deviceType/create">添加设备类型</a></li>
-                                <li id="i_devicetype_list"><a title="查询标签"
-                                                              href="<%=basePase%>deviceType/list">设备类型列表</a></li>
-                            </ul></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div style="width: 221px;float:left">
+        <jsp:include page="leftmenu.jsp"></jsp:include>
+    </div>
 <div class="reportright">
     <div class="title">
         <span class="titlefont">报表查询</span>
     </div>
-    <form method="post" action="MServlet" onsubmit="return check()">
+    <form>
     <div class="search">
         <span class="sea"> <span class="seafont">起始时间:</span> <input type="text" id="s" class="Wdate"
                      onClick="WdatePicker()" name="stime"> <span class="seafont">终止时间:</span> <input
             type="text" id="e" class="Wdate" onClick="WdatePicker()"
             name="etime">
-
-
-
             <span class="seafont">报表:</span> <select id="table" name="tid">
             <%
                 DBImpl d1 = new DBImpl();
                 List<InspectTableRecord> tlist = d1.getTable();
-
                 Iterator l1 = tlist.iterator();
                 while (l1.hasNext()) {
                     r = (InspectTableRecord) l1.next();
@@ -209,7 +115,7 @@ function check(){
             <option value="excel">Excel格式</option>
             <option value="word">Word格式</option>
         </select> <span style="margin-left: 10px">
-            <input type="submit" value="查询" class="selectbtn"></span>
+            <input type="button" value="查询" class="selectbtn" id="btn"></span><span id="r"></span>
             </span>
     </div>
     </form>
@@ -229,10 +135,10 @@ function check(){
                 <tbody>
                 <tr bgcolor="#FFFFFF">
                     <%
-                        String s = (String) request.getAttribute("s");
-                        String e = (String) request.getAttribute("e");
-                        String t = (String) request.getAttribute("t");
-                        String type = (String) request.getAttribute("type");
+                        String s =  request.getParameter("s");
+                        String e =  request.getParameter("e");
+                        String t =  request.getParameter("t");
+                        String type =  request.getParameter("type");
                         if (s != null && e != null && t != null && type != null) {
                             int tid = Integer.parseInt(t);
                             SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");

@@ -21,7 +21,23 @@
 <link rel="stylesheet" href="<%=basePase%>styles/social-buttons.css">
 <script language="javascript" type="text/javascript"
 	src="<%=basePase%>My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript">
+    <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var s=$("#s1").val();
+                var e=$("#e1").val();
+                var tid=$("#table").val();
+                var t=$("#t").val();
+                if(s==""||e==""){
+                    $("#r").html("请输入条件!");
+                }else if(s!=""&&e!=""&&tid!=""&&t!=""){
+                    location.href="userqueryresult.jsp?s="+s+"&e="+e+"&t="+tid+"&type="+t;
+                }
+            })
+        })
+     </script>
+    <script type="text/javascript">
 function  test(x){
 	 var type=document.getElementById("type").value;
 	 var stime=document.getElementById("s").value;
@@ -34,7 +50,7 @@ function  test1(x){
 		var stime = document.getElementById("s1").value;
 		var tid = document.getElementById("tid").value;
 		var etime = document.getElementById("e1").value;
-		window.location.href = "../showHtmlReport.jsp?type=" + type + "&stime="
+		window.location.href = "showHtmlReport.jsp?type=" + type + "&stime="
 				+ stime + "&tid=" + tid + "&etime=" + etime + "&ct=" + x;
 	}
 function check(){
@@ -48,7 +64,6 @@ function check(){
     	alert("请输入查询条件!");
     	return false;
     }
-	
 }
 </script>
     <link rel="stylesheet" href="<%=basePase%>styles/head.css" type="text/css">
@@ -63,73 +78,16 @@ function check(){
 <body>
 	<div id="wrapper">
         <div style="width: 100%;height: 50px;margin-top: 0px">
-            <div id='titleContainerDiv'>
-                <div id="titleDiv">港口起重机械健康监测与预报可视化系统<span id="devNameDiv"></span></div>
-            </div>
-            <div id='mainHeadDiv'>
-                <div id='headTab' class='tabs'>
-                    <div class='tabItem' url="integrateManagement.html">港机信息可视化</div>
-                    <div class='tabItem' onclick="location.href='/inspect'">港机智能点检</div>
-                    <div class='tabItem mainselected' url="mechanismForcast/health-forecast.html">机构健康监测</div>
-                    <div class='tabItem ' url="structForcast/health-forecast.html">结构健康监测</div>
-                    <div class='tabItem' url="electricalForcast/health-forecast.html">电气健康监测</div>
-                    <div class='tabItem' url="health-forecast.html">健康趋势预报</div>
-                    <div class='tabItem' url="risk-management.html">动态风险评估</div>
-                </div>
-            </div>
+            <jsp:include page="nav.jsp"></jsp:include>
         </div>
         <div style="width: 221px;float:left">
-            <div id="main">
-                <div  id="menu">
-                    <ul id="_menu">
-                        <li id="c_report"><h2>历史记录管理</h2>
-                            <ul>
-                                <li id="i_device_list"><a title="报表查询"
-                                                          href="<%=basePase%>device/gouserresearch">报表查询</a></li>
-                                <li id="i_device_list"><a title="点检上传"
-                                                          href="<%=basePase%>device/userupload">点检上传</a></li>
-
-                            </ul></li>
-                        <li id="c_users"><h2>人员管理</h2>
-                            <ul>
-                                <li id="i_users_new"><a title="添加 员工"
-                                                        href="<%=basePase%>users/create">添加 员工</a></li>
-                                <li id="i_users_list"><a title="查询人员"
-                                                         href="<%=basePase%>users/list">查询人员</a></li>
-                            </ul></li>
-                        <li id="c_inspecttagrfid"><h2>项目管理</h2>
-                            <ul>
-                                <li id="i_inspecttagrfid_new"><a title="添加 标签"
-                                                                 href="<%=basePase%>inspectTagRfId/create">添加 标签</a></li>
-                                <li id="i_device_new"><a title="添加设备"
-                                                         href="<%=basePase%>device/create">添加设备</a></li>
-                                <li id="i_inspecttagrfid_list"><a title="查询标签"
-                                                                  href="<%=basePase%>inspectTagRfId/list">查询标签</a></li>
-                                <li id="i_device_list"><a title="查询设备"
-                                                          href="<%=basePase%>device/list">查询设备</a></li>
-                            </ul></li>
-                        <li id="c_inspecttagrfid"><h2>报表统计</h2>
-                            <ul>
-                                <li id="i_inspecttagrfid_new"><a title="设备异常总数"
-                                                                 href="/inspect/deviceCount.jsp">设备异常总数</a></li>
-                                <li id="i_device_new"><a title="设备异常明细"
-                                                         href="/inspect/deviceInfo.jsp">设备异常明细</a></li>
-                                <li id="i_inspecttagrfid_list"><a title="人员异常点检总数"
-                                                                  href="/inspect/peopleCount.jsp">人员异常点检总数</a></li>
-                                <li id="i_device_list"><a title="人员异常点检明细"
-                                                          href="/inspect/peopleInfo.jsp">人员异常点检明细</a></li>
-                                <li id="i_device_list"><a title="人员异常点检明细"
-                                                          href="/inspect/deviceHistory.jsp">设备异常趋势分析</a></li>
-                            </ul></li>
-                    </ul>
-                </div>
-            </div>
-            </div>
+            <jsp:include page="leftusermenu.jsp"></jsp:include>
+        </div>
         <div class="reportright">
             <div class="title">
                 <span class="titlefont">报表查询</span>
             </div>
-            <form method="post" action="MMServlet" onsubmit="return check()">
+            <form>
             <div class="search">
                  <span class="sea"><span class="seafont">起始时间:</span> <input type="text" id="s1" class="Wdate"
                              onClick="WdatePicker()" name="stime"> <span class="seafont">终止时间:</span> <input
@@ -159,7 +117,7 @@ function check(){
                     <option value="excel">Excel格式</option>
                     <option value="word">Word格式</option>
                 </select> <span style="margin-left: 10px">
-                 <input type="submit" value="查询" class="selectbtn"></span>
+                 <input type="button" value="查询" class="selectbtn" id="btn"><span id="r"></span></span>
             </span>
             </div>
                 </form>
@@ -179,10 +137,10 @@ function check(){
                         <tbody>
                         <tr bgcolor="#FFFFFF">
                             <%
-                                String s = (String) request.getAttribute("s");
-                                String e = (String) request.getAttribute("e");
-                                String t = (String) request.getAttribute("t");
-                                String type = (String) request.getAttribute("type");
+                                String s = request.getParameter("s");
+                                String e =  request.getParameter("e");
+                                String t =  request.getParameter("t");
+                                String type =  request.getParameter("type");
                                 if (s != null && e != null && t != null && type != null) {
                                     int tid = Integer.parseInt(t);
                                     SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
@@ -217,20 +175,6 @@ function check(){
                     </table>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</div>
 </body>
 </html>

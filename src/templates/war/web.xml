@@ -4,22 +4,13 @@
          xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-
-    <servlet>
-        <servlet-name>MServlet</servlet-name>
-        <servlet-class>upload.MServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MServlet</servlet-name>
-        <url-pattern>/device/MServlet</url-pattern>
-    </servlet-mapping>
     <servlet>
         <servlet-name>exportReportServlet</servlet-name>
         <servlet-class>com.exportReport.exportReportServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>exportReportServlet</servlet-name>
-        <url-pattern>/device/exportReportServlet</url-pattern>
+        <url-pattern>/exportReportServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>showReportServlet</servlet-name>
@@ -84,14 +75,6 @@
     <servlet-mapping>
         <servlet-name>exportDeviceHistoryServlet</servlet-name>
         <url-pattern>/exportDeviceHistoryServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>MMServlet</servlet-name>
-        <servlet-class>upload.MMServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MMServlet</servlet-name>
-        <url-pattern>/device/MMServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>JasperReportImageServlet</servlet-name>

@@ -50,7 +50,6 @@
         <div class="title">
             <span class="titlefont">点检表详情</span>
         </div>
-        <%--<jsp:include page="reportHtml.jsp"></jsp:include>--%>
         <%
             String type=request.getParameter("type");
             String stime=request.getParameter("stime");
