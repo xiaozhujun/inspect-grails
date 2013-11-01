@@ -31,40 +31,48 @@
                 var t=$("#t").val();
                 if(s==""||e==""){
                     $("#r").html("请输入条件!");
-                }else if(s!=""&&e!=""&&tid!=""&&t!=""){
-                    location.href="userqueryresult.jsp?s="+s+"&e="+e+"&t="+tid+"&type="+t;
+                }else{
+                    $.ajax({
+                       type:"POST",
+                       url:"../inspect/userqueryresultServlet",
+                       dataType:"html",
+                       data:{s:s,e:e,t:tid,type:t},
+                       success:function(msg){
+                           $(".report").html(msg);
+                        },
+                        error:function(msg){
+                        }
+                    });
                 }
-            })
-        })
+            });
+        });
      </script>
     <script type="text/javascript">
 function  test(x){
-	 var type=document.getElementById("type").value;
-	 var stime=document.getElementById("s").value;
-	 var tid=document.getElementById("tid").value;
-	 var etime=document.getElementById("e").value;
-     window.location.href="exportReportServlet?type="+type+"&stime="+stime+"&tid="+tid+"&etime="+etime+"&ct="+x;
+    var s=$("#s1").val();
+    var e=$("#e1").val();
+    var tid=$("#table").val();
+    var t=$("#t").val();
+    location.href="exportReportServlet?type="+t+"&stime="+s+"&tid="+tid+"&etime="+e+"&ct="+x;
  }
 function  test1(x){
-		var type = document.getElementById("type").value;
-		var stime = document.getElementById("s1").value;
-		var tid = document.getElementById("tid").value;
-		var etime = document.getElementById("e1").value;
-		window.location.href = "showHtmlReport.jsp?type=" + type + "&stime="
-				+ stime + "&tid=" + tid + "&etime=" + etime + "&ct=" + x;
+    var s=$("#s1").val();
+    var e=$("#e1").val();
+    var tid=$("#table").val();
+    var t=$("#t").val();
+    $.ajax({
+        type:"POST",
+        url:"../inspect/showHtmlReportServlet",
+        dataType:"html",
+        data:{s:s,e:e,tid:tid,type:t,ct:x},
+        success:function(msg){
+            $(".report").html(msg);
+        },
+        error:function(msg){
+        }
+    })
 	}
-function check(){
-	var s=document.getElementById("s").value;
-	var e=document.getElementById("e").value;
-    if(s==""){
-    	alert("请输入查询条件!");
-        return false;
-    }
-    else if(e==""){
-    	alert("请输入查询条件!");
-    	return false;
-    }
-}
+
 </script>
     <link rel="stylesheet" href="<%=basePase%>styles/head.css" type="text/css">
     <link href="<%=basePase%>styles/tundra.css"
@@ -77,10 +85,10 @@ function check(){
 </head>
 <body>
 	<div id="wrapper">
-        <div style="width: 100%;height: 50px;margin-top: 0px">
+        <div class="nav">
             <jsp:include page="nav.jsp"></jsp:include>
         </div>
-        <div style="width: 221px;float:left">
+        <div class="reportleft">
             <jsp:include page="leftusermenu.jsp"></jsp:include>
         </div>
         <div class="reportright">
@@ -93,19 +101,15 @@ function check(){
                              onClick="WdatePicker()" name="stime"> <span class="seafont">终止时间:</span> <input
                     type="text" id="e1" class="Wdate" onClick="WdatePicker()"
                     name="etime">
-
-
                     <span class="seafont">报表:</span> <select id="table" name="tid">
                     <%
                         DBImpl d1 = new DBImpl();
                         List<InspectTableRecord> tlist = d1.getTable();
-
                         Iterator l1 = tlist.iterator();
                         while (l1.hasNext()) {
                             r = (InspectTableRecord) l1.next();
                     %>
                     <option value="<%=r.getTid()%>"><%=r.getTname()%>
-
                     </option>
                     <%
                         }
@@ -122,57 +126,6 @@ function check(){
             </div>
                 </form>
             <div class="report">
-                <%
-                    out.println("<div id='title2'>查询结果:</div>");
-                %>
-                    <table border="0"  cellpadding="0" cellspacing="1" bgcolor="#000000" class="querytable">
-                        <thead>
-                        <tr bgcolor="#FFFFFF">
-                            <th class="tm">点检表</th>
-                            <th>点检人员</th>
-                            <th class="tm">点检时间</th>
-                            <th colspan="2" class="tm">操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr bgcolor="#FFFFFF">
-                            <%
-                                String s = request.getParameter("s");
-                                String e =  request.getParameter("e");
-                                String t =  request.getParameter("t");
-                                String type =  request.getParameter("type");
-                                if (s != null && e != null && t != null && type != null) {
-                                    int tid = Integer.parseInt(t);
-                                    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-                                    Date d11 = sf.parse(s);
-                                    Date d2 = sf.parse(e);
-                                    DBImpl d = new DBImpl();
-                                    List<InspectTableRecord> l11 = d.getR(d11, d2, tid);
-                                    Iterator it = l11.iterator();
-                                    while (it.hasNext()) {
-                                        r = (InspectTableRecord) it.next();
-                            %>
-						<span><input type="hidden" id="s" value="'<%=s%>'">
-							<input type="hidden" id="type" value="<%=type%>"> <input
-                                    type="hidden" id="tid" value="<%=tid%>"> <input
-                                    type="hidden" id="e" value="'<%=e%>'"> </span>
-                            <td><%=r.getTname()%></td>
-                            <td><%=r.getUsername()%></td>
-                            <td width="210px"><%=r.getCtime().toLocaleString()%></td>
-                            <td><input type="button" class="selectbtn"
-                                   onclick="test('<%=r.getCtime().toLocaleString()%>')" value="下载">
-                                <input type="button"
-                                    class="selectbtn"
-                                    onclick="test1('<%=r.getCtime().toLocaleString()%>')" value="查看详细信息"></td>
-                        </tr>
-                        <%
-                                }
-                            } else {
-                                out.println("<div id='title1'>请输入查询条件!!</div>");
-                            }
-                        %>
-                        </tbody>
-                    </table>
             </div>
         </div>
 	</div>

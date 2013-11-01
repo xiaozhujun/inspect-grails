@@ -48,7 +48,7 @@
             <div class="menuFunc">
                 <div class="menuFuncName"><p>报表管理</p></div>
                 <div class="menuItemList">
-                    <div class="menuItem"><span id="d1"><g:link url="[action:'goadminresearch',controller:'device']">报表查询</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="/inspect/queryresult.jsp">报表查询</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'adminupload',controller:'device']">点检上传</g:link></span></div>
                 </div>
             </div>

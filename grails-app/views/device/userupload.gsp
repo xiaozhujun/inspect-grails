@@ -7,11 +7,16 @@
     <meta name="layout" content="user">
     <title>点检上传</title>
     <link rel="stylesheet" href="../css/upload.css">
+    <script type="text/javascript" src="${resource(dir: 'js',file: 'jquery-1.4.2.js')}"></script>
     <script type="text/javascript">
         function check(){
             var s=document.getElementById("s").value;
+            var filetype=".xml";
             if(s==""){
                 document.getElementById("result").innerHTML='请选择上传文件!';
+                return false;
+            }else if(filetype!= s.substring(s.indexOf("."))){
+                document.getElementById("result").innerHTML='只支持固定格式xml文件！';
                 return false;
             }
         }
@@ -21,7 +26,7 @@
 <div id="t1">
     <div id="title"><p>点检上传</div>
     <div>
-        <form action="upload1" enctype="multipart/form-data" onsubmit="return check()"
+        <form action="upload1" id="form1" enctype="multipart/form-data" onsubmit="return check()"
               method="post">
             <div style="height: 39px; margin-left: 10px; margin-top: 40px">
                 <div
@@ -36,8 +41,7 @@
                     <div class="bar"></div>
                     <div class="percent">0%</div>
                 </div>
-                <div id="status" style="background-color: yellow"></div>
-
+                <div id="status" ></div>
                 <div style="float: left; margin-left: 10px; margin-top: 5px;">
                     <input type="submit" value="上传" class="selectbtn"/><span id="result"></span>
                 </div>
@@ -51,11 +55,11 @@
 <script src="http://malsup.github.com/jquery.form.js"></script>
 <script>
     (function() {
-
         var bar = $('.bar');
         var percent = $('.percent');
         var status = $('#status');
         var file=$('#result');
+
         $('form').ajaxForm({
             beforeSend: function() {
                 status.empty();

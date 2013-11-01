@@ -1,9 +1,6 @@
 package com.springsource.roo.inspect.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -64,7 +61,7 @@ public class DBImpl {
 
 	public List<InspectTableRecord> getR(Date starttime, Date endtime, int tid) {
 
-		String sql = "select tb.id,tb.tname,u.id,u.username,itr.createtime from inspect_item_rec itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v,inspect_item_tvalues tv where itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id and it.id=tv.inspect_item_id and v.id=tv.tvalue_id and itr.inspecttable_id=? and itr.createtime between ? and ? group by itr.createtime";
+		String sql = "select tb.id,tb.tname,u.id,u.username,itr.createtime,itr.id from inspect_item_rec itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v,inspect_item_tvalues tv where itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id and it.id=tv.inspect_item_id and v.id=tv.tvalue_id and itr.inspecttable_id=? and itr.createtime between ? and ? group by itr.createtime";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list = new ArrayList<InspectTableRecord>();
 		try {
@@ -81,6 +78,7 @@ public class DBImpl {
 				r.setUsername(rs.getString(4));
 				/*r.setCreatetime(rs.getDate(5));*/
               r.setCtime(rs.getTimestamp(5));
+              r.setItrid(rs.getInt(6));
 				list.add(r);
 			}
 		} catch (SQLException e) {
@@ -937,16 +935,34 @@ public class DBImpl {
         }
         return list;
     }
-    public static void main(String[] args) {
-		DBImpl d = new DBImpl();
-		List<PageInspectTable> list = d.getRole();
-		@SuppressWarnings("rawtypes")
-		Iterator l = list.iterator();
-		while (l.hasNext()) {
-			PageInspectTable d1 = (PageInspectTable) l.next();
-			System.out.println(d1.getRid()+"::"+d1.getRolename());
-		}
-
-	}
+    public String returnTableContentString(PageInspectTable p){
+        String content="<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' id='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"' onclick='addRow()'>选定</td></tr>";
+        return content;
+    }
+    public String returnDeviceResultString(PageInspectTable p){
+        String content="<tr><td>"+p.getTypename()+"</td><td>"+p.getTypeid()+"</td><td>"+p.getDevicenumber()+"</td><td>"+p.getTagname()+"</td><td>"+p.getTagid()+"</td><td>"+p.getTagnumbers()+"</td><td><input type='checkbox'  value='"+p.getTypename()+','+p.getTypeid()+','+p.getDevicenumber()+','+p.getTagname()+','+p.getTagid()+','+p.getTagnumbers()+','+"'onclick='addRow()' >选定</td></tr>";
+        return content;
+    }
+   public String returnUserQueryResultTableString(InspectTableRecord r){
+       String content="<td>"+r.getTname()+"</td><td>"+r.getUsername()+"</td><td width='210px'>"+r.getCtime().toLocaleString()+"</td>"+
+       "<td><input type='button' class='selectbtn' onclick=test("+r.getItrid()+") value='下载'><input type='hidden' id='#"+r.getItrid()+"ct value='"+r.getCtime().toLocaleString()+"'>"+
+       "<input type='button' class='selectbtn' value='查看详细信息' onclick=test1("+r.getItrid()+")></td></tr>";
+        return content;
+   }
+   public Timestamp getCreatetimeFromInspectItemRec(int itrid){
+        String sql="select createtime from inspect_item_rec itr where id=?";
+        Timestamp t=null;
+         try{
+             statement=connection.prepareStatement(sql);
+             statement.setInt(1,itrid);
+             rs=statement.executeQuery();
+             while(rs.next()){
+                t=rs.getTimestamp(1);
+             }
+         }catch (SQLException e){
+             e.printStackTrace();
+         }
+           return t;
+   }
 
 }

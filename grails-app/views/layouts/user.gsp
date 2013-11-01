@@ -53,7 +53,7 @@
             <div class="menuFunc">
                 <div class="menuFuncName"><p>历史记录管理</p></div>
                 <div class="menuItemList">
-                    <div class="menuItem"><span id="d1"><g:link url="[action:'gouserresearch',controller:'device']">报表查询</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="/inspect/userqueryresult.jsp">报表查询</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'userupload',controller:'device']">点检上传</g:link></span></div>
 
                 </div>

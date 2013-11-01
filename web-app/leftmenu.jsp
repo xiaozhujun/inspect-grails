@@ -23,7 +23,7 @@
 				<li id="c_report"><h2>报表管理</h2>
 					<ul>
 						<li id="i_device_list"><a title="报表查询"
-							href="<%=basePase%>device/goadminresearch">报表查询</a></li>
+							href="/inspect/queryresult.jsp">报表查询</a></li>
 						<li id="i_device_list"><a title="点检上传"
 							href="<%=basePase%>device/adminupload">点检上传</a></li>
 					</ul></li>

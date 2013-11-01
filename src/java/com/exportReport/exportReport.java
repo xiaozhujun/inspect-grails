@@ -266,7 +266,7 @@ public class exportReport{
             ex.printStackTrace();
         }
     }
-    public static String exportRiskReport(String reportTemplate,String sql,String path) throws JRException {
+    public  String exportRiskReport(String reportTemplate,String sql,String path) throws JRException {
         File reportFile = new File(reportTemplate);
         Map parameters = new HashMap();
         parameters.put("sql",sql);

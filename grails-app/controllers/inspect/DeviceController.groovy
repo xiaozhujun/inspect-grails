@@ -1,6 +1,7 @@
 package inspect
 
 import com.springsource.roo.inspect.dao.DBImpl
+import grails.converters.JSON
 import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 import java.io.File;
@@ -219,15 +220,12 @@ class DeviceController {
             request.setCharacterEncoding("UTF-8");
             response.setContentType("text/html;charset=UTF-8");
         if(!f.empty) {
-            //f.transferTo( new File("web-app/xmlFiles") )
             response.sendError(200,'Done');
-            //String path="web-app/xmlFiles"
             DOMAnalysisXml d = new DOMAnalysisXml();
-           // System.out.println(path+"文件???");
-	       /* d.analysisXml(path);*/
             int flag=d.analysisXml(f.getInputStream());
             if (flag!=0){
                 System.out.print("数据已存在")
+
             }
         }
         else {
@@ -240,12 +238,9 @@ class DeviceController {
         def f = request.getFile("myFile")
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+        DOMAnalysisXml d = new DOMAnalysisXml();
         if(!f.empty) {
-           // f.transferTo( new File("web-app/xmlFiles") )
             response.sendError(200,'Done');
-            //String path="web-app/xmlFiles"
-            DOMAnalysisXml d = new DOMAnalysisXml();
-            //System.out.println(path+"文件???");
             int flag=d.analysisXml(f.getInputStream());
             if (flag!=0){
                 System.out.print("数据已存在")
@@ -256,5 +251,4 @@ class DeviceController {
             render(view:'userupload')
         }
     }
-
 }

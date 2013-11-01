@@ -10,8 +10,12 @@
     <script type="text/javascript">
         function check(){
             var s=document.getElementById("s").value;
+            var filetype=".xml";
             if(s==""){
                 document.getElementById("result").innerHTML='请选择上传文件!';
+                return false;
+            }else if(filetype!= s.substring(s.indexOf("."))){
+                document.getElementById("result").innerHTML='只支持固定格式xml文件！';
                 return false;
             }
         }

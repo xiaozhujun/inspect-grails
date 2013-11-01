@@ -28,6 +28,8 @@ public class InspectTableRecord {
 	
     private Timestamp ctime;
 
+    private int itrid;
+
 	public Date getCreatetime() {
 		return createtime;
 	}
@@ -122,5 +124,13 @@ public class InspectTableRecord {
 
     public void setCtime(Timestamp ctime) {
         this.ctime = ctime;
+    }
+
+    public int getItrid() {
+        return itrid;
+    }
+
+    public void setItrid(int itrid) {
+        this.itrid = itrid;
     }
 }

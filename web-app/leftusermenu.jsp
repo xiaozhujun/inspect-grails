@@ -21,7 +21,7 @@
 				<li id="c_report"><h2>历史记录管理</h2>
 					<ul>
 						<li id="i_device_list"><a title="报表查询"
-							href="device/gouserresearch">报表查询</a></li>
+							href="/inspect/userqueryresult.jsp">报表查询</a></li>
 						<li id="i_device_list"><a title="点检上传"
 							href="device/userupload">点检上传</a></li>
 

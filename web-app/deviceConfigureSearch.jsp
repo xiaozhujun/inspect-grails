@@ -32,7 +32,7 @@
                 var tag=$("#tag").val();
 
                 $.ajax({
-                    url:"searchresult.jsp",
+                    url:"../inspect/searchDeviceResultServlet",
                     dataType:"html",
                     data:{dtype:dtype,device:device,tag:tag},
                     success:function(strValue){
@@ -48,6 +48,47 @@
             })
         })
     </script>
+    <script>
+        var rowCount = 0;
+        var colCount = 2;
+
+        function addRow(){
+            var str="";
+            $("input:checkbox:[checked]").each(function(){
+                str+=$(this).val();
+
+            })
+            var arr=str.split(",");
+            var idx1=0;
+            var idx2=1;
+            var idx3=2;
+            var idx4=3;
+            var idx5=4;
+            var idx6=5;
+            var len=arr.length/6;
+            for(var i=0;i<len-1;i++){
+                rowCount++;
+                var rowTemplate = '<tr class="tr_'+rowCount+'"><td class="cl1">'+arr[idx1]+' '+'</td><td class="cl1">'+arr[idx2]+' '+'</td><td class="cl1">'+arr[idx3]+' '+'</td><td class="cl1">'+arr[idx4]+' '+'</td><td class="cl1">'+arr[idx5]+' '+'</td><td class="cl1">'+arr[idx6]+' '+'</td><td><span class="delbtn" onclick=delRow('+rowCount+')>删除</span></td></tr>';
+                idx1 +=6 ;
+                idx2 +=6 ;
+                idx3 +=6 ;
+                idx4 +=6 ;
+                idx5 +=6 ;
+                idx6 +=6 ;
+                var tableHtml = $("#testTable tbody").html();
+                tableHtml += rowTemplate;
+                $("#testTable tbody").html(tableHtml);
+            }
+            $("input:checkbox").each(function(){
+                $(this).attr("checked",false);
+            });
+
+        }
+        function delRow(_id){
+            $("#testTable .tr_"+_id).hide();
+            rowCount--;
+        }
+    </script>
     <script type="text/javascript" src="js/searchconfigure.js"></script>
     <style>
 
@@ -55,10 +96,10 @@
 </head>
 <body>
 <div id="wrapper">
-    <div style="width: 100%;height: 50px;margin-top: 0px">
+    <div class="nav">
         <jsp:include page="nav.jsp"></jsp:include>
     </div>
-    <div style="width: 221px;float:left">
+    <div class="reportleft">
         <jsp:include page="leftmenu.jsp"></jsp:include>
     </div>
     <div class="reportright">

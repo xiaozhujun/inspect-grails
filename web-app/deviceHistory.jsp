@@ -59,10 +59,10 @@
 </head>
 <body>
 <div id="wrapper">
-    <div style="width: 100%;height: 50px;margin-top: 0px">
+    <div class="nav">
         <jsp:include page="nav.jsp"></jsp:include>
     </div>
-    <div style="width: 221px;float:left">
+    <div class="reportleft">
         <jsp:include page="leftusermenu.jsp"></jsp:include>
     </div>
     <div class="reportright">
@@ -91,7 +91,7 @@
                 </span>
         </div>
         <div class="report">
-            <div class="selectF"  style="margin-left: 10px;display: none ">选择导出类型:<select id="type">
+            <div class="selectF" >选择导出类型:<select id="type">
                 <option value="">-----请选择------</option>
                 <option value="pdf">pdf格式</option>
                 <option value="html">html格式</option>

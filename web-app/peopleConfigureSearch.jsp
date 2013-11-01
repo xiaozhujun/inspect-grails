@@ -37,7 +37,8 @@
                     ck=$("#ck2").val();//打印选中的值
                 }
                 $.ajax({
-                    url:"searchresule.jsp",
+                    type:"POST",
+                    url:"../inspect/searchResuleServlet",
                     dataType:"html",
                     data:{name:name,type:type,ck:ck},
                     success:function(strValue){
@@ -53,6 +54,44 @@
             })
         })
     </script>
+    <script>
+        var rowCount = 0;
+        var colCount = 2;
+        function addRow(){
+            var str="";
+            $("input:checkbox:[checked]").each(function(){
+                str+=$(this).val();
+
+            })
+            var arr=str.split(",");
+            var idx1=0;
+            var idx2=1;
+            var idx3=2;
+            var idx4=3;
+            var len=arr.length/4;
+            for(var i=0;i<len-1;i++){
+                rowCount++;
+                var rowTemplate = '<tr class="tr_'+rowCount+'"><td class="cl1">'+arr[idx1]+' '+'</td><td class="cl1">'+arr[idx2]+' '+'</td><td class="cl1">'+arr[idx3]+' '+'</td><td class="cl1">'+arr[idx4]+' '+'</td><td><span class="delbtn" onclick=delRow('+rowCount+')>删除</span></td></tr>';
+                idx1 +=4 ;
+                idx2 +=4 ;
+                idx3 +=4 ;
+                idx4 +=4 ;
+
+                var tableHtml = $("#testTable1 tbody").html();
+                tableHtml += rowTemplate;
+                $("#testTable1 tbody").html(tableHtml);
+            }
+
+            $("input:checkbox").each(function(){
+                $(this).attr("checked",false);
+            });
+
+        }
+        function delRow(_id){
+            $("#testTable1 .tr_"+_id).hide();
+            rowCount--;
+        }
+    </script>
     <script type="text/javascript" src="js/searchconfigure.js"></script>
     <style>
 
@@ -60,10 +99,10 @@
 </head>
 <body>
 <div id="wrapper">
-    <div style="width: 100%;height: 50px;margin-top: 0px">
+    <div class="nav">
         <jsp:include page="nav.jsp"></jsp:include>
     </div>
-    <div style="width: 221px;float:left">
+    <div class="reportleft">
         <jsp:include page="leftmenu.jsp"></jsp:include>
     </div>
     <div class="reportright">

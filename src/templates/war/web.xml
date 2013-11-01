@@ -69,6 +69,39 @@
         <url-pattern>/exportPeopleCountServlet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>searchResuleServlet</servlet-name>
+        <servlet-class>com.cesi.ConfigureSearch.searchResuleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>searchResuleServlet</servlet-name>
+        <url-pattern>/searchResuleServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>searchDeviceResultServlet</servlet-name>
+        <servlet-class>com.cesi.ConfigureSearch.searchDeviceResultServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>searchDeviceResultServlet</servlet-name>
+        <url-pattern>/searchDeviceResultServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>userqueryresultServlet</servlet-name>
+        <servlet-class>com.cesi.ConfigureSearch.userqueryresultServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userqueryresultServlet</servlet-name>
+        <url-pattern>/userqueryresultServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>showHtmlReportServlet</servlet-name>
+        <servlet-class>com.cesi.ConfigureSearch.showHtmlReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showHtmlReportServlet</servlet-name>
+        <url-pattern>/showHtmlReportServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>exportDeviceHistoryServlet</servlet-name>
         <servlet-class>com.exportReport.exportDeviceHistoryServlet</servlet-class>
     </servlet>
