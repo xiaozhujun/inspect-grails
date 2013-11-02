@@ -44,7 +44,6 @@
          var type=$("#type").val();
          var stime=$("#stime").val();
          var etime=$("#etime").val();
-         var day=GetDateDiff(stime,etime,"day");
          var did=$("#did").val();
          if(type!=''){
          if(did==""){

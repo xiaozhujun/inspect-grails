@@ -309,6 +309,105 @@ public class insertToDb {
         }
         return tid;
     }
+    public boolean judgeHasResult(String sql,java.sql.Date t1,java.sql.Date t2){      //通过输入一条sql语句判断是否有结果
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs=null;
+        boolean b=false;
+          try{
+           statement=connection.prepareStatement(sql);
+           statement.setDate(1,t1);
+           statement.setDate(2,t2);
+           rs=statement.executeQuery();
+           while(rs.next()){
+             b=true;
+           }
+          }catch (SQLException e){
+              e.printStackTrace();
+          }
+            return b;
+    }
+    public boolean judgeHasResultX(String sql,java.sql.Date t1,java.sql.Date t2){      //通过输入一条sql语句判断是否有结果
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs=null;
+        boolean b=false;
+        try{
+            statement=connection.prepareStatement(sql);
+            statement.setDate(1,t1);
+            statement.setDate(2,t1);
+            statement.setDate(3,t1);
+            statement.setDate(4,t1);
+            statement.setDate(5,t2);
+            rs=statement.executeQuery();
+            while(rs.next()){
+                b=true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return b;
+    }
+    public boolean judgeHasResultByTid(String sql,java.sql.Date t1,java.sql.Date t2,Long tid){      //通过输入一条sql语句判断是否有结果
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs=null;
+        boolean b=false;
+        try{
+            statement=connection.prepareStatement(sql);
+            statement.setDate(1,t1);
+            statement.setDate(2,t2);
+            statement.setInt(3,tid.intValue());
+            rs=statement.executeQuery();
+            while(rs.next()){
+                b=true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return b;
+    }
+    public boolean judgeHasResultByTidX(String sql,java.sql.Date t1,java.sql.Date t2,Long tid){      //通过输入一条sql语句判断是否有结果
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs=null;
+        boolean b=false;
+        try{
+            statement=connection.prepareStatement(sql);
+            statement.setDate(1,t1);
+            statement.setDate(2,t1);
+            statement.setDate(3,t2);
+            statement.setInt(4,tid.intValue());
+            rs=statement.executeQuery();
+            while(rs.next()){
+                b=true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return b;
+    }
+    public boolean judgeHasResultByTUid(String sql,java.sql.Date t1,java.sql.Date t2,Long tid,Long uid){      //通过输入一条sql语句判断是否有结果
+
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs=null;
+        boolean b=false;
+        try{
+            statement=connection.prepareStatement(sql);
+            statement.setDate(1,t1);
+            statement.setDate(2,t2);
+            statement.setInt(3,tid.intValue());
+            statement.setInt(4,uid.intValue());
+            rs=statement.executeQuery();
+            while(rs.next()){
+                b=true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return b;
+    }
 	public static void main(String[] args) throws ParseException {
 		insertToDb d = new insertToDb();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -1,5 +1,6 @@
 package com.exportReport;
 
+import com.execute.insertToDb;
 import model.MyDataSource;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.export.*;
@@ -39,30 +40,48 @@ public class exportPeopleCountServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out=response.getWriter();
         exportReport d1=new exportReport();
+        insertToDb t=new insertToDb();
         String stime=request.getParameter("stime");
         String endtime=request.getParameter("etime");
         String type=request.getParameter("type");
         java.sql.Date st=d1.executeDateFormat(stime);
         java.sql.Date et=d1.executeDateFormat(endtime);
         String d=request.getParameter("did");
+        String empty="对不起！查询记录不存在！";
         String reportTemplate1=this.getServletContext().getRealPath("/report/peopleCount.jasper");
         String sql1="select d.id as did,d.devname,u.id as uid,u.username,count(itr.id) as itnumber,itr.createtime as intime " +
                 "from inspect_item_rec itr,device d,users u where itr.dnumber_id=d.id  and u.id=itr.worker_id and itr.ivalue_id=2 and " +
                 "itr.createtime between '"+st+"' and '"+et+"' " +
+                "group by d.devname,itr.createtime order by u.username,d.devname,itr.createtime";
+        String sql11="select d.id as did,d.devname,u.id as uid,u.username,count(itr.id) as itnumber,itr.createtime as intime " +
+                "from inspect_item_rec itr,device d,users u where itr.dnumber_id=d.id  and u.id=itr.worker_id and itr.ivalue_id=2 and " +
+                "itr.createtime between ?  and ? " +
                 "group by d.devname,itr.createtime order by u.username,d.devname,itr.createtime";
         String reportTemplate2 = this.getServletContext().getRealPath("/report/peopleCount1.jasper");
         String path=this.getServletContext().getRealPath("/report/") + "/";
          if(type==null){
             try{
                 if(d==null){
+                    if(t.judgeHasResult(sql11,st,et)){
                     d1.exportReportHasSubreport(reportTemplate1,sql1,path,request,response);
+                    }else{
+                        out.println(empty);
+                    }
                 }else{
                     Long did=Long.parseLong(d);
                     String sql2="select d.id as did,d.devname,u.id as uid,u.username,itr.createtime as intime " +
                             "from inspect_item_rec itr,device d,users u where itr.dnumber_id=d.id  and u.id=itr.worker_id " +
                             "and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.dnumber_id="+did+" " +
                             "group by itr.createtime order by u.username,d.devname,itr.createtime";
+                    String sql22="select d.id as did,d.devname,u.id as uid,u.username,itr.createtime as intime " +
+                            "from inspect_item_rec itr,device d,users u where itr.dnumber_id=d.id  and u.id=itr.worker_id " +
+                            "and itr.ivalue_id=2 and itr.createtime between ? and ? and itr.dnumber_id=? " +
+                            "group by itr.createtime order by u.username,d.devname,itr.createtime";
+                    if(t.judgeHasResultByTid(sql22,st,et,did)){
                     d1.exportReportHasSubreport(reportTemplate2,sql2,path,request,response);
+                    }else{
+                        out.println(empty);
+                    }
                 }
             }catch (JRException e){
                 e.printStackTrace();

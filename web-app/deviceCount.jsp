@@ -26,8 +26,21 @@
          var etime=$("#etime").val();
          var type=$("#type").val();
          if(stime!=''&&etime!=''){
-         $(".selectF").css("display","block");
-		  $(".report1").load("../inspect/exportDeviceCount1Servlet",{"stime":stime,"etime":etime,"type":type});
+
+		 // $(".report1").load("../inspect/exportDeviceCount1Servlet",{"stime":stime,"etime":etime,"type":type});
+             $.ajax({
+                 type:"POST",
+                 url:"../inspect/exportDeviceCount1Servlet",
+                 data:{stime:stime,etime:etime,type:type},
+                 dataType:"html",
+                 success:function(msg){
+                     $(".selectF").css("display","block");
+                     $(".report1").html(msg);
+                 },
+                 error:function(msg){
+                 }
+
+             })
          }else{
          $(".report1").html('对不起，请输入查询条件!');
          }
@@ -62,7 +75,7 @@
             <a  id="btn" class="btnbu">查看</a></span>
         </div>
         <div class="report">
-            <div class="selectF">选择导出类型:<select id="type">
+            <div class="selectF" >选择导出类型:<select id="type">
                 <option value="">-----请选择------</option>
                 <option value="pdf">pdf格式</option>
                 <option value="html">html格式</option>
@@ -71,6 +84,7 @@
             </select>
                 <a class="btnbu" id="btnreport">导出报表</a><span class='r'></span></div>
             <div class="report1"></div>
+
         </div>
     </div>
     </div>
