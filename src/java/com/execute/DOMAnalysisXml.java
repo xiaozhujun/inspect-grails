@@ -36,9 +36,24 @@ public class DOMAnalysisXml {
 		try {
 			Document document = saxReader.read(inputStream);
 			Element root = document.getRootElement();
-			tname = root.attribute("inspecttype").getValue();
-			t = root.attribute("inspecttime").getValue();
+            if(root.getName()!="check"){      //即上传的文件不符合指定的格式
+                flag=2;
+            }else{
+            if(root.attribute("inspecttype")==null){
+                flag=2;
+            }else{
+			 tname = root.attribute("inspecttype").getValue();
+             if(root.attribute("inspecttime")==null){
+                 flag=2;
+             }else{
+		    t = root.attribute("inspecttime").getValue();
+             if(root.attribute("worker")==null){
+                     flag=2;
+             }else{
 			worker = root.attribute("worker").getValue();
+             if(root.attribute("workernumber")==null){
+                         flag=2;
+             }else{
             worknum=root.attribute("workernumber").getValue();
             dnum=root.attribute("devicenumber").getValue();
 			Element e1 = root.element("devicetype");
@@ -52,8 +67,8 @@ public class DOMAnalysisXml {
 				// TODO Auto-generated catch block
 				e12.printStackTrace();
 			}
-            int tableId=d.getTidFromInspectTable(t1,uid);
-            if(tableId!=0){
+           boolean tableId=d.getTidFromInspectTable(t1,uid);
+            if(tableId==false){
                 flag=1;
             }else{
             d.insertToDB1(t1,tid,uid);
@@ -89,6 +104,11 @@ public class DOMAnalysisXml {
 					}
 				}
 			}
+            }
+            }
+            }
+            }
+            }
             }
 		} catch (DocumentException e) {
 			e.printStackTrace();

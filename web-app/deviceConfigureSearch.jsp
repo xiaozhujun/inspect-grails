@@ -42,16 +42,13 @@
                             $(".report1").show().html("" + strValue);
                         }
                     }
-
                 })
-
             })
         })
     </script>
     <script>
         var rowCount = 0;
         var colCount = 2;
-
         function addRow(){
             var str="";
             $("input:checkbox:[checked]").each(function(){

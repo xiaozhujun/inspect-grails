@@ -1,6 +1,7 @@
 package inspect
 
 import com.springsource.roo.inspect.dao.DBImpl
+import com.sun.xml.internal.fastinfoset.sax.SystemIdResolver
 import grails.converters.JSON
 import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
@@ -215,40 +216,59 @@ class DeviceController {
     }
 
     def upload = {
-        System.out.print("xxxx")
-        def f = request.getFile("myFile")
-            request.setCharacterEncoding("UTF-8");
-            response.setContentType("text/html;charset=UTF-8");
-        if(!f.empty) {
-            response.sendError(200,'Done');
-            DOMAnalysisXml d = new DOMAnalysisXml();
-            int flag=d.analysisXml(f.getInputStream());
-            if (flag!=0){
-                System.out.print("数据已存在")
-
-            }
-        }
-        else {
-            flash.message = 'file cannot be empty'
-            render(view:'adminupload')
-        }
-    }
-    def upload1 ={
-        System.out.print("userupload")
         def f = request.getFile("myFile")
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json;charset=UTF-8");
+        def dd1;
+        if(f!=null) {
+            //response.sendError(200,'Done');
+            DOMAnalysisXml d = new DOMAnalysisXml();
+            def ff=f.getOriginalFilename().substring(f.getOriginalFilename().indexOf("."));
+            if (ff!=".xml"){
+                dd1="支持xml文件上传!";
+            }else{
+                int flag1=d.analysisXml(f.getInputStream());
+                if (flag1==1){
+                    dd1="数据已存在！"
+                }else if (flag1==2){
+                    dd1="文件格式不对！"
+                }else{
+                    dd1="文件上传成功！"
+                }
+               }
+             }else {
+            dd1="请选择上传文件！"
+        }
+        render dd1
+    }
+
+    def upload1 ={
+        def f = request.getFile("myFile")
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json;charset=UTF-8");
         DOMAnalysisXml d = new DOMAnalysisXml();
-        if(!f.empty) {
-            response.sendError(200,'Done');
+        def dd;
+        if(f!=null) {
+            //response.sendError(200,'Done');
+            def ff=f.getOriginalFilename().substring(f.getOriginalFilename().indexOf("."));
+            if (ff!=".xml"){
+               dd="支持xml文件上传!";
+            }else{
             int flag=d.analysisXml(f.getInputStream());
-            if (flag!=0){
-                System.out.print("数据已存在")
+            if (flag==1){
+                dd="数据已存在！"
+            }else if (flag==2){
+                dd="文件格式不对！"
+            }else{
+                dd="文件上传成功！"
+            }
             }
         }
         else {
-            flash.message = 'file cannot be empty'
-            render(view:'userupload')
+            dd="请选择上传文件！"
         }
+        render dd
     }
+
+
 }
