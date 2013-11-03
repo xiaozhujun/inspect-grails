@@ -25,7 +25,7 @@
          var stime=$("#stime").val();
          var etime=$("#etime").val();
          var type=$("#type").val();
-         if(stime!=''&&etime!=''){
+         if(stime!=''&&etime!=''&&type==''){
 
 		 // $(".report1").load("../inspect/exportDeviceCount1Servlet",{"stime":stime,"etime":etime,"type":type});
              $.ajax({
@@ -41,7 +41,24 @@
                  }
 
              })
-         }else{
+         }else if(stime!=''&&etime!=''&&type!=''){
+             type='';
+             $.ajax({
+                 type:"POST",
+                 url:"../inspect/exportDeviceCount1Servlet",
+                 data:{stime:stime,etime:etime,type:type},
+                 dataType:"html",
+                 success:function(msg){
+                     $(".selectF").css("display","block");
+                     $(".report1").html(msg);
+                 },
+                 error:function(msg){
+                 }
+
+             })
+         }
+         else
+         {
          $(".report1").html('对不起，请输入查询条件!');
          }
 	 });
