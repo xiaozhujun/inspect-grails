@@ -100,7 +100,22 @@
         <servlet-name>showHtmlReportServlet</servlet-name>
         <url-pattern>/showHtmlReportServlet</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>peopleConfigureServlet</servlet-name>
+        <servlet-class>com.cesi.ConfigureSearch.peopleConfigureServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>peopleConfigureServlet</servlet-name>
+        <url-pattern>/peopleConfigureServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>deviceConfigureServlet</servlet-name>
+        <servlet-class>com.cesi.ConfigureSearch.deviceConfigureServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deviceConfigureServlet</servlet-name>
+        <url-pattern>/deviceConfigureServlet</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>exportDeviceHistoryServlet</servlet-name>
         <servlet-class>com.exportReport.exportDeviceHistoryServlet</servlet-class>

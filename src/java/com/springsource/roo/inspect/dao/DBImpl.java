@@ -577,6 +577,30 @@ public class DBImpl {
 
         return list;
     }
+    public PageInspectTable getDevTagById(String d2,int t){
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.numbers=? ";
+        PageInspectTable p=null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,t);
+            statement.setString(2,d2);
+
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                p=new PageInspectTable();
+                p.setTypename(rs.getString(1));
+                p.setTypeid(rs.getInt(2));
+                p.setDevicenumber(rs.getString(3));
+                p.setTagname(rs.getString(4));
+                p.setTagid(rs.getInt(5));
+                p.setTagnumbers(rs.getString(6));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return p;
+    }
     public List<PageInspectTable> getTypeDev(int d1,int d2){
         String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id  and d.id=? and t.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
@@ -606,7 +630,7 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getTypeTag(int d1,int t){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and  t.id=? and tag.id=? ";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers,d.id from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and  t.id=? and tag.id=? ";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
@@ -621,6 +645,7 @@ public class DBImpl {
                 p.setTagname(rs.getString(4));
                 p.setTagid(rs.getInt(5));
                 p.setTagnumbers(rs.getString(6));
+                p.setDeviceid(rs.getInt(7));
                 list.add(p);
 
 
@@ -633,7 +658,7 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getType(int d1){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and t.id=?";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers,d.id from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and t.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
@@ -647,6 +672,7 @@ public class DBImpl {
                 p.setTagname(rs.getString(4));
                 p.setTagid(rs.getInt(5));
                 p.setTagnumbers(rs.getString(6));
+                p.setDeviceid(rs.getInt(7));
                 list.add(p);
 
 
@@ -685,7 +711,7 @@ public class DBImpl {
         return list;
     }
     public List<PageInspectTable> getTag(int d1){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=?";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers,d.id from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
@@ -699,6 +725,7 @@ public class DBImpl {
                 p.setTagname(rs.getString(4));
                 p.setTagid(rs.getInt(5));
                 p.setTagnumbers(rs.getString(6));
+                p.setDeviceid(rs.getInt(7));
                 list.add(p);
 
 
@@ -936,11 +963,11 @@ public class DBImpl {
         return list;
     }
     public String returnTableContentString(PageInspectTable p){
-        String content="<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox' id='checkbox' value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"' onclick='addRow()'>选定</td></tr>";
+        String content="<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox'  value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'onclick='addRow("+p.getUid()+")'>选定</td></tr>";
         return content;
     }
-    public String returnDeviceResultString(PageInspectTable p){
-        String content="<tr><td>"+p.getTypename()+"</td><td>"+p.getTypeid()+"</td><td>"+p.getDevicenumber()+"</td><td>"+p.getTagname()+"</td><td>"+p.getTagid()+"</td><td>"+p.getTagnumbers()+"</td><td><input type='checkbox'  value='"+p.getTypename()+','+p.getTypeid()+','+p.getDevicenumber()+','+p.getTagname()+','+p.getTagid()+','+p.getTagnumbers()+','+"'onclick='addRow()' >选定</td></tr>";
+    public String returnDeviceResultString(PageInspectTable p,int d1){
+        String content="<tr><td>"+p.getTypename()+"</td><td>"+p.getTypeid()+"</td><td>"+p.getDevicenumber()+"</td><td>"+p.getTagname()+"</td><td>"+p.getTagid()+"</td><td>"+p.getTagnumbers()+"</td><td><input type='checkbox'  value='"+p.getTypename()+','+p.getTypeid()+','+p.getDevicenumber()+','+p.getTagname()+','+p.getTagid()+','+p.getTagnumbers()+','+"'onclick='addRow("+d1+","+p.getTagid()+")' >选定</td></tr>";
         return content;
     }
    public String returnUserQueryResultTableString(InspectTableRecord r){
@@ -949,6 +976,14 @@ public class DBImpl {
        "<input type='button' class='selectbtn' value='查看详细信息' onclick=test1("+r.getItrid()+")></td></tr>";
         return content;
    }
+    public String getPeopleConfigureTable(int rowcount,PageInspectTable p){
+        String tableTemplate="<tr class=tr_"+rowcount+"><td class='cl1'>"+p.getUid()+" "+"</td><td class='cl1'>"+p.getUsername()+" "+"</td><td class='cl1'>"+p.getRid()+" "+"</td><td class='cl1'>"+p.getRolename()+" "+"</td><td><span class='delbtn' onclick=delRow("+rowcount+")>删除</span></td></tr>";
+         return tableTemplate;
+    }
+    public String getDeviceConfigTable(int rowcount,PageInspectTable p){
+        String tableTemplate="<tr class=tr_"+rowcount+"><td class='cl1'>"+p.getTypename()+" "+"</td><td class='cl1'>"+p.getTypeid()+" "+"</td><td class='cl1'>"+p.getDevicenumber()+"</td><td class='cl1'>"+p.getTagname()+" "+"</td><td class='cl1'>"+p.getTagid()+"</td><td class='cl1'>"+p.getTagnumbers()+" "+"</td><td><span class='delbtn' onclick=delRow("+rowcount+")>删除</span></td></tr>";
+        return tableTemplate;
+    }
    public Timestamp getCreatetimeFromInspectItemRec(int itrid){
         String sql="select createtime from inspect_item_rec itr where id=?";
         Timestamp t=null;
@@ -964,5 +999,43 @@ public class DBImpl {
          }
            return t;
    }
-
+    public List<PageInspectTable> getUserRoleByUid(int uid){         //通过uid获得用户和角色的关系
+           String sql="select u.id,u.username,r.id,r.rolename from users u,roles r where u.urole_id=r.id and u.id=?";
+           List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+           try{
+               statement=connection.prepareStatement(sql);
+               statement.setInt(1,uid);
+               rs=statement.executeQuery();
+               while(rs.next()){
+                  PageInspectTable p=new PageInspectTable();
+                  p.setUid(rs.getInt(1));
+                  p.setUsername(rs.getString(2));
+                  p.setRid(rs.getInt(3));
+                  p.setRolename(rs.getString(4));
+                  list.add(p);
+               }
+           }catch (SQLException e){
+               e.printStackTrace();
+           }
+           return  list;
+    }
+    public PageInspectTable getUserRoleById(int uid){
+        String sql="select u.id,u.username,r.id,r.rolename from users u,roles r where u.urole_id=r.id and u.id=?";
+        PageInspectTable p=null;
+        try{
+            statement=connection.prepareStatement(sql);
+            statement.setInt(1,uid);
+            rs=statement.executeQuery();
+            while(rs.next()){
+                p=new PageInspectTable();
+                p.setUid(rs.getInt(1));
+                p.setUsername(rs.getString(2));
+                p.setRid(rs.getInt(3));
+                p.setRolename(rs.getString(4));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return  p;
+    }
 }

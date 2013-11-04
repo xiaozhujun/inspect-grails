@@ -1,6 +1,7 @@
 package com.cesi.report;
 
 import com.execute.insertToEmploy;
+import com.springsource.roo.inspect.dao.DBImpl;
 import model.PageInspectTable;
 
 import javax.servlet.ServletException;
@@ -25,22 +26,11 @@ public class generateEmployeeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out=response.getWriter();
         String[] str=new String(request.getParameter("str").getBytes("UTF-8")).split(" ");
-        int idx1=0;
-        int idx2=1;
-        int idx3=2;
-        int idx4=3;
-        int len=str.length/4;
+        DBImpl d=new DBImpl();
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
-        for(int i=0;i<len;i++){
+        for(int i=0;i<str.length;i++){
             PageInspectTable p=new PageInspectTable();
-            p.setUid(Integer.parseInt(str[idx1]));
-            p.setUsername(str[idx2]);
-            p.setRid(Integer.parseInt(str[idx3]));
-            p.setRolename(str[idx4]);
-            idx1 +=4 ;
-            idx2 +=4 ;
-            idx3 +=4 ;
-            idx4 +=4 ;
+            p=d.getUserRoleById(Integer.parseInt(str[i]));
             list.add(p);
         }
         insertToEmploy e=new insertToEmploy();
@@ -59,7 +49,7 @@ public class generateEmployeeServlet extends HttpServlet {
         }else {
             out.print("生成文件失败！");
         }
-    }
+        }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
               doPost(request,response);

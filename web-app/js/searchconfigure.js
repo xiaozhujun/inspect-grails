@@ -6,7 +6,11 @@
  * To change this template use File | Settings | File Templates.
  */
 function generate(){
-    var tableHtml = $("#testTable td.cl1").text();
+    var tableHtml ="";
+    var len=$('#testTable').find("tr").length;
+    for(i=1;i<len;i++){
+        tableHtml+=($("#testTable tr:eq("+i+") td:eq(2)").text()+","+$("#testTable tr:eq("+i+") td:eq(4)").text())+" ";
+    }
     if(tableHtml!=""){
         location.href="../inspect/generateDeviceServlet?tableHtml="+encodeURI(tableHtml);
     }else{
@@ -14,8 +18,16 @@ function generate(){
     }
 }
 function generate1(){
-    var str = $("#testTable1 td.cl1").text();
+    var str ="";
+    var len=$('#testTable1').find("tr").length;
+    alert(len)
+    for(i=1;i<len;i++){
+        alert($("#testTable1 tr:eq("+i+") td:eq(0)").text())
+        str+=$("#testTable1 tr:eq("+i+") td:eq(0)").text()+""
+
+    }
     if(str!=""){
+        alert(str)
     location.href="../inspect/generateEmployeeServlet?str="+encodeURI(str);
     }else{
         alert("导出数据为空");

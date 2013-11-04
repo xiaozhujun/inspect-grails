@@ -49,40 +49,29 @@
     <script>
         var rowCount = 0;
         var colCount = 2;
-        function addRow(){
+        function addRow(devid,tagid){
             var str="";
+            var ss=$("td:eq(0)").text();
             $("input:checkbox:[checked]").each(function(){
                 str+=$(this).val();
 
             })
-            var arr=str.split(",");
-            var idx1=0;
-            var idx2=1;
-            var idx3=2;
-            var idx4=3;
-            var idx5=4;
-            var idx6=5;
-            var len=arr.length/6;
-            for(var i=0;i<len-1;i++){
-                rowCount++;
-                var rowTemplate = '<tr class="tr_'+rowCount+'"><td class="cl1">'+arr[idx1]+' '+'</td><td class="cl1">'+arr[idx2]+' '+'</td><td class="cl1">'+arr[idx3]+' '+'</td><td class="cl1">'+arr[idx4]+' '+'</td><td class="cl1">'+arr[idx5]+' '+'</td><td class="cl1">'+arr[idx6]+' '+'</td><td><span class="delbtn" onclick=delRow('+rowCount+')>删除</span></td></tr>';
-                idx1 +=6 ;
-                idx2 +=6 ;
-                idx3 +=6 ;
-                idx4 +=6 ;
-                idx5 +=6 ;
-                idx6 +=6 ;
-                var tableHtml = $("#testTable tbody").html();
-                tableHtml += rowTemplate;
-                $("#testTable tbody").html(tableHtml);
-            }
-            $("input:checkbox").each(function(){
-                $(this).attr("checked",false);
-            });
-
+            $.ajax({
+                type:"POST",
+                url:"deviceConfigureServlet",
+                data:{devid:devid,tagid:tagid,rowcount:rowCount++},
+                dataType:"html",
+                success:function(msg){
+                    str+=msg;
+                    $("#testTable tbody").append(str);
+                },
+                error:function(msg){
+                    alert(msg);
+                }
+            })
         }
         function delRow(_id){
-            $("#testTable .tr_"+_id).hide();
+            $("#testTable .tr_"+_id).remove();
             rowCount--;
         }
     </script>
@@ -156,9 +145,9 @@
             <div class="report2">
                 <table id="testTable" border="1" width="540">
                     <thead>
+                    <tr><th>设备类型</th><th>设备类型编号</th><th>设备编号</th><th>标签区域</th><th>标签号</th><th>标签编号</th><th>操作</th></tr>
                     </thead>
                     <tbody>
-                    <tr><th>设备类型</th><th>设备类型编号</th><th>设备编号</th><th>标签区域</th><th>标签号</th><th>标签编号</th><th>操作</th></tr>
                     </tbody>
                 </table>
                 <span class="ge" onclick="generate()">导出配置文件</span>

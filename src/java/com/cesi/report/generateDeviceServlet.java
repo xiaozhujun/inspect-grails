@@ -1,6 +1,7 @@
 package com.cesi.report;
 
 import com.execute.insertToDevice;
+import com.springsource.roo.inspect.dao.DBImpl;
 import model.PageInspectTable;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -25,29 +27,12 @@ public class generateDeviceServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out=response.getWriter();
+        DBImpl d=new DBImpl();
         String[] str=new String(request.getParameter("tableHtml").getBytes("UTF-8")).split(" ");
-        int idx1=0;
-        int idx2=1;
-        int idx3=2;
-        int idx4=3;
-        int idx5=4;
-        int idx6=5;
-        int len=str.length/6;
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
-        for(int i=0;i<len;i++){
-            PageInspectTable p=new PageInspectTable();
-            p.setTypename(str[idx1]);
-            p.setTypeid(Integer.parseInt(str[idx2]));
-            p.setDevicenumber(str[idx3]);
-            p.setTagname(str[idx4]);
-            p.setTagid(Integer.parseInt(str[idx5]));
-            p.setTagnumbers(str[idx6]);
-            idx1 +=6 ;
-            idx2 +=6 ;
-            idx3 +=6 ;
-            idx4 +=6 ;
-            idx5 +=6 ;
-            idx6 +=6 ;
+        for(int i=0;i<str.length;i++){
+            String [] b=str[i].split(",");
+            PageInspectTable p=d.getDevTagById(b[0],Integer.parseInt(b[1]));
             list.add(p);
         }
         insertToDevice e=new insertToDevice();
@@ -60,7 +45,7 @@ public class generateDeviceServlet extends HttpServlet{
             response.setHeader("Content-Disposition", "attachment; filename="
                     + new String(downFilename.getBytes("gb2312"),"ISO8859-1"));
             OutputStream outputStream = response.getOutputStream();
-            outputStream.write(result.getBytes(Charset.forName("UTF-8")));
+            outputStream.write(result.getBytes());
             outputStream.flush();
             outputStream.close();
         }else {

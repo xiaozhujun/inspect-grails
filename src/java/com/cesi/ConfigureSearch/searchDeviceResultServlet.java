@@ -51,7 +51,7 @@ public class searchDeviceResultServlet extends HttpServlet{
                 Iterator it1=list.iterator();
                 while(it1.hasNext()){
                     p=(PageInspectTable)it1.next();
-                    out.println(d.returnDeviceResultString(p));
+                    out.println(d.returnDeviceResultString(p,dd));
                 }
                 out.println(tfootTemplate);
                 }
@@ -66,7 +66,7 @@ public class searchDeviceResultServlet extends HttpServlet{
                 Iterator it1=list.iterator();
                 while(it1.hasNext()){
                     p=(PageInspectTable)it1.next();
-                    out.println(d.returnDeviceResultString(p));
+                    out.println(d.returnDeviceResultString(p,dd));
                 }
                 out.println(tfootTemplate);
                 }
@@ -81,7 +81,7 @@ public class searchDeviceResultServlet extends HttpServlet{
                 Iterator it1=list.iterator();
                 while(it1.hasNext()){
                     p=(PageInspectTable)it1.next();
-                out.println(d.returnDeviceResultString(p));
+                out.println(d.returnDeviceResultString(p,dd));
                 }
                 out.println(tfootTemplate);
                 }
@@ -96,7 +96,7 @@ public class searchDeviceResultServlet extends HttpServlet{
                 Iterator it1=list.iterator();
                 while(it1.hasNext()){
                     p=(PageInspectTable)it1.next();
-                    out.println(d.returnDeviceResultString(p));
+                    out.println(d.returnDeviceResultString(p,p.getDeviceid()));
                 }
                 out.println(tfootTemplate);
                 }
@@ -110,7 +110,7 @@ public class searchDeviceResultServlet extends HttpServlet{
                 Iterator it1=list.iterator();
                 while(it1.hasNext()){
                     p=(PageInspectTable)it1.next();
-                    out.println(d.returnDeviceResultString(p));
+                    out.println(d.returnDeviceResultString(p,p.getDeviceid()));
                 }
                 out.println(tfootTemplate);
                 }
@@ -124,7 +124,7 @@ public class searchDeviceResultServlet extends HttpServlet{
                 Iterator it1=list.iterator();
                 while(it1.hasNext()){
                     p=(PageInspectTable)it1.next();
-                 out.println(d.returnDeviceResultString(p));
+                 out.println(d.returnDeviceResultString(p,d1));
                 }
                 out.println(tfootTemplate);
                 }
@@ -138,7 +138,7 @@ public class searchDeviceResultServlet extends HttpServlet{
                 Iterator it1=list.iterator();
                 while(it1.hasNext()){
                     p=(PageInspectTable)it1.next();
-                    out.println(d.returnDeviceResultString(p));
+                    out.println(d.returnDeviceResultString(p,p.getDeviceid()));
                  }
                 out.println(tfootTemplate);
                 }

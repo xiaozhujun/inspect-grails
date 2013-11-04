@@ -57,40 +57,33 @@
     <script>
         var rowCount = 0;
         var colCount = 2;
-        function addRow(){
+        function addRow(ss){
             var str="";
-            $("input:checkbox:[checked]").each(function(){
+           $("input:checkbox:[checked]").each(function(){
                 str+=$(this).val();
+            })
+            var len=$('.tb1').find("tr").length;
+            $.ajax({
+                type:"POST",
+                url:"peopleConfigureServlet",
+                data:{uid:ss,rowcount:rowCount++},
+                dataType:"html",
+                success:function(msg){
+                    str+=msg;
+                    $("#testTable1 tbody").append(str);
+                },
+                error:function(msg){
+                    alert(msg);
+                }
 
             })
-            var arr=str.split(",");
-            var idx1=0;
-            var idx2=1;
-            var idx3=2;
-            var idx4=3;
-            var len=arr.length/4;
-            for(var i=0;i<len-1;i++){
-                rowCount++;
-                var rowTemplate = '<tr class="tr_'+rowCount+'"><td class="cl1">'+arr[idx1]+' '+'</td><td class="cl1">'+arr[idx2]+' '+'</td><td class="cl1">'+arr[idx3]+' '+'</td><td class="cl1">'+arr[idx4]+' '+'</td><td><span class="delbtn" onclick=delRow('+rowCount+')>删除</span></td></tr>';
-                idx1 +=4 ;
-                idx2 +=4 ;
-                idx3 +=4 ;
-                idx4 +=4 ;
-
-                var tableHtml = $("#testTable1 tbody").html();
-                tableHtml += rowTemplate;
-                $("#testTable1 tbody").html(tableHtml);
-            }
-
-            $("input:checkbox").each(function(){
-                $(this).attr("checked",false);
-            });
 
         }
         function delRow(_id){
-            $("#testTable1 .tr_"+_id).hide();
+            $("#testTable1 .tr_"+_id).remove();
             rowCount--;
         }
+
     </script>
     <script type="text/javascript" src="js/searchconfigure.js"></script>
     <style>
@@ -135,8 +128,11 @@
             <div class="report1"></div>
             <div class="report2">
                 <table id="testTable1" border="1" width="540">
-                    <tbody>
+                    <thead>
                     <tr><th>用户编号</th><th>用户名</th><th>类型编号</th><th>类型名</th><th>操作</th></tr>
+                    </thead>
+                    <tbody>
+
                     </tbody>
                 </table>
                 <span class="ge" onclick="generate1()">导出配置文件</span>
