@@ -65,6 +65,10 @@
             $("input:checkbox:[checked]").each(function(){
                 str+=$(this).val();
             })
+           var tablelen=$("#testTable1").find("tr").length;
+            if(tablelen==1){
+                $(".report2").css("display","block");
+            }
             if(result==undefined){
             }else{
                 $.ajax({
@@ -82,6 +86,7 @@
 
                 })
             }
+
         }
         function delRow(_id){
             $("#testTable1 .tr_"+_id).remove();

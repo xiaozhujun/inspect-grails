@@ -212,7 +212,7 @@ class DeviceController {
                 if (flag1==1){
                     dd1="数据已存在！"
                 }else if (flag1==2){
-                    dd1="文件内容不对！"
+                    dd1="文件内容不对！    "
                 }else{
                     dd1="文件上传成功！"
                 }

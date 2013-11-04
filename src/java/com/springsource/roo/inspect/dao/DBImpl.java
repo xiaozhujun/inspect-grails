@@ -967,7 +967,7 @@ public class DbImpl {
         return content;
     }
     public String returnDeviceResultString(PageInspectTable p,int d1){
-        String content="<tr><td>"+p.getTypename()+"</td><td>"+p.getTypeid()+"</td><td>"+p.getDevicenumber()+"</td><td>"+p.getTagname()+"</td><td>"+p.getTagid()+"</td><td>"+p.getTagnumbers()+"</td><td><input type='checkbox'  value='"+p.getTypename()+','+p.getTypeid()+','+p.getDevicenumber()+','+p.getTagname()+','+p.getTagid()+','+p.getTagnumbers()+','+"'onclick='addRow("+d1+","+p.getTagid()+")' >选定</td></tr>";
+        String content="<tr><td>"+p.getTypename()+"</td><td>"+p.getTypeid()+"</td><td>"+p.getDevicenumber()+"</td><td>"+p.getTagname()+"</td><td>"+p.getTagid()+"</td><td>"+p.getTagnumbers()+"</td><td><input type='checkbox' id='ck"+d1+p.getTagid()+"'  onclick='addRow("+d1+","+p.getTagid()+")' >选定</td></tr>";
         return content;
     }
    public String returnUserQueryResultTableString(InspectTableRecord r){

@@ -50,12 +50,22 @@
         var rowCount = 0;
         var colCount = 2;
         function addRow(devid,tagid){
+            var s1="#ck"+devid+tagid;
+            var ck=$(s1);
+            var result = ck.attr("checked");
             var str="";
             var ss=$("td:eq(0)").text();
             $("input:checkbox:[checked]").each(function(){
                 str+=$(this).val();
 
             })
+            var tablelen=$("#testTable").find("tr").length;
+            if(tablelen==1){
+                $(".report2").css("display","block");
+            }
+            if(result==undefined){
+
+            }else{
             $.ajax({
                 type:"POST",
                 url:"deviceConfigureServlet",
@@ -69,6 +79,7 @@
                     alert(msg);
                 }
             })
+            }
         }
         function delRow(_id){
             $("#testTable .tr_"+_id).remove();
