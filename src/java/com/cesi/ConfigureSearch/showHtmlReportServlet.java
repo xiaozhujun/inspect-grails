@@ -1,6 +1,6 @@
-package com.cesi.ConfigureSearch;
-import com.exportReport.exportReport;
-import com.springsource.roo.inspect.dao.DBImpl;
+package com.cesi.configuresearch;
+import com.exportReport.ExportReport;
+import com.springsource.roo.inspect.dao.DbImpl;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.export.*;
 import net.sf.jasperreports.engine.util.JRLoader;
@@ -19,14 +19,14 @@ import java.sql.Timestamp;
  * Time: 下午9:07
  * To change this template use File | Settings | File Templates.
  */
-public class showHtmlReportServlet extends HttpServlet{
+public class ShowHtmlReportServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
              request.setCharacterEncoding("UTF-8");
              response.setContentType("text/html;charset=UTF-8");
              PrintWriter out=response.getWriter();
 
-             DBImpl d1=new DBImpl();
+             DbImpl d1=new DbImpl();
              String type=request.getParameter("type");
              String stime=request.getParameter("s");
              String etime=request.getParameter("e");
@@ -46,7 +46,7 @@ public class showHtmlReportServlet extends HttpServlet{
                 "d.numbers from`inspect_item_rec` itr,`inspect_table_record` tr,inspect_tag   tag,`inspect_item` it,`inspect_Table` tb,device d,`users` u " +
                 "where itr.createtime = tr.createtime and itr.inspecttable_id= tb.id  and itr.tag_id = tag.id and itr.worker_id = u.id and itr.dnumber_id=d.id" +
                 " and itr.inspecttable_id ="+t1+" and itr.createtime ='"+ts+"' group by tag.name";
-             exportReport d=new exportReport();
+             ExportReport d=new ExportReport();
              String path1=this.getServletContext().getRealPath("/report/") + "/";
              try{
              out.write(d.exportRiskReport(reportTemplate,sql, path1));

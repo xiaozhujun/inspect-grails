@@ -1,16 +1,16 @@
 package inspect
 
-import com.springsource.roo.inspect.dao.DBImpl
+import com.springsource.roo.inspect.dao.DbImpl
 import com.springsource.roo.inspect.dao.InspectTableImpl
 import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 
-import com.cesi.report.downloadXml
+import com.cesi.report.DownloadXml
 
 class InspectTableController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-    DBImpl d=new DBImpl();
+    DbImpl d=new DbImpl();
     def index() {
         redirect(action: "list", params: params)
     }
@@ -117,7 +117,7 @@ class InspectTableController {
         String name = t.getNameById(id1);
         System.out.println(name + "name");
         String downFilename = name + ".xml";//要下载的文件名称
-        String filepath=new downloadXml().downloadXml(id1);
+        String filepath=new DownloadXml().downloadXml(id1);
         System.out.print("------------------");
         response.setContentType("text/plain");
         response.setHeader("Location",
@@ -138,7 +138,7 @@ class InspectTableController {
     }*/
     def downroletable(){
         /*String pathname1=request.getSession().getServletContext().getRealPath("/xmlFile/RolesTable.xml");
-        new insertToRolesTableXml().createXml(pathname1);
+        new InsertToRolesTableXml().createXml(pathname1);
         render(view:"downroletable");*/
         String downFilename = "RolesTable.xml";//要下载的文件名称
         response.setContentType("text/plain");
@@ -146,7 +146,7 @@ class InspectTableController {
                 new String(downFilename.getBytes("GBK"), "UTF-8"));
         response.setHeader("Content-Disposition", "attachment; filename="
                 + downFilename);
-        String ss=new downloadXml().downloadRoleTable();
+        String ss=new DownloadXml().downloadRoleTable();
         OutputStream outputStream = response.getOutputStream();
         outputStream.write(ss.getBytes());
         outputStream.flush();

@@ -7,7 +7,7 @@ import java.util.Date;
 
 import model.MyDataSource;
 
-public class insertToDb {
+public class InsertToDb {
 
 	private MyDataSource ds = new MyDataSource();
     public void closeSource(Connection connection,PreparedStatement statement,ResultSet rs){
@@ -408,7 +408,7 @@ public class insertToDb {
         return b;
     }
 	public static void main(String[] args) throws ParseException {
-		insertToDb d = new insertToDb();
+		InsertToDb d = new InsertToDb();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date d1 = sdf.parse("2010-3-2");
 

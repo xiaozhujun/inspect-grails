@@ -6,7 +6,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
         <servlet-name>exportReportServlet</servlet-name>
-        <servlet-class>com.exportReport.exportReportServlet</servlet-class>
+        <servlet-class>com.exportReport.ExportReportServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>exportReportServlet</servlet-name>
@@ -14,7 +14,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>showReportServlet</servlet-name>
-        <servlet-class>com.exportReport.exportReportServlet</servlet-class>
+        <servlet-class>com.exportReport.ExportReportServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>showReportServlet</servlet-name>
@@ -22,7 +22,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>generateDeviceServlet</servlet-name>
-        <servlet-class>com.cesi.report.generateDeviceServlet</servlet-class>
+        <servlet-class>com.cesi.report.GenerateDeviceServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>generateDeviceServlet</servlet-name>
@@ -30,7 +30,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>generateEmployeeServlet</servlet-name>
-        <servlet-class>com.cesi.report.generateEmployeeServlet</servlet-class>
+        <servlet-class>com.cesi.report.GenerateEmployeeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>generateEmployeeServlet</servlet-name>
@@ -38,7 +38,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>exportDeviceCountServlet</servlet-name>
-        <servlet-class>com.exportReport.exportDeviceCountServlet</servlet-class>
+        <servlet-class>com.exportReport.ExportDeviceCountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>exportDeviceCountServlet</servlet-name>
@@ -46,7 +46,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>exportDeviceCount1Servlet</servlet-name>
-        <servlet-class>com.exportReport.exportDeviceCount1Servlet</servlet-class>
+        <servlet-class>com.exportReport.ExportDeviceCount1Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>exportDeviceCount1Servlet</servlet-name>
@@ -54,7 +54,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>exportPeopleInfoServlet</servlet-name>
-        <servlet-class>com.exportReport.exportPeopleInfoServlet</servlet-class>
+        <servlet-class>com.exportReport.ExportPeopleInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>exportPeopleInfoServlet</servlet-name>
@@ -62,7 +62,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>exportPeopleCountServlet</servlet-name>
-        <servlet-class>com.exportReport.exportPeopleCountServlet</servlet-class>
+        <servlet-class>com.exportReport.ExportPeopleCountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>exportPeopleCountServlet</servlet-name>
@@ -70,7 +70,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>searchResuleServlet</servlet-name>
-        <servlet-class>com.cesi.ConfigureSearch.searchResuleServlet</servlet-class>
+        <servlet-class>com.cesi.configuresearch.SearchResuleServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>searchResuleServlet</servlet-name>
@@ -78,7 +78,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>searchDeviceResultServlet</servlet-name>
-        <servlet-class>com.cesi.ConfigureSearch.searchDeviceResultServlet</servlet-class>
+        <servlet-class>com.cesi.configuresearch.SearchDeviceResultServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>searchDeviceResultServlet</servlet-name>
@@ -86,7 +86,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>userqueryresultServlet</servlet-name>
-        <servlet-class>com.cesi.ConfigureSearch.userqueryresultServlet</servlet-class>
+        <servlet-class>com.cesi.configuresearch.UserQueryResultServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>userqueryresultServlet</servlet-name>
@@ -94,7 +94,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>showHtmlReportServlet</servlet-name>
-        <servlet-class>com.cesi.ConfigureSearch.showHtmlReportServlet</servlet-class>
+        <servlet-class>com.cesi.configuresearch.ShowHtmlReportServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>showHtmlReportServlet</servlet-name>
@@ -102,7 +102,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>peopleConfigureServlet</servlet-name>
-        <servlet-class>com.cesi.ConfigureSearch.peopleConfigureServlet</servlet-class>
+        <servlet-class>com.cesi.configuresearch.PeopleConfigureServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>peopleConfigureServlet</servlet-name>
@@ -110,7 +110,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>deviceConfigureServlet</servlet-name>
-        <servlet-class>com.cesi.ConfigureSearch.deviceConfigureServlet</servlet-class>
+        <servlet-class>com.cesi.configuresearch.DeviceConfigureServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>deviceConfigureServlet</servlet-name>
@@ -118,7 +118,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>exportDeviceHistoryServlet</servlet-name>
-        <servlet-class>com.exportReport.exportDeviceHistoryServlet</servlet-class>
+        <servlet-class>com.exportReport.ExportDeviceHistoryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>exportDeviceHistoryServlet</servlet-name>

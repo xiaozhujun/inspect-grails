@@ -1,5 +1,5 @@
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.springsource.roo.inspect.dao.DBImpl"%>
+<%@page import="com.springsource.roo.inspect.dao.DbImpl"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="model.InspectTableRecord"%>
 <%@page import="java.util.Date"%>
@@ -105,7 +105,7 @@
             name="etime">
             <span class="seafont">报表:</span> <select id="table" name="tid">
             <%
-                DBImpl d1 = new DBImpl();
+                DbImpl d1 = new DbImpl();
                 List<InspectTableRecord> tlist = d1.getTable();
                 Iterator l1 = tlist.iterator();
                 while (l1.hasNext()) {

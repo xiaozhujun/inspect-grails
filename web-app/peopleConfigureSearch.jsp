@@ -1,4 +1,4 @@
-<%@ page import="com.springsource.roo.inspect.dao.DBImpl" %>
+<%@ page import="com.springsource.roo.inspect.dao.DbImpl" %>
 <%@ page import="model.PageInspectTable" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
@@ -24,17 +24,18 @@
     <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
     <link rel="stylesheet" href="css/result.css">
     <link rel="stylesheet" href="styles/social-buttons.css">
+    <script type="text/javascript" src="js/searchconfigure.js"></script>
     <script type="text/javascript" >
         $(function(){
             $("#btn").click(function(){
                 var name=$("#name").val();
                 var type=encodeURI($("#type").val());
                 var ck="";
-                if($("#ck1").attr("checked")){//选中
-                    ck=$("#ck1").val();//打印选中的值
+                if($("#ckx1").attr("checked")){//选中
+                    ck=$("#ckx1").val();//打印选中的值
                 }
-                else if($("#ck2").attr("checked")){
-                    ck=$("#ck2").val();//打印选中的值
+                else if($("#ckx2").attr("checked")){
+                    ck=$("#ckx2").val();//打印选中的值
                 }
                 $.ajax({
                     type:"POST",
@@ -52,43 +53,43 @@
                 })
 
             })
-        })
-    </script>
-    <script>
+        });
         var rowCount = 0;
         var colCount = 2;
         function addRow(ss){
+            var s1="#ck"+ss;
+            var ck=$(s1);
+            var result = ck.attr("checked");
             var str="";
-           $("input:checkbox:[checked]").each(function(){
+            var tb1="";
+            $("input:checkbox:[checked]").each(function(){
                 str+=$(this).val();
             })
-            var len=$('.tb1').find("tr").length;
-            $.ajax({
-                type:"POST",
-                url:"peopleConfigureServlet",
-                data:{uid:ss,rowcount:rowCount++},
-                dataType:"html",
-                success:function(msg){
-                    str+=msg;
-                    $("#testTable1 tbody").append(str);
-                },
-                error:function(msg){
-                    alert(msg);
-                }
+            if(result==undefined){
+            }else{
+                $.ajax({
+                    type:"POST",
+                    url:"peopleConfigureServlet",
+                    data:{uid:ss,rowcount:rowCount++},
+                    dataType:"html",
+                    success:function(msg){
+                        str+=msg;
+                        $("#testTable1 tbody").append(str);
+                    },
+                    error:function(msg){
+                        alert(msg);
+                    }
 
-            })
-
+                })
+            }
         }
         function delRow(_id){
             $("#testTable1 .tr_"+_id).remove();
             rowCount--;
         }
-
     </script>
-    <script type="text/javascript" src="js/searchconfigure.js"></script>
-    <style>
 
-    </style>
+
 </head>
 <body>
 <div id="wrapper">
@@ -108,7 +109,7 @@
             <span class="seafont">所属人员类型：</span><select id="type">
             <option value="" checked>------请选择------</option>
             <%
-                DBImpl d=new DBImpl();
+                DbImpl d=new DbImpl();
                 PageInspectTable p=new PageInspectTable();
                 List<PageInspectTable> list=d.getRole();
                 Iterator l1=list.iterator();
@@ -120,7 +121,7 @@
                 }
             %>
         </select>
-            <span class="seafont">已发卡：</span><input type="radio" value="1" id="ck1"> <span class="seafont">未发卡：</span><input type="radio" value="0" id="ck2">
+            <span class="seafont">已发卡：</span><input type="checkbox" value="1" id="ckx1"> <span class="seafont">未发卡：</span><input type="checkbox" value="0" id="ckx2">
             <input type="button" value="查询" id="btn" class="selectbtn">
             </span>
         </div>

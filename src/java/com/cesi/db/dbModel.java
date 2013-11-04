@@ -9,7 +9,7 @@ import java.util.Date;
  * Time: 下午5:51
  * To change this template use File | Settings | File Templates.
  */
-public class dbModel {
+public class DbModel {
     private int did;
     private String devname;
     private int uid;

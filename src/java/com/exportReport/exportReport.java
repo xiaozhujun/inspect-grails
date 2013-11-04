@@ -27,7 +27,7 @@ import java.util.Map;
  * Time: 下午9:24
  * To change this template use File | Settings | File Templates.
  */
-public class exportReport{
+public class ExportReport {
     private static MyDataSource ds=new MyDataSource();
     private static Connection connection=ds.getConnection();
     public void exportReport(String reportTemplate,String sql,HttpServletRequest request,HttpServletResponse response) throws JRException,IOException {

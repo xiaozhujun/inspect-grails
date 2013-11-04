@@ -7,7 +7,7 @@ package com.exportReport;
  * Time: 下午8:43
  * To change this template use File | Settings | File Templates.
  */
-public class exportReportTemplateServlet {
+public class ExportReportTemplateServlet {
 
 
 

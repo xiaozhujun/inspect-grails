@@ -1,4 +1,4 @@
-<%@ page import="com.springsource.roo.inspect.dao.DBImpl" %>
+<%@ page import="com.springsource.roo.inspect.dao.DbImpl" %>
 <%@ page import="model.PageInspectTable" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
@@ -97,7 +97,7 @@
              <span class="seafont">设备类型：</span><select id="dtype">
                 <option value="" checked>------请选择------</option>
                 <%
-                    DBImpl d1=new DBImpl();
+                    DbImpl d1=new DbImpl();
                     PageInspectTable p1=new PageInspectTable();
                     List<PageInspectTable> list1=d1.getdevicetype();
                     Iterator l2=list1.iterator();
@@ -112,7 +112,7 @@
                         <span class="seafont">设备编号：</span><select id="device">
                 <option value="" checked>------请选择------</option>
                 <%
-                    DBImpl d2=new DBImpl();
+                    DbImpl d2=new DbImpl();
                     List<PageInspectTable> list2=d2.getdevice();
                     Iterator l3=list2.iterator();
                     while(l3.hasNext()){
@@ -126,7 +126,7 @@
                         <span class="seafont">标签名:</span><select id="tag">
                 <option value="" checked>------请选择------</option>
                 <%
-                    DBImpl d3=new DBImpl();
+                    DbImpl d3=new DbImpl();
                     List<PageInspectTable> list3=d3.getTag();
                     Iterator l4=list3.iterator();
                     while(l4.hasNext()){

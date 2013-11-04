@@ -1,7 +1,7 @@
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.cesi.db.insertDB" %>
-<%@ page import="com.cesi.db.dbModel" %>
+<%@ page import="com.cesi.db.InsertDb" %>
+<%@ page import="com.cesi.db.DbModel" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -88,11 +88,11 @@
                <span class="seafont">设备编号:</span><select id="did">
                 <option value="">-----请选择------</option>
                 <%
-                    insertDB d=new insertDB();
-                    List<dbModel> l=d.getDevice();
+                    InsertDb d=new InsertDb();
+                    List<DbModel> l=d.getDevice();
                     Iterator it=l.iterator();
                     while(it.hasNext()){
-                        dbModel t=(dbModel)it.next();
+                        DbModel t=(DbModel)it.next();
                 %>
                 <option value="<%=t.getDid()%>"><%=t.getDevname()%></option>
                 <%
@@ -102,11 +102,11 @@
                 <select id="user">
                     <option value="">-----请选择------</option>
                     <%
-                        insertDB d1=new insertDB();
-                        List<dbModel> l1=d.getUser();
+                        InsertDb d1=new InsertDb();
+                        List<DbModel> l1=d.getUser();
                         Iterator it1=l1.iterator();
                         while(it1.hasNext()){
-                            dbModel t1=(dbModel)it1.next();
+                            DbModel t1=(DbModel)it1.next();
                     %>
                     <option value="<%=t1.getUid()%>"><%=t1.getUsername()%></option>
                     <%

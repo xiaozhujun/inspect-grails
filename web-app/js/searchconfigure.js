@@ -12,7 +12,7 @@ function generate(){
         tableHtml+=($("#testTable tr:eq("+i+") td:eq(2)").text()+","+$("#testTable tr:eq("+i+") td:eq(4)").text())+" ";
     }
     if(tableHtml!=""){
-        location.href="../inspect/generateDeviceServlet?tableHtml="+encodeURI(tableHtml);
+        location.href="../inspect/GenerateDeviceServlet?tableHtml="+encodeURI(tableHtml);
     }else{
         alert("导出数据为空");
     }
@@ -28,7 +28,7 @@ function generate1(){
     }
     if(str!=""){
         alert(str)
-    location.href="../inspect/generateEmployeeServlet?str="+encodeURI(str);
+    location.href="../inspect/GenerateEmployeeServlet?str="+encodeURI(str);
     }else{
         alert("导出数据为空");
     }

@@ -1,6 +1,6 @@
-package com.cesi.ConfigureSearch;
+package com.cesi.configuresearch;
 
-import com.springsource.roo.inspect.dao.DBImpl;
+import com.springsource.roo.inspect.dao.DbImpl;
 import model.PageInspectTable;
 
 import javax.servlet.ServletException;
@@ -20,7 +20,7 @@ import java.util.List;
  * Time: 下午4:24
  * To change this template use File | Settings | File Templates.
  */
-public class searchResuleServlet extends HttpServlet{
+public class SearchResuleServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -29,7 +29,7 @@ public class searchResuleServlet extends HttpServlet{
         String type=request.getParameter("type");
         String ck=request.getParameter("ck");
         PrintWriter out = response.getWriter();
-        DBImpl d = new DBImpl();
+        DbImpl d = new DbImpl();
         PageInspectTable p = null;
         List<PageInspectTable> list = new ArrayList<PageInspectTable>();
         if (name == "" && type == "" && ck == "") {

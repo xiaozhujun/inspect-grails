@@ -1,5 +1,5 @@
 package com.exportReport;
-import com.springsource.roo.inspect.dao.DBImpl;
+import com.springsource.roo.inspect.dao.DbImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,18 +8,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-public class exportReportServlet extends HttpServlet {
+
+public class ExportReportServlet extends HttpServlet {
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-    DBImpl d1=new DBImpl();
+    DbImpl d1=new DbImpl();
     request.setCharacterEncoding("UTF-8");
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out=response.getWriter();
-    exportReport d=new exportReport();
+    ExportReport d=new ExportReport();
     String t = request.getParameter("tid");
     String itrid = request.getParameter("ct");
     //从inspect_item_rec中根据itrid查出createtime;

@@ -20,7 +20,7 @@ import java.util.List;
  * Time: 下午9:29
  * To change this template use File | Settings | File Templates.
  */
-public class insertToEmploy {
+public class InsertToEmploy {
 
    public static String insertToEmploy(List<PageInspectTable> list){    //实现下载employer.xml的功能，这个是不写本地文件，直接操作文件流
        String result=null;

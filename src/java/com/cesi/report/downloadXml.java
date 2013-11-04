@@ -1,6 +1,6 @@
 package com.cesi.report;
 
-import com.springsource.roo.inspect.dao.DBImpl;
+import com.springsource.roo.inspect.dao.DbImpl;
 import com.xmlparse.dom4j.ReadInspectTableTest;
 import com.xmlparse.dom4j.ReadRolesTableData;
 import model.PageInspectTable;
@@ -21,7 +21,7 @@ import java.io.*;
  * Time: 下午8:29
  * To change this template use File | Settings | File Templates.
  */
-public class downloadXml {
+public class DownloadXml {
 
     public static String downloadXml(int id){
         List<PageInspectTable> al = new ReadInspectTableTest().getAll(id);
@@ -90,7 +90,7 @@ public class downloadXml {
          String result=null;
 
         List<PageInspectTable> al = new ReadRolesTableData().getRoles();
-        DBImpl d=new DBImpl();
+        DbImpl d=new DbImpl();
         for (int i = 0; i < al.size(); i++) {
             PageInspectTable u = al.get(i);
             Element userEle = usersEle.addElement("Role");
@@ -127,7 +127,7 @@ public class downloadXml {
         return result;
     }
         public static void main(String args[]){
-            downloadXml d=new downloadXml();
+            DownloadXml d=new DownloadXml();
             d.downloadRoleTable();
         }
 }

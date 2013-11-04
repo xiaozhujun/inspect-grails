@@ -1,7 +1,7 @@
 package com.cesi.report;
 
-import com.execute.insertToDevice;
-import com.springsource.roo.inspect.dao.DBImpl;
+import com.execute.InsertToDevice;
+import com.springsource.roo.inspect.dao.DbImpl;
 import model.PageInspectTable;
 
 import javax.servlet.ServletException;
@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -23,11 +21,11 @@ import java.util.List;
  * Time: 下午3:19
  * To change this template use File | Settings | File Templates.
  */
-public class generateDeviceServlet extends HttpServlet{
+public class GenerateDeviceServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out=response.getWriter();
-        DBImpl d=new DBImpl();
+        DbImpl d=new DbImpl();
         String[] str=new String(request.getParameter("tableHtml").getBytes("UTF-8")).split(" ");
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         for(int i=0;i<str.length;i++){
@@ -35,7 +33,7 @@ public class generateDeviceServlet extends HttpServlet{
             PageInspectTable p=d.getDevTagById(b[0],Integer.parseInt(b[1]));
             list.add(p);
         }
-        insertToDevice e=new insertToDevice();
+        InsertToDevice e=new InsertToDevice();
         String result=e.insertToDevice(list);
         if(result!=""){
             String downFilename = "tags.xml";

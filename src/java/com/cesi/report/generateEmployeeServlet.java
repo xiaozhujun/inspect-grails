@@ -1,7 +1,7 @@
 package com.cesi.report;
 
-import com.execute.insertToEmploy;
-import com.springsource.roo.inspect.dao.DBImpl;
+import com.execute.InsertToEmploy;
+import com.springsource.roo.inspect.dao.DbImpl;
 import model.PageInspectTable;
 
 import javax.servlet.ServletException;
@@ -21,19 +21,19 @@ import java.util.List;
  * Time: 下午3:52
  * To change this template use File | Settings | File Templates.
  */
-public class generateEmployeeServlet extends HttpServlet {
+public class GenerateEmployeeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out=response.getWriter();
         String[] str=new String(request.getParameter("str").getBytes("UTF-8")).split(" ");
-        DBImpl d=new DBImpl();
+        DbImpl d=new DbImpl();
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         for(int i=0;i<str.length;i++){
             PageInspectTable p=new PageInspectTable();
             p=d.getUserRoleById(Integer.parseInt(str[i]));
             list.add(p);
         }
-        insertToEmploy e=new insertToEmploy();
+        InsertToEmploy e=new InsertToEmploy();
         String result=e.insertToEmploy(list);
         if(result!=""){
             String downFilename = "employers.xml";

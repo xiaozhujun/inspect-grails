@@ -1,29 +1,17 @@
 package com.exportReport;
 
-import com.execute.insertToDb;
-import model.MyDataSource;
+import com.execute.InsertToDb;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.export.*;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.j2ee.servlets.ImageServlet;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,15 +20,15 @@ import java.util.Map;
  * Time: 下午9:11
  * To change this template use File | Settings | File Templates.
  */
-public class exportPeopleCountServlet extends HttpServlet {
+public class ExportPeopleCountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out=response.getWriter();
-        exportReport d1=new exportReport();
-        insertToDb t=new insertToDb();
+        ExportReport d1=new ExportReport();
+        InsertToDb t=new InsertToDb();
         String stime=request.getParameter("stime");
         String endtime=request.getParameter("etime");
         String type=request.getParameter("type");

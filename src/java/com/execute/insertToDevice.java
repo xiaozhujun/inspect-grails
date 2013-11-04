@@ -19,7 +19,7 @@ import java.util.List;
  * Time: 下午3:33
  * To change this template use File | Settings | File Templates.
  */
-public class insertToDevice {
+public class InsertToDevice {
 
     public static String insertToDevice(List<PageInspectTable> list){          //实现下载tag.xml的功能，这个是不写本地文件，直接操作文件流
         String result=null;

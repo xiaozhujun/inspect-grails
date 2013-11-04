@@ -1,5 +1,4 @@
 package com.execute;
-import java.io.File;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,13 +15,13 @@ import model.MyDataSource;
 *此类用于点检上传,解析xml文件后将数据插入数据库
 *
 * */
-public class DOMAnalysisXml {
-	private insertToDb d = new insertToDb();
+public class DomAnalysisXml {
+	private InsertToDb d = new InsertToDb();
 	private MyDataSource ds = new MyDataSource();
 	Connection connection = ds.getConnection();
 	public int analysisXml(InputStream inputStream) {
         int flag=0;
-        insertToDb tb=new insertToDb();
+        InsertToDb tb=new InsertToDb();
 		String tname = null;
 		String tag = null;
 		String item = null;

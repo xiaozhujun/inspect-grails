@@ -1,5 +1,5 @@
-<%@ page import="com.cesi.db.insertDB" %>
-<%@ page import="com.cesi.db.dbModel" %>
+<%@ page import="com.cesi.db.InsertDb" %>
+<%@ page import="com.cesi.db.DbModel" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -75,11 +75,11 @@
             <select id="s">
                 <option value="0">-----请选择------</option>
                 <%
-                    insertDB d=new insertDB();
-                    List<dbModel> l=d.getDevice();
+                    InsertDb d=new InsertDb();
+                    List<DbModel> l=d.getDevice();
                     Iterator it=l.iterator();
                     while(it.hasNext()){
-                        dbModel t=(dbModel)it.next();
+                        DbModel t=(DbModel)it.next();
                 %>
                 <option value="<%=t.getDid()%>"><%=t.getDevname()%></option>
                 <%

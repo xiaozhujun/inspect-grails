@@ -1,5 +1,5 @@
 package com.exportReport;
-import com.execute.insertToDb;
+import com.execute.InsertToDb;
 import net.sf.jasperreports.engine.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -7,17 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-public class exportDeviceCountServlet extends HttpServlet {
+
+public class ExportDeviceCountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out=response.getWriter();
-        exportReport d1=new exportReport();
-        insertToDb t=new insertToDb();
+        ExportReport d1=new ExportReport();
+        InsertToDb t=new InsertToDb();
         String stime=request.getParameter("stime");
         String endtime=request.getParameter("etime");
         java.sql.Date st=d1.executeDateFormat(stime);

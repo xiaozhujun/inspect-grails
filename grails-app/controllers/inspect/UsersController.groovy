@@ -1,13 +1,13 @@
 package inspect
 
-import com.springsource.roo.inspect.dao.DBImpl
+import com.springsource.roo.inspect.dao.DbImpl
 import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 
 class UsersController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-    DBImpl d=new DBImpl();
+    DbImpl d=new DbImpl();
     def index() {
         redirect(action: "list", params: params)
     }
@@ -27,7 +27,7 @@ class UsersController {
     }
     def admincreate() {
        // System.out.print("hhh")
-        DBImpl d=new DBImpl();
+        DbImpl d=new DbImpl();
         List<PageInspectTable> plist=d.getRole();
         render (view:"admincreate",model:[usersInstance: new Users(params),plist:plist,ptable:PageInspectTable])
     }

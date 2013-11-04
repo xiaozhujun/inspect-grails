@@ -4,7 +4,7 @@
 <%@page import="java.io.OutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
-<%@ page import="com.cesi.report.downloadXml" %>
+<%@ page import="com.cesi.report.DownloadXml" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -90,7 +90,7 @@
         out.clear();
         out = pageContext.pushBody();
     %>--}%
-   <% String rel=new downloadXml().downloadXml(1);
+   <% String rel=new DownloadXml().downloadXml(1);
     System.out.print("********************");
     System.out.print(rel);
     out.write(rel);

@@ -1,13 +1,12 @@
-package com.cesi.ConfigureSearch;
+package com.cesi.configuresearch;
 
-import com.springsource.roo.inspect.dao.DBImpl;
+import com.springsource.roo.inspect.dao.DbImpl;
 import model.PageInspectTable;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import java.util.List;
  * Time: 下午4:37
  * To change this template use File | Settings | File Templates.
  */
-public class searchDeviceResultServlet extends HttpServlet{
+public class SearchDeviceResultServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -33,7 +32,7 @@ public class searchDeviceResultServlet extends HttpServlet{
         String tableTemplate="<form method='post'><table border=1 class='tb1'><thead><tr><th>设备类型</th><th>设备类型编号</th><th>设备编号</th><th>标签区域</th><th>标签号</th><th>标签编号</th><th>操作</th></thead><tbody>";
         String tfootTemplate="</table></form>";
         String empty="对不起，查询记录不存在！";
-        DBImpl d=new DBImpl();
+        DbImpl d=new DbImpl();
         PageInspectTable p=null;
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         if(dtype==""&&device==""&&tag==""){

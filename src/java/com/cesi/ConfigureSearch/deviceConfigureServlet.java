@@ -1,5 +1,5 @@
-package com.cesi.ConfigureSearch;
-import com.springsource.roo.inspect.dao.DBImpl;
+package com.cesi.configuresearch;
+import com.springsource.roo.inspect.dao.DbImpl;
 import model.PageInspectTable;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +17,7 @@ import java.util.List;
  * Time: 下午2:50
  * To change this template use File | Settings | File Templates.
  */
-public class deviceConfigureServlet extends HttpServlet{
+public class DeviceConfigureServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
            request.setCharacterEncoding("UTF-8");
@@ -28,7 +28,7 @@ public class deviceConfigureServlet extends HttpServlet{
            String rowcount=request.getParameter("rowcount");
            int tagid=Integer.parseInt(tag);
            int did=Integer.parseInt(d);
-           DBImpl d1=new DBImpl();
+           DbImpl d1=new DbImpl();
            List<PageInspectTable> list=d1.getDevTag(did,tagid);
             Iterator it=list.iterator();
             System.out.println(list.size());

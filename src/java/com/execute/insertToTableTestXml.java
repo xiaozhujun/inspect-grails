@@ -14,7 +14,7 @@ import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
-public class insertToTableTestXml {
+public class InsertToTableTestXml {
 	@SuppressWarnings("rawtypes")
 	public boolean createXml(String pathname, int id) {
 
@@ -81,6 +81,6 @@ public class insertToTableTestXml {
 
 	public static void main(String[] args) {
 		String pathname = "d://xmlFiles//inspectTableTest1.xml";
-		new insertToTableTestXml().createXml(pathname, 1);
+		new InsertToTableTestXml().createXml(pathname, 1);
 	}
 }

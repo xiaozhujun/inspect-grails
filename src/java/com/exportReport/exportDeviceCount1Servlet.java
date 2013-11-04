@@ -1,5 +1,5 @@
 package com.exportReport;
-import com.execute.insertToDb;
+import com.execute.InsertToDb;
 import net.sf.jasperreports.engine.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-public class exportDeviceCount1Servlet extends HttpServlet {
+public class ExportDeviceCount1Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out=response.getWriter();
-        exportReport d=new exportReport();
-        insertToDb d1=new insertToDb();
+        ExportReport d=new ExportReport();
+        InsertToDb d1=new InsertToDb();
         String stime=request.getParameter("stime");
         String endtime=request.getParameter("etime");
         String type = request.getParameter("type");

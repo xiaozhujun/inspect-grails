@@ -19,19 +19,19 @@ import java.util.List;
  * Time: 下午5:49
  * To change this template use File | Settings | File Templates.
  */
-public class insertDB {
+public class InsertDb {
     private MyDataSource ds=new MyDataSource();
     Connection connection=ds.getConnection();
     PreparedStatement statement=null;
     ResultSet rs=null;
-   public List<dbModel> getDevice(){                //得到所有设备
+   public List<DbModel> getDevice(){                //得到所有设备
       String sql="select id,devname from device";
-       List<dbModel> list=new ArrayList<dbModel>();
+       List<DbModel> list=new ArrayList<DbModel>();
        try{
            statement=connection.prepareStatement(sql);
            rs=statement.executeQuery();
            while(rs.next()){
-               dbModel d=new dbModel();
+               DbModel d=new DbModel();
                d.setDid(rs.getInt(1));
                d.setDevname(rs.getString(2));
                list.add(d);
@@ -42,14 +42,14 @@ public class insertDB {
        }
        return list;
    }
-    public List<dbModel> getUser(){                //得到所有设备
+    public List<DbModel> getUser(){                //得到所有设备
         String sql="select id,username from users";
-        List<dbModel> list=new ArrayList<dbModel>();
+        List<DbModel> list=new ArrayList<DbModel>();
         try{
             statement=connection.prepareStatement(sql);
             rs=statement.executeQuery();
             while(rs.next()){
-                dbModel d=new dbModel();
+                DbModel d=new DbModel();
                 d.setUid(rs.getInt(1));
                 d.setUsername(rs.getString(2));
                 list.add(d);
@@ -75,8 +75,8 @@ public class insertDB {
          }
           return n;
  }
-    public List<dbModel> getPeriodInfo(int n){               //求出每个时间间隔中的具体的异常信息
-         List<dbModel> list=new ArrayList<dbModel>();
+    public List<DbModel> getPeriodInfo(int n){               //求出每个时间间隔中的具体的异常信息
+         List<DbModel> list=new ArrayList<DbModel>();
           for(int i=0;i<=n;i++){
            String sql="select d.devname,count(itr.id),t.starttime,DATE_ADD(t.starttime,INTERVAL ? DAY) from inspect_item_rec itr,device d,timer t where itr.dnumber_id=d.id and itr.ivalue_id=2 and itr.createtime between DATE_ADD(t.starttime,INTERVAL 0 DAY) and DATE_ADD(t.starttime,INTERVAL ? DAY) group by d.devname";
               try{
@@ -85,7 +85,7 @@ public class insertDB {
                   statement.setInt(2,7*(i+1));
                 rs=statement.executeQuery();
                 while(rs.next()){
-                    dbModel d=new dbModel();
+                    DbModel d=new DbModel();
                     d.setDevname(rs.getString(1));
                     d.setId(rs.getInt(2));
                     d.setStarttime(rs.getDate(3));
@@ -100,11 +100,11 @@ public class insertDB {
                   return list;
     }
      public static void main(String args[]){
-         insertDB d=new insertDB();
-         List<dbModel> list=d.getPeriodInfo(14);
+         InsertDb d=new InsertDb();
+         List<DbModel> list=d.getPeriodInfo(14);
          Iterator it=list.iterator();
          while(it.hasNext()){
-             dbModel a=(dbModel)it.next();
+             DbModel a=(DbModel)it.next();
              System.out.print("设备名:"+a.getDevname());
              System.out.print("异常数:"+a.getId());
              System.out.print("起始时间:"+a.getStarttime());

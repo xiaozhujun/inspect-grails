@@ -10,7 +10,7 @@ import model.InspectTableRecord;
 import model.MyDataSource;
 import model.PageInspectTable;
 
-public class DBImpl {
+public class DbImpl {
 
 	private MyDataSource ds = new MyDataSource();
 	Connection connection = ds.getConnection();
@@ -583,7 +583,7 @@ public class DBImpl {
         try {
             statement = connection.prepareStatement(sql);
             statement.setInt(1,t);
-            statement.setString(2,d2);
+            statement.setString(2, d2);
 
             rs = statement.executeQuery();
             while (rs.next()) {
@@ -963,7 +963,7 @@ public class DBImpl {
         return list;
     }
     public String returnTableContentString(PageInspectTable p){
-        String content="<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox'  value='"+p.getUid()+','+p.getUsername()+','+p.getRid()+','+p.getRolename()+','+"'onclick='addRow("+p.getUid()+")'>选定</td></tr>";
+        String content="<tr><td>"+p.getUid()+"</td><td>"+p.getUsername()+"</td><td>"+p.getRid()+"</td><td>"+p.getRolename()+"</td><td><input type='checkbox'  id='ck"+p.getUid()+"' onclick='addRow("+p.getUid()+")'>选定</td></tr>";
         return content;
     }
     public String returnDeviceResultString(PageInspectTable p,int d1){

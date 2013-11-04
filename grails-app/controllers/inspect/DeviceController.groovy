@@ -1,30 +1,11 @@
 package inspect
 
-import com.springsource.roo.inspect.dao.DBImpl
-import com.sun.xml.internal.fastinfoset.sax.SystemIdResolver
-import grails.converters.JSON
+import com.springsource.roo.inspect.dao.DbImpl
 import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUpload;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.RequestContext;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.fileupload.servlet.ServletRequestContext;
-
-import com.execute.DOMAnalysisXml;
+import com.execute.DomAnalysisXml;
 class DeviceController {
-    DBImpl d=new DBImpl();
+    DbImpl d=new DbImpl();
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -222,7 +203,7 @@ class DeviceController {
         def dd1;
         if(f!=null) {
             //response.sendError(200,'Done');
-            DOMAnalysisXml d = new DOMAnalysisXml();
+            DomAnalysisXml d = new DomAnalysisXml();
             def ff=f.getOriginalFilename().substring(f.getOriginalFilename().indexOf("."));
             if (ff!=".xml"){
                 dd1="支持xml文件上传!";
@@ -231,7 +212,7 @@ class DeviceController {
                 if (flag1==1){
                     dd1="数据已存在！"
                 }else if (flag1==2){
-                    dd1="文件格式不对！"
+                    dd1="文件内容不对！"
                 }else{
                     dd1="文件上传成功！"
                 }
@@ -246,7 +227,7 @@ class DeviceController {
         def f = request.getFile("myFile")
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
-        DOMAnalysisXml d = new DOMAnalysisXml();
+        DomAnalysisXml d = new DomAnalysisXml();
         def dd;
         if(f!=null) {
             //response.sendError(200,'Done');
@@ -258,7 +239,7 @@ class DeviceController {
             if (flag==1){
                 dd="数据已存在！"
             }else if (flag==2){
-                dd="文件格式不对！"
+                dd="文件内容不对！"
             }else{
                 dd="文件上传成功！"
             }
