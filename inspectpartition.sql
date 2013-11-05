@@ -4,7 +4,7 @@ Source Host: localhost
 Source Database: inspectpartition
 Target Host: localhost
 Target Database: inspectpartition
-Date: 2013/10/22 19:53:26
+Date: 2013/11/5 21:22:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -75,7 +75,7 @@ CREATE TABLE `inspect_item_rec` (
   `dnumber_id` bigint(11) NOT NULL,
   `version` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`createtime`)
-) ENGINE=InnoDB AUTO_INCREMENT=7263 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=8124 DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY RANGE (YEAR(createtime))
 (PARTITION p0 VALUES LESS THAN (2012) ENGINE = InnoDB,
  PARTITION p1 VALUES LESS THAN (2014) ENGINE = InnoDB,
@@ -112,7 +112,7 @@ CREATE TABLE `inspect_item_record` (
   CONSTRAINT `FK5EFD255285C62414` FOREIGN KEY (`item_id`) REFERENCES `inspect_item` (`id`),
   CONSTRAINT `FK5EFD255288803D14` FOREIGN KEY (`inspecttable_id`) REFERENCES `inspect_table` (`id`),
   CONSTRAINT `FK5EFD2552BD437F29` FOREIGN KEY (`inspecttablerec_id`) REFERENCES `inspect_table_record` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4877 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for inspect_item_tvalues
@@ -160,7 +160,7 @@ CREATE TABLE `inspect_table_record` (
   KEY `FKEFA5F22D88803D14` (`inspecttable_id`),
   CONSTRAINT `FKEFA5F22D1D0D930A` FOREIGN KEY (`worker_id`) REFERENCES `users` (`id`),
   CONSTRAINT `FKEFA5F22D88803D14` FOREIGN KEY (`inspecttable_id`) REFERENCES `inspect_table` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=184 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for inspect_tag
@@ -1993,6 +1993,284 @@ INSERT INTO `inspect_item_rec` VALUES ('7259', '2013-09-30 14:56:00', '2', '3', 
 INSERT INTO `inspect_item_rec` VALUES ('7260', '2013-09-30 14:56:00', '1', '3', '161', '121', '4', '3', '9', null);
 INSERT INTO `inspect_item_rec` VALUES ('7261', '2013-09-30 14:56:00', '1', '3', '161', '122', '4', '3', '9', null);
 INSERT INTO `inspect_item_rec` VALUES ('7262', '2013-09-30 14:56:00', '2', '3', '161', '123', '4', '3', '9', null);
+INSERT INTO `inspect_item_rec` VALUES ('7359', '2013-10-02 14:12:00', '2', '1', '164', '140', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7360', '2013-10-02 14:12:00', '1', '1', '164', '141', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7361', '2013-10-02 14:12:00', '1', '1', '164', '142', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7362', '2013-10-02 14:12:00', '1', '1', '164', '143', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7363', '2013-10-02 14:12:00', '2', '1', '164', '144', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7364', '2013-10-02 14:12:00', '2', '1', '164', '145', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7365', '2013-10-02 14:12:00', '2', '1', '164', '146', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7366', '2013-10-02 14:12:00', '1', '1', '164', '147', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7367', '2013-10-02 14:12:00', '2', '1', '164', '158', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7368', '2013-10-02 14:12:00', '2', '1', '164', '160', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7369', '2013-10-02 14:12:00', '1', '1', '164', '161', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7370', '2013-10-02 14:12:00', '2', '1', '164', '172', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7371', '2013-10-02 14:12:00', '2', '1', '164', '176', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7372', '2013-10-02 14:12:00', '1', '1', '164', '180', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7373', '2013-10-02 14:12:00', '2', '1', '164', '184', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7374', '2013-10-02 14:12:00', '1', '1', '164', '148', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7375', '2013-10-02 14:12:00', '1', '1', '164', '150', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7376', '2013-10-02 14:12:00', '2', '1', '164', '150', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7377', '2013-10-02 14:12:00', '2', '1', '164', '151', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7378', '2013-10-02 14:12:00', '2', '1', '164', '152', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7379', '2013-10-02 14:12:00', '1', '1', '164', '173', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7380', '2013-10-02 14:12:00', '2', '1', '164', '177', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7381', '2013-10-02 14:12:00', '2', '1', '164', '181', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7382', '2013-10-02 14:12:00', '1', '1', '164', '185', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7383', '2013-10-02 14:12:00', '2', '1', '164', '163', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7384', '2013-10-02 14:12:00', '1', '1', '164', '154', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7385', '2013-10-02 14:12:00', '2', '1', '164', '155', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7386', '2013-10-02 14:12:00', '1', '1', '164', '156', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7387', '2013-10-02 14:12:00', '2', '1', '164', '162', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7388', '2013-10-02 14:12:00', '1', '1', '164', '163', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7389', '2013-10-02 14:12:00', '1', '1', '164', '164', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7390', '2013-10-02 14:12:00', '1', '1', '164', '165', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7391', '2013-10-02 14:12:00', '2', '1', '164', '166', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7392', '2013-10-02 14:12:00', '2', '1', '164', '174', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7393', '2013-10-02 14:12:00', '1', '1', '164', '178', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7394', '2013-10-02 14:12:00', '1', '1', '164', '182', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7395', '2013-10-02 14:12:00', '1', '1', '164', '186', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7396', '2013-10-02 14:12:00', '1', '1', '164', '157', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7397', '2013-10-02 14:12:00', '2', '1', '164', '159', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7398', '2013-10-02 14:12:00', '1', '1', '164', '167', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7399', '2013-10-02 14:12:00', '2', '1', '164', '168', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7400', '2013-10-02 14:12:00', '1', '1', '164', '169', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7401', '2013-10-02 14:12:00', '1', '1', '164', '170', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7402', '2013-10-02 14:12:00', '2', '1', '164', '171', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7403', '2013-10-02 14:12:00', '1', '1', '164', '175', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7404', '2013-10-02 14:12:00', '1', '1', '164', '179', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7405', '2013-10-02 14:12:00', '1', '1', '164', '183', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7406', '2013-10-02 14:12:00', '2', '1', '164', '187', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7407', '2013-10-31 11:41:22', '1', '1', '166', '140', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7408', '2013-10-31 11:41:22', '1', '1', '166', '141', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7409', '2013-10-31 11:41:22', '1', '1', '166', '142', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7410', '2013-10-31 11:41:22', '1', '1', '166', '143', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7411', '2013-10-31 11:41:22', '1', '1', '166', '144', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7412', '2013-10-31 11:41:22', '1', '1', '166', '145', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7413', '2013-10-31 11:41:22', '1', '1', '166', '146', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7414', '2013-10-31 11:41:22', '1', '1', '166', '147', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7415', '2013-10-31 11:41:22', '1', '1', '166', '158', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7416', '2013-10-31 11:41:22', '1', '1', '166', '160', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7417', '2013-10-31 11:41:22', '1', '1', '166', '161', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7418', '2013-10-31 11:41:22', '1', '1', '166', '172', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7419', '2013-10-31 11:41:22', '1', '1', '166', '176', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7420', '2013-10-31 11:41:22', '1', '1', '166', '180', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7421', '2013-10-31 11:41:22', '1', '1', '166', '184', '1', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7422', '2013-10-31 11:41:22', '2', '1', '166', '148', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7423', '2013-10-31 11:41:22', '1', '1', '166', '150', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7424', '2013-10-31 11:41:22', '1', '1', '166', '150', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7425', '2013-10-31 11:41:22', '1', '1', '166', '151', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7426', '2013-10-31 11:41:22', '1', '1', '166', '152', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7427', '2013-10-31 11:41:22', '1', '1', '166', '173', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7428', '2013-10-31 11:41:22', '1', '1', '166', '177', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7429', '2013-10-31 11:41:22', '2', '1', '166', '181', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7430', '2013-10-31 11:41:22', '1', '1', '166', '185', '2', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7431', '2013-10-31 11:41:22', '1', '1', '166', '163', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7432', '2013-10-31 11:41:22', '1', '1', '166', '154', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7433', '2013-10-31 11:41:22', '1', '1', '166', '155', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7434', '2013-10-31 11:41:22', '2', '1', '166', '156', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7435', '2013-10-31 11:41:22', '1', '1', '166', '162', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7436', '2013-10-31 11:41:22', '1', '1', '166', '163', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7437', '2013-10-31 11:41:22', '1', '1', '166', '164', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7438', '2013-10-31 11:41:22', '2', '1', '166', '165', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7439', '2013-10-31 11:41:22', '2', '1', '166', '166', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7440', '2013-10-31 11:41:22', '1', '1', '166', '174', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7441', '2013-10-31 11:41:22', '1', '1', '166', '178', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7442', '2013-10-31 11:41:22', '1', '1', '166', '182', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7443', '2013-10-31 11:41:22', '1', '1', '166', '186', '3', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7444', '2013-10-31 11:41:22', '1', '1', '166', '157', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7445', '2013-10-31 11:41:22', '1', '1', '166', '159', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7446', '2013-10-31 11:41:22', '2', '1', '166', '167', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7447', '2013-10-31 11:41:22', '1', '1', '166', '168', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7448', '2013-10-31 11:41:22', '1', '1', '166', '169', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7449', '2013-10-31 11:41:22', '1', '1', '166', '170', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7450', '2013-10-31 11:41:22', '1', '1', '166', '171', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7451', '2013-10-31 11:41:22', '1', '1', '166', '175', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7452', '2013-10-31 11:41:22', '1', '1', '166', '179', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7453', '2013-10-31 11:41:22', '2', '1', '166', '183', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7454', '2013-10-31 11:41:22', '1', '1', '166', '187', '4', '1', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7455', '2013-10-31 11:36:13', '1', '2', '167', '270', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7456', '2013-10-31 11:36:13', '2', '2', '167', '271', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7457', '2013-10-31 11:36:13', '1', '2', '167', '272', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7458', '2013-10-31 11:36:13', '1', '2', '167', '273', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7459', '2013-10-31 11:36:13', '2', '2', '167', '274', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7460', '2013-10-31 11:36:13', '1', '2', '167', '275', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7461', '2013-10-31 11:36:13', '1', '2', '167', '276', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7462', '2013-10-31 11:36:13', '1', '2', '167', '301', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7463', '2013-10-31 11:36:13', '2', '2', '167', '302', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7464', '2013-10-31 11:36:13', '1', '2', '167', '303', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7465', '2013-10-31 11:36:13', '1', '2', '167', '280', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7466', '2013-10-31 11:36:13', '1', '2', '167', '305', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7467', '2013-10-31 11:36:13', '1', '2', '167', '306', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7468', '2013-10-31 11:36:13', '1', '2', '167', '283', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7469', '2013-10-31 11:36:13', '1', '2', '167', '299', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7470', '2013-10-31 11:36:13', '1', '2', '167', '291', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7471', '2013-10-31 11:36:13', '1', '2', '167', '302', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7472', '2013-10-31 11:36:13', '1', '2', '167', '303', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7473', '2013-10-31 11:36:13', '1', '2', '167', '304', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7474', '2013-10-31 11:36:13', '2', '2', '167', '305', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7475', '2013-10-31 11:36:13', '1', '2', '167', '306', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7476', '2013-10-31 11:36:13', '1', '2', '167', '291', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7477', '2013-10-31 11:36:13', '1', '2', '167', '301', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7478', '2013-10-31 11:36:13', '1', '2', '167', '302', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7479', '2013-10-31 11:36:13', '1', '2', '167', '294', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7480', '2013-10-31 11:36:13', '1', '2', '167', '304', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7481', '2013-10-31 11:36:13', '1', '2', '167', '305', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7482', '2013-10-31 11:36:13', '1', '2', '167', '306', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7483', '2013-10-31 11:36:13', '1', '2', '167', '298', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7484', '2013-10-31 11:36:13', '1', '2', '167', '299', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7485', '2013-10-31 11:36:13', '1', '2', '167', '300', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7486', '2013-10-31 11:36:13', '1', '2', '167', '301', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7487', '2013-10-31 11:36:13', '1', '2', '167', '302', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7488', '2013-10-31 11:36:13', '1', '2', '167', '303', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7489', '2013-10-31 11:36:13', '1', '2', '167', '304', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7490', '2013-10-31 11:36:13', '1', '2', '167', '305', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7491', '2013-10-31 11:36:13', '1', '2', '167', '306', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7492', '2013-10-31 11:36:13', '1', '2', '167', '307', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7493', '2013-10-31 11:36:13', '1', '2', '167', '308', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7494', '2013-10-31 11:36:13', '1', '2', '167', '309', '1', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7495', '2013-10-31 11:36:13', '1', '2', '167', '310', '2', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7496', '2013-10-31 11:36:13', '1', '2', '167', '311', '2', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7497', '2013-10-31 11:36:13', '1', '2', '167', '312', '2', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7498', '2013-10-31 11:36:13', '1', '2', '167', '313', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7499', '2013-10-31 11:36:13', '1', '2', '167', '314', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7500', '2013-10-31 11:36:13', '1', '2', '167', '315', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7501', '2013-10-31 11:36:13', '1', '2', '167', '322', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7502', '2013-10-31 11:36:13', '1', '2', '167', '323', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7503', '2013-10-31 11:36:13', '1', '2', '167', '324', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7504', '2013-10-31 11:36:13', '1', '2', '167', '319', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7505', '2013-10-31 11:36:13', '1', '2', '167', '320', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7506', '2013-10-31 11:36:13', '2', '2', '167', '321', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7507', '2013-10-31 11:36:13', '2', '2', '167', '322', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7508', '2013-10-31 11:36:13', '1', '2', '167', '323', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7509', '2013-10-31 11:36:13', '1', '2', '167', '324', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7510', '2013-10-31 11:36:13', '1', '2', '167', '333', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7511', '2013-10-31 11:36:13', '1', '2', '167', '334', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7512', '2013-10-31 11:36:13', '1', '2', '167', '335', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7513', '2013-10-31 11:36:13', '2', '2', '167', '328', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7514', '2013-10-31 11:36:13', '1', '2', '167', '338', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7515', '2013-10-31 11:36:13', '2', '2', '167', '330', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7516', '2013-10-31 11:36:13', '1', '2', '167', '340', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7517', '2013-10-31 11:36:13', '1', '2', '167', '332', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7518', '2013-10-31 11:36:13', '1', '2', '167', '333', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7519', '2013-10-31 11:36:13', '1', '2', '167', '334', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7520', '2013-10-31 11:36:13', '1', '2', '167', '335', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7521', '2013-10-31 11:36:13', '2', '2', '167', '336', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7522', '2013-10-31 11:36:13', '1', '2', '167', '337', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7523', '2013-10-31 11:36:13', '1', '2', '167', '338', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7524', '2013-10-31 11:36:13', '1', '2', '167', '339', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7525', '2013-10-31 11:36:13', '1', '2', '167', '340', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7526', '2013-10-31 11:36:13', '1', '2', '167', '341', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7527', '2013-10-31 11:36:13', '2', '2', '167', '342', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7528', '2013-10-31 11:36:13', '1', '2', '167', '343', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7529', '2013-10-31 11:36:13', '1', '2', '167', '344', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7530', '2013-10-31 11:36:13', '1', '2', '167', '345', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7531', '2013-10-31 11:36:13', '2', '2', '167', '374', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7532', '2013-10-31 11:36:13', '1', '2', '167', '375', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7533', '2013-10-31 11:36:13', '1', '2', '167', '376', '3', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7534', '2013-10-31 11:36:13', '2', '2', '167', '346', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7535', '2013-10-31 11:36:13', '1', '2', '167', '347', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7536', '2013-10-31 11:36:13', '2', '2', '167', '348', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7537', '2013-10-31 11:36:13', '1', '2', '167', '349', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7538', '2013-10-31 11:36:13', '1', '2', '167', '350', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7539', '2013-10-31 11:36:13', '2', '2', '167', '351', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7540', '2013-10-31 11:36:13', '1', '2', '167', '352', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7541', '2013-10-31 11:36:13', '1', '2', '167', '353', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7542', '2013-10-31 11:36:13', '1', '2', '167', '354', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7543', '2013-10-31 11:36:13', '2', '2', '167', '355', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7544', '2013-10-31 11:36:13', '1', '2', '167', '356', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7545', '2013-10-31 11:36:13', '2', '2', '167', '357', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7546', '2013-10-31 11:36:13', '1', '2', '167', '358', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7547', '2013-10-31 11:36:13', '1', '2', '167', '359', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7548', '2013-10-31 11:36:13', '1', '2', '167', '360', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7549', '2013-10-31 11:36:13', '1', '2', '167', '361', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7550', '2013-10-31 11:36:13', '1', '2', '167', '362', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7551', '2013-10-31 11:36:13', '1', '2', '167', '363', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7552', '2013-10-31 11:36:13', '2', '2', '167', '364', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7553', '2013-10-31 11:36:13', '1', '2', '167', '365', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7554', '2013-10-31 11:36:13', '1', '2', '167', '366', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7555', '2013-10-31 11:36:13', '1', '2', '167', '367', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7556', '2013-10-31 11:36:13', '2', '2', '167', '368', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7557', '2013-10-31 11:36:13', '1', '2', '167', '369', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7558', '2013-10-31 11:36:13', '1', '2', '167', '370', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7559', '2013-10-31 11:36:13', '1', '2', '167', '371', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7560', '2013-10-31 11:36:13', '1', '2', '167', '372', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('7561', '2013-10-31 11:36:13', '1', '2', '167', '373', '4', '2', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8049', '2013-10-21 14:53:45', '1', '3', '182', '99', '1', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8050', '2013-10-21 14:53:45', '1', '3', '182', '100', '1', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8051', '2013-10-21 14:53:45', '1', '3', '182', '101', '1', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8052', '2013-10-21 14:53:45', '1', '3', '182', '102', '1', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8053', '2013-10-21 14:53:45', '1', '3', '182', '103', '1', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8054', '2013-10-21 14:53:45', '1', '3', '182', '104', '1', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8055', '2013-10-21 14:53:45', '1', '3', '182', '105', '1', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8056', '2013-10-21 14:53:45', '1', '3', '182', '106', '1', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8057', '2013-10-21 14:53:45', '1', '3', '182', '107', '2', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8058', '2013-10-21 14:53:45', '1', '3', '182', '124', '2', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8059', '2013-10-21 14:53:45', '1', '3', '182', '108', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8060', '2013-10-21 14:53:45', '1', '3', '182', '109', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8061', '2013-10-21 14:53:45', '1', '3', '182', '110', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8062', '2013-10-21 14:53:45', '1', '3', '182', '111', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8063', '2013-10-21 14:53:45', '1', '3', '182', '112', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8064', '2013-10-21 14:53:45', '1', '3', '182', '113', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8065', '2013-10-21 14:53:45', '1', '3', '182', '114', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8066', '2013-10-21 14:53:45', '1', '3', '182', '115', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8067', '2013-10-21 14:53:45', '1', '3', '182', '116', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8068', '2013-10-21 14:53:45', '1', '3', '182', '117', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8069', '2013-10-21 14:53:45', '1', '3', '182', '118', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8070', '2013-10-21 14:53:45', '1', '3', '182', '119', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8071', '2013-10-21 14:53:45', '1', '3', '182', '125', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8072', '2013-10-21 14:53:45', '1', '3', '182', '126', '3', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8073', '2013-10-21 14:53:45', '1', '3', '182', '120', '4', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8074', '2013-10-21 14:53:45', '1', '3', '182', '121', '4', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8075', '2013-10-21 14:53:45', '1', '3', '182', '122', '4', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8076', '2013-10-21 14:53:45', '1', '3', '182', '123', '4', '3', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8077', '2013-10-16 10:12:42', '1', '5', '183', '53', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8078', '2013-10-16 10:12:42', '1', '5', '183', '54', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8079', '2013-10-16 10:12:42', '1', '5', '183', '55', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8080', '2013-10-16 10:12:42', '1', '5', '183', '56', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8081', '2013-10-16 10:12:42', '1', '5', '183', '57', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8082', '2013-10-16 10:12:42', '1', '5', '183', '58', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8083', '2013-10-16 10:12:42', '1', '5', '183', '59', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8084', '2013-10-16 10:12:42', '1', '5', '183', '60', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8085', '2013-10-16 10:12:42', '1', '5', '183', '61', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8086', '2013-10-16 10:12:42', '1', '5', '183', '80', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8087', '2013-10-16 10:12:42', '1', '5', '183', '84', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8088', '2013-10-16 10:12:42', '1', '5', '183', '92', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8089', '2013-10-16 10:12:42', '1', '5', '183', '95', '1', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8090', '2013-10-16 10:12:42', '1', '5', '183', '62', '2', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8091', '2013-10-16 10:12:42', '1', '5', '183', '81', '2', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8092', '2013-10-16 10:12:42', '1', '5', '183', '86', '2', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8093', '2013-10-16 10:12:42', '1', '5', '183', '86', '2', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8094', '2013-10-16 10:12:42', '1', '5', '183', '96', '2', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8095', '2013-10-16 10:12:42', '1', '5', '183', '63', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8096', '2013-10-16 10:12:42', '1', '5', '183', '64', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8097', '2013-10-16 10:12:42', '1', '5', '183', '65', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8098', '2013-10-16 10:12:42', '1', '5', '183', '66', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8099', '2013-10-16 10:12:42', '1', '5', '183', '67', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8100', '2013-10-16 10:12:42', '1', '5', '183', '68', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8101', '2013-10-16 10:12:42', '1', '5', '183', '69', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8102', '2013-10-16 10:12:42', '1', '5', '183', '70', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8103', '2013-10-16 10:12:42', '1', '5', '183', '71', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8104', '2013-10-16 10:12:42', '1', '5', '183', '72', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8105', '2013-10-16 10:12:42', '1', '5', '183', '82', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8106', '2013-10-16 10:12:42', '1', '5', '183', '87', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8107', '2013-10-16 10:12:42', '1', '5', '183', '89', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8108', '2013-10-16 10:12:42', '1', '5', '183', '90', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8109', '2013-10-16 10:12:42', '1', '5', '183', '93', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8110', '2013-10-16 10:12:42', '1', '5', '183', '94', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8111', '2013-10-16 10:12:42', '1', '5', '183', '97', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8112', '2013-10-16 10:12:42', '1', '5', '183', '228', '3', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8113', '2013-10-16 10:12:42', '1', '5', '183', '73', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8114', '2013-10-16 10:12:42', '1', '5', '183', '74', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8115', '2013-10-16 10:12:42', '1', '5', '183', '75', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8116', '2013-10-16 10:12:42', '1', '5', '183', '76', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8117', '2013-10-16 10:12:42', '1', '5', '183', '77', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8118', '2013-10-16 10:12:42', '1', '5', '183', '78', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8119', '2013-10-16 10:12:42', '1', '5', '183', '79', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8120', '2013-10-16 10:12:42', '1', '5', '183', '83', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8121', '2013-10-16 10:12:42', '1', '5', '183', '88', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8122', '2013-10-16 10:12:42', '1', '5', '183', '91', '4', '32', '7', null);
+INSERT INTO `inspect_item_rec` VALUES ('8123', '2013-10-16 10:12:42', '1', '5', '183', '98', '4', '32', '7', null);
 INSERT INTO `inspect_item_tvalues` VALUES ('53', '1', '1');
 INSERT INTO `inspect_item_tvalues` VALUES ('53', '2', '1');
 INSERT INTO `inspect_item_tvalues` VALUES ('53', '3', '1');
@@ -2993,6 +3271,11 @@ INSERT INTO `inspect_table_record` VALUES ('158', '2013-09-25 14:56:00', null, '
 INSERT INTO `inspect_table_record` VALUES ('159', '2013-09-30 14:12:00', null, '1', '1', null);
 INSERT INTO `inspect_table_record` VALUES ('160', '2013-09-30 14:43:00', null, '2', '2', null);
 INSERT INTO `inspect_table_record` VALUES ('161', '2013-09-30 14:56:00', null, '3', '3', null);
+INSERT INTO `inspect_table_record` VALUES ('164', '2013-10-02 14:12:00', null, '1', '1', null);
+INSERT INTO `inspect_table_record` VALUES ('165', '2013-10-29 11:03:13', null, '3', '3', null);
+INSERT INTO `inspect_table_record` VALUES ('166', '2013-10-31 11:41:22', null, '1', '1', null);
+INSERT INTO `inspect_table_record` VALUES ('182', '2013-10-21 14:53:45', null, '3', '3', null);
+INSERT INTO `inspect_table_record` VALUES ('183', '2013-10-16 10:12:42', null, '5', '32', null);
 INSERT INTO `inspect_tag` VALUES ('1', '2013-09-03 10:42:00', '行走区域', '行走区域', '0001', '2');
 INSERT INTO `inspect_tag` VALUES ('2', '2013-09-03 10:43:00', '转盘区域', '转盘区域', '0002', '2');
 INSERT INTO `inspect_tag` VALUES ('3', '2013-09-03 10:44:00', '司机室区域', '司机室区域', '0003', '2');
