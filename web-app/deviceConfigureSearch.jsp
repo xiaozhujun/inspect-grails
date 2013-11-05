@@ -30,7 +30,6 @@
                 var dtype=$("#dtype").val();
                 var device=$("#device").val();
                 var tag=$("#tag").val();
-
                 $.ajax({
                     url:"../inspect/searchDeviceResultServlet",
                     dataType:"html",

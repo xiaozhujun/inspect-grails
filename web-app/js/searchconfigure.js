@@ -20,14 +20,11 @@ function generate(){
 function generate1(){
     var str ="";
     var len=$('#testTable1').find("tr").length;
-    alert(len)
     for(i=1;i<len;i++){
-        alert($("#testTable1 tr:eq("+i+") td:eq(0)").text())
         str+=$("#testTable1 tr:eq("+i+") td:eq(0)").text()+""
 
     }
     if(str!=""){
-        alert(str)
     location.href="../inspect/generateEmployeeServlet?str="+encodeURI(str);
     }else{
         alert("导出数据为空");
