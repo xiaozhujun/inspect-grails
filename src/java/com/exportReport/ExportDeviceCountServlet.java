@@ -43,12 +43,12 @@ public class ExportDeviceCountServlet extends HttpServlet {
             }
             }else{
                 Long did=Long.parseLong(d);
-                String sql2="select itr.id,d.id as did,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime  " +
-                        "from inspect_item_rec itr,device d,inspect_item it where itr.dnumber_id=d.id and itr.item_id=it.id and " +
-                        "itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.dnumber_id="+did+" group by d.devname,itr.createtime order by itr.createtime";
-                String sql22="select itr.id,d.id as did,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime  " +
-                        "from inspect_item_rec itr,device d,inspect_item it where itr.dnumber_id=d.id and itr.item_id=it.id and " +
-                        "itr.ivalue_id=2 and itr.createtime between ? and ? and itr.dnumber_id=? group by d.devname,itr.createtime order by itr.createtime";
+                String sql2="select itr.id,d.id as did,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename  " +
+                        "from inspect_item_rec itr,device d,inspect_item it,device_type t where itr.dnumber_id=d.id and itr.item_id=it.id and " +
+                        "itr.ivalue_id=2 and d.type_id=t.id and itr.createtime between '"+st+"' and '"+et+"' and itr.dnumber_id="+did+" group by d.devname,itr.createtime order by itr.createtime";
+                String sql22="select itr.id,d.id as did,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename   " +
+                        "from inspect_item_rec itr,device d,inspect_item it,device_type t where itr.dnumber_id=d.id and itr.item_id=it.id and " +
+                        "itr.ivalue_id=2 and d.type_id=t.id and itr.createtime between ? and ? and itr.dnumber_id=? group by d.devname,itr.createtime order by itr.createtime";
                 if(t.judgeHasResultByTid(sql22,st,et,did)){
                d1.exportReport(reportTemplate2,sql2,request,response);
                 }else{
@@ -64,9 +64,9 @@ public class ExportDeviceCountServlet extends HttpServlet {
                  d1.exportReportByType(reportTemplate1,sql1,type,request,response);
               }else{
                   Long did=Long.parseLong(d);
-                  String sql2="select itr.id,d.id as did,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime  " +
-                          "from inspect_item_rec itr,device d,inspect_item it where itr.dnumber_id=d.id and itr.item_id=it.id and " +
-                          "itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.dnumber_id="+did+" group by d.devname,itr.createtime order by itr.createtime";
+                  String sql2="select itr.id,d.id as did,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename  " +
+                          "from inspect_item_rec itr,device d,inspect_item it,device_type t where itr.dnumber_id=d.id and itr.item_id=it.id and " +
+                          "itr.ivalue_id=2 and d.type_id=t.id and itr.createtime between '"+st+"' and '"+et+"' and itr.dnumber_id="+did+" group by d.devname,itr.createtime order by itr.createtime";
                   d1.exportReportByType(reportTemplate2,sql2,type,request,response);
               }
         }

@@ -980,8 +980,8 @@ public class DbImpl {
         String tableTemplate="<tr class=tr_"+rowcount+"><td class='cl1'>"+p.getUid()+" "+"</td><td class='cl1'>"+p.getUsername()+" "+"</td><td class='cl1'>"+p.getRid()+" "+"</td><td class='cl1'>"+p.getRolename()+" "+"</td><td><span class='delbtn' onclick=delRow("+rowcount+")>删除</span></td></tr>";
          return tableTemplate;
     }
-    public String getDeviceConfigTable(int rowcount,PageInspectTable p){
-        String tableTemplate="<tr class=tr_"+rowcount+"><td class='cl1'>"+p.getTypename()+" "+"</td><td class='cl1'>"+p.getTypeid()+" "+"</td><td class='cl1'>"+p.getDevicenumber()+"</td><td class='cl1'>"+p.getTagname()+" "+"</td><td class='cl1'>"+p.getTagid()+"</td><td class='cl1'>"+p.getTagnumbers()+" "+"</td><td><span class='delbtn' onclick=delRow("+rowcount+")>删除</span></td></tr>";
+    public String getDeviceConfigTable(int rowcount,PageInspectTable p,int did){
+        String tableTemplate="<tr class=tr_"+rowcount+"><td class='cl1'>"+p.getTypename()+" "+"</td><td class='cl1'>"+p.getTypeid()+" "+"</td><td class='cl1'>"+did+"</td><td class='cl1'>"+p.getDevicenumber()+"</td><td class='cl1'>"+p.getTagname()+" "+"</td><td class='cl1'>"+p.getTagid()+"</td><td class='cl1'>"+p.getTagnumbers()+" "+"</td><td><span class='delbtn' onclick=delRow("+rowcount+")>删除</span></td></tr>";
         return tableTemplate;
     }
    public Timestamp getCreatetimeFromInspectItemRec(int itrid){

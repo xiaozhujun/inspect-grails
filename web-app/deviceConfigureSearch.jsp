@@ -54,6 +54,8 @@
             var result = ck.attr("checked");
             var str="";
             var ss=$("td:eq(0)").text();
+            var flag=true;
+            var ss1=devid+""+tagid;
             $("input:checkbox:[checked]").each(function(){
                 str+=$(this).val();
 
@@ -62,9 +64,16 @@
             if(tablelen==1){
                 $(".report2").css("display","block");
             }
+            for(i=1;i<tablelen;i++){
+                var x=$("#testTable tr:eq("+i+") td:eq(2)").text()+$("#testTable tr:eq("+i+") td:eq(5)").text();
+                if(ss1==x){
+                      flag=false;
+                }
+            }
             if(result==undefined){
 
             }else{
+               if(flag){
             $.ajax({
                 type:"POST",
                 url:"deviceConfigureServlet",
@@ -78,6 +87,9 @@
                     alert(msg);
                 }
             })
+               }else{
+                   alert("数据已被选!");
+               }
             }
         }
         function delRow(_id){
@@ -155,7 +167,7 @@
             <div class="report2">
                 <table id="testTable" border="1" width="540">
                     <thead>
-                    <tr><th>设备类型</th><th>设备类型编号</th><th>设备编号</th><th>标签区域</th><th>标签号</th><th>标签编号</th><th>操作</th></tr>
+                    <tr><th>设备类型</th><th>设备类型编号</th><th>设备号</th><th>设备编号</th><th>标签区域</th><th>标签号</th><th>标签编号</th><th>操作</th></tr>
                     </thead>
                     <tbody>
                     </tbody>

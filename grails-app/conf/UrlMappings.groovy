@@ -11,6 +11,7 @@ class UrlMappings {
         "/admin"(view:"/admin")
 		"500"(view:'/error')
        "/index"(view:"/index")
-
+        "/portcrane"(view:"/portcrane" )
+        "/metallurgycrane"(view:"/metallurgycrane" )
 	}
 }

@@ -9,7 +9,7 @@ function generate(){
     var tableHtml ="";
     var len=$('#testTable').find("tr").length;
     for(i=1;i<len;i++){
-        tableHtml+=($("#testTable tr:eq("+i+") td:eq(2)").text()+","+$("#testTable tr:eq("+i+") td:eq(4)").text())+" ";
+        tableHtml+=($("#testTable tr:eq("+i+") td:eq(3)").text()+","+$("#testTable tr:eq("+i+") td:eq(5)").text())+" ";
     }
     if(tableHtml!=""){
         location.href="../inspect/generateDeviceServlet?tableHtml="+encodeURI(tableHtml);

@@ -62,6 +62,7 @@
             var result = ck.attr("checked");
             var str="";
             var tb1="";
+            var flag=true;
             $("input:checkbox:[checked]").each(function(){
                 str+=$(this).val();
             })
@@ -69,8 +70,16 @@
             if(tablelen==1){
                 $(".report2").css("display","block");
             }
+            for(i=1;i<tablelen;i++){
+               var x=$("#testTable1 tr:eq("+i+") td:eq(0)").text();
+                if(x==ss){
+                    flag=false;
+                }
+            }
+
             if(result==undefined){
             }else{
+                if(flag){
                 $.ajax({
                     type:"POST",
                     url:"peopleConfigureServlet",
@@ -84,7 +93,10 @@
                         alert(msg);
                     }
 
-                })
+                });
+                }else{
+                    alert("记录已被选");
+                }
             }
 
         }

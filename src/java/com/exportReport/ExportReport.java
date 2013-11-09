@@ -139,17 +139,16 @@ public class ExportReport {
 //out=pageContext.pushBody();
 
             } else if (type.equals("excel")) {
-
+                System.out.print("jajjaj");
                 response.setContentType("application/vnd.ms-excel");
-
                 JasperPrint jasperPrint = JasperFillManager.fillReport(
                         jasperReport, parameters, connection);
-//ServletOutputStream ouputStream = response.getOutputStream();
+                ServletOutputStream outputStream = response.getOutputStream();
                 JRXlsExporter exporter = new JRXlsExporter();
                 exporter.setParameter(JRExporterParameter.JASPER_PRINT,
                         jasperPrint);
                 exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
-                        out);
+                        outputStream);
                 exporter.setParameter(
                         JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS,
                         Boolean.TRUE);
@@ -160,8 +159,8 @@ public class ExportReport {
                         JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND,
                         Boolean.FALSE);
                 exporter.exportReport();
-                ouputStream.flush();
-                ouputStream.close();
+                outputStream.flush();
+                outputStream.close();
 
             } else if (type.equals("pdf")) {
                 byte[] bytes = JasperRunManager.runReportToPdf(

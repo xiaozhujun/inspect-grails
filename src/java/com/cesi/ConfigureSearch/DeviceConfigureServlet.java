@@ -34,7 +34,7 @@ public class DeviceConfigureServlet extends HttpServlet{
             System.out.println(list.size());
            while(it.hasNext()){
             PageInspectTable p=(PageInspectTable)it.next();
-            out.println(d1.getDeviceConfigTable(Integer.parseInt(rowcount),p));
+            out.println(d1.getDeviceConfigTable(Integer.parseInt(rowcount),p,did));
            }
 
     }
