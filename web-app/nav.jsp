@@ -10,23 +10,11 @@
 <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
 <link href="<%=basePase%>css/mymenu.css" type="text/css" rel="stylesheet" />
 <title>Insert title here</title>
-
 </head>
 <body>
-<div id='titleContainerDiv'>
-        <div id="titleDiv">港口起重机械健康监测与预报可视化系统<span id="devNameDiv"></span></div>
-    </div>
-    <div id='mainHeadDiv'>
-    	<div id='headTab' class='tabs'>
-            <div class='tabItem' url="integrateManagement.html">港机信息可视化</div>
-            <div class='tabItem mainselected' onclick="location.href='/inspect'">港机智能点检</div>
-            <div class='tabItem'>港机润滑管理</div>
-            <div class='tabItem' url="mechanismForcast/health-forecast.html">机构健康监测</div>
-            <div class='tabItem ' url="structForcast/health-forecast.html">结构健康监测</div>
-            <div class='tabItem' url="electricalForcast/health-forecast.html">电气健康监测</div>
-            <div class='tabItem' onclick="location.href='/riskreport/'">健康诊断预报</div>
-            <div class='tabItem' url="risk-management.html">动态风险评估</div>
-		 </div>
-  	</div>
+<%--港口起重机智能点检系统--%>
+<%--<jsp:include page="portcranetitle.jsp"></jsp:include>--%>
+<%--冶金起重机智能点检系统--%>
+<jsp:include page="metallurgycranetitle.jsp"></jsp:include>
 </body>
 </html>

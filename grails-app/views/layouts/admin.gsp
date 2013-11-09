@@ -29,20 +29,7 @@
 </head>
 <body>
 <div id="wrapper">
-    <div id='titleContainerDiv'>
-        <div id="titleDiv">港口起重机械健康监测与预报可视化系统<span id="devNameDiv"></span></div>
-    </div>
-    <div id='mainHeadDiv'>
-        <div id='headTab' class='tabs'>
-            <div class='tabItem' url="integrateManagement.html">港机信息可视化</div>
-            <div class='tabItem mainselected' onclick="location.href='/inspect'">港机智能点检</div>
-            <div class='tabItem' url="mechanismForcast/health-forecast.html">机构健康监测</div>
-            <div class='tabItem ' url="structForcast/health-forecast.html">结构健康监测</div>
-            <div class='tabItem' url="electricalForcast/health-forecast.html">电气健康监测</div>
-            <div class='tabItem' url="health-forecast.html">健康趋势预报</div>
-            <div class='tabItem' url="risk-management.html">动态风险评估</div>
-        </div>
-    </div>
+    <g:include action="metallurgycranetitle" controller="device"></g:include>
     <div id="container">
         <div id="menuContainer">
             <div class="menuFunc">

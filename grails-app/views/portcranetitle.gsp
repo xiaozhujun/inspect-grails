@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: ThinkPad
   Date: 13-11-9
-  Time: 下午4:52
+  Time: 下午6:30
   To change this template use File | Settings | File Templates.
 --%>
 
@@ -10,9 +10,10 @@
 <html>
 <head>
   <title></title>
-  <meta name="layout" content="metallurgycrane">
 </head>
 <body>
-
+<div id='titleContainerDiv'>
+    <div id="titleDiv">基于物联网的港口起重机智能点检系统<span id="devNameDiv"></span></div>
+</div>
 </body>
 </html>

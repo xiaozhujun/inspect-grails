@@ -11,7 +11,15 @@ class DeviceController {
     def index() {
         redirect(action: "list", params: params)
     }
-
+    def title(){
+        render (view: "../title")
+    }
+    def portcranetitle(){
+        render (view: "../portcranetitle")
+    }
+    def metallurgycranetitle(){
+        render (view: "../metallurgycranetitle")
+    }
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [deviceInstanceList: Device.list(params), deviceInstanceTotal: Device.count()]

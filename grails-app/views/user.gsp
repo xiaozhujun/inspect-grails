@@ -9,6 +9,7 @@
 </head>
 <body>
 <% grailsApplication.config.grails.sitemesh.default.layout = "user" %>
+
 <div id="t1">
   <div id="title"><p>欢迎您使用智能点检功能</p></div>
   <div id="content">
