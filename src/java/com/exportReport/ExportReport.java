@@ -139,7 +139,7 @@ public class ExportReport {
 //out=pageContext.pushBody();
 
             } else if (type.equals("excel")) {
-                System.out.print("jajjaj");
+
                 response.setContentType("application/vnd.ms-excel");
                 JasperPrint jasperPrint = JasperFillManager.fillReport(
                         jasperReport, parameters, connection);
@@ -202,6 +202,7 @@ public class ExportReport {
                     .loadObject(reportFile.getPath());
             ServletOutputStream ouputStream = response.getOutputStream();
             if (type.equals("html")) {
+                System.out.print("hahah");
                 response.setContentType("text/html");
                 JasperPrint jasperPrint = JasperFillManager.fillReport(
                         jasperReport, parameters, connection);

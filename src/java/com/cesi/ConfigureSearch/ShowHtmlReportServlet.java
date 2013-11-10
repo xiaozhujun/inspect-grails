@@ -25,7 +25,6 @@ public class ShowHtmlReportServlet extends HttpServlet{
              request.setCharacterEncoding("UTF-8");
              response.setContentType("text/html;charset=UTF-8");
              PrintWriter out=response.getWriter();
-
              DbImpl d1=new DbImpl();
              String type=request.getParameter("type");
              String stime=request.getParameter("s");
@@ -48,9 +47,11 @@ public class ShowHtmlReportServlet extends HttpServlet{
                 " and itr.inspecttable_id ="+t1+" and itr.createtime ='"+ts+"' group by tag.name";
              ExportReport d=new ExportReport();
              String path1=this.getServletContext().getRealPath("/report/") + "/";
-             try{
-             out.write(d.exportRiskReport(reportTemplate,sql, path1));
-             out.flush();
+           try{
+                 d.exportReportHasSubreport(reportTemplate,sql,path1,request,response);
+             /*out.write(d.exportRiskReport(reportTemplate,sql, path1));
+                System.out.println(d.exportRiskReport(reportTemplate,sql, path1).getBytes("GBK")+"ooooooooo");
+             out.flush();*/
              }catch (JRException e){
                  e.printStackTrace();
              }
