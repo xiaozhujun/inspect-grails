@@ -31,8 +31,9 @@
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
                 var did=$("#s").val();
+                alert(did)
                 if(stime!=''&&etime!=''){
-                if(did!='0'){
+                if(did!=' '){
                 $(".selectF").css("display","block");
                 $(".report1").load("../inspect/exportDeviceHistoryServlet",{"starttime":stime,"endtime":etime,"did":did});
                  }else{
@@ -48,6 +49,9 @@
                 var stime=$("#stime").val();
                 var etime=$("#etime").val();
                 var did=$("#s").val();
+                if(did==' '){
+                    did=null;
+                }
                if(type!=''){
                 location.href="exportDeviceHistoryServlet?starttime="+stime+"&endtime="+etime+"&did="+did+"&type="+type;
                }else{
@@ -73,7 +77,7 @@
             <span class="sea">
                 <span class="seafont">设备:</span>
             <select id="s">
-                <option value="0">-----请选择------</option>
+                <option value=" ">-----请选择------</option>
                 <%
                     InsertDb d=new InsertDb();
                     List<DbModel> l=d.getDevice();

@@ -210,7 +210,7 @@ public class ExportReport {
                         jasperPrint);
                 JRHtmlExporter exporter = new JRHtmlExporter();
                 exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-                exporter.setParameter(JRExporterParameter.OUTPUT_WRITER, out);
+                exporter.setParameter(JRExporterParameter.OUTPUT_WRITER, ouputStream);
                 // 设置报表图片的地址为"image?image="，因此要给image此地址安排一个servlet来输出图片，详细看web.xml文件。
                 exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI,
                         "image?image=");
@@ -223,7 +223,7 @@ public class ExportReport {
                 exporter.setParameter(JRExporterParameter.JASPER_PRINT,
                         jasperPrint);
                 exporter.setParameter(JRExporterParameter.OUTPUT_STREAM,
-                        out);
+                        ouputStream);
                 exporter.setParameter(
                         JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS,
                         Boolean.TRUE);

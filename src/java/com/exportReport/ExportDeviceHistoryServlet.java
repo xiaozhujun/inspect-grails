@@ -17,6 +17,7 @@ public class ExportDeviceHistoryServlet extends HttpServlet {
         ExportReport d1=new ExportReport();
         InsertToDb t=new InsertToDb();
         String did=request.getParameter("did");
+        System.out.println("%%%%%%%%%%%%%"+did);
         String stime=request.getParameter("starttime");
         String endtime=request.getParameter("endtime");
         String type = request.getParameter("type");
