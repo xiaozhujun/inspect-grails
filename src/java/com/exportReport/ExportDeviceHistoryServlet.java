@@ -17,7 +17,6 @@ public class ExportDeviceHistoryServlet extends HttpServlet {
         ExportReport d1=new ExportReport();
         InsertToDb t=new InsertToDb();
         String did=request.getParameter("did");
-        System.out.println("%%%%%%%%%%%%%"+did);
         String stime=request.getParameter("starttime");
         String endtime=request.getParameter("endtime");
         String type = request.getParameter("type");
@@ -56,7 +55,7 @@ public class ExportDeviceHistoryServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }else{
-          if(did==null){
+          if(did.equals("0")){
               d1.exportReportByType(reportTemplate2,sql2,type,request,response);
           }else{
               Long d=Long.parseLong(did);
