@@ -22,6 +22,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
     String itrid = request.getParameter("ct");
     //从inspect_item_rec中根据itrid查出createtime;
      Timestamp ts=d1.getCreatetimeFromInspectItemRec(Integer.parseInt(itrid));
+
      Long t1 = Long.parseLong(t);
     String sql="select tb.`id`,tb.`tname`,tag.`id` as tagid,tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`," +
             "d.numbers from`inspect_item_rec` itr,`inspect_table_record` tr,inspect_tag   tag,`inspect_item` it,`inspect_Table` tb,device d,`users` u " +

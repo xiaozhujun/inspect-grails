@@ -119,14 +119,12 @@ public class ExportReport {
 
             ServletOutputStream ouputStream = response.getOutputStream();
             if (type.equals("html")) {
-
                 response.setContentType("text/html");
                 JasperPrint jasperPrint = JasperFillManager.fillReport(
                         jasperReport, parameters, connection);
                 request.getSession().setAttribute(
                         ImageServlet.DEFAULT_JASPER_PRINT_SESSION_ATTRIBUTE,
                         jasperPrint);
-
                 // 输出html 用JRHtmlExporter
                 JRHtmlExporter exporter = new JRHtmlExporter();
                 exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -135,11 +133,7 @@ public class ExportReport {
                 exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI,
                         "image?image=");
                 exporter.exportReport();
-//out.clear();
-//out=pageContext.pushBody();
-
             } else if (type.equals("excel")) {
-
                 response.setContentType("application/vnd.ms-excel");
                 JasperPrint jasperPrint = JasperFillManager.fillReport(
                         jasperReport, parameters, connection);
@@ -195,12 +189,11 @@ public class ExportReport {
         parameters.put("sql",sql);
         parameters.put("SUBREPORT_DIR",path);
         File reportFile=null;
-       /* PrintWriter out=response.getWriter();*/
+        PrintWriter out=response.getWriter();
         reportFile= new File(reportTemport);
         try{
             JasperReport jasperReport = (JasperReport) JRLoader
                     .loadObject(reportFile.getPath());
-
             if (type.equals("html")) {
                 ServletOutputStream ouputStream = response.getOutputStream();
                 response.setContentType("text/html");
@@ -211,7 +204,7 @@ public class ExportReport {
                         jasperPrint);
                 JRHtmlExporter exporter = new JRHtmlExporter();
                 exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-                exporter.setParameter(JRExporterParameter.OUTPUT_WRITER, ouputStream);
+                exporter.setParameter(JRExporterParameter.OUTPUT_WRITER, out);
                 // 设置报表图片的地址为"image?image="，因此要给image此地址安排一个servlet来输出图片，详细看web.xml文件。
                 exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI,
                         "image?image=");
