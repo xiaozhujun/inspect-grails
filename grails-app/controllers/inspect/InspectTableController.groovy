@@ -117,15 +117,16 @@ class InspectTableController {
         String name = t.getNameById(id1);
         System.out.println(name + "name");
         String downFilename = name + ".xml";//要下载的文件名称
-        String filepath=new DownloadXml().downloadXml(id1);
-        System.out.print("------------------");
-        response.setContentType("text/plain");
-        response.setHeader("Location",
-                new String(downFilename.getBytes("GBK"), "UTF-8"));
+        String generateContent=new DownloadXml().downloadXml(id1);
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("text/plain;charset=utf-8");
+        response.setHeader("Location",downFilename);
         response.setHeader("Content-Disposition", "attachment; filename="
-                + new String(downFilename.getBytes("gb2312"),"ISO8859-1"));
+                + new String(downFilename.getBytes("utf-8"),"ISO8859-1"));
         OutputStream outputStream = response.getOutputStream();
-        outputStream.write(filepath.getBytes());
+        System.out.println(generateContent);
+        outputStream.write(generateContent.getBytes());
         outputStream.flush();
         outputStream.close();
 
@@ -141,7 +142,9 @@ class InspectTableController {
         new InsertToRolesTableXml().createXml(pathname1);
         render(view:"downroletable");*/
         String downFilename = "RolesTable.xml";//要下载的文件名称
-        response.setContentType("text/plain");
+        /*response.setContentType("text/plain;charset=UTF-8");*/
+        response.reset();
+        response.setContentType("application/x-msdownload");
         response.setHeader("Location",
                 new String(downFilename.getBytes("GBK"), "UTF-8"));
         response.setHeader("Content-Disposition", "attachment; filename="

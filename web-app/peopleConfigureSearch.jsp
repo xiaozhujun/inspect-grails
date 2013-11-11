@@ -100,9 +100,11 @@
             }
 
         }
-        function delRow(_id){
-            $("#testTable1 .tr_"+_id).remove();
+        function delRow(id){
+            $("#testTable1 .tr"+id).remove();
             rowCount--;
+               var x="#ck"+id
+              $(x).removeAttr("checked");
         }
     </script>
 

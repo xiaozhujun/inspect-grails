@@ -92,9 +92,11 @@
                }
             }
         }
-        function delRow(_id){
-            $("#testTable .tr_"+_id).remove();
+        function delRow(id){
+            $("#testTable .tr"+id).remove();
             rowCount--;
+             var x="#ck"+id;
+             $(x).removeAttr("checked");
         }
     </script>
     <script type="text/javascript" src="js/searchconfigure.js"></script>

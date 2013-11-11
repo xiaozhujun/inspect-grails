@@ -8,11 +8,8 @@ import java.sql.SQLException;
 import model.MyDataSource;
 
 public class InspectTableImpl {
-
 	private MyDataSource ds = new MyDataSource();
-
 	public String getNameById(int id) {
-
 		Connection connection = ds.getConnection();
 		PreparedStatement statement = null;
 		ResultSet rs = null;

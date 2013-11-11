@@ -133,7 +133,26 @@ public class ReadInspectTableTest {
 		}
 		return list;
 	}
-
+      public List<PageInspectTable> getTvaluesByTableId(int tid){
+          Connection connection = ds.getConnection();
+          PreparedStatement statement = null;
+          ResultSet rs = null;
+          String sql="select  it.inspecttable_id,v.tvalue from inspect_item it,inspect_item_tvalues tv,tvalue v where it.id=tv.inspect_item_id and v.id=tv.tvalue_id and it.inspecttable_id=? group by v.tvalue";
+          List<PageInspectTable> list=new ArrayList<PageInspectTable>();
+          try{
+             statement=connection.prepareStatement(sql);
+             statement.setInt(1,tid);
+             rs=statement.executeQuery();
+              while(rs.next()){
+                   PageInspectTable p=new PageInspectTable();
+                    p.setTvalue(rs.getString(2));
+                    list.add(p);
+              }
+           }catch (SQLException e){
+              e.printStackTrace();
+          }
+              return list;
+      }
 	public static void main(String[] args) {
 		ReadInspectTableTest r = new ReadInspectTableTest();
 		List<PageInspectTable> al = r.getT("标签2", 1);

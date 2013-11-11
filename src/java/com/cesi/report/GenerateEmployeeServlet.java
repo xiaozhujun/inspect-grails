@@ -36,12 +36,11 @@ public class GenerateEmployeeServlet extends HttpServlet {
         InsertToEmploy e=new InsertToEmploy();
         String result=e.insertToEmploy(list);
         if(result!=""){
-            String downFilename = "employers.xml";
-            response.setContentType("text/plain");
-            response.setHeader("Location",
-                    new String(downFilename.getBytes("GBK"), "UTF-8"));
+            String downFilename = "人员配置.xml";
+            response.setContentType("text/plain;charset=utf-8");
+            response.setHeader("Location",downFilename);
             response.setHeader("Content-Disposition", "attachment; filename="
-                    + new String(downFilename.getBytes("gb2312"),"ISO8859-1"));
+                    + new String(downFilename.getBytes("utf-8"),"ISO8859-1"));
             OutputStream outputStream = response.getOutputStream();
             outputStream.write(result.getBytes());
             outputStream.flush();

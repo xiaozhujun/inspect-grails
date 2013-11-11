@@ -977,11 +977,11 @@ public class DbImpl {
         return content;
    }
     public String getPeopleConfigureTable(int rowcount,PageInspectTable p){
-        String tableTemplate="<tr class=tr_"+rowcount+"><td class='cl1'>"+p.getUid()+" "+"</td><td class='cl1'>"+p.getUsername()+" "+"</td><td class='cl1'>"+p.getRid()+" "+"</td><td class='cl1'>"+p.getRolename()+" "+"</td><td><span class='delbtn' onclick=delRow("+rowcount+")>删除</span></td></tr>";
+        String tableTemplate="<tr class=tr"+p.getUid()+"><td class='cl1'>"+p.getUid()+" "+"</td><td class='cl1'>"+p.getUsername()+" "+"</td><td class='cl1'>"+p.getRid()+" "+"</td><td class='cl1'>"+p.getRolename()+" "+"</td><td><span class='delbtn' onclick=delRow("+p.getUid()+")>删除</span></td></tr>";
          return tableTemplate;
     }
     public String getDeviceConfigTable(int rowcount,PageInspectTable p,int did){
-        String tableTemplate="<tr class=tr_"+rowcount+"><td class='cl1'>"+p.getTypename()+" "+"</td><td class='cl1'>"+p.getTypeid()+" "+"</td><td class='cl1'>"+did+"</td><td class='cl1'>"+p.getDevicenumber()+"</td><td class='cl1'>"+p.getTagname()+" "+"</td><td class='cl1'>"+p.getTagid()+"</td><td class='cl1'>"+p.getTagnumbers()+" "+"</td><td><span class='delbtn' onclick=delRow("+rowcount+")>删除</span></td></tr>";
+        String tableTemplate="<tr class=tr"+did+p.getTagid()+"><td class='cl1'>"+p.getTypename()+" "+"</td><td class='cl1'>"+p.getTypeid()+" "+"</td><td class='cl1'>"+did+"</td><td class='cl1'>"+p.getDevicenumber()+"</td><td class='cl1'>"+p.getTagname()+" "+"</td><td class='cl1'>"+p.getTagid()+"</td><td class='cl1'>"+p.getTagnumbers()+" "+"</td><td><span class='delbtn' onclick=delRow("+did+p.getTagid()+")>删除</span></td></tr>";
         return tableTemplate;
     }
    public Timestamp getCreatetimeFromInspectItemRec(int itrid){

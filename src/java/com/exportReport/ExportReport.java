@@ -195,14 +195,14 @@ public class ExportReport {
         parameters.put("sql",sql);
         parameters.put("SUBREPORT_DIR",path);
         File reportFile=null;
-        PrintWriter out=response.getWriter();
+       /* PrintWriter out=response.getWriter();*/
         reportFile= new File(reportTemport);
         try{
             JasperReport jasperReport = (JasperReport) JRLoader
                     .loadObject(reportFile.getPath());
-            ServletOutputStream ouputStream = response.getOutputStream();
+
             if (type.equals("html")) {
-                System.out.print("hahah");
+                ServletOutputStream ouputStream = response.getOutputStream();
                 response.setContentType("text/html");
                 JasperPrint jasperPrint = JasperFillManager.fillReport(
                         jasperReport, parameters, connection);
@@ -217,6 +217,7 @@ public class ExportReport {
                         "image?image=");
                 exporter.exportReport();
             } else if (type.equals("excel")) {
+                ServletOutputStream ouputStream = response.getOutputStream();
                 response.setContentType("application/vnd.ms-excel");
                 JasperPrint jasperPrint = JasperFillManager.fillReport(
                         jasperReport, parameters, connection);

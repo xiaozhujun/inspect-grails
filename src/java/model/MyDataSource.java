@@ -22,6 +22,7 @@ public class MyDataSource {
 	public Connection getConnection(){
 		Connection connection=null;
         String conn=getDataSource.geturl();
+        System.out.println(conn+"-----------");
 		try{
 			connection=DriverManager.getConnection(conn);
 		}catch (SQLException e) {
