@@ -35,6 +35,9 @@ public class UserQueryResultServlet extends HttpServlet {
           "<thead><tr bgcolor='#FFFFFF'><th class='tm'>点检表</th><th>点检人员</th>" +
          " <th class='tm'>点检时间</th><th colspan='2' class='tm'>操作</th></tr></thead><tbody><tr bgcolor='#FFFFFF'>";
         String empty="对不起!查询记录不存在!";
+        String timeformat="对不起!起始时间超过终止时间!";
+        String passtoday="对不起!输入时间超过当天时间";
+        Date today=new Date();
         InspectTableRecord r;
         if (s != null && e != null && t != null && type != null) {
             int tid = Integer.parseInt(t);
@@ -47,6 +50,12 @@ public class UserQueryResultServlet extends HttpServlet {
             }catch (ParseException e1){
                 e1.printStackTrace();
             }
+            if(d11.getTime()>today.getTime()||d2.getTime()>today.getTime()){
+                     out.println(passtoday);
+            }else{
+            if(d11.getTime()>d2.getTime()){
+                    out.println(timeformat);
+            }else{
             DbImpl d = new DbImpl();
             List<InspectTableRecord> l11 = d.getR(d11, d2, tid);
             if(l11.size()==0){
@@ -58,6 +67,8 @@ public class UserQueryResultServlet extends HttpServlet {
                 r = (InspectTableRecord) it.next();
                 out.print(d.returnUserQueryResultTableString(r));
             }
+            }
+                }
             }
          }else if(s==null||e==null){
                out.println("<div id='title1'>请输入查询条件!</div>");

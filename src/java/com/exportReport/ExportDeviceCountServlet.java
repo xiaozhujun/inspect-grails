@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 public class ExportDeviceCountServlet extends HttpServlet {
     @Override
@@ -35,12 +36,21 @@ public class ExportDeviceCountServlet extends HttpServlet {
         String reportTemplate2=this.getServletContext().getRealPath("/report/deviceCountBydnum.jasper");
         String d=request.getParameter("did");
         String empty="对不起！查询记录不存在！";
+        String timeformat="对不起!起始时间超过终止时间!";
+        String passtoday="对不起!输入时间超过当天时间";
+        Date today=new Date();
+        if(st.getTime()>today.getTime()||et.getTime()>today.getTime()){
+            out.println(passtoday);
+        }else{
+            if(st.getTime()>et.getTime()){
+               out.println(timeformat);
+            }else{
         if(type==null){
             try{
 
             if(d==null){
                 if(t.judgeHasResult(sql11,st,et)){
-               d1.exportReportHasSubreport(reportTemplate1,sql1,path,request,response);
+               d1.exportReportHasSubreport(reportTemplate1, sql1, path, request, response);
             }else{
                 out.println(empty);
             }
@@ -55,7 +65,7 @@ public class ExportDeviceCountServlet extends HttpServlet {
                         " itr.dnumber_id=d.id  and itr.ivalue_id=2 and itr.createtime between ? and ? and itr.dnumber_id=? " +
                         "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
                 if(t.judgeHasResultByTid(sql22,st,et,did)){
-               d1.exportReportHasSubreport(reportTemplate2,sql2,path,request,response);
+               d1.exportReportHasSubreport(reportTemplate2, sql2, path, request, response);
                 }else{
                     out.println(empty);
                 }
@@ -75,6 +85,8 @@ public class ExportDeviceCountServlet extends HttpServlet {
                           "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
                   d1.exportReportHasSubreportByType(reportTemplate2,sql2,type,path,request,response);
               }
+        }
+            }
         }
     }
     @Override

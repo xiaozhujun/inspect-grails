@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,6 +37,9 @@ public class ExportPeopleCountServlet extends HttpServlet {
         java.sql.Date et=d1.executeDateFormat(endtime);
         String d=request.getParameter("did");
         String empty="对不起！查询记录不存在！";
+        String timeformat="对不起!起始时间超过终止时间!";
+        String passtoday="对不起!输入时间超过当天时间";
+        Date today=new Date();
         String reportTemplate1=this.getServletContext().getRealPath("/report/peopleCount.jasper");
         String sql1="select d.id as did,d.devname,u.id as uid,u.username,count(itr.id) as itnumber,itr.createtime as intime " +
                 "from inspect_item_rec itr,device d,users u where itr.dnumber_id=d.id  and u.id=itr.worker_id and itr.ivalue_id=2 and " +
@@ -47,7 +51,13 @@ public class ExportPeopleCountServlet extends HttpServlet {
                 "group by d.devname,itr.createtime order by u.username,d.devname,itr.createtime";
         String reportTemplate2 = this.getServletContext().getRealPath("/report/peopleCount1.jasper");
         String path=this.getServletContext().getRealPath("/report/") + "/";
-         if(type==null){
+        if(st.getTime()>today.getTime()||et.getTime()>today.getTime()){
+              out.println(passtoday);
+        }else{
+            if(st.getTime()>et.getTime()){
+                out.println(timeformat);
+            }else{
+        if(type==null){
             try{
                 if(d==null){
                     if(t.judgeHasResult(sql11,st,et)){
@@ -86,6 +96,8 @@ public class ExportPeopleCountServlet extends HttpServlet {
                 d1.exportReportHasSubreportByType(reportTemplate2,sql2,type,path,request,response);
             }
          }
+        }
+        }
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

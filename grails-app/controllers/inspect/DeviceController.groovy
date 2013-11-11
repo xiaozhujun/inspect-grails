@@ -1,6 +1,7 @@
 package inspect
 
 import com.springsource.roo.inspect.dao.DbImpl
+import grails.converters.JSON
 import model.PageInspectTable
 import org.springframework.dao.DataIntegrityViolationException
 import com.execute.DomAnalysisXml;
@@ -211,10 +212,13 @@ class DeviceController {
         def dd1;
         if(f!=null) {
             //response.sendError(200,'Done');
+            if(f.getOriginalFilename().indexOf(".")==-1){
+                dd1="文件格式不正确!";
+            }else{
             DomAnalysisXml d = new DomAnalysisXml();
             def ff=f.getOriginalFilename().substring(f.getOriginalFilename().indexOf("."));
             if (ff!=".xml"){
-                dd1="支持xml文件上传!";
+                dd1="只支持xml文件上传!";
             }else{
                 int flag1=d.analysisXml(f.getInputStream());
                 if (flag1==1){
@@ -225,9 +229,11 @@ class DeviceController {
                     dd1="文件上传成功！"
                 }
                }
+            }
              }else {
             dd1="请选择上传文件！"
         }
+
         render dd1
     }
 
@@ -241,16 +247,16 @@ class DeviceController {
             //response.sendError(200,'Done');
             def ff=f.getOriginalFilename().substring(f.getOriginalFilename().indexOf("."));
             if (ff!=".xml"){
-               dd="支持xml文件上传!";
+                dd="只支持xml文件上传!";
             }else{
-            int flag=d.analysisXml(f.getInputStream());
-            if (flag==1){
-                dd="数据已存在！"
-            }else if (flag==2){
-                dd="文件内容不对！"
-            }else{
-                dd="文件上传成功！"
-            }
+                int flag=d.analysisXml(f.getInputStream());
+                if (flag==1){
+                    dd="数据已存在！"
+                }else if (flag==2){
+                    dd="文件内容不对！"
+                }else{
+                    dd="文件上传成功！"
+                }
             }
         }
         else {

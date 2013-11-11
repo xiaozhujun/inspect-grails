@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+
 public class ExportDeviceCount1Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -29,6 +31,8 @@ public class ExportDeviceCount1Servlet extends HttpServlet {
                 "<option value='word'>word格式</option></select>" +
                 " <a class='btnbu' id='btnreport'>导出报表</a><span class='r'></span></div><div class='report1'></div>";*/
         String empty="对不起！查询记录不存在！";
+        String timeformat="对不起!起始时间超过终止时间!";
+        String passtoday="对不起!输入时间超过当天时间";
         String reportTemplate=this.getServletContext().getRealPath("/report/deviceCount1.jasper");
         String sql="select itr.id,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename " +
                 "from inspect_item_rec itr,device d,device_type t where itr.dnumber_id=d.id and itr.ivalue_id=2 and d.type_id=t.id and itr.createtime " +
@@ -36,8 +40,14 @@ public class ExportDeviceCount1Servlet extends HttpServlet {
         String sql1="select itr.id,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename " +
                 "from inspect_item_rec itr,device d,device_type t where itr.dnumber_id=d.id and itr.ivalue_id=2 and d.type_id=t.id and itr.createtime " +
                 "between ? and ? group by d.devname,itr.createtime order by d.devname,itr.createtime";
+        Date today=new Date();
+        if(st.getTime()>today.getTime()||et.getTime()>today.getTime()){
+             out.println(passtoday);
+        }else{
+        if(st.getTime()>et.getTime()){
+              out.println(timeformat);
+        }else{
         if(d1.judgeHasResult(sql1,st,et)){
-            System.out.print("******");
             if(type==""){
                 try{
                     System.out.print("-------");
@@ -50,6 +60,8 @@ public class ExportDeviceCount1Servlet extends HttpServlet {
             }
         }else{
             out.println(empty);
+        }
+        }
         }
     }
     @Override

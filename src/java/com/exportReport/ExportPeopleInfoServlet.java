@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+
 public class ExportPeopleInfoServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -24,6 +26,9 @@ public class ExportPeopleInfoServlet extends HttpServlet{
         String d=request.getParameter("did");
         String u=request.getParameter("uid");
         String empty="对不起！查询记录不存在！";
+        String timeformat="对不起!起始时间超过终止时间!";
+        String passtoday="对不起!输入时间超过当天时间";
+        Date today=new Date();
         String reportTemplate1=this.getServletContext().getRealPath("/report/reportx2.jasper");
         String path=this.getServletContext().getRealPath("/report/") + "/";
         String sql1="select tag.`id` as tagid,tag.`name` as tagname,u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +
@@ -37,6 +42,12 @@ public class ExportPeopleInfoServlet extends HttpServlet{
         String reportTemplate2=this.getServletContext().getRealPath("/report/peopleInfoByUid.jasper");
         String reportTemplate3=this.getServletContext().getRealPath("/report/peopleInfoBydid.jasper");
         String reportTemplate4=this.getServletContext().getRealPath("/report/peopleInfoByDUid.jasper");
+       if(st.getTime()>today.getTime()||et.getTime()>today.getTime()){
+           out.println(passtoday);
+       }else{
+          if(st.getTime()>et.getTime()){
+              out.println(timeformat);
+          }else{
         if(type==null){
            try{
                if(d==null&&u==null){
@@ -123,6 +134,8 @@ public class ExportPeopleInfoServlet extends HttpServlet{
                         "and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' and itr.worker_id="+uid+" and itr.dnumber_id="+did+" group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime" ;
                 d1.exportReportHasSubreportByType(reportTemplate4,sql4,type,path,request,response);
             }
+       }
+       }
        }
     }
     @Override
