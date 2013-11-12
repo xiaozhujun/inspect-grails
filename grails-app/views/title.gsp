@@ -17,7 +17,7 @@
 </div>
 <div id='mainHeadDiv'>
     <div id='headTab' class='tabs'>
-        <div class='tabItem' url="integrateManagement.html">港机信息可视化</div>
+        <div class='tabItem' url="integrateManagement.html" onclick="location.href='/main.html?devName=门机#01'">安全技术档案</div>
         <div class='tabItem mainselected' onclick="location.href='/inspect'">港机智能点检</div>
         <div class='tabItem' onclick="location.href='/lubricate'">港机润滑管理</div>
         <div class='tabItem' onclick="location.href='/main.html?devName=门机#01'">机构健康监测</div>
