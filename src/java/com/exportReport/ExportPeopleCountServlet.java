@@ -39,7 +39,7 @@ public class ExportPeopleCountServlet extends HttpServlet {
         String empty="对不起！查询记录不存在！";
         String timeformat="对不起!起始时间超过终止时间!";
         String passtoday="对不起!输入时间超过当天时间";
-        Date today=new Date();
+        Date today=d1.returnTodayAddOneDay(new Date());
         String reportTemplate1=this.getServletContext().getRealPath("/report/peopleCount.jasper");
         String sql1="select d.id as did,d.devname,u.id as uid,u.username,count(itr.id) as itnumber,itr.createtime as intime " +
                 "from inspect_item_rec itr,device d,users u where itr.dnumber_id=d.id  and u.id=itr.worker_id and itr.ivalue_id=2 and " +

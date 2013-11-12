@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -288,10 +289,20 @@ public class ExportReport {
         java.sql.Date t=null;
         try{
            Date st=format.parse(t1);
-           t=new java.sql.Date(st.getTime());
+           Calendar cd=Calendar.getInstance();
+           cd.setTime(st);
+           cd.add(Calendar.DATE,1);
+           Date st1=cd.getTime();
+           t=new java.sql.Date(st1.getTime());
         }catch (ParseException e){
             e.printStackTrace();
         }
         return t;
+    }
+    public Date returnTodayAddOneDay(Date t){
+        Calendar cd=Calendar.getInstance();
+        cd.setTime(t);
+        cd.add(Calendar.DATE,1);
+        return cd.getTime();
     }
 }

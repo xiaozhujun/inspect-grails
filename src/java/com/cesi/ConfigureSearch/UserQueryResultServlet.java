@@ -1,5 +1,6 @@
 package com.cesi.configuresearch;
 
+import com.exportReport.ExportReport;
 import com.springsource.roo.inspect.dao.DbImpl;
 import model.InspectTableRecord;
 import javax.servlet.ServletException;
@@ -37,7 +38,8 @@ public class UserQueryResultServlet extends HttpServlet {
         String empty="对不起!查询记录不存在!";
         String timeformat="对不起!起始时间超过终止时间!";
         String passtoday="对不起!输入时间超过当天时间";
-        Date today=new Date();
+        ExportReport d1=new ExportReport();
+        Date today=d1.returnTodayAddOneDay(new Date());
         InspectTableRecord r;
         if (s != null && e != null && t != null && type != null) {
             int tid = Integer.parseInt(t);
@@ -46,7 +48,7 @@ public class UserQueryResultServlet extends HttpServlet {
             Date d2=null;
             try{
                     d11= sf.parse(s);
-                    d2= sf.parse(e);
+                    d2= d1.returnTodayAddOneDay(sf.parse(e));
             }catch (ParseException e1){
                 e1.printStackTrace();
             }

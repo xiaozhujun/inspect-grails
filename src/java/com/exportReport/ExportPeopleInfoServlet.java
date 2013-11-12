@@ -28,7 +28,7 @@ public class ExportPeopleInfoServlet extends HttpServlet{
         String empty="对不起！查询记录不存在！";
         String timeformat="对不起!起始时间超过终止时间!";
         String passtoday="对不起!输入时间超过当天时间";
-        Date today=new Date();
+        Date today=d1.returnTodayAddOneDay(new Date());
         String reportTemplate1=this.getServletContext().getRealPath("/report/reportx2.jasper");
         String path=this.getServletContext().getRealPath("/report/") + "/";
         String sql1="select tag.`id` as tagid,tag.`name` as tagname,u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +

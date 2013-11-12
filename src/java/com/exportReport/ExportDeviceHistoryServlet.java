@@ -27,7 +27,7 @@ public class ExportDeviceHistoryServlet extends HttpServlet {
         String empty="对不起！查询记录不存在！";
         String timeformat="对不起!起始时间超过终止时间!";
         String passtoday="对不起!输入时间超过当天时间";
-        Date today=new Date();
+        Date today=d1.returnTodayAddOneDay(new Date());
         String reportTemplate1=this.getServletContext().getRealPath("/report/deviceHistory1.jasper");
         String reportTemplate2=this.getServletContext().getRealPath("/report/deviceHistory2.jasper");
         String sql2="select *,count(id)as itnum from (select itr.id,d.devname,ceiling(datediff(itr.createtime,'"+st+"')/7)  as zhouqi,date_format(DATE_ADD('"+st+"',INTERVAL (7*ceiling(datediff(itr.createtime,'"+st+"')/7))-1 DAY),'%Y-%m-%d') as shijian" +

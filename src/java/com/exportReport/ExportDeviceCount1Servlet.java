@@ -23,13 +23,12 @@ public class ExportDeviceCount1Servlet extends HttpServlet {
         String type = request.getParameter("type");
         java.sql.Date st=d.executeDateFormat(stime);
         java.sql.Date et=d.executeDateFormat(endtime);
-        System.out.print(stime);
-        System.out.print(endtime);
        /* String searchTemplate="<div class='selectF'>" +
                 "</div>选择导出类型:<select id='type'><option value=' '>-----请选择------</option>" +
                 "<option value='pdf'>pdf格式</option><option value='html'>html格式</option><option value='excel'>excel格式</option>" +
                 "<option value='word'>word格式</option></select>" +
                 " <a class='btnbu' id='btnreport'>导出报表</a><span class='r'></span></div><div class='report1'></div>";*/
+
         String empty="对不起！查询记录不存在！";
         String timeformat="对不起!起始时间超过终止时间!";
         String passtoday="对不起!输入时间超过当天时间";
@@ -40,7 +39,7 @@ public class ExportDeviceCount1Servlet extends HttpServlet {
         String sql1="select itr.id,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename " +
                 "from inspect_item_rec itr,device d,device_type t where itr.dnumber_id=d.id and itr.ivalue_id=2 and d.type_id=t.id and itr.createtime " +
                 "between ? and ? group by d.devname,itr.createtime order by d.devname,itr.createtime";
-        Date today=new Date();
+        Date today=d.returnTodayAddOneDay(new Date());
         if(st.getTime()>today.getTime()||et.getTime()>today.getTime()){
              out.println(passtoday);
         }else{

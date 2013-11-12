@@ -38,7 +38,7 @@ public class ExportDeviceCountServlet extends HttpServlet {
         String empty="对不起！查询记录不存在！";
         String timeformat="对不起!起始时间超过终止时间!";
         String passtoday="对不起!输入时间超过当天时间";
-        Date today=new Date();
+        Date today=d1.returnTodayAddOneDay(new Date());
         if(st.getTime()>today.getTime()||et.getTime()>today.getTime()){
             out.println(passtoday);
         }else{
