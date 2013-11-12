@@ -204,7 +204,7 @@ public class DbImpl {
         return list;
     }
     public List<PageInspectTable> getRole(){
-        String sql1="select  u.urole_id,r.rolename  from users u,roles r where u.urole_id=r.id group by urole_id";
+        String sql1="select r.id,r.rolename  from roles r";
           List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql1);
