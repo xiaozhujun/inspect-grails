@@ -549,7 +549,7 @@ public class DbImpl {
         return list;
     }
     public List<PageInspectTable> getType(int d1){
-        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers,d.id from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and t.id=?";
+        String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers,d.id from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and t.id=? order by d.numbers,tag.numbers";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
             statement = connection.prepareStatement(sql);
