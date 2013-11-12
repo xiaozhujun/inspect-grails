@@ -15,6 +15,6 @@
 <%--港口起重机智能点检系统--%>
 <%--<jsp:include page="portcranetitle.jsp"></jsp:include>--%>
 <%--冶金起重机智能点检系统--%>
-<jsp:include page="metallurgycranetitle.jsp"></jsp:include>
+<jsp:include page="title.jsp"></jsp:include>
 </body>
 </html>

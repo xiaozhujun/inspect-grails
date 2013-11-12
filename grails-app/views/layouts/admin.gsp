@@ -29,7 +29,7 @@
 </head>
 <body>
 <div id="wrapper">
-    <g:include action="metallurgycranetitle" controller="device"></g:include>
+    <g:include action="title" controller="device"></g:include>
     <div id="container">
         <div id="menuContainer">
             <div class="menuFunc">
