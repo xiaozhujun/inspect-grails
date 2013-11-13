@@ -111,7 +111,6 @@ class InspectTableController {
         }
     }
     def generate(Long id){
-        System.out.print(id+"ID1");
         int id1=Integer.parseInt(id.toString());
         InspectTableImpl t = new InspectTableImpl();
         String name = t.getNameById(id1);
@@ -125,7 +124,6 @@ class InspectTableController {
         response.setHeader("Content-Disposition", "attachment; filename="
                 + new String(downFilename.getBytes("utf-8"),"ISO8859-1"));
         OutputStream outputStream = response.getOutputStream();
-        System.out.println(generateContent);
         outputStream.write(generateContent.getBytes());
         outputStream.flush();
         outputStream.close();

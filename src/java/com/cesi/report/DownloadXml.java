@@ -42,7 +42,6 @@ public class DownloadXml {
         Iterator list = bl.iterator();
         while (list.hasNext()) {
             PageInspectTable p1 = (PageInspectTable) list.next();
-            System.out.println(System.getProperty("sun.jnu.encoding"));
             Element a3 = a1.addElement("location").addAttribute("name",
                     p1.getTagname());
             List<PageInspectTable> cl = new ReadInspectTableTest().getT(

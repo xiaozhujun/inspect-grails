@@ -43,7 +43,7 @@
 
 						<td>${fieldValue(bean: inspectTagRfIdInstance, field: "numbers")}</td>
 
-                        <td><g:link action="show" id="${inspectTagRfIdInstance.id}">${fieldValue(bean: inspectTagRfIdInstance, field: "createtime")}</g:link></td>
+                        <td><g:link action="adminshow" id="${inspectTagRfIdInstance.id}">${fieldValue(bean: inspectTagRfIdInstance, field: "createtime")}</g:link></td>
 					
                         <td>
                             <g:form>
