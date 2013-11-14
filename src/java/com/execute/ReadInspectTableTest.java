@@ -20,7 +20,29 @@ public class ReadInspectTableTest {
 	public List<PageInspectTable> getAll(int id) {
 		return getDataFromMysql(id);
 	}
-
+    public void closeSource(Connection connection,PreparedStatement statement,ResultSet rs){
+        if(rs!= null){
+            try{
+                rs.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+        if(statement!= null){
+            try{
+                statement.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+        if(connection!= null){
+            try{
+                connection.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+    }
 	private List<PageInspectTable> getDataFromMysql(int id) {
 		// TODO Auto-generated method stub
 		String sql = "select tg.name,it.name,it.is_input,it.description,it.unit,it.id,tb.tname from inspect_tag tg,inspect_item it,inspect_table tb,tValue v,inspect_item_tvalues itv where it.tag_id=tg.id and it.inspecttable_id=tb.id and itv.tvalue_id=v.id and itv.inspect_item_id=it.id and tb.id=? group by it.id order by tg.id";
@@ -62,7 +84,9 @@ public class ReadInspectTableTest {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
+		}finally {
+            closeSource(connection,statement,rs);
+        }
 
 		return list;
 	}
@@ -87,7 +111,9 @@ public class ReadInspectTableTest {
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
+		}finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 
@@ -111,7 +137,9 @@ public class ReadInspectTableTest {
 			}
 		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+		}finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 
@@ -141,7 +169,9 @@ public class ReadInspectTableTest {
 			}
 		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+		} finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 

@@ -14,7 +14,29 @@ import model.PageInspectTable;
 
 public class ReadInspectTableTest {
 	private MyDataSource ds = new MyDataSource();
-
+    public void closeSource(Connection connection,PreparedStatement statement,ResultSet rs){
+        if(rs!= null){
+            try{
+                rs.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+        if(statement!= null){
+            try{
+                statement.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+        if(connection!= null){
+            try{
+                connection.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+    }
 	public List<PageInspectTable> al = null;
 
 	public List<PageInspectTable> getAll(int id) {
@@ -52,7 +74,9 @@ public class ReadInspectTableTest {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-		}
+		} finally {
+            closeSource(connection,statement,rs);
+        }
 
 		return list;
 	}
@@ -77,7 +101,9 @@ public class ReadInspectTableTest {
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
+		} finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 
@@ -101,7 +127,9 @@ public class ReadInspectTableTest {
 			}
 		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+		}finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 
@@ -130,7 +158,9 @@ public class ReadInspectTableTest {
 			}
 		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+		}finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
       public List<PageInspectTable> getTvaluesByTableId(int tid){
@@ -150,6 +180,8 @@ public class ReadInspectTableTest {
               }
            }catch (SQLException e){
               e.printStackTrace();
+          } finally {
+              closeSource(connection,statement,rs);
           }
               return list;
       }

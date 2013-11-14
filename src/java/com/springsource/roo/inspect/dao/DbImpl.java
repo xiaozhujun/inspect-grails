@@ -10,10 +10,34 @@ import model.MyDataSource;
 import model.PageInspectTable;
 public class DbImpl {
 	private MyDataSource ds = new MyDataSource();
-	Connection connection = ds.getConnection();
-	PreparedStatement statement = null;
-	ResultSet rs = null;
+    public void closeSource(Connection connection,PreparedStatement statement,ResultSet rs){
+        if(rs!= null){
+            try{
+                rs.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+        if(statement!= null){
+            try{
+                statement.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+        if(connection!= null){
+            try{
+                connection.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+    }
+
 	public List<InspectTableRecord> getTim() {
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
 		String sql = "select createtime from inspect_table_record group by createtime;";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list = new ArrayList<InspectTableRecord>();
@@ -27,10 +51,15 @@ public class DbImpl {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 	public List<InspectTableRecord> getTable() {
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
 		String sql = "select tb.id,tb.tname from inspect_table_record r,inspect_table tb where r.inspecttable_id=tb.id group by tb.tname";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list = new ArrayList<InspectTableRecord>();
@@ -45,10 +74,15 @@ public class DbImpl {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 	public List<InspectTableRecord> getR(Date starttime, Date endtime, int tid) {
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
 		String sql = "select tb.id,tb.tname,u.id,u.username,itr.createtime,itr.id from inspect_item_rec itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v,inspect_item_tvalues tv where itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id and it.id=tv.inspect_item_id and v.id=tv.tvalue_id and itr.inspecttable_id=? and itr.createtime between ? and ? group by itr.createtime";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list = new ArrayList<InspectTableRecord>();
@@ -71,11 +105,16 @@ public class DbImpl {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} finally {
+            closeSource(connection,statement,rs);
+        }
 
 		return list;
 	}
 	public List<InspectTableRecord> getInfo(int tid, Date cretime) {
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
 		String sql = "select  tb.id, tb.tname,tag.id,tag.name,it.id,it.name,u.id,u.username,v.id,v.tvalue,itr.createtime FROM inspect_item_rec itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v WHERE itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id  and itr.ivalue_id=v.id and itr.inspecttable_id=?  and itr.createtime=?  group by tag.name,it.id";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list = new ArrayList<InspectTableRecord>();
@@ -102,10 +141,15 @@ public class DbImpl {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 	public InspectTableRecord getT(int tid, Date cretime) {
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
 		String sql = "SELECT tb.id, tb.tname,u.id,u.username,itr.createtime FROM inspect_item_rec itr,inspect_table_record tr,inspect_tag tag,inspect_item it,inspect_Table tb,Users u,tvalue v,inspect_item_tvalues tv WHERE itr.createtime=tr.createtime and itr.inspecttable_id=tb.id and itr.tag_id=tag.id and itr.item_id=it.id and itr.worker_id=u.id  and it.id=tv.inspect_item_id  and v.id=tv.tvalue_id and itr.inspecttable_id=? and itr.createtime=? group by tb.id ";
 		InspectTableRecord r = null;
 		try {
@@ -124,10 +168,15 @@ public class DbImpl {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} finally {
+            closeSource(connection,statement,rs);
+        }
 		return r;
 	}
 	public List<InspectTableRecord> getTag(int tid, Date cretime) {
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
 		String sql = "select tag.id,tag.name from inspect_Item_Rec itr,inspect_Tag tag where itr.tag_id=tag.id and itr.createtime=? and itr.inspecttable_id=? group by itr.tag_id ";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list=new ArrayList<InspectTableRecord>();
@@ -144,11 +193,15 @@ public class DbImpl {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 	public List<InspectTableRecord> getT(int tagid,int tid, Date cretime) {
-
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
 		String sql = "select it.id,it.name,v.id,v.tvalue from inspect_Item_Rec itr,inspect_Item it,tValue v where itr.item_id=it.id and itr.ivalue_id=v.id and itr.tag_id=? and itr.createtime=? and itr.inspecttable_id=? group by it.name";
 		InspectTableRecord r = null;
 		List<InspectTableRecord> list=new ArrayList<InspectTableRecord>();
@@ -169,10 +222,15 @@ public class DbImpl {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} finally {
+            closeSource(connection,statement,rs);
+        }
 		return list;
 	}
 	 public String getRolename(int id){
+         Connection connection = ds.getConnection();
+         PreparedStatement statement = null;
+         ResultSet rs = null;
          String sql = "select rolename from Roles where id=?";
          String rname=null;
          try {
@@ -185,10 +243,15 @@ public class DbImpl {
              }
          } catch (SQLException e) {
              e.printStackTrace();
+         } finally {
+             closeSource(connection,statement,rs);
          }
          return rname;
      }
     public List<Integer> geturole(){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql = "select urole from Users";
         List<Integer> list=new ArrayList<Integer>();
         try {
@@ -200,10 +263,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getRole(){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql1="select r.id,r.rolename  from roles r";
           List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -217,11 +285,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
          return list;
     }
     public List<PageInspectTable> geturole(String name){
-        System.out.println(name+"NAME");
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.username=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -238,11 +310,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> geturoleBytype(int rid){
-          System.out.print(rid+"RID");
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.urole_id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
 
@@ -260,10 +336,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> geturoleByHas(String hascard){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.hascard=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -280,10 +361,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> geturoleByNameRole(String name,int t){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.username=? and u.urole_id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -301,11 +387,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> geturoleByNameHas(String name,String ck){
-
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.username=? and u.hascard=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -327,10 +417,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> geturoleByTypeHas(int t,String ck){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.urole_id=? and u.hascard=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -352,10 +447,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> geturoleByNameTypeHas(String name,int t,String ck){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select u.id,u.username,r.id,r.rolename   from users u,roles r where u.urole_id=r.id and u.username=? and u.urole_id=? and u.hascard=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -378,10 +478,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
        public List<PageInspectTable> getdevicetype(){
+           Connection connection = ds.getConnection();
+           PreparedStatement statement = null;
+           ResultSet rs = null;
            String sql="select id,typename from device_type ";
            List<PageInspectTable> list=new ArrayList<PageInspectTable>();
            try {
@@ -395,10 +500,15 @@ public class DbImpl {
                }
            } catch (SQLException e) {
                e.printStackTrace();
+           }finally {
+               closeSource(connection,statement,rs);
            }
            return list;
        }
     public List<PageInspectTable> getdevice(){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select id,numbers from device ";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -412,10 +522,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getTag(){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql=" select id,name from inspect_tag ";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -429,10 +544,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getTypeDevTag(int d1,int d2,int t){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.id=? and t.id=? ";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -453,10 +573,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getDevTag(int d2,int t){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.id=? ";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -476,10 +601,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public PageInspectTable getDevTagById(String d2,int t){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=? and d.numbers=? ";
         PageInspectTable p=null;
         try {
@@ -498,10 +628,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return p;
     }
     public List<PageInspectTable> getTypeDev(int d1,int d2){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id  and d.id=? and t.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -521,10 +656,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getTypeTag(int d1,int t){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers,d.id from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and  t.id=? and tag.id=? ";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -545,10 +685,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getType(int d1){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers,d.id from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and t.id=? order by d.numbers,tag.numbers";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -568,10 +713,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getDevice(int d1){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and d.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -590,10 +740,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getTag(int d1){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select t.typename,t.typenumber,d.numbers,tag.name,tag.id,tag.numbers,d.id from device d,inspect_Tag_rf_id r,inspect_tag tag,device_type t where d.type_id=t.id and r.tagcag_id=tag.id and r.device_id=d.id and tag.id=?";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -613,10 +768,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getDeviceName(){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select id,devname from device";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -630,10 +790,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getTagName(){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select id,name from inspect_Tag";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -647,10 +812,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public String  getDevNameById(int id){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select devname from device where id=?";
         String devname=null;
         try {
@@ -663,10 +833,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
             return devname;
     }
     public String  getTagNameById(int id){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select name from inspect_tag where id=?";
         String name=null;
         try {
@@ -679,10 +854,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return name;
     }
-    public List<PageInspectTable>getTyname(){                        //得到所有的设备类型
+    public List<PageInspectTable>getTyname(){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;//得到所有的设备类型
         String sql="select id,typename from device_type";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -696,11 +876,16 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
 
         return list;
     }
-    public List<PageInspectTable> getRoleName(){                        //得到所有的人员类型
+    public List<PageInspectTable> getRoleName(){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;//得到所有的人员类型
         String sql="select id,rolename from Roles";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -714,10 +899,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
-    public List<PageInspectTable> getTableName(){                        //得到所有的点检表
+    public List<PageInspectTable> getTableName(){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;//得到所有的点检表
         String sql="select id,tname from inspect_table";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -731,10 +921,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public List<PageInspectTable> getTvalue(){                        //得到所有的值
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select id,tvalue from tvalue";
         List<PageInspectTable> list=new ArrayList<PageInspectTable>();
         try {
@@ -748,10 +943,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public String getRoleById(int id){                                //根据Id得到rolename
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select rolename from Roles where id=?";
         String name=null;
         try {
@@ -764,10 +964,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return name;
     }
     public String getTableById(int id){                                    //根据id得到tablename
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select tname from inspect_table where id=?";
         String name=null;
         try {
@@ -780,10 +985,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return name;
     }
     public String getTypeById(int id){                                            //根据id得到typename
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select typename from device_type where id=?";
         String name=null;
         try {
@@ -796,10 +1006,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return name;
     }
     public String getValueById(int id){                                            //根据id得到tvalue
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select tvalue from tvalue where id=?";
         String name=null;
         try {
@@ -812,10 +1027,15 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return name;
     }
     public List<String> getTnameByRid(int rid){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select  t.tname from Roles r,inspect_Table t where r.id=t.trole_id and t.trole_id=?";
         String name=null;
         List<String> list=new ArrayList<String>();
@@ -829,6 +1049,8 @@ public class DbImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
@@ -855,6 +1077,9 @@ public class DbImpl {
         return tableTemplate;
     }
    public Timestamp getCreatetimeFromInspectItemRec(int itrid){
+       Connection connection = ds.getConnection();
+       PreparedStatement statement = null;
+       ResultSet rs = null;
         String sql="select createtime from inspect_item_rec itr where id=?";
         Timestamp t=null;
          try{
@@ -866,11 +1091,16 @@ public class DbImpl {
              }
          }catch (SQLException e){
              e.printStackTrace();
+         } finally {
+             closeSource(connection,statement,rs);
          }
            return t;
    }
     public List<PageInspectTable> getUserRoleByUid(int uid){         //通过uid获得用户和角色的关系
-           String sql="select u.id,u.username,r.id,r.rolename from users u,roles r where u.urole_id=r.id and u.id=?";
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        String sql="select u.id,u.username,r.id,r.rolename from users u,roles r where u.urole_id=r.id and u.id=?";
            List<PageInspectTable> list=new ArrayList<PageInspectTable>();
            try{
                statement=connection.prepareStatement(sql);
@@ -886,10 +1116,15 @@ public class DbImpl {
                }
            }catch (SQLException e){
                e.printStackTrace();
+           }finally {
+               closeSource(connection,statement,rs);
            }
            return  list;
     }
     public PageInspectTable getUserRoleById(int uid){
+        Connection connection = ds.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         String sql="select u.id,u.username,r.id,r.rolename from users u,roles r where u.urole_id=r.id and u.id=?";
         PageInspectTable p=null;
         try{
@@ -905,6 +1140,8 @@ public class DbImpl {
             }
         }catch (SQLException e){
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return  p;
     }

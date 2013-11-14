@@ -21,10 +21,34 @@ import java.util.List;
  */
 public class InsertDb {
     private MyDataSource ds=new MyDataSource();
-    Connection connection=ds.getConnection();
-    PreparedStatement statement=null;
-    ResultSet rs=null;
+    public void closeSource(Connection connection,PreparedStatement statement,ResultSet rs){
+        if(rs!= null){
+            try{
+                rs.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+        if(statement!= null){
+            try{
+                statement.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+        if(connection!= null){
+            try{
+                connection.close() ;
+            }catch(SQLException e){
+                e.printStackTrace() ;
+            }
+        }
+    }
+
    public List<DbModel> getDevice(){                //得到所有设备
+       Connection connection=ds.getConnection();
+       PreparedStatement statement=null;
+       ResultSet rs=null;
       String sql="select id,devname from device";
        List<DbModel> list=new ArrayList<DbModel>();
        try{
@@ -39,10 +63,15 @@ public class InsertDb {
 
       }catch (SQLException e){
            e.printStackTrace();
+       }finally {
+           closeSource(connection,statement,rs);
        }
        return list;
    }
     public List<DbModel> getUser(){                //得到所有设备
+        Connection connection=ds.getConnection();
+        PreparedStatement statement=null;
+        ResultSet rs=null;
         String sql="select id,username from users";
         List<DbModel> list=new ArrayList<DbModel>();
         try{
@@ -58,10 +87,15 @@ public class InsertDb {
 
         }catch (SQLException e){
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return list;
     }
     public int getPeriodCount(){           //求出一段时间内的异常的周数
+        Connection connection=ds.getConnection();
+        PreparedStatement statement=null;
+        ResultSet rs=null;
         String sql="select ceiling(count(*)/7) as n from timer t,inspect_item_rec itr where itr.createtime between t.starttime and t.endtime and itr.ivalue_id=2 ";
         int n=0;
         try{
@@ -72,11 +106,16 @@ public class InsertDb {
              }
          }catch (SQLException e){
              e.printStackTrace();
-         }
+         }finally {
+            closeSource(connection,statement,rs);
+        }
           return n;
  }
     public List<DbModel> getPeriodInfo(int n){               //求出每个时间间隔中的具体的异常信息
-         List<DbModel> list=new ArrayList<DbModel>();
+        Connection connection=ds.getConnection();
+        PreparedStatement statement=null;
+        ResultSet rs=null;
+        List<DbModel> list=new ArrayList<DbModel>();
           for(int i=0;i<=n;i++){
            String sql="select d.devname,count(itr.id),t.starttime,DATE_ADD(t.starttime,INTERVAL ? DAY) from inspect_item_rec itr,device d,timer t where itr.dnumber_id=d.id and itr.ivalue_id=2 and itr.createtime between DATE_ADD(t.starttime,INTERVAL 0 DAY) and DATE_ADD(t.starttime,INTERVAL ? DAY) group by d.devname";
               try{
@@ -94,9 +133,11 @@ public class InsertDb {
                 }
             }catch (SQLException e){
                 e.printStackTrace();
-            }
+            }finally {
+                  closeSource(connection,statement,rs);
+              }
 
-          }
+        }
                   return list;
     }
      public static void main(String args[]){
