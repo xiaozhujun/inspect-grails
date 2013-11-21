@@ -40,6 +40,7 @@ public class InsertToDb {
 		ResultSet rs=null;
 		String sql2 = "insert into inspect_table_record(createtime,inspecttable_id,worker_id)values(?,?,?)";
 		try {
+            System.out.print(sql2+">>>>>>>>>");
 			statement = connection.prepareStatement(sql2);
 			/*statement.setDate(1, new java.sql.Date(t.getTime()));*/
            statement.setTimestamp(1,new Timestamp(t.getTime()));
@@ -48,6 +49,7 @@ public class InsertToDb {
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO: handle exception
+            e.printStackTrace();
 		}finally{
 			closeSource(connection, statement, rs);
 		}
@@ -88,7 +90,9 @@ public class InsertToDb {
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
+		} finally {
+            closeSource(connection,statement,rs);
+        }
 
 		/*try {
 			statement = connection.prepareStatement(sql3);
@@ -323,6 +327,8 @@ public class InsertToDb {
            }
           }catch (SQLException e){
               e.printStackTrace();
+          }finally {
+              closeSource(connection,statement,rs);
           }
             return b;
     }
@@ -344,6 +350,8 @@ public class InsertToDb {
             }
         }catch (SQLException e){
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return b;
     }
@@ -363,6 +371,8 @@ public class InsertToDb {
             }
         }catch (SQLException e){
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return b;
     }
@@ -383,6 +393,8 @@ public class InsertToDb {
             }
         }catch (SQLException e){
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return b;
     }
@@ -404,6 +416,8 @@ public class InsertToDb {
             }
         }catch (SQLException e){
             e.printStackTrace();
+        }finally {
+            closeSource(connection,statement,rs);
         }
         return b;
     }

@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -119,14 +120,12 @@ public class ExportReport {
 
             ServletOutputStream ouputStream = response.getOutputStream();
             if (type.equals("html")) {
-
                 response.setContentType("text/html");
                 JasperPrint jasperPrint = JasperFillManager.fillReport(
                         jasperReport, parameters, connection);
                 request.getSession().setAttribute(
                         ImageServlet.DEFAULT_JASPER_PRINT_SESSION_ATTRIBUTE,
                         jasperPrint);
-
                 // 输出html 用JRHtmlExporter
                 JRHtmlExporter exporter = new JRHtmlExporter();
                 exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -135,11 +134,7 @@ public class ExportReport {
                 exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI,
                         "image?image=");
                 exporter.exportReport();
-//out.clear();
-//out=pageContext.pushBody();
-
             } else if (type.equals("excel")) {
-
                 response.setContentType("application/vnd.ms-excel");
                 JasperPrint jasperPrint = JasperFillManager.fillReport(
                         jasperReport, parameters, connection);
@@ -195,12 +190,11 @@ public class ExportReport {
         parameters.put("sql",sql);
         parameters.put("SUBREPORT_DIR",path);
         File reportFile=null;
-       /* PrintWriter out=response.getWriter();*/
+        PrintWriter out=response.getWriter();
         reportFile= new File(reportTemport);
         try{
             JasperReport jasperReport = (JasperReport) JRLoader
                     .loadObject(reportFile.getPath());
-
             if (type.equals("html")) {
                 ServletOutputStream ouputStream = response.getOutputStream();
                 response.setContentType("text/html");
@@ -211,7 +205,7 @@ public class ExportReport {
                         jasperPrint);
                 JRHtmlExporter exporter = new JRHtmlExporter();
                 exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-                exporter.setParameter(JRExporterParameter.OUTPUT_WRITER, ouputStream);
+                exporter.setParameter(JRExporterParameter.OUTPUT_WRITER, out);
                 // 设置报表图片的地址为"image?image="，因此要给image此地址安排一个servlet来输出图片，详细看web.xml文件。
                 exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI,
                         "image?image=");
@@ -295,10 +289,20 @@ public class ExportReport {
         java.sql.Date t=null;
         try{
            Date st=format.parse(t1);
-           t=new java.sql.Date(st.getTime());
+           Calendar cd=Calendar.getInstance();
+           cd.setTime(st);
+           cd.add(Calendar.DATE,1);
+           Date st1=cd.getTime();
+           t=new java.sql.Date(st1.getTime());
         }catch (ParseException e){
             e.printStackTrace();
         }
         return t;
+    }
+    public Date returnTodayAddOneDay(Date t){
+        Calendar cd=Calendar.getInstance();
+        cd.setTime(t);
+        cd.add(Calendar.DATE,1);
+        return cd.getTime();
     }
 }

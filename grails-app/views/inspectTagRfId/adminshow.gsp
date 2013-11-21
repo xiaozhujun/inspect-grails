@@ -12,8 +12,8 @@
 		<div class="nav" role="navigation">
 			<ul>
 
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="list" action="adminlist"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="admincreate"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="show-inspectTagRfId" class="content scaffold-show" role="main">
@@ -45,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="device-label" class="property-label"><g:message code="inspectTagRfId.device.label" default="Device" /></span>
 					
-						<span class="property-value" aria-labelledby="device-label"><g:link controller="device" action="show" id="${inspectTagRfIdInstance?.device?.id}">${devname}</g:link></span>
+						<span class="property-value" aria-labelledby="device-label"><g:link controller="device" action="adminshow" id="${inspectTagRfIdInstance?.device?.id}">${devname}</g:link></span>
 					
 				</li>
 				</g:if>

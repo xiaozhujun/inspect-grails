@@ -29,7 +29,7 @@
                 var e=$("#e1").val();
                 var tid=$("#table").val();
                 var t=$("#t").val();
-                if(s==""||e==""){
+                if(s==""||e==""||tid==""){
                     $("#r").html("请输入条件!");
                 }else{
                     $.ajax({
@@ -102,6 +102,7 @@ function  test1(x){
                     type="text" id="e1" class="Wdate" onClick="WdatePicker()"
                     name="etime">
                     <span class="seafont">报表:</span> <select id="table" name="tid">
+                         <option value=" ">-----请选择------</option>
                     <%
                         DbImpl d1 = new DbImpl();
                         List<InspectTableRecord> tlist = d1.getTable();

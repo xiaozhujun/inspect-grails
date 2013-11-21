@@ -38,7 +38,7 @@
 
                         <td>${fieldValue(bean: deviceInstance, field: "devname")}</td>
 
-						<td><g:link action="show" id="${deviceInstance.id}">${fieldValue(bean: deviceInstance, field: "description")}</g:link></td>
+						<td><g:link action="adminshow" id="${deviceInstance.id}">${fieldValue(bean: deviceInstance, field: "description")}</g:link></td>
 					
                          <td>${fieldValue(bean: deviceInstance, field: "numbers")}</td>
 
@@ -60,7 +60,7 @@
                 <div class="nav" role="navigation">
                     <ul>
 
-                        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+                        <li><g:link class="create" action="admincreate"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
                     </ul>
                 </div>
 			</div>

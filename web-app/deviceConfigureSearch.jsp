@@ -97,6 +97,10 @@
             rowCount--;
              var x="#ck"+id;
              $(x).removeAttr("checked");
+            var len=$("#testTable").find("tr").length;
+            if(len==1){
+                $(".report2").css("display","none");
+            }
         }
     </script>
     <script type="text/javascript" src="js/searchconfigure.js"></script>

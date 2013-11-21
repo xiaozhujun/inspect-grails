@@ -30,7 +30,7 @@
                 </div>
 
                 <div style="float: left; margin-left: 10px; margin-top: 5px;">
-                    <input type="submit" value="上传" class="selectbtn"/><span id="status" ></span>
+                    <input type="submit" value="上传" class="selectbtn" id="uploadbtn"/><span id="status" ></span>
                 </div>
             </div>
 
@@ -45,7 +45,8 @@
         var bar = $('.bar');
         var percent = $('.percent');
         var status = $('#status');
-        var file=$('#result');
+        var file=$('#s').val();
+
         $('form').ajaxForm({
             beforeSend: function() {
                 status.empty();
@@ -78,8 +79,8 @@
                 }
             }
         });
-
     })();
+
 </script>
 <script src="http://www.google-analytics.com/urchin.js"
         type="text/javascript"></script>

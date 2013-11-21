@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 public class ExportDeviceCountServlet extends HttpServlet {
     @Override
@@ -23,34 +24,48 @@ public class ExportDeviceCountServlet extends HttpServlet {
         java.sql.Date et=d1.executeDateFormat(endtime);
         String type=request.getParameter("type");
         String reportTemplate1=this.getServletContext().getRealPath("/report/deviceCount.jasper");
-        String sql1="select itr.id,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename " +
-                "from inspect_item_rec itr,device d,device_type t where itr.dnumber_id=d.id and itr.ivalue_id=2 and d.type_id=t.id and itr.createtime " +
-                "between '"+st+"' and '"+et+"' group by d.devname,itr.createtime order by d.devname,itr.createtime";
-        String sql11="select itr.id,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename " +
-                "from inspect_item_rec itr,device d,device_type t where itr.dnumber_id=d.id and itr.ivalue_id=2 and d.type_id=t.id and itr.createtime " +
-                "between ? and ? group by d.devname,itr.createtime order by d.devname,itr.createtime";
+        String sql1="select tag.`id` as tagid,tag.`name` as tagname,u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +
+                "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and " +
+                "itr.dnumber_id=d.id and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"' " +
+                "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
+        String sql11="select tag.`id` as tagid,tag.`name` as tagname,u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +
+                "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and " +
+                "itr.dnumber_id=d.id and itr.ivalue_id=2 and itr.createtime between ? and ? " +
+                "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
+        String path=this.getServletContext().getRealPath("/report/") + "/";
         String reportTemplate2=this.getServletContext().getRealPath("/report/deviceCountBydnum.jasper");
         String d=request.getParameter("did");
         String empty="对不起！查询记录不存在！";
+        String timeformat="对不起!起始时间超过终止时间!";
+        String passtoday="对不起!输入时间超过当天时间";
+        Date today=d1.returnTodayAddOneDay(new Date());
+        if(st.getTime()>today.getTime()||et.getTime()>today.getTime()){
+            out.println(passtoday);
+        }else{
+            if(st.getTime()>et.getTime()){
+               out.println(timeformat);
+            }else{
         if(type==null){
             try{
 
             if(d==null){
                 if(t.judgeHasResult(sql11,st,et)){
-               d1.exportReport(reportTemplate1,sql1,request,response);
+               d1.exportReportHasSubreport(reportTemplate1, sql1, path, request, response);
             }else{
                 out.println(empty);
             }
             }else{
                 Long did=Long.parseLong(d);
-                String sql2="select itr.id,d.id as did,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename  " +
-                        "from inspect_item_rec itr,device d,inspect_item it,device_type t where itr.dnumber_id=d.id and itr.item_id=it.id and " +
-                        "itr.ivalue_id=2 and d.type_id=t.id and itr.createtime between '"+st+"' and '"+et+"' and itr.dnumber_id="+did+" group by d.devname,itr.createtime order by itr.createtime";
-                String sql22="select itr.id,d.id as did,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename   " +
-                        "from inspect_item_rec itr,device d,inspect_item it,device_type t where itr.dnumber_id=d.id and itr.item_id=it.id and " +
-                        "itr.ivalue_id=2 and d.type_id=t.id and itr.createtime between ? and ? and itr.dnumber_id=? group by d.devname,itr.createtime order by itr.createtime";
+                String sql2="select tag.`id` as tagid, tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +
+                        "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and" +
+                        " itr.dnumber_id=d.id  and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"'and itr.dnumber_id="+did+" " +
+                        "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
+                String sql22="select tag.`id` as tagid, tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +
+                        "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and" +
+                        " itr.dnumber_id=d.id  and itr.ivalue_id=2 and itr.createtime between ? and ? and itr.dnumber_id=? " +
+                        "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
                 if(t.judgeHasResultByTid(sql22,st,et,did)){
-               d1.exportReport(reportTemplate2,sql2,request,response);
+               d1.exportReportHasSubreport(reportTemplate2, sql2, path, request, response);
                 }else{
                     out.println(empty);
                 }
@@ -61,14 +76,17 @@ public class ExportDeviceCountServlet extends HttpServlet {
 
         }else{
               if(d==null){
-                 d1.exportReportByType(reportTemplate1,sql1,type,request,response);
+                 d1.exportReportHasSubreportByType(reportTemplate1,sql1,type,path,request,response);
               }else{
                   Long did=Long.parseLong(d);
-                  String sql2="select itr.id,d.id as did,d.devname,d.numbers,count(itr.id)as itrcount,itr.createtime as intime,t.typename as typename  " +
-                          "from inspect_item_rec itr,device d,inspect_item it,device_type t where itr.dnumber_id=d.id and itr.item_id=it.id and " +
-                          "itr.ivalue_id=2 and d.type_id=t.id and itr.createtime between '"+st+"' and '"+et+"' and itr.dnumber_id="+did+" group by d.devname,itr.createtime order by itr.createtime";
-                  d1.exportReportByType(reportTemplate2,sql2,type,request,response);
+                  String sql2="select tag.`id` as tagid, tag.`name` as tagname, u.`id`, u.`username`, itr.`createtime`,d.devname,d.id as devid,count(itr.id) as itrnum " +
+                          "from `inspect_item_rec` itr, inspect_tag   tag,`inspect_item` it, device d,`users` u where itr.tag_id = tag.id and itr.worker_id = u.id and" +
+                          " itr.dnumber_id=d.id  and itr.ivalue_id=2 and itr.createtime between '"+st+"' and '"+et+"'and itr.dnumber_id="+did+" " +
+                          "group by tag.name,itr.createtime order by u.username,d.devname,itr.createtime";
+                  d1.exportReportHasSubreportByType(reportTemplate2,sql2,type,path,request,response);
               }
+        }
+            }
         }
     }
     @Override

@@ -50,7 +50,7 @@
 
                         <td>${fieldValue(bean: usersInstance, field: "useraddress")}</td>
 
-						<td><g:link action="show" id="${usersInstance.id}">${fieldValue(bean: usersInstance, field: "hascard")}</g:link></td>
+						<td><g:link action="adminshow" id="${usersInstance.id}">${fieldValue(bean: usersInstance, field: "hascard")}</g:link></td>
 					
 
 					

@@ -1,6 +1,22 @@
 <%@ page import="inspect.Users" %>
 <meta name="layout" content="admin">
-
+<script type="text/javascript" src="${resource(dir: 'js',file: 'jquery-1.4.2.js')}"></script>
+<script>
+    $(document).ready(function(){
+        $("#yes").click(function(){
+            $("#no").removeAttr("checked");
+        });
+        $("#no").click(function(){
+            $("#yes").removeAttr("checked");
+        });
+        $("#male").click(function(){
+            $("#female").removeAttr("checked");
+        });
+        $("#female").click(function(){
+            $("#male").removeAttr("checked");
+        });
+    });
+</script>
 <div class="fieldcontain ${hasErrors(bean: usersInstance, field: 'username', 'error')} ">
     <label for="username">
         <g:message code="users.username.label" default="Username" />
@@ -29,7 +45,7 @@
         <g:message code="users.usersex.label" default="Usersex" />
 
     </label>
-    <input type="checkbox" name="usersex" value="男" checked>男        <input type="checkbox" name="usersex" value="女">女
+    <input type="checkbox" name="usersex" value="男" checked id="male">男        <input type="checkbox" name="usersex" value="女" id="female">女
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: usersInstance, field: 'hascard', 'error')} ">
@@ -37,7 +53,7 @@
 		<g:message code="users.hascard.label" default="Hascard" />
 		
 	</label>
-    <input type="checkbox" name="hascard" value="是">是           <input type="checkbox" name="hascard" value="否" checked>否
+    <input type="checkbox" name="hascard" value="是" id="yes">是           <input type="checkbox" name="hascard" value="否" checked id="no">否
 </div>
 <div class="fieldcontain ${hasErrors(bean: usersInstance, field: 'urole', 'error')} required">
 	<label for="urole">

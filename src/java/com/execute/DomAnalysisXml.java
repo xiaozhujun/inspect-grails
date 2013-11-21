@@ -17,8 +17,6 @@ import model.MyDataSource;
 * */
 public class DomAnalysisXml {
 	private InsertToDb d = new InsertToDb();
-	private MyDataSource ds = new MyDataSource();
-	Connection connection = ds.getConnection();
 	public int analysisXml(InputStream inputStream) {
         int flag=0;
         InsertToDb tb=new InsertToDb();

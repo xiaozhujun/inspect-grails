@@ -27,6 +27,12 @@
     <script type="text/javascript" src="js/searchconfigure.js"></script>
     <script type="text/javascript" >
         $(function(){
+            $("#ckx1").click(function(){
+                $("#ckx2").removeAttr("checked");
+            })
+            $("#ckx2").click(function(){
+                $("#ckx1").removeAttr("checked");
+            })
             $("#btn").click(function(){
                 var name=$("#name").val();
                 var type=encodeURI($("#type").val());
@@ -105,6 +111,10 @@
             rowCount--;
                var x="#ck"+id
               $(x).removeAttr("checked");
+            var len=$("#testTable1").find("tr").length;
+            if(len==1){
+                $(".report2").css("display","none");
+            }
         }
     </script>
 
