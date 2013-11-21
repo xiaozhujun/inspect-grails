@@ -155,8 +155,5 @@ class InspectTableController {
         outputStream.flush();
         outputStream.close();
 
-
-
-
     }
 }
