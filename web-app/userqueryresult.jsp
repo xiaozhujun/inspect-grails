@@ -17,10 +17,10 @@
 <title>搜索结果页</title>
     <% String path = request.getContextPath();
         String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
-<link rel="stylesheet" href="<%=basePase%>css/result.css">
-<link rel="stylesheet" href="<%=basePase%>styles/social-buttons.css">
+<link rel="stylesheet" href="css/result.css">
+<link rel="stylesheet" href="styles/social-buttons.css">
 <script language="javascript" type="text/javascript"
-	src="<%=basePase%>My97DatePicker/WdatePicker.js"></script>
+	src="My97DatePicker/WdatePicker.js"></script>
     <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -74,13 +74,13 @@ function  test1(x){
 	}
 
 </script>
-    <link rel="stylesheet" href="<%=basePase%>styles/head.css" type="text/css">
-    <link href="<%=basePase%>styles/tundra.css"
+    <link rel="stylesheet" href="styles/head.css" type="text/css">
+    <link href="styles/tundra.css"
           type="text/css" rel="stylesheet" />
-    <link href="<%=basePase%>styles/standard1.css" media="screen"
+    <link href="styles/standard1.css" media="screen"
           type="text/css" rel="stylesheet" />
-    <link href="<%=basePase%>images/favicon.ico" rel="SHORTCUT ICON" />
-    <link href="<%=basePase%>css/mymenu.css" type="text/css" rel="stylesheet" />
+    <link href="images/favicon.ico" rel="SHORTCUT ICON" />
+    <link href="css/mymenu.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
 </head>
 <body>

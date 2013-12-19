@@ -8,7 +8,7 @@
         String basePase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <link rel="stylesheet" href="styles/head.css" type="text/css">
 <script type="text/javascript" src='js/jquery-1.7.2.min.js'></script>
-<link href="<%=basePase%>css/mymenu.css" type="text/css" rel="stylesheet" />
+<link href="css/mymenu.css" type="text/css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
