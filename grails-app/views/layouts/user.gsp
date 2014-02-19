@@ -39,7 +39,7 @@
             <div class="menuFunc">
                 <div class="menuFuncName"><p>历史记录管理</p></div>
                 <div class="menuItemList">
-                    <div class="menuItem"><span id="d1"><g:link url="/inspect/userqueryresult.jsp">报表查询</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="userqueryresult.jsp">报表查询</g:link></span></div>
                     <div class="menuItem"><span id="d1"><g:link url="[action:'userupload',controller:'device']">点检上传</g:link></span></div>
 
                 </div>
@@ -63,11 +63,11 @@
             <div class="menuFunc">
                 <div class="menuFuncName"><p>报表统计</p></div>
                 <div class="menuItemList">
-                    <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceCount.jsp">设备异常总数</g:link></span></div>
-                    <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceInfo.jsp">设备异常明细</g:link></span></div>
-                    <div class="menuItem"><span id="d1"><g:link url="/inspect/peopleCount.jsp">人员点检异常总数</g:link></span></div>
-                    <div class="menuItem"><span id="d1"><g:link url="/inspect/peopleInfo.jsp">人员点检异常明细</g:link></span></div>
-                    <div class="menuItem"><span id="d1"><g:link url="/inspect/deviceHistory.jsp">设备异常趋势分析</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="deviceCount.jsp">设备异常总数</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="deviceInfo.jsp">设备异常明细</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="peopleCount.jsp">人员点检异常总数</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="peopleInfo.jsp">人员点检异常明细</g:link></span></div>
+                    <div class="menuItem"><span id="d1"><g:link url="deviceHistory.jsp">设备异常趋势分析</g:link></span></div>
                 </div>
             </div>
         </div>

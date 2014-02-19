@@ -21,7 +21,7 @@
 				<li id="c_report"><h2>历史记录管理</h2>
 					<ul>
 						<li id="i_device_list"><a title="报表查询"
-							href="/inspect/userqueryresult.jsp">报表查询</a></li>
+							href="userqueryresult.jsp">报表查询</a></li>
 						<li id="i_device_list"><a title="点检上传"
 							href="device/userupload">点检上传</a></li>
 
@@ -47,15 +47,15 @@
                 <li id="c_users"><h2>报表统计</h2>
                     <ul>
                         <li id="i_users_new"><a title="设备异常总数"
-                                                href="../inspect/deviceCount.jsp">设备异常总数</a></li>
+                                                href="..deviceCount.jsp">设备异常总数</a></li>
                         <li id="i_users_list"><a title="设备异常明细"
-                                                 href="../inspect/deviceInfo.jsp">设备异常明细</a></li>
+                                                 href="..deviceInfo.jsp">设备异常明细</a></li>
                         <li id="i_users_list"><a title="人员点检异常总数"
-                                                 href="../inspect/peopleCount.jsp">人员点检异常总数</a></li>
+                                                 href="..peopleCount.jsp">人员点检异常总数</a></li>
                         <li id="i_users_list"><a title="人员点检异常明细"
-                                                 href="../inspect/peopleInfo.jsp">人员点检异常明细</a></li>
+                                                 href="..peopleInfo.jsp">人员点检异常明细</a></li>
                         <li id="i_users_list"><a title="设备异常趋势分析"
-                                                 href="../inspect/deviceHistory.jsp">设备异常趋势分析</a></li>
+                                                 href="..deviceHistory.jsp">设备异常趋势分析</a></li>
                     </ul></li>
 			</ul>
 		</div>
