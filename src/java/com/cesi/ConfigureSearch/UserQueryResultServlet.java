@@ -52,24 +52,20 @@ public class UserQueryResultServlet extends HttpServlet {
             }catch (ParseException e1){
                 e1.printStackTrace();
             }
-            if(d11.getTime()>today.getTime()||d2.getTime()>today.getTime()){
-                     out.println(passtoday);
-            }else{
             if(d11.getTime()>d2.getTime()){
-                    out.println(timeformat);
+                out.println(timeformat);
             }else{
-            DbImpl d = new DbImpl();
-            List<InspectTableRecord> l11 = d.getR(d11, d2, tid);
-            if(l11.size()==0){
-                out.println(empty);
-            }else {
-            out.println(tableTemplate);
-            Iterator it = l11.iterator();
-            while (it.hasNext()) {
-                r = (InspectTableRecord) it.next();
-                out.print(d.returnUserQueryResultTableString(r));
-            }
-            }
+                DbImpl d = new DbImpl();
+                List<InspectTableRecord> l11 = d.getR(d11, d2, tid);
+                if(l11.size()==0){
+                    out.println(empty);
+                }else {
+                    out.println(tableTemplate);
+                    Iterator it = l11.iterator();
+                    while (it.hasNext()) {
+                        r = (InspectTableRecord) it.next();
+                        out.print(d.returnUserQueryResultTableString(r));
+                    }
                 }
             }
          }else if(s==null||e==null){
